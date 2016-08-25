@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
-<sqlMap namespace="jinu">
+<sqlMap>
 	<typeAlias alias="openmeet" type="openmeet.OpenmeetModel" />
 
 	<resultMap class="openmeet" id="openmeet_rm">
@@ -23,62 +23,21 @@
 		<result property="o_readcount" column="o_readcount" />
 	</resultMap>
 
-	<sql id="openmeet_s_all">
+	<sql id="om_select_all">
 		select * from openmeet
 	</sql>
 
-	<sql id="openmeet_w_o_no">
+	<sql id="om_where_o_no">
 		where o_no=#o_no#
 	</sql>
 
-	<select id="openmeet_select_all" resultMap="openmeet_rm" parameterClass="int">
-		<include refid="openmeet_s_all" />
+	<select id="openmeet_select_all" resultMap="openmeet_rm">
+		<include refid="om_select_all" />
 		order by o_no desc
 	</select>
 	
-	<!-- <select id="selectOne" resultMap="boardResultMap"
-		parameterClass="int">
-		<include refid="select-all" />
-		<include refid="where-no" />
+	<select id="openmeet_select_one" resultMap="openmeet_rm" parameterClass="int">
+		<include refid="om_select_all"/>
+		<include refid="om_where_o_no"/>
 	</select>
-
-	<select id="selectLastNo" resultClass="board" parameterClass="int">
-		select max(no) as no from sboard
-	</select>
-
-	<select id="selectPassword" resultMap="boardResultMap">
-		<include refid="select-all" />
-		<include refid="where-no" />
-		and password=#password#
-	</select>
-
-	<insert id="insertBoard" parameterClass="board">
-		insert into sboard
-		(no,subject,name,password,content,regdate)
-		values(sboard_no_seq.nextval,#subject#,#name#,#password#,#content#,#regdate#)
-	</insert>
-
-	<update id="updateBoard" parameterClass="board">
-		update sboard
-		set subject=#subject#,name=#name#,password=#password#,content=#content#
-		<include refid="where-no" />
-	</update>
-
-	<update id="updateFile" parameterClass="board">
-		update sboard
-		set
-		file_orgname=#file_orgname#,file_savname=#file_savname#
-		<include refid="where-no" />
-	</update>
-
-	<update id="updateReadHit" parameterClass="board">
-		update sboard
-		set readhit=readhit+1
-		<include refid="where-no" />
-	</update>
-
-	<delete id="deleteBoard" parameterClass="board">
-		delete from sboard
-		<include refid="where-no" />
-	</delete> -->
 </sqlMap>

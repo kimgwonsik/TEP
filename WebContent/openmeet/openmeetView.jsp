@@ -13,7 +13,7 @@
 <!-- 모임 리스트 -->
 <td width="80%">
 
-<table border="0" width=100% cellpadding=10>
+<table border="0" width=100% cellpadding=5>
 <tr>
 <td colspan="3"><font style="font-weight: bold;font-size: x-large;">모임</font></td>
 </tr>

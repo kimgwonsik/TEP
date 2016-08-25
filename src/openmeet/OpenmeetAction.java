@@ -14,7 +14,7 @@ public class OpenmeetAction{
 	
 	private int currentPage = 1;
 	private int totalCount;
-	private int blockCount = 9;
+	private int blockCount = 3;
 	private int blockPage = 3;
 	private String pagingHtml;
 	private PagingCalculator page;
@@ -26,7 +26,7 @@ public class OpenmeetAction{
 	@SuppressWarnings("unchecked")
 	public String execute(){
 		try {
-			list = sqlMapper.queryForList("jinu.openmeet_select_all");
+			list = sqlMapper.queryForList("openmeet_select_all");
 			totalCount = list.size();
 			page = new PagingCalculator("openmeet", currentPage, totalCount, blockCount, blockPage);
 			pagingHtml = page.getPagingHtml().toString();
