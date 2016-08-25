@@ -4,21 +4,16 @@
 <struts>
 	<package name="struts_twoTeam_package" namespace="/" extends="struts-default, tiles-default">
 		
-		<action name="insertMembers" class="members.MembersAction" method="Insert">
+		<action name="insertMembers" class="members.MembersAction" method="home">
+			<result name="success" type="tiles">MembersForm</result>
+		</action>
+		
+		
+		<action name="successMembers" class="members.MembersAction" method="Insert">
 			<result name="success" type="tiles">insertMembers</result>
 		</action>
 		
 		
-		<!-- <action name="main" class="main.MainAction">
-			<result name="success" type="tiles">main</result>
-		</action>
-		
-		<action name="openmeet" class="openmeet.OpenmeetAction">
-			<result name="success" type="tiles">openmeet</result>
-		</action>
-		
-		<action name="openmeetDetail" class="openmeet.OpenmeetDetailAction">
-			<result name="success" type="tiles">openmeetDetail</result>
-		</action> -->
+
 	</package>
 </struts>
