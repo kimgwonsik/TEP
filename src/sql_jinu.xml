@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+<sqlMap>
+	<typeAlias alias="openmeet" type="openmeet.OpenmeetModel" />
+
+	<resultMap class="openmeet" id="openmeet_rm">
+		<result property="o_no" column="o_no" />
+		<result property="o_name" column="o_name" />
+		<result property="o_category" column="o_category" />
+		<result property="o_subject" column="o_subject" />
+		<result property="o_content" column="o_content" />
+		<result property="o_rep_img" column="o_rep_img" />
+		<result property="o_content_img" column="o_content_img" />
+		<result property="o_m_sdate" column="o_m_sdate" />
+		<result property="o_m_edate" column="o_m_edate" />
+		<result property="o_r_sdate" column="o_r_sdate" />
+		<result property="o_r_edate" column="o_r_edate" />
+		<result property="o_title" column="o_title" />
+		<result property="o_addr" column="o_addr" />
+		<result property="o_pnum" column="o_pnum" />
+		<result property="o_payment" column="o_payment" />
+		<result property="o_date" column="o_date" />
+		<result property="o_readcount" column="o_readcount" />
+	</resultMap>
+
+	<sql id="openmeet_s_all">
+		select * from openmeet
+	</sql>
+
+	<sql id="openmeet_w_o_no">
+		where o_no=#o_no#
+	</sql>
+
+	<select id="openmeet_select_all" resultMap="openmeet_rm" parameterClass="int">
+		<include refid="openmeet_s_all" />
+		order by o_no desc
+	</select>
+	
+	<!-- <select id="selectOne" resultMap="boardResultMap"
+		parameterClass="int">
+		<include refid="select-all" />
+		<include refid="where-no" />
+	</select>
+
+	<select id="selectLastNo" resultClass="board" parameterClass="int">
+		select max(no) as no from sboard
+	</select>
+
+	<select id="selectPassword" resultMap="boardResultMap">
+		<include refid="select-all" />
+		<include refid="where-no" />
+		and password=#password#
+	</select>
+
+	<insert id="insertBoard" parameterClass="board">
+		insert into sboard
+		(no,subject,name,password,content,regdate)
+		values(sboard_no_seq.nextval,#subject#,#name#,#password#,#content#,#regdate#)
+	</insert>
+
+	<update id="updateBoard" parameterClass="board">
+		update sboard
+		set subject=#subject#,name=#name#,password=#password#,content=#content#
+		<include refid="where-no" />
+	</update>
+
+	<update id="updateFile" parameterClass="board">
+		update sboard
+		set
+		file_orgname=#file_orgname#,file_savname=#file_savname#
+		<include refid="where-no" />
+	</update>
+
+	<update id="updateReadHit" parameterClass="board">
+		update sboard
+		set readhit=readhit+1
+		<include refid="where-no" />
+	</update>
+
+	<delete id="deleteBoard" parameterClass="board">
+		delete from sboard
+		<include refid="where-no" />
+	</delete> -->
+</sqlMap>

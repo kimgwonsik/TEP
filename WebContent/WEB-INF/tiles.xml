@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+	<definition name=".default" template="/tiles/layout.jsp">
+		<put-attribute name="header" value="/tiles/layout/header.jsp" />
+		<put-attribute name="footer" value="/tiles/layout/footer.jsp" />
+	</definition>
+	
+	<definition name="main" extends=".default">
+		<put-attribute name="title" value="TEP - 재능 교환을 시작해보세요 :)" />
+		<put-attribute name="body" value="/main/mainView.jsp" />
+	</definition>
+	
+	<definition name="openmeet" extends=".default">
+		<put-attribute name="title" value="TEP - 모임개설 목록" />
+		<put-attribute name="body" value="/openmeet/openmeetView.jsp" />
+	</definition>
+	
+	<definition name="openmeetDetail" extends=".default">
+		<put-attribute name="title" value="TEP - 모임개설 목록상세" />
+		<put-attribute name="body" value="/openmeet/openmeetDetail.jsp" />
+	</definition>
+	
+</tiles-definitions>

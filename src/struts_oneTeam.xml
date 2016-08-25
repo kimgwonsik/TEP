@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+    
+<struts>
+	<package name="struts_oneTeam_package" namespace="/" extends="struts-default, tiles-default">
+		<!-- <action name="main" class="main.MainAction">
+			<result name="success" type="tiles">main</result>
+		</action>
+		
+		<action name="" class="" method="">
+			<result name="success" type="tiles">openmeet</result>
+		</action> -->
+	</package>
+</struts>
