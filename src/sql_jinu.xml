@@ -6,6 +6,7 @@
 	<resultMap class="openmeet" id="openmeet_rm">
 		<result property="o_no" column="o_no" />
 		<result property="o_name" column="o_name" />
+		<result property="o_company" column="o_company" />
 		<result property="o_category" column="o_category" />
 		<result property="o_subject" column="o_subject" />
 		<result property="o_content" column="o_content" />
@@ -17,7 +18,8 @@
 		<result property="o_r_edate" column="o_r_edate" />
 		<result property="o_title" column="o_title" />
 		<result property="o_addr" column="o_addr" />
-		<result property="o_pnum" column="o_pnum" />
+		<result property="o_total_pnum" column="o_total_pnum" />
+		<result property="o_current_pnum" column="o_current_pnum" />
 		<result property="o_payment" column="o_payment" />
 		<result property="o_date" column="o_date" />
 		<result property="o_readcount" column="o_readcount" />

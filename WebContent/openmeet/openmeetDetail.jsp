@@ -42,12 +42,13 @@ img.om_detail_header{
 <dd class="om_detail_header_dd1">김용호</dd>
 <dd class="om_detail_header_dd2">＠&nbsp;jinuyoo@gmail.com</dd>
 <dd class="om_detail_header_dd2">☏&nbsp;02-5966-4586</dd>
+<dd class="om_detail_header_dd2">＃&nbsp;(주)한국 사단법인</dd>
 </dl>
 <hr>
 </td>
 
 <td width="85%">
-	<div class="right event-summary">
+	<div>
 		<h2 class="webFont eventTitle">[숙박제공]Web Hosting &amp; IDC기업을 위한 네트워크 보안 전문가</h2>
 		<dl class="eventInfo">
 			<dt class="date">

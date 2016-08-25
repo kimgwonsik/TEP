@@ -11,6 +11,9 @@ public class OpenmeetModel {
 	// 작성자
 	private String o_name;
 
+	// 소속
+	private String o_company;
+	
 	// 카테고리
 	private String o_category;
 
@@ -44,9 +47,12 @@ public class OpenmeetModel {
 	// 모임장소 세부위치
 	private String o_addr;
 
-	// 모임인원
-	private Integer o_pnum;
+	// 총 모임 인원
+	private Integer o_total_pnum;
 
+	// 현재 신청 인원
+	private Integer o_current_pnum;
+	
 	// 유/무료 여부
 	private String o_payment;
 
@@ -70,6 +76,14 @@ public class OpenmeetModel {
 
 	public void setO_name(String o_name) {
 		this.o_name = o_name;
+	}
+
+	public String getO_company() {
+		return o_company;
+	}
+
+	public void setO_company(String o_company) {
+		this.o_company = o_company;
 	}
 
 	public String getO_category() {
@@ -160,12 +174,20 @@ public class OpenmeetModel {
 		this.o_addr = o_addr;
 	}
 
-	public Integer getO_pnum() {
-		return o_pnum;
+	public Integer getO_total_pnum() {
+		return o_total_pnum;
 	}
 
-	public void setO_pnum(Integer o_pnum) {
-		this.o_pnum = o_pnum;
+	public void setO_total_pnum(Integer o_total_pnum) {
+		this.o_total_pnum = o_total_pnum;
+	}
+
+	public Integer getO_current_pnum() {
+		return o_current_pnum;
+	}
+
+	public void setO_current_pnum(Integer o_current_pnum) {
+		this.o_current_pnum = o_current_pnum;
 	}
 
 	public String getO_payment() {
