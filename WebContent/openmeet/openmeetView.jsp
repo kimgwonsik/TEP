@@ -4,38 +4,7 @@
 <html>
 <head>
 <meta content="text/html; charset=UTF-8">
-<style type="text/css">
-div.title {
-	font-weight: bold;font-family:monospace;font-size: x-small;
-}
-table.gborder{
-	border-style: solid;border-width: thin;border-color: gray;width: 100%
-}
-td.cate{
-	width: 50%;
-}
-.hover{
-	background: red;
-}
-a.contentSubject{
-	text-decoration: none;color: gray;font-size: medium;
-}
-a.category{
-	text-decoration: none;color: gray;font-size: x-small;
-}
-a:HOVER {
-	color: red;
-}
-a.paging{
-	text-decoration: none;color: gray;font-size: x-small;
-}
-input[type=text]{
-	font-size: small;color: gray;
-}
-img.rep{
-	width: 300px;height: 300px;
-}
-</style>
+<link rel="stylesheet" href="/TEP/static/css/root.css" type="text/css">
 </head>
 <body>
 <table border="0" width=100% cellpadding=15>
@@ -44,14 +13,14 @@ img.rep{
 <!-- 모임 리스트 -->
 <td width="80%">
 
-<table border="1" width=100% cellpadding=10>
+<table border="0" width=100% cellpadding=10>
 <tr>
 <td colspan="3"><font style="font-weight: bold;font-size: x-large;">모임</font></td>
 </tr>
 <tr>
-<td width="33%" align="center"><img class="rep" src="/TEP/openmeet/image/ex1.jpg"/><br>글 제목 글 제목 글 제목</td>
-<td width="33%" align="center"><img class="rep" src="/TEP/openmeet/image/ex2.jpg"/><br>글 제목 글 제목 글 제목</td>
-<td width="33%" align="center"><img class="rep" src="/TEP/openmeet/image/ex3.jpg"/><br>글 제목 글 제목 글 제목</td>
+<td width="33%" align="center"><img class="openmeet_rep" src="/TEP/openmeet/image/ex1.jpg"/><br>글 제목 글 제목 글 제목</td>
+<td width="33%" align="center"><img class="openmeet_rep" src="/TEP/openmeet/image/ex2.jpg"/><br>글 제목 글 제목 글 제목</td>
+<td width="33%" align="center"><img class="openmeet_rep" src="/TEP/openmeet/image/ex3.jpg"/><br>글 제목 글 제목 글 제목</td>
 </tr>
 
 <s:iterator value="list" status="stat">
@@ -64,20 +33,16 @@ img.rep{
 		</s:param>
 	</s:url>
 	
-	<s:if test="list.size()>=3 and list.size()%3 == 0">
+	<s:if test="#stat.index%3 == 0">
 	<tr>
 	</s:if>
 	
 	<td width="33%" align="center">
 		<s:a cssClass="contentSubject" href="%{openmeetDetailURL}">
-			<%-- <img class="rep" src='<s:property value="o_rep_img"/>'/> --%>
+			<img class="openmeet_rep" src='<s:property value="o_rep_img"/>'/>
 			<br><s:property value="o_subject"/>
 		</s:a>
 	</td>
-	
-	<s:if test="list.size()>=3 and list.size()%3 == 0">
-	</tr>
-	</s:if>
 	
 	<s:if test="list.size() <= 0">
 		<tr>
