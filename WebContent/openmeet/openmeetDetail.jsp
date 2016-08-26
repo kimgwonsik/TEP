@@ -28,6 +28,11 @@ dd.om_detail_header_dd2{
 img.om_detail_header{
 	width: 230px;height: 230px;
 }
+body, ul, ol, html, h1, h2, h3, h4, h5, h6, p, img, form, dl, dd, dt {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
 </style>
 </head>
 <body>
@@ -49,7 +54,7 @@ img.om_detail_header{
 
 <td width="85%">
 	<div>
-		<h2 class="webFont eventTitle">[숙박제공]Web Hosting &amp; IDC기업을 위한 네트워크 보안 전문가</h2>
+		<h2>[숙박제공]Web Hosting &amp; IDC기업을 위한 네트워크 보안 전문가</h2>
 		<dl class="eventInfo">
 			<dt class="date">
 				<i></i>모임기간

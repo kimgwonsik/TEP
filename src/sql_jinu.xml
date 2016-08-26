@@ -6,6 +6,7 @@
 	<resultMap class="openmeet" id="openmeet_rm">
 		<result property="o_no" column="o_no" />
 		<result property="o_name" column="o_name" />
+		<result property="o_email" column="o_email" />
 		<result property="o_company" column="o_company" />
 		<result property="o_category" column="o_category" />
 		<result property="o_subject" column="o_subject" />

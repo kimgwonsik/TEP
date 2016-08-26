@@ -10,6 +10,9 @@ public class OpenmeetModel {
 
 	// 작성자
 	private String o_name;
+	
+	// 이메일
+	private String o_email;
 
 	// 소속
 	private String o_company;
@@ -76,6 +79,14 @@ public class OpenmeetModel {
 
 	public void setO_name(String o_name) {
 		this.o_name = o_name;
+	}
+
+	public String getO_email() {
+		return o_email;
+	}
+
+	public void setO_email(String o_email) {
+		this.o_email = o_email;
 	}
 
 	public String getO_company() {
