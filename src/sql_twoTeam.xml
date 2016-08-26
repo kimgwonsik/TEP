@@ -1,77 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
 <sqlMap namespace="two">
-	<!-- <typeAlias alias="board" type="board.boardVO" />
-
-	<resultMap class="board" id="boardResultMap">
-		<result property="no" column="no" />
-		<result property="subject" column="subject" />
-		<result property="name" column="name" />
-		<result property="password" column="password" />
-		<result property="content" column="content" />
-		<result property="file_orgname" column="file_orgname" />
-		<result property="file_savname" column="file_savname" />
-		<result property="readhit" column="readhit" />
-		<result property="regdate" column="regdate" />
+	
+	<typeAlias alias="MembersModel" type="members.MembersModel"/>
+	<resultMap class="MembersModel" id="membersRes">
+		<result property="m_email" column="m_email"/>
+		<result property="m_name" column="m_name"/>
+		<result property="m_nickname" column="m_nickname"/>
+		<result property="m_password" column="m_password"/>
+		<result property="m_phone" column="m_phone"/>
+		<result property="m_fav_area" column="m_fav_area"/>
+		<result property="m_fav_field" column="m_fav_field"/>
+		<result property="m_date" column="m_date"/>
 	</resultMap>
-
-	<sql id="select-all">
-		select * from sboard
+	
+	<sql id="ad-select-all">
+		select * from members
 	</sql>
-
-	<sql id="where-no">
-		where no=#no#
+	
+	<sql id="ad-where-no">
+		where m_email=#m_email#
 	</sql>
-
-	<select id="selectAll" resultMap="boardResultMap"
-		parameterClass="int">
-		<include refid="select-all" />
-		order by no desc
+	
+	<select id="two.login" parameterClass="MembersModel" resultMap="membersRes">
+		SELECT m_email, m_password FROM MEMBERS
+		<include refid="ad-where-no"/>
+		AND m_password = #m_password#
 	</select>
-
-	<select id="selectOne" resultMap="boardResultMap"
-		parameterClass="int">
-		<include refid="select-all" />
-		<include refid="where-no" />
-	</select>
-
-	<select id="selectLastNo" resultClass="board" parameterClass="int">
-		select max(no) as no from sboard
-	</select>
-
-	<select id="selectPassword" resultMap="boardResultMap">
-		<include refid="select-all" />
-		<include refid="where-no" />
-		and password=#password#
-	</select>
-
-	<insert id="insertBoard" parameterClass="board">
-		insert into sboard
-		(no,subject,name,password,content,regdate)
-		values(sboard_no_seq.nextval,#subject#,#name#,#password#,#content#,#regdate#)
+	
+	<insert id="two.insertMember" parameterClass="MembersModel">
+		INSERT INTO MEMBERS(m_email,m_name,m_nickname,m_password,m_phone,m_fav_area,m_fav_field,m_date)
+		VALUES(#m_email#,#m_name#,#m_nickname#,#m_password#,#m_phone#,#m_fav_area#,#m_fav_field#,#m_date#)
 	</insert>
-
-	<update id="updateBoard" parameterClass="board">
-		update sboard
-		set subject=#subject#,name=#name#,password=#password#,content=#content#
-		<include refid="where-no" />
-	</update>
-
-	<update id="updateFile" parameterClass="board">
-		update sboard
-		set
-		file_orgname=#file_orgname#,file_savname=#file_savname#
-		<include refid="where-no" />
-	</update>
-
-	<update id="updateReadHit" parameterClass="board">
-		update sboard
-		set readhit=readhit+1
-		<include refid="where-no" />
-	</update>
-
-	<delete id="deleteBoard" parameterClass="board">
-		delete from sboard
-		<include refid="where-no" />
-	</delete> -->
+	
+	
+	
 </sqlMap>
