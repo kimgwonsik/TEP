@@ -14,7 +14,7 @@ public class MembersAction extends MembersModel{
 		sqlMapper = SqlMapper.getMapper();
 	}
 	
-	public String home(){
+	public String MemberForm(){
 		return "success";
 	}
 	public String Insert() throws Exception{
@@ -29,7 +29,7 @@ public class MembersAction extends MembersModel{
 		vo.setM_fav_field(getM_fav_field());
 		vo.setM_date(today.getTime());
 		
-		
+
 		
 		sqlMapper.insert("two.insertMember", vo);
 		
@@ -37,14 +37,5 @@ public class MembersAction extends MembersModel{
 		
 	
 	}
-
-	public Calendar getToday() {
-		return today;
-	}
-
-	public void setToday(Calendar today) {
-		this.today = today;
-	}
-	
 	
 }

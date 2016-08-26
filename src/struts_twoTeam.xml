@@ -4,16 +4,28 @@
 <struts>
 	<package name="struts_twoTeam_package" namespace="/" extends="struts-default, tiles-default">
 		
-		<action name="insertMembers" class="members.MembersAction" method="home">
+		<action name="MembersForm" class="members.MembersAction" method="MemberForm">
 			<result name="success" type="tiles">MembersForm</result>
 		</action>
 		
-		
-		<action name="successMembers" class="members.MembersAction" method="Insert">
+		<action name="InsertMembers" class="members.MembersAction" method="Insert">
 			<result name="success" type="tiles">insertMembers</result>
 		</action>
 		
-		
+		<action name="loginForm" class="login.LoginAction" method="index">
+			<result name="login" type="tiles">loginForm</result>
+		</action>
 
+		<action name="login" class="login.LoginAction" method="login">
+			<result name="success" type="tiles">main</result>
+			<result name="error">/login/loginError.jsp</result>
+		</action>
+		
+		<action name="logout" class="login.LoginAction" method="logout">
+			<result type="redirect-action">
+				<param name="actionName">main</param>
+			</result>
+		</action>
+		
 	</package>
 </struts>

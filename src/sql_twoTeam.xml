@@ -14,6 +14,7 @@
 		<result property="m_date" column="m_date"/>
 	</resultMap>
 	
+	<!-- 공통 -->
 	<sql id="ad-select-all">
 		select * from members
 	</sql>
@@ -22,12 +23,13 @@
 		where m_email=#m_email#
 	</sql>
 	
-	<select id="two.login" parameterClass="MembersModel" resultMap="membersRes">
-		SELECT m_email, m_password FROM MEMBERS
-		<include refid="ad-where-no"/>
-		AND m_password = #m_password#
+	<!-- 로그인 -->
+	<select id="two.loginCheck" parameterClass="String" resultMap="membersRes">
+		SELECT * FROM MEMBERS
+		WHERE m_email = #m_email#
 	</select>
 	
+	<!-- 회원가입 -->
 	<insert id="two.insertMember" parameterClass="MembersModel">
 		INSERT INTO MEMBERS(m_email,m_name,m_nickname,m_password,m_phone,m_fav_area,m_fav_field,m_date)
 		VALUES(#m_email#,#m_name#,#m_nickname#,#m_password#,#m_phone#,#m_fav_area#,#m_fav_field#,#m_date#)
