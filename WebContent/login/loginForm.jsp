@@ -20,7 +20,8 @@ function check(){
 		loginform.MEMBER_PW.focus();
 		return false;
 	}
-	
+	// action="login.action" name="loginform
+	//openConfirmId(this.form)
 	return true;
 }
 
@@ -50,7 +51,7 @@ function check(){
 			<td width=73>아이디</td>
 			<td width=9>:</td>
 			<td width=103>
-				<input type=text name="MEMBER_ID" size=12 maxlength=20>
+				<input type=text name="m_email" size=12 maxlength=20>
 			</td>
 			<td width=66 rowspan=3><input type="submit" value="로그인">
 			</td>
@@ -63,14 +64,14 @@ function check(){
 			<td width=73>비밀번호</td>
 			<td width=9>:</td>
 			<td width=103>
-			<input type=password name="MEMBER_PW" size=12 maxlength=12>
+			<input type=password name="m_password" size=12 maxlength=20>
 			</td>
 			</tr>
 			<tr>
 			<td height=35 colspan=6 align="center">
 			<input
 				type="button" value="회원가입"
-				onclick="javascript:window.location='/MALL/MemberJoin.me'">
+				onclick="javascript:window.location='/TEP/insertMembers.action'">
 			<a href="#">
 			<input type="button" value="아이디/비밀번호 찾기"
 				onclick="openConfirmId(this.form)">
