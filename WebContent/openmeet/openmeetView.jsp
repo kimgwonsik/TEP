@@ -17,11 +17,6 @@
 <tr>
 <td colspan="3"><font style="font-weight: bold;font-size: x-large;">모임</font></td>
 </tr>
-<tr>
-<td width="33%" align="center"><img class="openmeet_rep" src="/TEP/openmeet/image/ex1.jpg"/><br>글 제목 글 제목 글 제목</td>
-<td width="33%" align="center"><img class="openmeet_rep" src="/TEP/openmeet/image/ex2.jpg"/><br>글 제목 글 제목 글 제목</td>
-<td width="33%" align="center"><img class="openmeet_rep" src="/TEP/openmeet/image/ex3.jpg"/><br>글 제목 글 제목 글 제목</td>
-</tr>
 
 <s:iterator value="list" status="stat">
 	<s:url id="openmeetDetailURL" action="openmeetDetail">

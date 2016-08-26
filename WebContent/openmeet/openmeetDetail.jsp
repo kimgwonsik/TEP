@@ -5,6 +5,7 @@
 <head>
 <meta content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/TEP/static/css/root.css" type="text/css">
+<script type="text/javascript" src="/TEP/static/js/root.js"></script>
 <style type="text/css">
 dl.om_detail_header{
 	list-style: none;
@@ -32,11 +33,18 @@ body, ul, ol, html, h1, h2, h3, h4, h5, h6, p, img, form, dl, dd, dt {
     padding: 0;
     margin: 0;
     border: 0;
+    font-size: small;
 }
 </style>
 </head>
 <body>
-<table class="om_detail_header" width=100% border="1">
+<table width=930px border="0" align=center>
+<tr>
+<td>
+
+
+
+<table class="om_detail_header">
 <tr>
 
 <td width="15%">
@@ -44,83 +52,148 @@ body, ul, ol, html, h1, h2, h3, h4, h5, h6, p, img, form, dl, dd, dt {
 <dl class="om_detail_header">
 <dt class="om_detail_header_dt">개설자 정보</dt>
 <hr>
-<dd class="om_detail_header_dd1">김용호</dd>
-<dd class="om_detail_header_dd2">＠&nbsp;jinuyoo@gmail.com</dd>
-<dd class="om_detail_header_dd2">☏&nbsp;02-5966-4586</dd>
-<dd class="om_detail_header_dd2">＃&nbsp;(주)한국 사단법인</dd>
+<dd class="om_detail_header_dd1"><s:property value="detailData.o_name"/></dd>
+<dd class="om_detail_header_dd2">＠&nbsp;<s:property value="detailData.o_email"/></dd>
+<dd class="om_detail_header_dd2">☏&nbsp;<s:property value="detailData.o_phone"/></dd>
+<dd class="om_detail_header_dd2">＃&nbsp;<s:property value="detailData.o_company"/></dd>
 </dl>
 <hr>
 </td>
 
-<td width="85%">
-	<div>
-		<h2>[숙박제공]Web Hosting &amp; IDC기업을 위한 네트워크 보안 전문가</h2>
-		<dl class="eventInfo">
-			<dt class="date">
-				<i></i>모임기간
-			</dt>
-			<dd class="date">8월 30일 (화) 9시 00분 ~ 2017년 2월 22일 (수) 18시 30분</dd>
-			<dt class="place">
-				<i></i>모임장소
-			</dt>
-			<dd class="place">
-				<span> 서울특별시 금천구 가산동 서울특별시 금천구 가산디지털1로 145 17층 1704호( 가산동 371-50 에이스하이엔드타워3차 17층 1704 </span>
-				<a href="#" class="map btn">지도보기</a>
-			</dd>
-			<dt class="attend">
-				<i></i>신청인원
-			</dt>
-			<dd>
-				<span class="total">총 <span class="number">20</span>명
-				</span><span class="free"><span class="number">20</span>명 신청가능</span>
-			</dd>
-		</dl>
-		<div class="summary close">
-			<p>네트워크 보안 전문가 과정은 현재 널리 사용되는 운영체제를 기반으로 네트워크를 관리하는 서버의 설치와 운용, 나아가서 보안에 대한 지식의 습득과 실제 해킹방법의 사례연구를 통해 각 사례와 경우에 따른 대처법과...</p>
-		</div>
-		<form method="GET" action="/rsvp/attend/73327" origaction="http://onoffmix.com/rsvp/attend/73327" origtarget="">
-			<div class="groupBox">
-				<div class="group">
-					<p class="regDate">
-						<span class="title">신청기간</span><span class="date"> 7월 15일 (금) 18시 00분 ~ 8월 30일 (화) 3시 00분</span>
-					</p>
-					<div class="groupScroll noScroll">
-						<ul class="groupList " data-all="1" data-max="1" data-max-alert="신청 가능한 최대 그룹수는 1개 입니다." data-hasqtip="0">
-							<li class="noneCount" id="event-group-92064"><input id="checkbox_group_92064" data-id="payment_group_92064" name="group[]" data-name="payGroup[]" value="92064" class="checkbox" checked="checked" type="hidden">
-								<p class="groupTitle webFont">
-									<label class="" for="checkbox_group_92064">기본그룹</label>
-								</p>
-								<p class="pay webFont">
-									무료 · <span class="ui-spinner ui-widget ui-widget-content ui-corner-all" style="height: 16px;"><input type="text" class="spinner people countOfMember ui-spinner-input" name="groupMember[92064]" value="1" min="1" max="20" data-min-alert="신청 가능한 최소 인원은 1 명 입니다." data-max-alert="신청 가능한 최대 인원은 20 명 입니다." data-vacancy="20" aria-valuemin="1" aria-valuemax="20" aria-valuenow="1" autocomplete="off" role="spinbutton" data-hasqtip="1">
-										<a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button" aria-disabled="false">
-											<span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-n">▲</span></span>
-										</a>
-										<a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button" aria-disabled="false">
-											<span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-s">▼</span></span>
-										</a></span> 명
-								</p>
-								<p class="total">
-									<i data-hasqtip="6" oldtitle="개설자선정 방식" title=""></i>총 <span class="number">20</span>명
-								</p>
-								<p class="free">
-									<span class="number">20</span>명 신청가능
-								</p></li>
+<td width="85%" style="padding-left: 50px;">
+<div><s:property value="detailData.o_subject"/></div>
+<br>
+<table border="0">
+<tr>
+<td>모임기간 : <s:property value="detailData.o_meetdate"/></td>
+</tr>
+<tr>
+<td>모임장소명 : <s:property value="detailData.o_title"/></td>
+</tr>
+<tr>
+<td>모임장소주소 : <s:property value="detailData.o_addr"/></td>
+</tr>
+<tr>
+<td>신청인원 : 총<s:property value="detailData.o_total_pnum"/>명</td>
+</tr>
+</table>
+<hr>
+<div><s:property value="detailData.o_content"/></div>
+<br>
+<br>
+<table  align="center">
+<tr><td>
+<table border="0" align="center" cellpadding=10 style="border-style: double;border-color: gray;border-width: 5px">
+<tr>
+<td colspan="2">신청기간 : <s:property value="detailData.o_registerdate"/></td>
+</tr>
+<tr>
+<td colspan="2"><hr></td>
+</tr>
+<tr>
+<td>총<s:property value="detailData.o_total_pnum"/>명&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<s:property value="detailData.o_permit_pnum"/>명 신청가능</td>
+<td>
+<s:if test="detailData.o_payment == 0">
+무료
+</s:if>
+<s:elseif test="detailData.o_payment > 0">
+유료 : <s:property value="detailData.o_payment"/>원
+</s:elseif>
+·
+<input type="number" name="o_current_pnum" size="3">명</td>
+</tr>
+</table>
+</td></tr>
+<tr><td align="right">
+<input type="button" name="openmeet_submit" value="신청하기">
+</td></tr>
+</table>
 
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<div class="btnArea event-action">
-				<button class="pin event-action-pin">
-					<i></i><span class="count">18</span>
-				</button>
-				<input type="submit" value="신청하기" class="ofmBtn webFont">
-			</div>
-		</form>
-	</div>
 </td>
+</tr>
+</table>
 
+<br>
+<hr>
+
+
+<table width=100%>
+<tr>
+<td align="center">
+
+<div style="font-size: small;color: red;">※ 접수 후에는 정식접수 안내를 위해 전화 또는 문자를 드리고 있습니다. (문의 070-4739-9697)</div>
+
+<div>
+<s:if test="detailData.o_content_img != null">
+<img src="<s:property value="detailData.o_content_img"/>">
+<br>
+</s:if>
+<s:property value="detailData.o_content"/>
+</div>
+
+</td>
+</tr>
+</table>
+
+<br>
+<div style="font-weight: bold;font-size: large;">지도보기</div>
+<div id="map" style="width:100%;height:350px;"></div>
+<br>
+<b>※&nbsp;<s:property value="detailData.o_addr"/>&nbsp;(<s:property value="detailData.o_title"/>)</b>
+<br>
+
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = {
+        center: new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };  
+
+// 지도를 생성합니다    
+var map = new daum.maps.Map(mapContainer, mapOption); 
+
+//일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
+var mapTypeControl = new daum.maps.MapTypeControl();
+
+// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+// daum.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
+
+// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+var zoomControl = new daum.maps.ZoomControl();
+map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
+
+// 주소-좌표 변환 객체를 생성합니다
+var geocoder = new daum.maps.services.Geocoder();
+
+// 주소로 좌표를 검색합니다
+geocoder.addr2coord('<s:property value="detailData.o_addr"/>', function(status, result) {
+
+    // 정상적으로 검색이 완료됐으면 
+     if (status === daum.maps.services.Status.OK) {
+
+        var coords = new daum.maps.LatLng(result.addr[0].lat, result.addr[0].lng);
+
+        // 결과값으로 받은 위치를 마커로 표시합니다
+        var marker = new daum.maps.Marker({
+            map: map,
+            position: coords
+        });
+
+        // 인포윈도우로 장소에 대한 설명을 표시합니다
+        var infowindow = new daum.maps.InfoWindow({
+            content: '<div style="width:150px;text-align:center;padding:6px 0;"><s:property value="detailData.o_title"/></div>'
+        });
+        infowindow.open(map, marker);
+
+        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+        map.setCenter(coords);
+    } 
+});    
+</script>
+
+</td>
 </tr>
 </table>
 </body>
