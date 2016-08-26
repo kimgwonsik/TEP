@@ -1,77 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
-<sqlMap namespace="one">
-	<!-- <typeAlias alias="board" type="board.boardVO" />
+<sqlMap>
+	<typeAlias alias="lendplace" type="lendplace.LendplaceModel" />
 
-	<resultMap class="board" id="boardResultMap">
-		<result property="no" column="no" />
-		<result property="subject" column="subject" />
-		<result property="name" column="name" />
-		<result property="password" column="password" />
-		<result property="content" column="content" />
-		<result property="file_orgname" column="file_orgname" />
-		<result property="file_savname" column="file_savname" />
-		<result property="readhit" column="readhit" />
-		<result property="regdate" column="regdate" />
+	<resultMap class="lendplace" id="lendplace_rm">
+		<result property="l_no" column="l_no" />
+		<result property="l_subject" column="l_subject" />
+		<result property="l_addr" column="l_addr" />
+		<result property="l_company" column="l_company" />
+		<result property="l_content" column="l_content" />
+		<result property="l_rep_img" column="l_rep_img" />
+		<result property="l_content_img" column="l_content_img" />
+		<result property="l_name" column="l_name" />
+		<result property="l_phone" column="l_phone" />
+		<result property="l_email" column="l_email" />
+		<result property="l_pnum" column="l_pnum" />
+		<result property="l_sdate" column="l_sdate" />
+		<result property="l_edate" column="l_edate" />
+		<result property="l_use_num" column="l_use_num" />
+		<result property="l_payment" column="l_payment" />
+		<result property="l_date" column="l_date" />
 	</resultMap>
 
-	<sql id="select-all">
-		select * from sboard
+	<sql id="lp_select_all">
+		select * from lendplace
 	</sql>
 
-	<sql id="where-no">
-		where no=#no#
+	<sql id="lp_where_l_no">
+		where l_no=#l_no#
 	</sql>
 
-	<select id="selectAll" resultMap="boardResultMap"
+	<select id="lendplace_select_all" resultMap="lendplace_rm">
+		<include refid="lp_select_all" />
+		order by l_no desc
+	</select>
+
+	<select id="lendplace_select_one" resultMap="lendplace_rm"
 		parameterClass="int">
-		<include refid="select-all" />
-		order by no desc
+		<include refid="lp_select_all" />
+		<include refid="lp_where_l_no" />
 	</select>
-
-	<select id="selectOne" resultMap="boardResultMap"
-		parameterClass="int">
-		<include refid="select-all" />
-		<include refid="where-no" />
-	</select>
-
-	<select id="selectLastNo" resultClass="board" parameterClass="int">
-		select max(no) as no from sboard
-	</select>
-
-	<select id="selectPassword" resultMap="boardResultMap">
-		<include refid="select-all" />
-		<include refid="where-no" />
-		and password=#password#
-	</select>
-
-	<insert id="insertBoard" parameterClass="board">
-		insert into sboard
-		(no,subject,name,password,content,regdate)
-		values(sboard_no_seq.nextval,#subject#,#name#,#password#,#content#,#regdate#)
-	</insert>
-
-	<update id="updateBoard" parameterClass="board">
-		update sboard
-		set subject=#subject#,name=#name#,password=#password#,content=#content#
-		<include refid="where-no" />
-	</update>
-
-	<update id="updateFile" parameterClass="board">
-		update sboard
-		set
-		file_orgname=#file_orgname#,file_savname=#file_savname#
-		<include refid="where-no" />
-	</update>
-
-	<update id="updateReadHit" parameterClass="board">
-		update sboard
-		set readhit=readhit+1
-		<include refid="where-no" />
-	</update>
-
-	<delete id="deleteBoard" parameterClass="board">
-		delete from sboard
-		<include refid="where-no" />
-	</delete> -->
 </sqlMap>

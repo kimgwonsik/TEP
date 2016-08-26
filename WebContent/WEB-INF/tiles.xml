@@ -36,4 +36,14 @@
 		<put-attribute name="body" value="/members/membersSuccess.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="lendplace" extends=".default">
+		<put-attribute name="title" value="TEP - 대관신청 목록" />
+		<put-attribute name="body" value="/lendplace/lendplaceView.jsp" />
+	</definition>
+	
+	<definition name="lendplaceDetail" extends=".default">
+		<put-attribute name="title" value="TEP - 대관신청 목록상세" />
+		<put-attribute name="body" value="/lendplace/lendplaceDetail.jsp" />
+	</definition>
+	
 </tiles-definitions>
