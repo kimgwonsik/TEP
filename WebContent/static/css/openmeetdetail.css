@@ -43,7 +43,7 @@ dd.om_detail_header_dd2{
 img.om_detail_header{
 	width: 230px;height: 230px;
 }
-hr{
+hr.om_detail_hr{
 	border: solid 0.5px red;
 }
 table.om_detail_header_table_register {

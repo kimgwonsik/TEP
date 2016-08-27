@@ -29,6 +29,9 @@ public class CommentsModel {
 	// 제자찾기 FK
 	private Integer bd_no;
 	
+	// 회원고유번호 FK
+	private Integer m_no;
+	
 	public Integer getC_no() {
 		return c_no;
 	}
@@ -91,6 +94,14 @@ public class CommentsModel {
 
 	public void setBd_no(Integer bd_no) {
 		this.bd_no = bd_no;
+	}
+
+	public Integer getM_no() {
+		return m_no;
+	}
+
+	public void setM_no(Integer m_no) {
+		this.m_no = m_no;
 	}
 
 }

@@ -1,0 +1,22 @@
+div.loginBar {
+	background: black;
+	color: white;
+	text-align: right;
+}
+
+div.loginBar a {
+	color: white;
+	text-decoration: none;
+	font-size: small;
+	font-family: sans-serif;
+}
+
+div.loginBar a:HOVER{
+	color: red;
+	font-size: small;
+}
+
+hr.header{
+	margin:0;
+	padding:0;
+}

@@ -37,6 +37,7 @@
 		<result property="o_no" column="o_no"/>
 		<result property="bt_no" column="bt_no"/>
 		<result property="bd_no" column="bd_no"/>
+		<result property="m_no" column="m_no"/>
 	</resultMap>
 
 <!-- openmeet query -->
@@ -78,6 +79,9 @@
 	<sql id="cmt_where_bd_no">
 		where bd_no=#bd_no#
 	</sql>
+	<sql id="cmt_where_m_no">
+		where bd_no=#m_no#
+	</sql>
 
 	<select id="comments_select_all_c_my_no" resultMap="comments_rm"  parameterClass="int">
 		<include refid="cmt_select_all" />
@@ -100,6 +104,12 @@
 	<select id="comments_select_all_bd_no" resultMap="comments_rm"  parameterClass="int">
 		<include refid="cmt_select_all" />
 		<include refid="cmt_where_bd_no"/>
+		order by c_no desc
+	</select>
+	
+	<select id="comments_select_all_m_no" resultMap="comments_rm"  parameterClass="int">
+		<include refid="cmt_select_all" />
+		<include refid="cmt_where_m_no"/>
 		order by c_no desc
 	</select>
 	
