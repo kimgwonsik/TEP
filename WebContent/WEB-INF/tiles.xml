@@ -52,7 +52,7 @@
 	
 	<definition name="findPassword" extends=".default">
 		<put-attribute name="title" value="TEP - 아이디찾기"></put-attribute>
-		<put-attribute name="body" value="/login/findPassword.jsp"></put-attribute>
+		<put-attribute name="body" value="/login/findPasswordResult.jsp"></put-attribute>
 	</definition>
 	
 </tiles-definitions>

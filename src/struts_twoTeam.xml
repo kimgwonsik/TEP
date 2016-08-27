@@ -15,7 +15,7 @@
 		
 		<!-- 로그인 -->
 		<action name="loginForm" class="login.LoginAction" method="index">
-			<result name="login" type="tiles">loginForm</result>
+			<result name="success" type="tiles">loginForm</result>
 		</action>
 
 		<action name="login" class="login.LoginAction" method="login">

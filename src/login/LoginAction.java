@@ -18,9 +18,9 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 
 	public String index() throws Exception{
-		if(session.get("session_m_email")==null)
+		/*if(session.get("session_m_email")==null)
 			return "login";
-		else
+		else*/
 			return "success";
 	}
 	

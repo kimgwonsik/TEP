@@ -37,7 +37,7 @@ function list(){
 <body>
 <center>
 <h3>회원가입 정보입력</h3>
-<form method="post" action="successMembers.action" name="userinput">
+<form method="post" action="InsertMembers.action" name="userinput">
 	<table border="1" bordercolor="#ccccff" cellpadding="0" cellspacing="0" width="300" height="300">
 		<tr>
 			<td>ID(이메일)</td>
