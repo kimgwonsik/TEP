@@ -35,7 +35,7 @@
 	<td width="33%" align="center">
 		<s:a cssClass="contentSubject" href="%{openmeetDetailURL}">
 			<img class="openmeet_rep" src='<s:property value="o_rep_img"/>'/>
-			<br><s:property value="o_subject"/>
+			<br><font style="font-family: sans-serif;"><s:property value="o_subject"/></font>
 		</s:a>
 	</td>
 	

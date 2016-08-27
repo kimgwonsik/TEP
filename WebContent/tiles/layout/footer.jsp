@@ -14,15 +14,15 @@ table.footer{
 }
 pre.footer_pre{
 	font-family: sans-serif;
-	font-size: small;
+	font-size: x-small;
 }
 td.footer_td_text{
 	font-family: sans-serif;
-	font-size: medium;
+	font-size: small;
 }
 td.footer_td_text a{
 	font-family: sans-serif;
-	font-size: medium;
+	font-size: small;
 	text-decoration: none;
 	color: black;
 }
