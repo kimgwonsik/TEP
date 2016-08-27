@@ -14,7 +14,7 @@ public class OpenmeetAction{
 	
 	private int currentPage = 1;
 	private int totalCount;
-	private int blockCount = 3;
+	private int blockCount = 9;
 	private int blockPage = 3;
 	private String pagingHtml;
 	private PagingCalculator page;
