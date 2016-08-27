@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
-<sqlMap namespace="two">
+<sqlMap>
 	
 	<typeAlias alias="MembersModel" type="members.MembersModel"/>
 	<resultMap class="MembersModel" id="membersRes">
@@ -24,10 +24,18 @@
 	</sql>
 	
 	<!-- 로그인 -->
-	<select id="two.loginCheck" parameterClass="String" resultMap="membersRes">
+	<select id="two.loginCheck" resultClass="MembersModel" parameterClass="MembersModel">
 		SELECT * FROM MEMBERS
-		WHERE m_email = #m_email#
+		WHERE m_email = #m_email# and m_password=#m_password#
 	</select>
+	
+	<!-- 아이디, 비밀번호 찾기 -->
+	<!-- <select id="two.findId" resultMap="membersRes">
+		SELECT * FROM MEMBERS WHERE m_name=#m_name# and m_phone=#m_phone#
+	</select>
+	<select id="two.findPassword" resultMap="memberRes">
+		SELECT * FROM MEMBERS WHERE m_email=#m_email# and m_name=#m_name# and m_phone=#m_phone#
+	</select> -->
 	
 	<!-- 회원가입 -->
 	<insert id="two.insertMember" parameterClass="MembersModel">
@@ -35,6 +43,9 @@
 		VALUES(#m_email#,#m_name#,#m_nickname#,#m_password#,#m_phone#,#m_fav_area#,#m_fav_field#,#m_date#)
 	</insert>
 	
-	
+	<!-- 비밀번호 초기화 -->
+	<!-- <update id="setPassword1111" parameterClass="String">
+		update members set m_password = '1111' where m_email=#m_email#
+	</update> -->
 	
 </sqlMap>

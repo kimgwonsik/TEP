@@ -40,4 +40,19 @@
 		<put-attribute name="body" value="/login/loginForm.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="findForm" extends=".default">
+		<put-attribute name="title" value="TEP - 아이디,비밀번호 찾기"></put-attribute>
+		<put-attribute name="body" value="/login/findIdPassword.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="findId" extends=".default">
+		<put-attribute name="title" value="TEP - 아이디찾기"></put-attribute>
+		<put-attribute name="body" value="/login/findIdResult.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="findPassword" extends=".default">
+		<put-attribute name="title" value="TEP - 아이디찾기"></put-attribute>
+		<put-attribute name="body" value="/login/findPassword.jsp"></put-attribute>
+	</definition>
+	
 </tiles-definitions>

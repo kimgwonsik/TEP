@@ -3,7 +3,7 @@
     
 <struts>
 	<package name="struts_twoTeam_package" namespace="/" extends="struts-default, tiles-default">
-		
+		<!-- 회원가입 -->
 		<action name="MembersForm" class="members.MembersAction" method="MemberForm">
 			<result name="success" type="tiles">MembersForm</result>
 		</action>
@@ -11,7 +11,9 @@
 		<action name="InsertMembers" class="members.MembersAction" method="Insert">
 			<result name="success" type="tiles">insertMembers</result>
 		</action>
+		<!-- 회원가입 종료 -->
 		
+		<!-- 로그인 -->
 		<action name="loginForm" class="login.LoginAction" method="index">
 			<result name="login" type="tiles">loginForm</result>
 		</action>
@@ -26,6 +28,20 @@
 				<param name="actionName">main</param>
 			</result>
 		</action>
+		<!-- 로그인 완료 -->
 		
+		<!-- 아이디 , 비밀번호 찾기 -->
+		<action name="findIdPassword" class="login.FindIdPasswordAction" method="form">
+			<result name="success" type="tiles">findForm</result>
+		</action>
+		
+		<action name="findId" class="login.FindIdPasswordAction">
+			<result name="success" type="tiles">findId</result>
+		</action>
+		
+		<action name="findPassword" class="login.FindIdPasswordAction" method="findPassword">
+			<result name="success" type="tiles">findPassword</result>
+		</action>
+		<!-- 찾기 완료 -->
 	</package>
 </struts>

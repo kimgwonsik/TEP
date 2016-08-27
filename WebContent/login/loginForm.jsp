@@ -6,17 +6,9 @@
 <meta content="text/html; charset=UTF-8">
 <title>로그인</title>
 <script>
-function loginForm() {
-	if (document.loginform.m_email.value == "") {
-		alert("아이디를 입력하세요");
-		document.loginform.m_email.focus();
-		return false;
-	} else if (document.loginform.m_password.value == "") {
-		alert("비밀번호를 입력하세요");
-		document.loginform.m_password.focus();
-		return false;
-	}
-
+function openConfirmId(){
+	var url="findIdPassword.action";
+	open(url,"confirm","toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=300,height=430");
 }
 </script>
 </head>
@@ -39,7 +31,7 @@ function loginForm() {
 	
 	<tr align="center" border="0" cellspacing="0" cellpadding="0">
 		<td>
-			<form action="login.action" method="post" onsubmit="return loginForm();">
+			<form action="login.action" method="post" onsubmit="return back();">
 				<input type="text" name="m_email" maxlength="20" placeholder="아이디" /><br/>
 				<input type="password" name="m_password" maxlength="20" placeholder="비밀번호"/>
 		</td>
@@ -47,7 +39,7 @@ function loginForm() {
 	
 	<tr align="center" border="0" cellspacing="0" cellpadding="0">
 		<td>
-				<input type="submit" name="loginform" value="로그인" onclick="history.go(-1);" class="login1"/>
+				<input type="submit" name="confirm_id" value="로그인" onclick="history.go(-1);" class="login1"/>
 			</form>
 		</td>
 	</tr>
@@ -63,9 +55,7 @@ function loginForm() {
 
 	<tr align="center" border="0" cellspacing="0" cellpadding="0">
 		<td border="0" cellspacing="0" cellpadding="0">
-			<input type="button" class="login2" onclick="window:location='EmailFind.action'" value="ID 찾기"/>
-			<input type="button" class="login2" onclick="window:location='PasswordFind.action'" value="PW 찾기"/>
-			&nbsp;&nbsp;
+			<input type="button" class="login2" onclick="openConfirmId();" value="ID/PW 찾기"/>&nbsp;&nbsp;
 			<input type="button" class="login2" onclick="window:location='MembersForm.action'" value="회원가입"/>
 		</td>
 	</tr>
