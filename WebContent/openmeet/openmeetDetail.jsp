@@ -163,16 +163,33 @@ geocoder.addr2coord('<s:property value="detailData.o_addr"/>', function(status, 
     map.setCenter(coords);
 } 
 });
+
+function om_cmt_check(){
+	var area = document.getElementById('cmt_content');
+	if(!area.value){
+		alert("댓글에 내용이 입력되지 않았습니다.");
+		area.focus();
+		return false;
+	}
+}
 </script>
 
-<!-- 댓글 -->
-<div style="font-weight: bold;font-size:small;padding-top: 50px">댓글(30)</div>
-<hr>
-<textarea class="om_detail_comments"></textarea>
-<div align="right">
-<input type="button" value="내용입력" class="om_detail_comments_button">
-</div>
 
+<!-- 댓글 -->
+<div style="font-weight: bold;font-size:small;padding-top: 50px">댓글(<s:property value="cmtData.size()"/>)</div>
+<hr>
+<s:form action="omd_insert_cmt" onsubmit="return om_cmt_check();" method="post">
+<input type="hidden" name="currentPage" value='<s:property value="currentPage"/>'>
+<input type="hidden" name="o_no" value='<s:property value="o_no"/>'>
+<div style="padding-right:6px;"><textarea id="cmt_content" name="c_content" class="om_detail_comments"></textarea></div>
+<div align="right"><input type="submit" value="내용입력"></div>
+</s:form>
+
+<s:iterator value="cmtData" status="cmtStat">
+<hr>
+<div style="padding-left:13px;font-weight: bold;font-family: sans-serif;font-size: x-small;"><s:property value="c_name"/></div>
+<div style="padding-top:5px; padding-left:13px;font-family: monospace;font-size: x-small;"><s:property value="c_content"/></div>
+</s:iterator>
 
 <!-- 참여신청/취소안내 -->
 <div style="font-weight: bold;font-size:small;padding-top: 50px">참여신청/취소안내</div>

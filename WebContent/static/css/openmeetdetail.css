@@ -72,12 +72,6 @@ textarea.om_detail_comments{
 	width: 100%;
 	height: 45px;
 }
-input.om_detail_comments_button{
-	background-color: red;
-	border-style: none;
-	font-weight: bold;
-	color: white;
-}
 body, ul, ol, html, h1, h2, h3, h4, h5, h6, p, img, form, dl, dd, dt{
     padding: 0;
     margin: 0;

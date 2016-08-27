@@ -2,6 +2,7 @@
 <!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
 <sqlMap>
 	<typeAlias alias="openmeet" type="openmeet.OpenmeetModel" />
+	<typeAlias alias="comments" type="comments.CommentsModel" />
 
 	<resultMap class="openmeet" id="openmeet_rm">
 		<result property="o_no" column="o_no" />
@@ -26,7 +27,19 @@
 		<result property="o_date" column="o_date" />
 		<result property="o_readcount" column="o_readcount" />
 	</resultMap>
+	
+	<resultMap class="comments" id="comments_rm">
+		<result property="c_no" column="c_no"/>
+		<result property="c_name" column="c_name"/>
+		<result property="c_content" column="c_content"/>
+		<result property="c_date" column="c_date"/>
+		<result property="c_my_no" column="c_my_no"/>
+		<result property="o_no" column="o_no"/>
+		<result property="bt_no" column="bt_no"/>
+		<result property="bd_no" column="bd_no"/>
+	</resultMap>
 
+<!-- openmeet query -->
 	<sql id="om_select_all">
 		select * from openmeet
 	</sql>
@@ -44,4 +57,54 @@
 		<include refid="om_select_all"/>
 		<include refid="om_where_o_no"/>
 	</select>
+	
+<!-- comments query -->
+	<sql id="cmt_select_all">
+		select * from comments
+	</sql>
+
+	<sql id="cmt_where_c_no">
+		where c_no=#c_no#
+	</sql>
+	<sql id="cmt_where_c_my_no">
+		where c_my_no=#c_my_no#
+	</sql>
+	<sql id="cmt_where_o_no">
+		where o_no=#o_no#
+	</sql>
+	<sql id="cmt_where_bt_no">
+		where bt_no=#bt_no#
+	</sql>
+	<sql id="cmt_where_bd_no">
+		where bd_no=#bd_no#
+	</sql>
+
+	<select id="comments_select_all_c_my_no" resultMap="comments_rm"  parameterClass="int">
+		<include refid="cmt_select_all" />
+		<include refid="cmt_where_c_my_no"/>
+		order by c_no desc
+	</select>
+	
+	<select id="comments_select_all_o_no" resultMap="comments_rm"  parameterClass="int">
+		<include refid="cmt_select_all" />
+		<include refid="cmt_where_o_no"/>
+		order by c_no desc
+	</select>
+	
+	<select id="comments_select_all_bt_no" resultMap="comments_rm"  parameterClass="int">
+		<include refid="cmt_select_all" />
+		<include refid="cmt_where_bt_no"/>
+		order by c_no desc
+	</select>
+	
+	<select id="comments_select_all_bd_no" resultMap="comments_rm"  parameterClass="int">
+		<include refid="cmt_select_all" />
+		<include refid="cmt_where_bd_no"/>
+		order by c_no desc
+	</select>
+	
+	<insert id="comments_insert_openmeet" parameterClass="comments">
+		insert into comments(c_no,c_name,c_content,c_date,o_no) values(comments_seq.nextval,#c_name#,#c_content#,#c_date#,#o_no#)
+	</insert>
+	
 </sqlMap>
