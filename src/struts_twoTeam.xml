@@ -13,6 +13,11 @@
 		</action>
 		<!-- 회원가입 종료 -->
 		
+		<!-- 아이디 중복 확인 -->
+		<action name="membersIdChk" class="login.EmailCheckAction">
+			<result name="success" type="tiles">membersIdChk</result>
+		</action>
+		
 		<!-- 로그인 -->
 		<action name="loginForm" class="login.LoginAction" method="index">
 			<result name="success" type="tiles">loginForm</result>

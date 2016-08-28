@@ -8,9 +8,36 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>회원가입</title>
 <script type="text/javascript">
-
 function insert(){
     var regExp = /[0-9a-zA-Z][_0-9a-zA-Z-]*@[_0-9a-zA-Z-]+(\.[_0-9a-zA-Z-]+){1,2}$/;	  
+    var join=document.userinput
+    
+    if(join.m_email.value==""){
+    	alert("아이디를 입력해주세요");
+    	join.m_email.focus();
+    	return false;
+    }
+    else if(join.m_name.value==""){
+    	alert("이름을 입력해주세요");
+    	join.m_name.focus();
+    	return false;
+    }
+    else if(join.m_nickname.value==""){
+    	alert("닉네임을 입력해주세요");
+    	join.m_nickname.focus();
+    	return false;
+    }
+    else if(join.m_password.value==""){
+    	alert("비밀번호를 입력해주세요");
+    	join.m_password.focus();
+    	return false;
+    }
+    else if(join.m_phone.value==""){
+    	alert("핸드폰 번호를 입력해주세요");
+    	join.m_phone.focus();
+    	return false;
+    }
+ 
     
     if(!userinput.m_email.value.match(regExp)){
     	alert("이메일 형식과 맞지 않습니다.");
@@ -29,8 +56,20 @@ function insert(){
 	var f=document.userinput;
 	f.submit();
 }
+
+function openConfirmId(userinput){
+	var url="membersIdChk.action?m_email="+document.userinput.m_email.value;
+	var join=document.userinput;
+	if(join.m_email.value==""){
+		alert("아이디를 입력해주세요");
+		join.m_email.focus();
+		return false;
+	}
+	open(url,"confirm","toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=300,height=400");
+}
+
 function list(){
-	location.href='main.action';
+	location.href="main.action";
 }
 </script>
 </head>
@@ -43,6 +82,7 @@ function list(){
 			<td>ID(이메일)</td>
 			<td>
 				<input type="text" name="m_email" id="m_email">
+				<input type="button" name="confirmId" value="ID 중복확인" onclick="openConfirmId(this.form)" class="topb"/>
 			</td>
 		</tr>
 		<tr>
@@ -67,6 +107,12 @@ function list(){
 			<td>전화번호</td>
 			<td>
 				<input type="text" name="m_phone" id="m_phone">
+			</td>
+		</tr>
+		<tr>
+			<td>소속</td>
+			<td>
+				<input type="text" name="m_company" id="m_company">
 			</td>
 		</tr>
 		<tr>

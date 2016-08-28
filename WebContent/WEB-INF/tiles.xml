@@ -35,6 +35,11 @@
 		<put-attribute name="body" value="/members/membersSuccess.jsp"></put-attribute>
 	</definition>
 	
+	<definition name="membersIdChk" extends=".default">
+		<put-attribute name="title" value="TEP - 아이디중복확인"></put-attribute>
+		<put-attribute name="body" value="/members/membersIdChk.jsp"></put-attribute>
+	</definition>
+	
 	<definition name="loginForm" extends=".default">
 		<put-attribute name="title" value="TEP - 로그인"></put-attribute>
 		<put-attribute name="body" value="/login/loginForm.jsp"></put-attribute>
@@ -54,5 +59,6 @@
 		<put-attribute name="title" value="TEP - 아이디찾기"></put-attribute>
 		<put-attribute name="body" value="/login/findPasswordResult.jsp"></put-attribute>
 	</definition>
+	
 	
 </tiles-definitions>
