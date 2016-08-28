@@ -48,5 +48,14 @@
 			<result name="success" type="tiles">findPassword</result>
 		</action>
 		<!-- 찾기 완료 -->
+		
+		<!-- 회원탈퇴 -->
+		<action name="deleteMemberForm" class="mypage.MypageDeleteAction" method="deleteForm">
+			<result name="success" type="tiles">deleteMember</result>
+		</action>
+		<action name="deleteMember" class="mypage.MypageDeleteAction">
+			<result name="success" type="tiles">deleteResult</result>
+		</action>
+		<!-- 탈퇴완료 -->
 	</package>
 </struts>

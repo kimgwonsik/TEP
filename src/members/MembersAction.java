@@ -20,7 +20,6 @@ public class MembersAction extends MembersModel{
 	public String Insert() throws Exception{
 		MembersModel vo = new MembersModel();
 		
-		vo.setM_no(getM_no());
 		vo.setM_email(getM_email());
 		vo.setM_name(getM_name());
 		vo.setM_nickname(getM_nickname());

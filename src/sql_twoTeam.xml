@@ -44,6 +44,11 @@
 		SELECT * FROM MEMBERS WHERE m_email=#m_email#
 	</select>
 	
+	<!-- 회원정보 검색 -->
+	<select id="two.selectOneMember" resultMap="membersRes">
+		SELECT * FROM MEMBERS WHERE m_email=#m_email#
+	</select>
+	
 	<!-- 회원가입 -->
 	<insert id="two.insertMember" parameterClass="MembersModel">
 		INSERT INTO MEMBERS(m_no,m_email,m_name,m_nickname,m_password,m_phone,m_company,m_fav_area,m_fav_field,m_date)
@@ -54,5 +59,10 @@
 	<update id="two.setPassword1111" parameterClass="String">
 		update members set m_password = '1111' where m_email=#m_email#
 	</update>
+	
+	<!-- 회원탈퇴 -->
+	<delete id="two.deleteMember" parameterClass="MembersModel">
+		DELETE FROM MEMBERS WHERE m_email=#m_email#
+	</delete>
 	
 </sqlMap>
