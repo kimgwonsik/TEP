@@ -36,4 +36,14 @@
 		<put-attribute name="body" value="/members/membersSuccess.jsp"></put-attribute>
 	</definition>
 	
+	
+	<definition name="board" extends=".default">
+		<put-attribute name="title" value="TEP - 스승과 제자를 찾아보세요 ;)" />
+		<put-attribute name="body" value="/board/boardView.jsp" />
+	</definition>
+	
+	<definition name="boardDetail" extends=".default">
+		<put-attribute name="title" value="TEP - 스승과 제자를 찾아보세요 ;)" />
+		<put-attribute name="body" value="/board/boardDetail.jsp" />
+	</definition>
 </tiles-definitions>

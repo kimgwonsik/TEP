@@ -23,11 +23,8 @@ public class CommentsModel {
 	// 모임개설 FK
 	private Integer o_no;
 	
-	// 스승찾기 FK
-	private Integer bt_no;
-	
-	// 제자찾기 FK
-	private Integer bd_no;
+	// 게시판 테이블 FK
+	private Integer b_no;
 	
 	// 회원고유번호 FK
 	private Integer m_no;
@@ -80,20 +77,12 @@ public class CommentsModel {
 		this.o_no = o_no;
 	}
 
-	public Integer getBt_no() {
-		return bt_no;
+	public Integer getB_no() {
+		return b_no;
 	}
 
-	public void setBt_no(Integer bt_no) {
-		this.bt_no = bt_no;
-	}
-
-	public Integer getBd_no() {
-		return bd_no;
-	}
-
-	public void setBd_no(Integer bd_no) {
-		this.bd_no = bd_no;
+	public void setB_no(Integer b_no) {
+		this.b_no = b_no;
 	}
 
 	public Integer getM_no() {

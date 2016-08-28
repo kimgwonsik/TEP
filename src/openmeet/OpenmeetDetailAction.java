@@ -34,7 +34,7 @@ public class OpenmeetDetailAction {
 			
 			cmtData = sqlMapper.queryForList("comments_select_all_o_no", getO_no());
 		} catch (SQLException e) {
-			System.out.println("openmett detail EX : "+e.getMessage());
+			System.out.println("openmeet detail EX : "+e.getMessage());
 		}
 		return "success";
 	}
@@ -50,7 +50,7 @@ public class OpenmeetDetailAction {
 			data.setC_content(getC_content());
 			data.setC_date(today.getTime());
 			data.setO_no(getO_no());
-			sqlMapper.insert("comments_insert_openmeet", data);
+			sqlMapper.insert("comments_insert", data);
 		} catch (Exception e) {
 			System.out.println("insertComments EX : "+e.getMessage());
 		}

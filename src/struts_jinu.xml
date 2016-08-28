@@ -16,11 +16,23 @@
 		</action>
 		
 		<action name="omd_insert" class="openmeet.OpenmeetDetailAction" method="insert">
-			<result name="success" type="tiles"><!-- 신청하기 페이지 --></result>
+			<result name="success" type="tiles"><!-- 모임개설 하기 폼 페이지 --></result>
 		</action>
 		
 		<action name="omd_insert_cmt" class="openmeet.OpenmeetDetailAction" method="insertComments">
 			<result name="success" type="tiles">openmeetDetail</result>
+		</action>
+		
+		<action name="board" class="board.BoardAction">
+			<result name="success" type="tiles">board</result>
+		</action>
+		
+		<action name="boardDetail" class="board.BoardDetailAction">
+			<result name="success" type="tiles">boardDetail</result>
+		</action>
+		
+		<action name="boardWrite" class="board.BoardWriteAction">
+			<result name="success" type="tiles">boardWrite</result>
 		</action>
 	</package>
 </struts>

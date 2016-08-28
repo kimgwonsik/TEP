@@ -11,7 +11,8 @@
 <div class="loginBar">
 <span style="float:left;padding-left:10px;">
 <a href="openmeet.action">모임</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-<a href="lendplace.action">장소</a>
+<a href="lendplace.action">장소</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="board.action">게시판</a>
 </span>
 <span>
 	<a href="#">로그인</a>&nbsp;&nbsp;|&nbsp;&nbsp;

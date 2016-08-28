@@ -181,7 +181,7 @@ function om_cmt_check(){
 <s:form action="omd_insert_cmt" onsubmit="return om_cmt_check();" method="post">
 <input type="hidden" name="currentPage" value='<s:property value="currentPage"/>'>
 <input type="hidden" name="o_no" value='<s:property value="o_no"/>'>
-<div style="padding-right:6px;"><textarea id="cmt_content" name="c_content" class="om_detail_comments"></textarea></div>
+<div style="padding-right:6px;padding-bottom:5px;"><textarea id="cmt_content" name="c_content" class="om_detail_comments"></textarea></div>
 <div align="right"><input type="submit" value="내용입력"></div>
 </s:form>
 
