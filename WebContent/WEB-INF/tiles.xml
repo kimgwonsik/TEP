@@ -25,17 +25,6 @@
 		<put-attribute name="body" value="/openmeet/openmeetDetail.jsp" />
 	</definition>
 	
-	
-	<definition name="MembersForm" extends=".default">
-		<put-attribute name="title" value="TEP - 회원가입"></put-attribute>
-		<put-attribute name="body" value="/members/membersForm.jsp"></put-attribute>
-	</definition>
-	
-	<definition name="insertMembers">
-		<put-attribute name="title" value="TEP - 회원가입완료"></put-attribute>
-		<put-attribute name="body" value="/members/membersSuccess.jsp"></put-attribute>
-	</definition>
-	
 	<definition name="board" extends=".default">
 		<put-attribute name="title" value="TEP - 스승과 제자를 찾아보세요 ;)" />
 		<put-attribute name="body" value="/board/boardView.jsp" />
@@ -46,6 +35,16 @@
 		<put-attribute name="body" value="/board/boardDetail.jsp" />
 	</definition>
 	
+	<definition name="MembersForm" extends=".default">
+		<put-attribute name="title" value="TEP - 회원가입"></put-attribute>
+		<put-attribute name="body" value="/members/membersForm.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="insertMembers">
+		<put-attribute name="title" value="TEP - 회원가입완료"></put-attribute>
+		<put-attribute name="body" value="/members/membersSuccess.jsp"></put-attribute>
+	</definition>
+
 	<definition name="lendplace" extends=".default">
 		<put-attribute name="title" value="TEP - 대관신청 목록" />
 		<put-attribute name="body" value="/lendplace/lendplaceView.jsp" />
@@ -55,5 +54,5 @@
 		<put-attribute name="title" value="TEP - 대관신청 목록상세" />
 		<put-attribute name="body" value="/lendplace/lendplaceDetail.jsp" />
 	</definition>
-	
+
 </tiles-definitions>
