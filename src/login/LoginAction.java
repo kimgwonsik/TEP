@@ -18,7 +18,6 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	private MembersModel paramClass;
 	private MembersModel resultClass;
 
-
 	public String index() throws Exception{
 		/*if(session.get("session_m_email")==null)
 			return "login";

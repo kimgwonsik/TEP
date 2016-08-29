@@ -70,7 +70,7 @@
 	<tr height="30">
 		<td align="center" bgcolor="#e9e9e9" width="200"><font size="2"><strong>ID</strong></font></td>
 		<td width="165">
-			&nbsp;&nbsp;<input type="text" name="m_email" maxlength="20"/>
+			&nbsp;&nbsp;<input type="text" name="m_email" value="${m_email }" maxlength="20"/>
 		</td>
 	</tr>
 
@@ -81,7 +81,7 @@
 	<tr height="30">
 		<td align="center" bgcolor="#e9e9e9" width="100"><font size="2"><strong>이름</strong></font></td>
 		<td width="165">
-			&nbsp;&nbsp;<input type="text" name="m_name" maxlength="20"/>
+			&nbsp;&nbsp;<input type="text" name="m_name" value="${m_name }" maxlength="20"/>
 		</td>
 	</tr>
 	
@@ -92,7 +92,7 @@
 	<tr height="30">
 		<td align="center" bgcolor="#e9e9e9" width="100"><font size="2"><strong>핸드폰 번호</strong></font></td>
 		<td width="165">
-			&nbsp;&nbsp;<input type="text" name="m_phone" maxlength="20"/>
+			&nbsp;&nbsp;<input type="text" name="m_phone" value="${m_phone }" maxlength="20"/>
 		</td>
 	</tr>
 	

@@ -67,7 +67,6 @@ function openConfirmId(userinput){
     	userinput.m_email.focus();
     	return false;
     }
-	
 	if(join.m_email.value==""){
 		alert("아이디를 입력해주세요");
 		join.m_email.focus();
