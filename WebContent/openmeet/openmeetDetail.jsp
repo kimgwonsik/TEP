@@ -19,13 +19,13 @@
 <div><img class="om_detail_header" src="/TEP/openmeet/image/ex1.jpg"></div>
 <dl class="om_detail_header">
 <dt class="om_detail_header_dt">개설자 정보</dt>
-<hr>
+<hr class="om_detail_hr">
 <dd class="om_detail_header_dd1"><s:property value="detailData.o_name"/></dd>
 <dd class="om_detail_header_dd2">＠&nbsp;<s:property value="detailData.o_email"/></dd>
 <dd class="om_detail_header_dd2">☏&nbsp;<s:property value="detailData.o_phone"/></dd>
 <dd class="om_detail_header_dd2">＃&nbsp;<s:property value="detailData.o_company"/></dd>
 </dl>
-<hr>
+<hr class="om_detail_hr">
 </td>
 
 <td width="85%" class="om_detail_header_table_td2">
@@ -45,7 +45,7 @@
 <td>신청인원 : 총<s:property value="detailData.o_total_pnum"/>명</td>
 </tr>
 </table>
-<hr>
+<hr class="om_detail_hr">
 <div><s:property value="detailData.o_content"/></div>
 <br>
 <br>
@@ -56,7 +56,7 @@
 <td colspan="2">신청기간 : <s:property value="detailData.o_registerdate"/></td>
 </tr>
 <tr>
-<td colspan="2"><hr></td>
+<td colspan="2"><hr class="om_detail_hr"></td>
 </tr>
 <tr>
 <td>총<s:property value="detailData.o_total_pnum"/>명&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -82,7 +82,7 @@
 </tr>
 </table>
 
-<hr>
+<hr class="om_detail_hr">
 
 <table  class="om_detail_content">
 <tr><td>
@@ -108,7 +108,7 @@
 </table>
 
 <br>
-<hr>
+<hr class="om_detail_hr">
 <div style="font-weight: bold;font-size: large;">지도보기</div>
 <div id="map" style="width:100%;height:350px;" class="om_detail_contet_map"></div>
 <br>
@@ -163,16 +163,33 @@ geocoder.addr2coord('<s:property value="detailData.o_addr"/>', function(status, 
     map.setCenter(coords);
 } 
 });
+
+function om_cmt_check(){
+	var area = document.getElementById('cmt_content');
+	if(!area.value){
+		alert("댓글에 내용이 입력되지 않았습니다.");
+		area.focus();
+		return false;
+	}
+}
 </script>
 
-<!-- 댓글 -->
-<div style="font-weight: bold;font-size:small;padding-top: 50px">댓글(30)</div>
-<hr>
-<textarea class="om_detail_comments"></textarea>
-<div align="right">
-<input type="button" value="내용입력" class="om_detail_comments_button">
-</div>
 
+<!-- 댓글 -->
+<div style="font-weight: bold;font-size:small;padding-top: 50px">댓글(<s:property value="cmtData.size()"/>)</div>
+<hr class="om_detail_hr">
+<s:form action="omd_insert_cmt" onsubmit="return om_cmt_check();" method="post">
+<input type="hidden" name="currentPage" value='<s:property value="currentPage"/>'>
+<input type="hidden" name="o_no" value='<s:property value="o_no"/>'>
+<div style="padding-right:6px;padding-bottom:5px;"><textarea id="cmt_content" name="c_content" class="om_detail_comments"></textarea></div>
+<div align="right"><input type="submit" value="내용입력"></div>
+</s:form>
+
+<s:iterator value="cmtData" status="cmtStat">
+<hr class="om_detail_hr">
+<div style="padding-left:13px;font-weight: bold;font-family: sans-serif;font-size: x-small;"><s:property value="c_name"/></div>
+<div style="padding-top:5px; padding-left:13px;font-family: monospace;font-size: x-small;"><s:property value="c_content"/></div>
+</s:iterator>
 
 <!-- 참여신청/취소안내 -->
 <div style="font-weight: bold;font-size:small;padding-top: 50px">참여신청/취소안내</div>

@@ -35,16 +35,16 @@
 	<td width="33%" align="center">
 		<s:a cssClass="contentSubject" href="%{openmeetDetailURL}">
 			<img class="openmeet_rep" src='<s:property value="o_rep_img"/>'/>
-			<br><s:property value="o_subject"/>
+			<br><font style="font-family: sans-serif;"><s:property value="o_subject"/></font>
 		</s:a>
 	</td>
-	
-	<s:if test="list.size() <= 0">
-		<tr>
-		<td width=100%><h3>등록된 게시물이 없습니다.</h3></td>
-		</tr>
-	</s:if>
 </s:iterator>
+	
+<s:if test="list.size() <= 0">
+	<tr>
+	<td width=100%  align="center"><h3>등록된 게시물이 없습니다.</h3></td>
+	</tr>
+</s:if>
 
 <!-- 페이징 -->
 <tr>

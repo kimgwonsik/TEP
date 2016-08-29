@@ -39,7 +39,7 @@ public class OpenmeetAction{
 			
 			list = list.subList(page.getStartCount(), lastCount);
 		} catch (Exception e) {
-			System.out.println("listView queryForList Ex : "+e.getMessage());
+			System.out.println("openmeet Ex : "+e.getMessage());
 		}
 		return "success";
 	}

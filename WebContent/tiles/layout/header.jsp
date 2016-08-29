@@ -1,29 +1,43 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta content="text/html; charset=UTF-8">
-<title></title>
+<link rel="stylesheet" href="/TEP/static/css/header.css" type="text/css">
 </head>
 <body>
-
-<div id="topBar" style="background: black;color: white" align="right">
-<a href="loginForm.action" style="color: white;text-decoration: none;">로그인</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-<a href="" style="color: white;text-decoration: none;">마이페이지</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-<a href="" style="color: white;text-decoration: none;">사이트맵</a>&nbsp;&nbsp;
-</div>
-
 <br>
-
-<div id="searchBar" align="center">
-<span><a href="" style="text-decoration: none;"><img width="90px" src="/TEP/main/image/tep_logo_red.png"/></a></span>
-<span><input type="text" name="totalSearch" size="50"><input type="button" name="totalSearhBtn" value="검색"></span>
-<span style="border-width:1px; border-style: solid; border-color:red; width:60%; margin:0 auto; padding:0px; text-align:center">
-<a href="" style="text-decoration: none;color: black;"><b>호랑이선생</b>&nbsp;<font style="color: red">▲</font><font style="color: red;size: 9px;">57</font></a>
+<div class="loginBar">
+<span style="float:left;padding-left:10px;">
+<a href="openmeet.action">모임</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="lendplace.action">장소</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="board.action">게시판</a>
+</span>
+<span>
+	<a href="loginForm.action">로그인</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+	<a href="#">마이페이지</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+	<a href="#">사이트맵</a>&nbsp;&nbsp;
 </span>
 </div>
-<hr color="red">
 
+	<table class="searchBar" align=center>
+		<tr>
+			<td class="logo">
+				<a href="main.action">
+					<img border="0" width="90px" src="/TEP/main/image/tep_logo_red.png" />
+				</a>
+			</td>
+			<td style="padding-right: 10px; padding-left: 20px;">
+				<input type="text" name="totalSearchKeyword" size="50">
+			</td>
+			<td>
+				<input type="button" name="totalSearchBtn" value="검색">
+			</td>
+		</tr>
+	</table>
+
+	<hr color=red class="header">
+<br>
 </body>
 </html>
