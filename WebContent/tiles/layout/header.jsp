@@ -9,7 +9,7 @@
 <body>
 
 <div id="topBar" style="background: black;color: white" align="right">
-<a href="" style="color: white;text-decoration: none;">로그인</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="loginForm.action" style="color: white;text-decoration: none;">로그인</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 <a href="" style="color: white;text-decoration: none;">마이페이지</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 <a href="" style="color: white;text-decoration: none;">사이트맵</a>&nbsp;&nbsp;
 </div>
