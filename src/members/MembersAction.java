@@ -1,7 +1,6 @@
 package members;
 import members.MembersModel;
 import com.ibatis.sqlmap.client.SqlMapClient;
-import java.util.Date;
 import java.util.*;
 import config.SqlMapper;
 import java.sql.*;

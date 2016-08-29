@@ -57,5 +57,17 @@
 			<result name="success" type="tiles">deleteResult</result>
 		</action>
 		<!-- 탈퇴완료 -->
+		
+		<!-- 회원정보수정 -->
+		<action name="modifyPwChk" class="mypage.MypageModifyAction" method="modifyPwChk">
+			<result name="success" type="tiles">modifyPwChk</result>
+		</action>
+		
+		<action name="modifyMemberForm" class="mypage.MypageModifyAction" method="form">
+			<result name="success" type="tiles">modifyMember</result>
+		</action>
+		<action name="modifyMember" class="mypage.MypageModifyAction">
+			<result name="success" type="tiles">modifyResult</result>
+		</action>
 	</package>
 </struts>
