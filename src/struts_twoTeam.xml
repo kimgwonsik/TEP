@@ -15,7 +15,7 @@
 		
 		<!-- 아이디 중복 확인 -->
 		<action name="membersIdChk" class="login.EmailCheckAction">
-			<result name="success" type="tiles">membersIdChk</result>
+			<result name="success">/members/membersIdChk.jsp</result>
 		</action>
 		
 		<!-- 로그인 -->
