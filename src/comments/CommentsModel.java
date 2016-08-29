@@ -11,18 +11,24 @@ public class CommentsModel {
 	// 작성자
 	private String c_name;
 
-	// 비밀번호
-	private String c_password;
-
 	// 답변내용
 	private String c_content;
 
 	// 답변날짜
 	private Date c_date;
 
-	// 부모 게시글번호
-	private Integer c_pno;
-
+	// 댓글의 댓글시 no
+	private Integer c_my_no;
+	
+	// 모임개설 FK
+	private Integer o_no;
+	
+	// 게시판 테이블 FK
+	private Integer b_no;
+	
+	// 회원고유번호 FK
+	private Integer m_no;
+	
 	public Integer getC_no() {
 		return c_no;
 	}
@@ -37,14 +43,6 @@ public class CommentsModel {
 
 	public void setC_name(String c_name) {
 		this.c_name = c_name;
-	}
-
-	public String getC_password() {
-		return c_password;
-	}
-
-	public void setC_password(String c_password) {
-		this.c_password = c_password;
 	}
 
 	public String getC_content() {
@@ -63,12 +61,36 @@ public class CommentsModel {
 		this.c_date = c_date;
 	}
 
-	public Integer getC_pno() {
-		return c_pno;
+	public Integer getC_my_no() {
+		return c_my_no;
 	}
 
-	public void setC_pno(Integer c_pno) {
-		this.c_pno = c_pno;
+	public void setC_my_no(Integer c_my_no) {
+		this.c_my_no = c_my_no;
+	}
+
+	public Integer getO_no() {
+		return o_no;
+	}
+
+	public void setO_no(Integer o_no) {
+		this.o_no = o_no;
+	}
+
+	public Integer getB_no() {
+		return b_no;
+	}
+
+	public void setB_no(Integer b_no) {
+		this.b_no = b_no;
+	}
+
+	public Integer getM_no() {
+		return m_no;
+	}
+
+	public void setM_no(Integer m_no) {
+		this.m_no = m_no;
 	}
 
 }

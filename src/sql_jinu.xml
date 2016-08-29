@@ -2,30 +2,10 @@
 <!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
 <sqlMap>
 	<typeAlias alias="openmeet" type="openmeet.OpenmeetModel" />
+	<typeAlias alias="comments" type="comments.CommentsModel" />
+	<typeAlias alias="board" type="board.BoardModel" />
 
-	<resultMap class="openmeet" id="openmeet_rm">
-		<result property="o_no" column="o_no" />
-		<result property="o_name" column="o_name" />
-		<result property="o_email" column="o_email" />
-		<result property="o_company" column="o_company" />
-		<result property="o_category" column="o_category" />
-		<result property="o_subject" column="o_subject" />
-		<result property="o_content" column="o_content" />
-		<result property="o_rep_img" column="o_rep_img" />
-		<result property="o_content_img" column="o_content_img" />
-		<result property="o_m_sdate" column="o_m_sdate" />
-		<result property="o_m_edate" column="o_m_edate" />
-		<result property="o_r_sdate" column="o_r_sdate" />
-		<result property="o_r_edate" column="o_r_edate" />
-		<result property="o_title" column="o_title" />
-		<result property="o_addr" column="o_addr" />
-		<result property="o_total_pnum" column="o_total_pnum" />
-		<result property="o_current_pnum" column="o_current_pnum" />
-		<result property="o_payment" column="o_payment" />
-		<result property="o_date" column="o_date" />
-		<result property="o_readcount" column="o_readcount" />
-	</resultMap>
-
+<!-- openmeet query -->
 	<sql id="om_select_all">
 		select * from openmeet
 	</sql>
@@ -33,14 +13,119 @@
 	<sql id="om_where_o_no">
 		where o_no=#o_no#
 	</sql>
-
-	<select id="openmeet_select_all" resultMap="openmeet_rm">
-		<include refid="om_select_all" />
+	
+	<sql id="om_orderby">
 		order by o_no desc
+	</sql>
+
+	<select id="openmeet_select_all" resultClass="openmeet">
+		<include refid="om_select_all" />
+		<include refid="om_orderby"/>
 	</select>
 	
-	<select id="openmeet_select_one" resultMap="openmeet_rm" parameterClass="int">
+	<select id="openmeet_select_one" resultClass="openmeet" parameterClass="int">
 		<include refid="om_select_all"/>
 		<include refid="om_where_o_no"/>
+	</select>
+	
+<!-- comments query -->
+	<sql id="cmt_select_all">
+		select * from comments
+	</sql>
+
+	<sql id="cmt_where_c_no">
+		where c_no=#c_no#
+	</sql>
+	<sql id="cmt_where_c_my_no">
+		where c_my_no=#c_my_no#
+	</sql>
+	<sql id="cmt_where_o_no">
+		where o_no=#o_no#
+	</sql>
+	<sql id="cmt_where_b_no">
+		where b_no=#b_no#
+	</sql>
+	<sql id="cmt_where_m_no">
+		where bd_no=#m_no#
+	</sql>
+	
+	<sql id="cmt_orderby">
+		order by c_no desc
+	</sql>
+
+	<select id="comments_select_all_c_my_no" resultClass="comments"  parameterClass="int">
+		<include refid="cmt_select_all" />
+		<include refid="cmt_where_c_my_no"/>
+		<include refid="cmt_orderby"/>
+	</select>
+	
+	<select id="comments_select_all_o_no" resultClass="comments"  parameterClass="int">
+		<include refid="cmt_select_all" />
+		<include refid="cmt_where_o_no"/>
+		<include refid="cmt_orderby"/>
+	</select>
+	
+	<select id="comments_select_all_b_no" resultClass="comments"  parameterClass="int">
+		<include refid="cmt_select_all" />
+		<include refid="cmt_where_b_no"/>
+		<include refid="cmt_orderby"/>
+	</select>
+	
+	<select id="comments_select_all_m_no" resultClass="comments"  parameterClass="int">
+		<include refid="cmt_select_all" />
+		<include refid="cmt_where_m_no"/>
+		<include refid="cmt_orderby"/>
+	</select>
+	
+	<insert id="comments_insert" parameterClass="comments">
+		insert into comments values(comments_seq.nextval,#c_name#,#c_content#,#c_date#,#c_my_no#,#o_no#,#b_no#,#m_no#)
+	</insert>
+
+<!-- board query -->
+	<sql id="bd_select_all">
+		select * from board
+	</sql>
+	
+	<sql id="bd_where_b_no">
+		where b_no=#b_no#
+	</sql>
+	<sql id="bd_where_b_kind">
+		where b_kind=#b_kind#
+	</sql>
+	<sql id="bd_where_search_b_subject">
+		where b_subject like '%'||#searchWord#||'%'
+	</sql>
+	<sql id="bd_where_search_b_subject_content">
+		where b_subject like '%'||#searchWord#||'%' or b_content like '%'||#searchWord#||'%'
+	</sql>
+	<sql id="bd_where_search_b_name">
+		where b_name like '%'||#searchWord#||'%'
+	</sql>
+	
+	<sql id="bd_orderby">
+		order by b_no desc
+	</sql>
+	
+	<select id="board_select_all" resultClass="board">
+		<include refid="bd_select_all"/>
+		<include refid="bd_orderby"/>
+	</select>
+	
+	<select id="board_search_b_subject_select_all" resultClass="board" parameterClass="String">
+		<include refid="bd_select_all"/>
+		<include refid="bd_where_search_b_subject"/>
+		<include refid="bd_orderby"/>
+	</select>
+	
+	<select id="board_search_b_subject_content_select_all" resultClass="board"  parameterClass="String">
+		<include refid="bd_select_all"/>
+		<include refid="bd_where_search_b_subject_content"/>
+		<include refid="bd_orderby"/>
+	</select>
+	
+	<select id="board_search_b_name_select_all" resultClass="board"  parameterClass="String">
+		<include refid="bd_select_all"/>
+		<include refid="bd_where_search_b_name"/>
+		<include refid="bd_orderby"/>
 	</select>
 </sqlMap>

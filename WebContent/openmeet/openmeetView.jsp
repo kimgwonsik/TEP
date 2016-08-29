@@ -17,11 +17,6 @@
 <tr>
 <td colspan="3"><font style="font-weight: bold;font-size: x-large;">모임</font></td>
 </tr>
-<tr>
-<td width="33%" align="center"><img class="openmeet_rep" src="/TEP/openmeet/image/ex1.jpg"/><br>글 제목 글 제목 글 제목</td>
-<td width="33%" align="center"><img class="openmeet_rep" src="/TEP/openmeet/image/ex2.jpg"/><br>글 제목 글 제목 글 제목</td>
-<td width="33%" align="center"><img class="openmeet_rep" src="/TEP/openmeet/image/ex3.jpg"/><br>글 제목 글 제목 글 제목</td>
-</tr>
 
 <s:iterator value="list" status="stat">
 	<s:url id="openmeetDetailURL" action="openmeetDetail">
@@ -40,16 +35,16 @@
 	<td width="33%" align="center">
 		<s:a cssClass="contentSubject" href="%{openmeetDetailURL}">
 			<img class="openmeet_rep" src='<s:property value="o_rep_img"/>'/>
-			<br><s:property value="o_subject"/>
+			<br><font style="font-family: sans-serif;"><s:property value="o_subject"/></font>
 		</s:a>
 	</td>
-	
-	<s:if test="list.size() <= 0">
-		<tr>
-		<td width=100%><h3>등록된 게시물이 없습니다.</h3></td>
-		</tr>
-	</s:if>
 </s:iterator>
+	
+<s:if test="list.size() <= 0">
+	<tr>
+	<td width=100%  align="center"><h3>등록된 게시물이 없습니다.</h3></td>
+	</tr>
+</s:if>
 
 <!-- 페이징 -->
 <tr>
