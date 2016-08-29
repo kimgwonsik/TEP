@@ -7,12 +7,14 @@ import members.MembersModel;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginAction extends ActionSupport implements SessionAware{
-	
+
+	private static final long serialVersionUID = 1L;
+
 	public static SqlMapClient sqlMapper;
 	
 	private String m_email;
 	private String m_password;
-	private Map session;
+	private Map<String, String> session;
 	private MembersModel paramClass;
 	private MembersModel resultClass;
 
@@ -52,6 +54,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		return "success";
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public void setSession(Map session) {
 		// TODO Auto-generated method stub

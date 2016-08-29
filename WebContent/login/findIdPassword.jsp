@@ -4,33 +4,33 @@
 <html>
 <head>
 <meta content="text/html; charset=UTF-8">
-<script language="javascript">
+<script type="text/javascript">
 function validation(){
-	if(document.findId.name.value==""){
+	if(document.findId.m_name.value==""){
 		alert("이름을 입력해주세요.");
-		document.findId.name.focus();
+		document.findId.m_name.focus();
 		return false;
 	}
-	if(document.findId.mobile.value==""){
+	if(document.findId.m_phone.value==""){
 		alert("핸드폰번호를 입력해주세요");
-		document.findId.mobile.focus();
+		document.findId.m_phone.focus();
 		return false;
 	}
 }
 function validation2(){
-	if(document.findPassword.id.value==""){
+	if(document.findPassword.m_email.value==""){
 		alert("아이디를 입력해주세요.");
-		document.findPassword.id.focus();
+		document.findPassword.m_email.focus();
 		return false;
 	}
-	if(document.findPassword.name.value==""){
+	if(document.findPassword.m_name.value==""){
 		alert("이름을 입력해주세요.");
-		document.findPassword.name.focus();
+		document.findPassword.m_name.focus();
 		return false;
 	}
-	if(document.findPassword.mobile.value==""){
+	if(document.findPassword.m_phone.value==""){
 		alert("핸드폰번호를 입력해주세요");
-		document.findPassword.mobile.focus();
+		document.findPassword.m_phone.focus();
 		return false;
 	}
 }
