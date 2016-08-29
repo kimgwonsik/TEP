@@ -8,9 +8,9 @@
 <title>회원 탈퇴</title>
 <script language="javascript">
 function check(){
-	if(document.deleteform.password.value==""){
+	if(document.modifyPwChk.password.value==""){
 		alert("비밀번호를 입력하세요");
-		document.deleteform.m_password.focus();
+		document.modifyPwChk.m_password.focus();
 		return false;
 	}
 	return true;
@@ -19,7 +19,7 @@ function check(){
 </head>
 <body>
 
-<form name="deleteform" action="deleteMember.action" method="post" onsubmit="return check();">
+<form name="modifyPwChk" action="modifyMemberForm.action" method="post" onsubmit="return check();">
 
 <br>
 <br>
@@ -28,7 +28,7 @@ function check(){
 
 	<tr height="25">
 			<td bgcolor="#ff8c00" align="left" colspan="1" width="10"></td>
-			<td align="left" colspan="3"><strong>&nbsp;&nbsp;회원 탈퇴</strong></td>
+			<td align="left" colspan="3"><strong>&nbsp;&nbsp;회원정보 수정</strong></td>
 	</tr>
 
 </table>
@@ -66,7 +66,7 @@ function check(){
 
 	<tr>
 		<td align="center">
-			<input type="submit" value="탈퇴" class="inputb"/>
+			<input type="submit" value="계속" class="inputb"/>
 			<input type="button" value="취소" onclick="history.go(-1)" class="inputb"/>
 		</td>
 	</tr>

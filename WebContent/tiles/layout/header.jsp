@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="/TEP/static/css/header.css" type="text/css">
 </head>
 <body>
-
+<br>
 <div class="loginBar">
 <span style="float:left;padding-left:10px;">
 <a href="openmeet.action">모임</a>&nbsp;&nbsp;|&nbsp;&nbsp;
@@ -15,7 +15,7 @@
 <a href="board.action">게시판</a>
 </span>
 <span>
-	<a href="#">로그인</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+	<a href="loginForm.action">로그인</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 	<a href="#">마이페이지</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 	<a href="#">사이트맵</a>&nbsp;&nbsp;
 </span>

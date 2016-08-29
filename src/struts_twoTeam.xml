@@ -3,17 +3,71 @@
     
 <struts>
 	<package name="struts_twoTeam_package" namespace="/" extends="struts-default, tiles-default">
-		
-		<action name="insertMembers" class="members.MembersAction" method="home">
+		<!-- 회원가입 -->
+		<action name="MembersForm" class="members.MembersAction" method="MemberForm">
 			<result name="success" type="tiles">MembersForm</result>
 		</action>
 		
-		
-		<action name="successMembers" class="members.MembersAction" method="Insert">
+		<action name="InsertMembers" class="members.MembersAction" method="Insert">
 			<result name="success" type="tiles">insertMembers</result>
 		</action>
+		<!-- 회원가입 종료 -->
 		
+		<!-- 아이디 중복 확인 -->
+		<action name="membersIdChk" class="login.EmailCheckAction">
+			<result name="success" type="tiles">membersIdChk</result>
+		</action>
 		
+		<!-- 로그인 -->
+		<action name="loginForm" class="login.LoginAction" method="index">
+			<result name="success" type="tiles">loginForm</result>
+		</action>
 
+		<action name="login" class="login.LoginAction" method="login">
+			<result name="success" type="tiles">main</result>
+			<result name="error">/login/loginError.jsp</result>
+		</action>
+		
+		<action name="logout" class="login.LoginAction" method="logout">
+			<result type="redirect-action">
+				<param name="actionName">main</param>
+			</result>
+		</action>
+		<!-- 로그인 완료 -->
+		
+		<!-- 아이디 , 비밀번호 찾기 -->
+		<action name="findIdPassword" class="login.FindIdPasswordAction" method="form">
+			<result name="success" type="tiles">findForm</result>
+		</action>
+		
+		<action name="findId" class="login.FindIdPasswordAction">
+			<result name="success" type="tiles">findId</result>
+		</action>
+		
+		<action name="findPassword" class="login.FindIdPasswordAction" method="findPassword">
+			<result name="success" type="tiles">findPassword</result>
+		</action>
+		<!-- 찾기 완료 -->
+		
+		<!-- 회원탈퇴 -->
+		<action name="deleteMemberForm" class="mypage.MypageDeleteAction" method="deleteForm">
+			<result name="success" type="tiles">deleteMember</result>
+		</action>
+		<action name="deleteMember" class="mypage.MypageDeleteAction">
+			<result name="success" type="tiles">deleteResult</result>
+		</action>
+		<!-- 탈퇴완료 -->
+		
+		<!-- 회원정보수정 -->
+		<action name="modifyPwChk" class="mypage.MypageModifyAction" method="modifyPwChk">
+			<result name="success" type="tiles">modifyPwChk</result>
+		</action>
+		
+		<action name="modifyMemberForm" class="mypage.MypageModifyAction" method="form">
+			<result name="success" type="tiles">modifyMember</result>
+		</action>
+		<action name="modifyMember" class="mypage.MypageModifyAction">
+			<result name="success" type="tiles">modifyResult</result>
+		</action>
 	</package>
 </struts>

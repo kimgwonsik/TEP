@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
-<sqlMap namespace="two">
+<sqlMap>
 	
 	<typeAlias alias="MembersModel" type="members.MembersModel"/>
 	<resultMap class="MembersModel" id="membersRes">
+		<result property="m_no" column="m_no"/>
 		<result property="m_email" column="m_email"/>
 		<result property="m_name" column="m_name"/>
 		<result property="m_nickname" column="m_nickname"/>
 		<result property="m_password" column="m_password"/>
+		<result property="m_company" column="m_company"/>
 		<result property="m_phone" column="m_phone"/>
 		<result property="m_fav_area" column="m_fav_area"/>
 		<result property="m_fav_field" column="m_fav_field"/>
 		<result property="m_date" column="m_date"/>
 	</resultMap>
 	
+	<!-- 공통 -->
 	<sql id="ad-select-all">
 		select * from members
 	</sql>
@@ -22,17 +25,50 @@
 		where m_email=#m_email#
 	</sql>
 	
-	<select id="two.login" parameterClass="MembersModel" resultMap="membersRes">
-		SELECT m_email, m_password FROM MEMBERS
-		<include refid="ad-where-no"/>
-		AND m_password = #m_password#
+	<!-- 로그인 -->
+	<select id="two.loginCheck" resultClass="MembersModel" parameterClass="MembersModel">
+		SELECT * FROM MEMBERS
+		WHERE m_email = #m_email# and m_password=#m_password#
 	</select>
 	
+	<!-- 아이디, 비밀번호 찾기 -->
+	<select id="two.findId" resultMap="membersRes">
+		SELECT * FROM MEMBERS WHERE m_name=#m_name# and m_phone=#m_phone#
+	</select>
+	<select id="two.findPassword" parameterClass="MembersModel" resultClass="MembersModel">
+		SELECT * FROM MEMBERS WHERE m_email=#m_email# and m_name=#m_name# and m_phone=#m_phone#
+	</select>
+	
+	<!-- 아이디 중복 확인 -->
+	<select id="two.idCheck" resultClass="MembersModel">
+		SELECT * FROM MEMBERS WHERE m_email=#m_email#
+	</select>
+	
+	<!-- 회원정보 검색 -->
+	<select id="two.selectOneMember" resultMap="membersRes">
+		SELECT * FROM MEMBERS WHERE m_email=#m_email#
+	</select>
+	
+	<!-- 회원가입 -->
 	<insert id="two.insertMember" parameterClass="MembersModel">
-		INSERT INTO MEMBERS(m_email,m_name,m_nickname,m_password,m_phone,m_fav_area,m_fav_field,m_date)
-		VALUES(#m_email#,#m_name#,#m_nickname#,#m_password#,#m_phone#,#m_fav_area#,#m_fav_field#,#m_date#)
+		INSERT INTO MEMBERS(m_no,m_email,m_name,m_nickname,m_password,m_phone,m_company,m_fav_area,m_fav_field,m_date)
+		VALUES(members_m_no_seq.nextval,#m_email#,#m_name#,#m_nickname#,#m_password#,#m_phone#,#m_company#,#m_fav_area#,#m_fav_field#,#m_date#)
 	</insert>
 	
+	<!-- 회원정보 수정 -->
+	<update id="two.modifyMember" parameterClass="MembersModel">
+		UPDATE MEMBERS SET m_name=#m_name#,m_nickname=#m_nickname#,m_password=#m_password#,m_phone=#m_phone#,m_company=#m_company#,m_fav_area=#m_fav_area#,m_fav_field=#m_fav_field#
+		WHERE m_email=#m_email#
+	</update>
 	
+	<!-- 비밀번호 초기화 -->
+	<update id="two.setPassword1111" parameterClass="String">
+		update members set m_password = '1111' where m_email=#m_email#
+	</update>
+	
+	<!-- 회원탈퇴 -->
+	<delete id="two.deleteMember" parameterClass="MembersModel">
+		DELETE FROM MEMBERS WHERE m_email=#m_email#
+	</delete>
 	
 </sqlMap>
