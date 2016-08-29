@@ -46,7 +46,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	}
 	
 	public String logout() throws Exception{
-		if(session.get("m_email") != null){
+		if(session.get("session_m_email") != null){
 			session.remove("session_m_email");
 			session.remove("session_m_name");
 		}

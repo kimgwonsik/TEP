@@ -29,9 +29,7 @@
 		</action>
 		
 		<action name="logout" class="login.LoginAction" method="logout">
-			<result type="redirect-action">
-				<param name="actionName">main</param>
-			</result>
+			<result name="success" type="tiles">main</result>
 		</action>
 		<!-- 로그인 완료 -->
 		
