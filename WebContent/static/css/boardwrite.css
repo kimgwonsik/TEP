@@ -1,0 +1,17 @@
+table.boardwrite {
+	width: 900px;
+}
+table.boardwrite select{
+	width: 190px;
+}
+table.boardwrite td{
+	border :1px solid red;
+	width: 100px;
+	padding:5px;
+}
+td.bw_title{
+	font-size: small;
+	font-weight: bold;
+	font-family: sans-serif;
+	text-align: center;
+}
