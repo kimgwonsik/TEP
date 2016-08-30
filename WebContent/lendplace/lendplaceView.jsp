@@ -11,17 +11,13 @@
 <table border="0" width=100% cellpadding=15>
 <tr>
 
-<!-- 모임 리스트 -->
+<!-- 장소 리스트 -->
 <td width="80%">
 <table border="0" width=100% cellpadding=5>
 <tr>
 <td colspan="3"><font style="font-weight: bold;font-size: x-large;">장소 대관</font></td>
 </tr>
-<tr>
-<td width="33%" align="center"><img class="lendplace_rep" src="/TEP/lendplace/image/ex1.jpg" width="300" height="300"/><br>제목을 입력하세요.</td>
-<td width="33%" align="center"><img class="lendplace_rep" src="/TEP/lendplace/image/ex2.jpg" width="300" height="300"/><br>제목을 입력하세요.</td>
-<td width="33%" align="center"><img class="lendplace_rep" src="/TEP/lendplace/image/ex3.jpg" width="300" height="300"/><br>제목을 입력하세요.</td>
-</tr>
+
 <s:iterator value="list" status="stat">
 	<s:url id="lendplaceDetailURL" action="lendplaceDetail">
 		<s:param name="l_no">
@@ -37,17 +33,18 @@
 	
 	<td width="33%" align="center">
 		<s:a cssClass="contentSubject" href="%{lendplaceDetailURL}">
-			<img class="lendplace_rep" src='<s:property value="l_rep_img"/>' width="300" height="300"/>
+			<img class="openmeet_rep" src='<s:property value="l_rep_img"/>'/>
 			<br><s:property value="l_subject"/>
 		</s:a>
 	</td>
-	
+</s:iterator>
+
 	<s:if test="list.size() <= 0">
 		<tr>
 		<td width=100%><h3>등록된 게시물이 없습니다.</h3></td>
 		</tr>
 	</s:if>
-</s:iterator>
+
 
 <!-- 페이징 -->
 <tr>
