@@ -48,10 +48,6 @@ public class LendplaceAction{
 		return list;
 	}
 
-	public void setList(List<LendplaceModel> list) {
-		this.list = list;
-	}
-
 	public int getCurrentPage() {
 		return currentPage;
 	}
