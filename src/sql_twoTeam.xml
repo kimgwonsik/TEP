@@ -52,7 +52,7 @@
 	<!-- 회원가입 -->
 	<insert id="insertMember" parameterClass="MembersModel">
 		INSERT INTO MEMBERS(m_no,m_email,m_name,m_nickname,m_password,m_phone,m_company,m_fav_area,m_fav_field,m_date)
-		VALUES(members_m_no_seq.nextval,#m_email#,#m_name#,#m_nickname#,#m_password#,#m_phone#,#m_company#,#m_fav_area#,#m_fav_field#,#m_date#)
+		VALUES(members_seq.nextval,#m_email#,#m_name#,#m_nickname#,#m_password#,#m_phone#,#m_company#,#m_fav_area#,#m_fav_field#,#m_date#)
 	</insert>
 	
 	<!-- 회원정보 수정 -->
