@@ -26,7 +26,7 @@ public class OpenmeetAction{
 	@SuppressWarnings("unchecked")
 	public String execute(){
 		try {
-			list = sqlMapper.queryForList("openmeet_select_all");
+			list = sqlMapper.queryForList("jin.openmeet_select_all");
 			totalCount = list.size();
 			page = new PagingCalculator("openmeet", currentPage, totalCount, blockCount, blockPage);
 			pagingHtml = page.getPagingHtml().toString();

@@ -31,12 +31,12 @@ public class OpenmeetDetailAction implements SessionAware{
 	@SuppressWarnings("unchecked")
 	public String execute(){
 		try {
-			detailData = (OpenmeetModel) sqlMapper.queryForObject("openmeet_select_one", getO_no());
+			detailData = (OpenmeetModel) sqlMapper.queryForObject("jin.openmeet_select_one", getO_no());
 			detailData.setO_meetdate(TepUtils.dateFormat(detailData.getO_m_sdate(), detailData.getO_m_edate()));
 			detailData.setO_registerdate(TepUtils.dateFormat(detailData.getO_r_sdate(), detailData.getO_r_edate()));
 			detailData.setO_permit_pnum(detailData.getO_total_pnum()-detailData.getO_current_pnum());
 			
-			cmtData = sqlMapper.queryForList("comments_select_all_o_no", getO_no());
+			cmtData = sqlMapper.queryForList("jin.comments_select_all_o_no", getO_no());
 		} catch (SQLException e) {
 			System.out.println("openmeet detail EX : "+e.getMessage());
 		}
@@ -54,7 +54,7 @@ public class OpenmeetDetailAction implements SessionAware{
 			data.setC_content(getC_content());
 			data.setC_date(today.getTime());
 			data.setO_no(getO_no());
-			sqlMapper.insert("comments_insert", data);
+			sqlMapper.insert("jin.comments_insert", data);
 		} catch (Exception e) {
 			System.out.println("insertComments EX : "+e.getMessage());
 		}

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
-<sqlMap>
+<sqlMap namespace="jin">
 	<typeAlias alias="openmeet" type="openmeet.OpenmeetModel" />
 	<typeAlias alias="comments" type="comments.CommentsModel" />
+	<typeAlias alias="members" type="members.MembersModel" />
 	<typeAlias alias="board" type="board.BoardModel" />
 
 <!-- openmeet query -->
@@ -111,6 +112,16 @@
 		<include refid="bd_orderby"/>
 	</select>
 	
+	<select id="board_select_one" resultClass="board" parameterClass="int">
+		<include refid="bd_select_all"/>
+		<include refid="bd_where_b_no"/>
+	</select>
+	
+	<update id="board_update_readcount" parameterClass="int">
+		update board set b_readcount=b_readcount+1 
+		<include refid="bd_where_b_no"/>
+	</update>
+	
 	<select id="board_search_b_subject_select_all" resultClass="board" parameterClass="String">
 		<include refid="bd_select_all"/>
 		<include refid="bd_where_search_b_subject"/>
@@ -128,4 +139,32 @@
 		<include refid="bd_where_search_b_name"/>
 		<include refid="bd_orderby"/>
 	</select>
+	
+	<insert id="board_insert" parameterClass="board">
+		insert into board values(board_seq.nextval,#b_kind#,#b_name#,#b_email#,#b_company#,#b_category#,#b_subject#,#b_content#,#b_fav_area#,#b_fav_field#,#b_payment#,#b_date#,#b_readcount#)
+	</insert>
+	
+<!-- member query -->
+	<sql id="mem_select_all">
+		select * from members
+	</sql>
+	
+	<sql id="mem_where_m_no">
+		where m_no=#m_no#
+	</sql>
+	
+	<sql id="mem_where_m_email">
+		where m_email=#m_email#
+	</sql>
+	
+	<select id="members_select_one_where_m_no" parameterClass="int" resultClass="members">
+		<include refid="mem_select_all"/>
+		<include refid="mem_where_m_no"/>
+	</select>
+
+	<select id="members_select_one_where_m_email" parameterClass="String" resultClass="members">
+		<include refid="mem_select_all"/>
+		<include refid="mem_where_m_email"/>
+	</select>
+	
 </sqlMap>

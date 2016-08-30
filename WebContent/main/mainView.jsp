@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta content="text/html; charset=UTF-8">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="/TEP/static/js/jquery-3.1.0.js"></script>
 <script src="/TEP/static/js/jquery.bxslider/jquery.bxslider.min.js"></script>
 <link href="/TEP/static/js/jquery.bxslider/jquery.bxslider.css" rel="stylesheet" />
 </head>

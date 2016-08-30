@@ -6,16 +6,16 @@
 <meta content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/TEP/static/css/boardwrite.css" type="text/css">
 <script src="/TEP/static/js/ckeditor/ckeditor.js"></script>
+<script src="/TEP/static/js/boardwrite.js"></script>
 <script>
 	window.onload = function() {
 		CKEDITOR.replace('b_content');
 	}
 </script>
-<script src="/TEP/static/js/boardwrite.js"></script>
 </head>
 <body>
 
-<form action="boardWriteInsert.action" method="post" onsubmit="return valuecheck();">
+<form id="writeForm" action="boardWriteInsert.action" method="post" onsubmit="return valuecheck();">
 <table class="boardwrite" align=center border="0">
 
 <tr>
@@ -56,7 +56,13 @@
 <td>
 <select name="b_fav_field">
 	<option value="프로그래밍">프로그래밍</option>
+	<option value="네일아트">네일아트</option>
+	<option value="공예">공예</option>
+	<option value="작곡/작사">작곡/작사</option>
+	<option value="번역/통역">번역/통역</option>
 	<option value="디자인">디자인</option>
+	<option value="분석">분석</option>
+	<option value="운동">운동</option>
 	<option value="기타">기타</option>
 </select>
 </td>

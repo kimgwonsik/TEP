@@ -1,6 +1,6 @@
 function valuecheck(){
 	var subject = document.getElementById("b_subject");
-	var content = document.getElementById("b_content");
+	var content = CKEDITOR.instances.b_content;
 	
 	if(!subject.value){
 		alert("제목이 입력되지 않았습니다.");
@@ -8,7 +8,7 @@ function valuecheck(){
 		return false;
 	}
 	
-	if(!content.value){
+	if(!content.getData()){
 		alert("내용이 입력되지 않았습니다.");
 		content.focus();
 		return false;

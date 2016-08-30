@@ -66,9 +66,6 @@ font.board_subject_kind{
 		<s:param name="b_no">
 			<s:property value="b_no"/>
 		</s:param>
-		<s:param name="currentPage">
-			<s:property value="currentPage"/>
-		</s:param>
 	</s:url>
 	<tr class="board_content_tr">
 	<td><s:property value="b_no"/></td>
@@ -96,9 +93,11 @@ font.board_subject_kind{
 </s:if>
 
 <!-- 글쓰기 -->
+<s:if test="#session.session_m_email != null">
 <tr>
 <td colspan="5" align="right"><input type="button" value="글쓰기" onclick="location.href='boardWrite.action'"></td>
 </tr>
+</s:if>
 
 
 <!-- 페이징 -->

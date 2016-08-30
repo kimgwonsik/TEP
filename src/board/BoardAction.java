@@ -37,7 +37,7 @@ public class BoardAction {
 			if(searchKey != -1 && searchWord.length() > 0){
 				search();
 			} else {
-				list = sqlMapper.queryForList("board_select_all");
+				list = sqlMapper.queryForList("jin.board_select_all");
 			}
 			
 			totalCount = list.size();
@@ -62,13 +62,13 @@ public class BoardAction {
 	private void search() throws SQLException {
 		switch (getSearchKey()) {
 		case SEARCHKEY_SUBEJCT:
-			list = sqlMapper.queryForList("board_search_b_subject_select_all", getSearchWord());
+			list = sqlMapper.queryForList("jin.board_search_b_subject_select_all", getSearchWord());
 			break;
 		case SEARCHKEY_SUBJECT_CONTENT:
-			list = sqlMapper.queryForList("board_search_b_subject_content_select_all", getSearchWord());
+			list = sqlMapper.queryForList("jin.board_search_b_subject_content_select_all", getSearchWord());
 			break;
 		case SEARCHKEY_NAME:
-			list = sqlMapper.queryForList("board_search_b_name_select_all", getSearchWord());
+			list = sqlMapper.queryForList("jin.board_search_b_name_select_all", getSearchWord());
 			break;
 		}
 	}
