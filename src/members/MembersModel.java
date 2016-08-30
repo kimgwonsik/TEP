@@ -5,6 +5,9 @@ import java.util.Date;
 //회원정보 테이블
 public class MembersModel {
 
+	//번호
+	private int m_no;
+	
 	// 이메일(아이디)
 	private String m_email;
 
@@ -20,6 +23,9 @@ public class MembersModel {
 	// 휴대폰번호
 	private String m_phone;
 
+	//소속
+	private String m_company;
+	
 	// 관심지역
 	private String m_fav_area;
 
@@ -28,6 +34,24 @@ public class MembersModel {
 
 	// 가입날짜
 	private Date m_date;
+
+	
+	
+	public int getM_no() {
+		return m_no;
+	}
+
+	public void setM_no(int m_no) {
+		this.m_no = m_no;
+	}
+
+	public String getM_company() {
+		return m_company;
+	}
+
+	public void setM_company(String m_company) {
+		this.m_company = m_company;
+	}
 
 	public String getM_email() {
 		return m_email;

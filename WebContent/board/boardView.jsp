@@ -74,11 +74,11 @@ font.board_subject_kind{
 	<td><s:property value="b_no"/></td>
 	<td class="board_subject">
 		<s:a cssClass="" href="%{boardDetailURL}">
-		<s:if test="b_kind == 0">
-		<font class="board_subject_kind">[스승찾기]</font>
+		<s:if test="b_kind == 1">
+		<font class="board_subject_kind">[스승찾아요]</font>
 		</s:if>
-		<s:elseif test="b_kind == 1">
-		<font class="board_subject_kind">[제자찾기]</font>
+		<s:elseif test="b_kind == 2">
+		<font class="board_subject_kind">[제자찾아요]</font>
 		</s:elseif>
 		<s:property value="b_subject"/>
 		</s:a>

@@ -31,8 +31,20 @@
 			<result name="success" type="tiles">boardDetail</result>
 		</action>
 		
-		<action name="boardWrite" class="board.BoardWriteAction">
+		<action name="boardWrite" class="board.BoardWriteAction" method="view">
 			<result name="success" type="tiles">boardWrite</result>
+		</action>
+		
+		<action name="boardWriteInsert" class="board.BoardWriteAction" method="insert">
+			<result name="success" type="tiles">board</result>
+		</action>
+		
+		<action name="boardWriteModify" class="board.BoardModifyAction">
+			<result name="success" type="tiles">boardModify</result>
+		</action>
+		
+		<action name="boardWriteDelete" class="board.BoardDeleteAction">
+			<result name="success" type="tiles">boardDelete</result>
 		</action>
 	</package>
 </struts>
