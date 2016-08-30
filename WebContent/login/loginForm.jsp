@@ -6,9 +6,26 @@
 <meta content="text/html; charset=UTF-8">
 <title>로그인</title>
 <script>
+function insert(){
+	  
+    var join=document.userinput
+    
+    if(join.m_email.value==""){
+    	alert("아이디를 입력해주세요");
+    	join.m_email.focus();
+    	return false;
+    }
+    else if(join.m_password.value==""){
+    	alert("비밀번호를 입력해주세요");
+    	join.m_password.focus();
+    	return false;
+    }
+    var f=document.userinput;
+	f.submit();
+}
 function openConfirmId(){
 	var url="findIdPassword.action";
-	open(url,"confirm","toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=300,height=430");
+	open(url,"confirm","toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=400,height=430");
 }
 </script>
 </head>
@@ -31,7 +48,7 @@ function openConfirmId(){
 	
 	<tr align="center" border="0" cellspacing="0" cellpadding="0">
 		<td>
-			<form action="login.action" method="post" onsubmit="return back();">
+			<form action="login.action" method="post" name="userinput">
 				<input type="text" name="m_email" maxlength="20" placeholder="아이디" /><br/>
 				<input type="password" name="m_password" maxlength="20" placeholder="비밀번호"/>
 		</td>
@@ -39,7 +56,7 @@ function openConfirmId(){
 	
 	<tr align="center" border="0" cellspacing="0" cellpadding="0">
 		<td>
-				<input type="submit" name="confirm_id" value="로그인" onclick="history.go(-1);" class="login1"/>
+				<input type="button" value="로그인" onclick="insert()">
 			</form>
 		</td>
 	</tr>

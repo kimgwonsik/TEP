@@ -1,17 +1,16 @@
 package mypage;
 import com.opensymphony.xwork2.ActionContext;
-import com.opensymphony.xwork2.ActionSupport;
+
 import config.SqlMapper;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
-import java.sql.SQLException;
 import java.util.Map;
 import members.MembersModel;
 
 public class MypageModifyAction {
 	private SqlMapClient sqlMapper;
-	private MembersModel paramClass;
-	private MembersModel resultClass;
+	private MembersModel paramClass=new MembersModel();
+	private MembersModel resultClass=new MembersModel();;
 	
 	private String m_email;
 	private String m_name;
@@ -33,9 +32,6 @@ public class MypageModifyAction {
 	
 	public String form() throws Exception{
 	
-		paramClass=new MembersModel();
-		resultClass=new MembersModel();
-		
 		m_email=ActionContext.getContext().getSession().get("session_m_email").toString();
 		resultClass=(MembersModel)sqlMapper.queryForObject("two.selectOneMember", m_email);
 		
@@ -45,15 +41,11 @@ public class MypageModifyAction {
 			return "error";
 	}
 	
+
 	public String execute() throws Exception{
-		ActionContext context=ActionContext.getContext();
-		session=context.getSession();
-		if(session.get("session_m_email")==null){
-			return "login";
-		}
-		paramClass=new MembersModel();
-		paramClass.setM_email(getM_email());
+
 		paramClass.setM_name(getM_name());
+		paramClass.setM_nickname(getM_nickname());
 		paramClass.setM_password(getM_password());
 		paramClass.setM_phone(getM_phone());
 		paramClass.setM_company(getM_company());

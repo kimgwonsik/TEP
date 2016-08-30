@@ -12,9 +12,18 @@ function windowclose(){
 	/* opener.document.joinForm.checkConfirmId.value="true"; */
 	window.close();
 }
+
 function check(){
 	if(idChk.m_email.value==""){
 		alert("아이디를 입력해 주세요");
+		idChk.m_email.focus();
+		return false;
+	}
+	
+	var regExp = /[0-9a-zA-Z][_0-9a-zA-Z-]*@[_0-9a-zA-Z-]+(\.[_0-9a-zA-Z-]+){1,2}$/;
+	if(!idChk.m_email.value.match(regExp)){
+		alert("이메일 형식과 맞지 않습니다.");
+		idChk.m_email.value = "";
 		idChk.m_email.focus();
 		return false;
 	}
@@ -87,7 +96,7 @@ function check(){
 	
 		<tr align="center">
 			<td>
-				<input type=text maxlength=20 name="id"/>
+				<input type=text maxlength=20 name="m_email"/>
 				<input type=submit value="ID 중복확인" class="topb"/>
 			</td>
 		<tr>

@@ -15,7 +15,7 @@
 		
 		<!-- 아이디 중복 확인 -->
 		<action name="membersIdChk" class="login.EmailCheckAction">
-			<result name="success" type="tiles">membersIdChk</result>
+			<result name="success">/members/membersIdChk.jsp</result>
 		</action>
 		
 		<!-- 로그인 -->
@@ -29,23 +29,21 @@
 		</action>
 		
 		<action name="logout" class="login.LoginAction" method="logout">
-			<result type="redirect-action">
-				<param name="actionName">main</param>
-			</result>
+			<result name="success" type="tiles">main</result>
 		</action>
 		<!-- 로그인 완료 -->
 		
 		<!-- 아이디 , 비밀번호 찾기 -->
 		<action name="findIdPassword" class="login.FindIdPasswordAction" method="form">
-			<result name="success" type="tiles">findForm</result>
+			<result name="success">/login/findIdPassword.jsp</result>
 		</action>
 		
 		<action name="findId" class="login.FindIdPasswordAction">
-			<result name="success" type="tiles">findId</result>
+			<result name="success">/login/findIdResult.jsp</result>
 		</action>
 		
 		<action name="findPassword" class="login.FindIdPasswordAction" method="findPassword">
-			<result name="success" type="tiles">findPassword</result>
+			<result name="success">/login/findPasswordResult.jsp</result>
 		</action>
 		<!-- 찾기 완료 -->
 		

@@ -10,16 +10,16 @@ import config.SqlMapper;
 import members.MembersModel;
 
 public class LoginAction extends ActionSupport implements SessionAware{
-	
+	public static SqlMapClient sqlMapper1;
 	private static final long serialVersionUID = 1L;
 
 	private SqlMapClient sqlMapper;
+
 	private String m_email;
 	private String m_password;
 	private Map<String, String> session;
 	private MembersModel paramClass;
 	private MembersModel resultClass;
-
 
 	public String index() throws Exception{
 		/*if(session.get("session_m_email")==null)
@@ -49,13 +49,16 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	}
 	
 	public String logout() throws Exception{
-		if(session.get("m_email") != null){
+		if(session.get("session_m_email") != null){
 			session.remove("session_m_email");
 			session.remove("session_m_name");
 		}
 		return "success";
 	}
 	
+
+	
+
 	public String getM_email() {
 		return m_email;
 	}

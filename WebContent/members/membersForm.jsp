@@ -8,8 +8,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>회원가입</title>
 <script type="text/javascript">
+var regExp = /[0-9a-zA-Z][_0-9a-zA-Z-]*@[_0-9a-zA-Z-]+(\.[_0-9a-zA-Z-]+){1,2}$/;
 function insert(){
-    var regExp = /[0-9a-zA-Z][_0-9a-zA-Z-]*@[_0-9a-zA-Z-]+(\.[_0-9a-zA-Z-]+){1,2}$/;	  
+    	  
     var join=document.userinput
     
     if(join.m_email.value==""){
@@ -60,6 +61,12 @@ function insert(){
 function openConfirmId(userinput){
 	var url="membersIdChk.action?m_email="+document.userinput.m_email.value;
 	var join=document.userinput;
+	if(!userinput.m_email.value.match(regExp)){
+    	alert("이메일 형식과 맞지 않습니다.");
+    	userinput.m_email.value = "";
+    	userinput.m_email.focus();
+    	return false;
+    }
 	if(join.m_email.value==""){
 		alert("아이디를 입력해주세요");
 		join.m_email.focus();
@@ -68,9 +75,6 @@ function openConfirmId(userinput){
 	open(url,"confirm","toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=300,height=400");
 }
 
-function list(){
-	location.href="main.action";
-}
 </script>
 </head>
 <body>
@@ -131,7 +135,7 @@ function list(){
 		<tr>
 			<td colspan="2" align="center">
 				<input type="button" value="등록" onclick="insert()">
-				<input type="button" value="취소" onclick="list()">
+				<input type="button" value="취소" onclick="window:location='main.action'">
 			</td>
 		</tr>
 	</table>

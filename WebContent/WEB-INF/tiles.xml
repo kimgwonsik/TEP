@@ -44,10 +44,6 @@
 		<put-attribute name="title" value="TEP - 회원가입완료"></put-attribute>
 		<put-attribute name="body" value="/members/membersSuccess.jsp"></put-attribute>
 	</definition>
-	<definition name="membersIdChk" extends=".default">
-		<put-attribute name="title" value="TEP - 아이디중복확인"></put-attribute>
-		<put-attribute name="body" value="/members/membersIdChk.jsp"></put-attribute>
-	</definition>
 	<!-- 회원가입종료 -->
 	
 	<!-- 로그인 -->
@@ -55,18 +51,6 @@
 		<put-attribute name="title" value="TEP - 로그인"></put-attribute>
 		<put-attribute name="body" value="/login/loginForm.jsp"></put-attribute>
 	</definition>	
-	<definition name="findForm" extends=".default">
-		<put-attribute name="title" value="TEP - 아이디,비밀번호 찾기"></put-attribute>
-		<put-attribute name="body" value="/login/findIdPassword.jsp"></put-attribute>
-	</definition>	
-	<definition name="findId" extends=".default">
-		<put-attribute name="title" value="TEP - 아이디찾기"></put-attribute>
-		<put-attribute name="body" value="/login/findIdResult.jsp"></put-attribute>
-	</definition>
-	<definition name="findPassword" extends=".default">
-		<put-attribute name="title" value="TEP - 비밀번호찾기"></put-attribute>
-		<put-attribute name="body" value="/login/findPasswordResult.jsp"></put-attribute>
-	</definition>
 	<!-- 로그인부분 종료 -->
 	
 	<!-- 회원탈퇴 -->
