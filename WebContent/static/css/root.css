@@ -2,7 +2,7 @@ div.title {
 	font-weight: bold;font-family:monospace;font-size: x-small;
 }
 table.gborder{
-	border-style: solid;border-width: thin;border-color: gray;width: 100%
+	border-style: solid;border-width: thin;border-color: red;width: 100%
 }
 td.cate{
 	width: 50%;

@@ -114,7 +114,7 @@ function check(){
 	<tr height="30">
 		<td align="center" bgcolor="e9e9e9" width="135"><font size="2"><strong>닉네임</strong></font></td>
 		<td width="255" bgcolor="#FFFFFF">
-		&nbsp;&nbsp;<s:textfield name="m_nickname" theme="simple" value="%{resultClass.m_nickname}" maxlength="13"/>
+		&nbsp;&nbsp;<s:textfield name="m_nickname" theme="simple"  value="%{resultClass.m_nickname}" maxlength="13"/><!--  -->
 		</td>
 	</tr>
 	

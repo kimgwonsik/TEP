@@ -1,17 +1,20 @@
 package login;
-import config.SqlMapper;
 import java.util.Map;
+
 import org.apache.struts2.interceptor.SessionAware;
+
 import com.ibatis.sqlmap.client.SqlMapClient;
-import members.MembersModel;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class LoginAction extends ActionSupport implements SessionAware{
+import config.SqlMapper;
+import members.MembersModel;
 
+public class LoginAction extends ActionSupport implements SessionAware{
+	public static SqlMapClient sqlMapper1;
 	private static final long serialVersionUID = 1L;
 
-	public static SqlMapClient sqlMapper;
-	
+	private SqlMapClient sqlMapper;
+
 	private String m_email;
 	private String m_password;
 	private Map<String, String> session;
@@ -53,12 +56,8 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		return "success";
 	}
 	
-	@SuppressWarnings("unchecked")
-	@Override
-	public void setSession(Map session) {
-		// TODO Auto-generated method stub
-		this.session=session;
-	}
+
+	
 
 	public String getM_email() {
 		return m_email;
@@ -92,10 +91,13 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		this.resultClass = resultClass;
 	}
 
-	public Map getSession() {
-		return session;
+	@Override
+	public void setSession(Map session) {
+		this.session = session;
 	}
 
-	
+	public Map<String, String> getSession() {
+		return session;
+	}
 	
 }

@@ -4,6 +4,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
 
@@ -11,7 +14,7 @@ import comments.CommentsModel;
 import config.SqlMapper;
 import util.TepUtils;
 
-public class OpenmeetDetailAction {
+public class OpenmeetDetailAction implements SessionAware{
 	private OpenmeetModel detailData = new OpenmeetModel();
 	private List<CommentsModel> cmtData = new ArrayList<CommentsModel>();
 	private SqlMapClient sqlMapper;
@@ -19,6 +22,7 @@ public class OpenmeetDetailAction {
 	private int o_no;
 	private String c_content;
 	private Calendar today = Calendar.getInstance();
+	private Map<String,String> session;
 	
 	public OpenmeetDetailAction(){
 		sqlMapper = SqlMapper.getMapper();
@@ -46,7 +50,7 @@ public class OpenmeetDetailAction {
 	public String insertComments(){
 		try {
 			CommentsModel data = new CommentsModel();
-			data.setC_name("아무개");
+			data.setC_name(session.get("session_m_name"));
 			data.setC_content(getC_content());
 			data.setC_date(today.getTime());
 			data.setO_no(getO_no());
@@ -98,4 +102,14 @@ public class OpenmeetDetailAction {
 	public void setC_content(String c_content) {
 		this.c_content = c_content;
 	}
+
+	@Override
+	public void setSession(Map session) {
+		this.session = session;
+	}
+
+	public Map<String, String> getSession() {
+		return session;
+	}
+	
 }

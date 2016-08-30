@@ -75,9 +75,6 @@ function openConfirmId(userinput){
 	open(url,"confirm","toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=300,height=400");
 }
 
-function list(){
-	location.href="main.action";
-}
 </script>
 </head>
 <body>
@@ -138,7 +135,7 @@ function list(){
 		<tr>
 			<td colspan="2" align="center">
 				<input type="button" value="등록" onclick="insert()">
-				<input type="button" value="취소" onclick="list()">
+				<input type="button" value="취소" onclick="window:location='main.action'">
 			</td>
 		</tr>
 	</table>
