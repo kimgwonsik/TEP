@@ -19,6 +19,12 @@ public class LendplaceModel {
 
 	// 내용
 	private String l_content;
+	
+	// 리스트 대표 이미지
+	private String l_rep_img;
+	
+	// 내용 대표 이미지
+	private String l_content_img;
 
 	// 신청자 이름
 	private String l_name;
@@ -85,6 +91,22 @@ public class LendplaceModel {
 
 	public void setL_content(String l_content) {
 		this.l_content = l_content;
+	}
+
+	public String getL_rep_img() {
+		return l_rep_img;
+	}
+
+	public void setL_rep_img(String l_rep_img) {
+		this.l_rep_img = l_rep_img;
+	}
+
+	public String getL_content_img() {
+		return l_content_img;
+	}
+
+	public void setL_content_img(String l_content_img) {
+		this.l_content_img = l_content_img;
 	}
 
 	public String getL_name() {
@@ -158,5 +180,7 @@ public class LendplaceModel {
 	public void setL_date(Date l_date) {
 		this.l_date = l_date;
 	}
+
+
 
 }

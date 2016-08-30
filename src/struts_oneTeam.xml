@@ -5,10 +5,14 @@
 	<package name="struts_oneTeam_package" namespace="/" extends="struts-default, tiles-default">
 		<!-- <action name="main" class="main.MainAction">
 			<result name="success" type="tiles">main</result>
-		</action>
-		
-		<action name="" class="" method="">
-			<result name="success" type="tiles">openmeet</result>
 		</action> -->
+		
+		<action name="lendplace" class="lendplace.LendplaceAction">
+			<result name="success" type="tiles">lendplace</result>
+		</action> 
+		
+		<action name="lendplaceDetail" class="lendplace.LendplaceDetailAction">
+			<result name="success" type="tiles">lendplaceDetail</result>
+		</action> 
 	</package>
 </struts>
