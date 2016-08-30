@@ -46,11 +46,6 @@
 	</definition>
 
 
-
-
-
-
-
 	<!-- 회원가입 -->
 	<definition name="MembersForm" extends=".default">
 		<put-attribute name="title" value="TEP - 회원가입"></put-attribute>
@@ -60,26 +55,22 @@
 		<put-attribute name="title" value="TEP - 회원가입완료"></put-attribute>
 		<put-attribute name="body" value="/members/membersSuccess.jsp"></put-attribute>
 	</definition>
-<<<<<<< HEAD
 
-	<definition name="lendplace" extends=".default">
-		<put-attribute name="title" value="TEP - 대관신청 목록" />
-		<put-attribute name="body" value="/lendplace/lendplaceView.jsp" />
-	</definition>
-=======
 	<definition name="membersIdChk" extends=".default">
 		<put-attribute name="title" value="TEP - 아이디중복확인"></put-attribute>
 		<put-attribute name="body" value="/members/membersIdChk.jsp"></put-attribute>
 	</definition>
 	<!-- 회원가입종료 -->
->>>>>>> branch 'master' of https://github.com/JinuYoo/TEP.git
 	
-<<<<<<< HEAD
+	<definition name="lendplace" extends=".default">
+		<put-attribute name="title" value="TEP - 대관신청 목록" />
+		<put-attribute name="body" value="/lendplace/lendplaceView.jsp" />
+	</definition>
 	<definition name="lendplaceDetail" extends=".default">
 		<put-attribute name="title" value="TEP - 대관신청 목록상세" />
 		<put-attribute name="body" value="/lendplace/lendplaceDetail.jsp" />
 	</definition>
-=======
+
 	<!-- 로그인 -->
 	<definition name="loginForm" extends=".default">
 		<put-attribute name="title" value="TEP - 로그인"></put-attribute>
@@ -124,6 +115,6 @@
 		<put-attribute name="body" value="/mypage/modifyResult.jsp"></put-attribute>
 	</definition>
 	<!-- 수정완료 -->
->>>>>>> branch 'master' of https://github.com/JinuYoo/TEP.git
+
 
 </tiles-definitions>
