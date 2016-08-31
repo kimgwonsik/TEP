@@ -9,7 +9,7 @@
 		</action>
 		
 		<action name="InsertMembers" class="members.MembersAction" method="Insert">
-			<result name="success" type="tiles">insertMembers</result>
+			<result name="success">/members/membersSuccess.jsp</result>
 		</action>
 		<!-- 회원가입 종료 -->
 		
@@ -63,9 +63,16 @@
 		
 		<action name="modifyMemberForm" class="mypage.MypageModifyAction" method="form">
 			<result name="success" type="tiles">modifyMember</result>
+			<result name="error">/mypage/passwordError.jsp</result>
 		</action>
 		<action name="modifyMember" class="mypage.MypageModifyAction">
 			<result name="success" type="tiles">modifyResult</result>
+		</action>
+		<!-- 수정종료 -->
+		
+		<!-- 마이페이지 이동-->
+		<action name="mypageView" class="mypage.MypageAction">
+			<result name="success" type="tiles">mypageView</result>
 		</action>
 	</package>
 </struts>

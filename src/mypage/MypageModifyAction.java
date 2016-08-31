@@ -1,17 +1,18 @@
 package mypage;
-import com.opensymphony.xwork2.ActionContext;
 
 import config.SqlMapper;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
 import members.MembersModel;
 
-public class MypageModifyAction {
+public class MypageModifyAction implements SessionAware{
 	private SqlMapClient sqlMapper;
-	private MembersModel paramClass=new MembersModel();
-	private MembersModel resultClass=new MembersModel();;
-	
+	private MembersModel paramClass;
+	private MembersModel resultClass;
 	private String m_email;
 	private String m_name;
 	private String m_nickname;
@@ -21,7 +22,7 @@ public class MypageModifyAction {
 	private String m_fav_area;
 	private String m_fav_field;
 	
-	private Map<String,Object> session;
+	private Map<String, String> session;
 	
 	public MypageModifyAction() {
 		sqlMapper=SqlMapper.getMapper();
@@ -31,19 +32,20 @@ public class MypageModifyAction {
 	}
 	
 	public String form() throws Exception{
-	
-		m_email=ActionContext.getContext().getSession().get("session_m_email").toString();
+		System.out.println(getM_password());
+
+		setM_email(session.get("session_m_email").toString());
 		resultClass=(MembersModel)sqlMapper.queryForObject("two.selectOneMember", m_email);
 		
-		if(resultClass.getM_password().equals(m_password)){
+		if(getM_password().equals(resultClass.getM_password())){
 			return "success";
 		}else
 			return "error";
 	}
-	
 
 	public String execute() throws Exception{
-
+		paramClass=new MembersModel();
+		paramClass.setM_email(getM_email());
 		paramClass.setM_name(getM_name());
 		paramClass.setM_nickname(getM_nickname());
 		paramClass.setM_password(getM_password());
@@ -51,27 +53,25 @@ public class MypageModifyAction {
 		paramClass.setM_company(getM_company());
 		paramClass.setM_fav_area(getM_fav_area());
 		paramClass.setM_fav_field(getM_fav_field());
-		
-		sqlMapper.update("two.modifyMember", paramClass);
+
+		sqlMapper.update("two.modifyMember", paramClass);//여기가 이상한듯?
+
 		return "success";
 	}
+
 	
 	public MembersModel getParamClass() {
 		return paramClass;
 	}
-
 	public void setParamClass(MembersModel paramClass) {
 		this.paramClass = paramClass;
 	}
-
 	public MembersModel getResultClass() {
 		return resultClass;
 	}
-
 	public void setResultClass(MembersModel resultClass) {
 		this.resultClass = resultClass;
 	}
-
 	public String getM_email() {
 		return m_email;
 	}
@@ -136,14 +136,13 @@ public class MypageModifyAction {
 		this.m_fav_field = m_fav_field;
 	}
 
-	public Map<String, Object> getSession() {
-		return session;
-	}
-
-	public void setSession(Map<String, Object> session) {
+	public void setSession(Map session) {
 		this.session = session;
 	}
-	
+
+	public Map<String, String> getSession() {
+		return session;
+	}
 	
 	
 }

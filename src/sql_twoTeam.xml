@@ -16,21 +16,13 @@
 		<result property="m_date" column="m_date"/>
 	</resultMap>
 	
-	<!-- 공통 -->
-	<sql id="ad-select-all">
-		select * from members
-	</sql>
-	
-	<sql id="ad-where-no">
-		where m_email=#m_email#
-	</sql>
+	<typeAlias alias="board" type="board.BoardModel" />
 	
 	<!-- 로그인 -->
 	<select id="loginCheck" resultClass="MembersModel" parameterClass="MembersModel">
 		SELECT * FROM MEMBERS
 		WHERE m_email = #m_email# and m_password=#m_password#
 	</select>
-	
 	<!-- 아이디, 비밀번호 찾기 -->
 	<select id="findId" resultMap="membersRes">
 		SELECT * FROM MEMBERS WHERE m_name=#m_name# and m_phone=#m_phone#
@@ -38,7 +30,6 @@
 	<select id="findPassword" parameterClass="MembersModel" resultClass="MembersModel">
 		SELECT * FROM MEMBERS WHERE m_email=#m_email# and m_name=#m_name# and m_phone=#m_phone#
 	</select>
-	
 	<!-- 아이디 중복 확인 -->
 	<select id="idCheck" resultClass="MembersModel">
 		SELECT * FROM MEMBERS WHERE m_email=#m_email#
@@ -48,7 +39,7 @@
 	<select id="selectOneMember" resultMap="membersRes">
 		SELECT * FROM MEMBERS WHERE m_email=#m_email#
 	</select>
-	
+
 	<!-- 회원가입 -->
 	<insert id="insertMember" parameterClass="MembersModel">
 		INSERT INTO MEMBERS(m_no,m_email,m_name,m_nickname,m_password,m_phone,m_company,m_fav_area,m_fav_field,m_date)
@@ -57,18 +48,64 @@
 	
 	<!-- 회원정보 수정 -->
 	<update id="modifyMember" parameterClass="MembersModel">
-		UPDATE MEMBERS SET m_name=#m_name#,m_nickname=#m_nickname#,m_password=#m_password#,m_phone=#m_phone#,m_company=#m_company#,m_fav_area=#m_fav_area#,m_fav_field=#m_fav_field#
-		WHERE m_email=#m_email#
+		update members set m_name=#m_name#, m_nickname=#m_nickname#, m_password=#m_password#, m_phone=#m_phone#, m_company=#m_company#, m_fav_area=#m_fav_area#, m_fav_field=#m_fav_field#
+		where m_email=#m_email#
 	</update>
-	
 	<!-- 비밀번호 초기화 -->
 	<update id="setPassword1111" parameterClass="String">
 		update members set m_password = '1111' where m_email=#m_email#
 	</update>
-	
 	<!-- 회원탈퇴 -->
 	<delete id="deleteMember" parameterClass="MembersModel">
 		DELETE FROM MEMBERS WHERE m_email=#m_email#
 	</delete>
+	
+	<!-- write history -->
+	<sql id="select_all">
+		select * from board
+	</sql>
+	
+	<sql id="where_b_no">
+		where b_no=#b_no#
+	</sql>
+	<sql id="where_b_kind">
+		where b_kind=#b_kind#
+	</sql>
+	<sql id="where_search_b_subject">
+		where b_subject like '%'||#searchWord#||'%'
+	</sql>
+	<sql id="where_search_b_subject_content">
+		where b_subject like '%'||#searchWord#||'%' or b_content like '%'||#searchWord#||'%'
+	</sql>
+	<sql id="where_search_b_name">
+		where b_name like '%'||#searchWord#||'%'
+	</sql>
+	
+	<sql id="orderby">
+		order by b_no desc
+	</sql>
+	
+	<select id="select_all" resultClass="board">
+		<include refid="select_all"/>
+		<include refid="orderby"/>
+	</select>
+	
+	<select id="search_b_subject_select_all" resultClass="board" parameterClass="String">
+		<include refid="select_all"/>
+		<include refid="where_search_b_subject"/>
+		<include refid="orderby"/>
+	</select>
+	
+	<select id="search_b_subject_content_select_all" resultClass="board"  parameterClass="String">
+		<include refid="select_all"/>
+		<include refid="where_search_b_subject_content"/>
+		<include refid="orderby"/>
+	</select>
+	
+	<select id="search_b_name_select_all" resultClass="board"  parameterClass="String">
+		<include refid="elect_all"/>
+		<include refid="where_search_b_name"/>
+		<include refid="orderby"/>
+	</select>
 	
 </sqlMap>
