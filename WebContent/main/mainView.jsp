@@ -13,7 +13,7 @@
 <table border="0" align=center>
 <tr>
 <td>
-<img src="/TEP/main/image/main_page_category_frame.png" usemap="#c_map_link" border="0"/>
+<img src="/TEP/main/image/main_page_category_frame.png" usemap="#main_map_link" border="0"/>
 </td>
 <td width="600px" style="padding:4%;padding-bottom:1%;">
 
@@ -41,10 +41,10 @@ $('.bxslider').bxSlider({
 </tr>
 </table>
 
-<map name="c_map_link">
-	<area shape="rect" alt="모임카테고리" title="" coords="73,27,140,104" href="openmeet.action" target="_self" />
-	<area shape="rect" alt="장소대관" title="" coords="71,152,141,228" href="lendplace.action" target="" />
-	<area shape="rect" alt="모임개설하기" title="" coords="13,279,194,318" href="openmeet_write.action" target="" />
+<map name="main_map_link">
+	<area shape="rect" alt="모임" title="모임" coords="73,27,140,104" href="openmeet.action" />
+	<area shape="rect" alt="장소" title="장소" coords="71,152,141,228" href="lendplace.action" />
+	<area shape="rect" alt="모임개설하기" title="모임개설하기" coords="13,279,194,318" href="openmeet_write.action" />
 </map>
 
 </body>

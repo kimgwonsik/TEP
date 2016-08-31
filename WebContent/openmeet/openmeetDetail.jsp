@@ -74,7 +74,7 @@
 </table>
 </td></tr>
 <tr><td align="right">
-<input type="button" name="openmeet_submit" value="신청하기">
+<input type="button" name="openmeet_submit" value="신청하기" onclick="return om_check();">
 </td></tr>
 </table>
 
@@ -164,22 +164,26 @@ geocoder.addr2coord('<s:property value="detailData.o_addr"/>', function(status, 
 } 
 });
 
-function om_cmt_check(){
+function om_check(kind){
+	var session_id = '<s:property value="#session.session_m_email"/>';
 	var area = document.getElementById('cmt_content');
-	if(!area.value){
-		alert("댓글에 내용이 입력되지 않았습니다.");
+	
+	if(session_id == null || session_id.length <= 0){
+		alertify.error("로그인 상태가 아닙니다.");
+		return false;
+	}
+	if(kind == 1 && !area.value){
+		alertify.error("댓글에 내용이 입력되지 않았습니다.");
 		area.focus();
 		return false;
 	}
 }
 </script>
 
-
 <!-- 댓글 -->
 <div style="font-weight: bold;font-size:small;padding-top: 50px">댓글(<s:property value="cmtData.size()"/>)</div>
 <hr class="om_detail_hr">
-<s:form action="omd_insert_cmt" onsubmit="return om_cmt_check();" method="post">
-<input type="hidden" name="currentPage" value='<s:property value="currentPage"/>'>
+<s:form action="omd_insert_cmt" onsubmit="return om_check('1');" method="post">
 <input type="hidden" name="o_no" value='<s:property value="o_no"/>'>
 <div style="padding-right:6px;padding-bottom:5px;"><textarea id="cmt_content" name="c_content" class="om_detail_comments"></textarea></div>
 <div align="right"><input type="submit" value="내용입력"></div>

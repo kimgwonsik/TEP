@@ -1,4 +1,5 @@
-@import url(/TEP/static/css/root.css);
+@import url(/TEP/static/css/alertify.default.css);
+@import url(/TEP/static/css/openmeetview.css);
 
 table.om_detail_header_table{
 	/* border-style: solid;

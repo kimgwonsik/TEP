@@ -17,7 +17,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 	private String m_email;
 	private String m_password;
-	private Map<String, String> session;
+	private Map session;
 	private MembersModel paramClass;
 	private MembersModel resultClass;
 
@@ -43,6 +43,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		if(resultClass != null){
 			session.put("session_m_email", resultClass.getM_email());
 			session.put("session_m_name", resultClass.getM_name());
+			session.put("session_m_no", resultClass.getM_no());
 			return "success";
 		}
 		return "error";
@@ -52,6 +53,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		if(session.get("session_m_email") != null){
 			session.remove("session_m_email");
 			session.remove("session_m_name");
+			session.remove("session_m_no");
 		}
 		return "success";
 	}
@@ -96,7 +98,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		this.session = session;
 	}
 
-	public Map<String, String> getSession() {
+	public Map getSession() {
 		return session;
 	}
 	

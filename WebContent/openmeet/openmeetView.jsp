@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="/TEP/static/css/root.css" type="text/css">
+<link rel="stylesheet" href="/TEP/static/css/openmeetview.css" type="text/css">
 </head>
 <body>
 <table border="0" width=100% cellpadding=15>

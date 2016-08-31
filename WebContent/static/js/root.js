@@ -8,3 +8,6 @@ function om_detail_check(){
 		return false;
 	}
 }
+
+// custom javascript alert usage js file include
+document.write('<script src="/TEP/static/js/alertify.min.js"></script>');

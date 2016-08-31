@@ -1,30 +1,6 @@
-div.title {
-	font-weight: bold;font-family:monospace;font-size: x-small;
-}
-table.gborder{
-	border-style: solid;border-width: thin;border-color: red;width: 100%
-}
-td.cate{
-	width: 50%;
-}
-a.contentSubject{
-	text-decoration: none;color: gray;font-size: medium;
-}
-a.category{
-	text-decoration: none;color: gray;font-size: x-small;
-}
-a:HOVER {
-	color: red;
-}
-a.paging{
-	text-decoration: none;color: gray;font-size: x-small;
-}
-input[type=text]{
-	font-size: small;color: gray;
-}
-img.openmeet_rep{
-	width: 300px;height: 300px;
-	border-style: solid;
-	border-color: red;
-	border-width: thin;
-}
+@import url(/TEP/static/css/alertify.core.css);
+@import url(/TEP/static/css/alertify.default.css);
+@import url(/TEP/static/css/openmeetview.css);
+@import url(/TEP/static/css/openmeetdetail.css);
+@import url(/TEP/static/css/header.css);
+@import url(/TEP/static/css/boardwrite.css);

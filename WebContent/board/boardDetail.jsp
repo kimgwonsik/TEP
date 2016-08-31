@@ -6,7 +6,6 @@
 <meta content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/TEP/static/css/boardwrite.css" type="text/css">
 <script src="/TEP/static/js/ckeditor/ckeditor.js"></script>
-<script src="/TEP/static/js/boardwrite.js"></script>
 <script>
 	window.onload = function() {
 		CKEDITOR.replace('b_content');
@@ -35,7 +34,7 @@ function formAction(val){
 <table class="boardwrite" align=center border="0">
 <tr>
 <td class="bw_title">종&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;류</td>
-<td>
+<td  class="bw_content">
 <s:if test="data.b_kind == 0">
 일반
 </s:if>
@@ -50,33 +49,33 @@ function formAction(val){
 
 <tr>
 <td class="bw_title">카테고리</td>
-<td>
+<td  class="bw_content">
 <s:property value="data.b_category"/>
 </td>
 </tr>
 
 <tr>
 <td class="bw_title">관심분야</td>
-<td>
+<td class="bw_content">
 <s:property value="data.b_fav_field"/>
 </td>
 </tr>
 
 <tr>
 <td class="bw_title">관심지역</td>
-<td>
+<td class="bw_content">
 <s:property value="data.b_fav_area"/>
 </td>
 </tr>
 
 <tr>
 <td class="bw_title">비&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;용</td>
-<td><s:property value="data.b_payment"/></td>
+<td class="bw_content"><s:property value="data.b_payment"/>원</td>
 </tr>
 
 <tr>
 <td class="bw_title">제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;목</td>
-<td><s:property value="data.b_subject"/></td>
+<td class="bw_content"><s:property value="data.b_subject"/></td>
 </tr>
 
 <tr>
@@ -86,13 +85,14 @@ function formAction(val){
 </td>
 </tr>
 
-
+<s:if test="#session.session_m_email != null">
 <tr>
 <td colspan="2" align="right" style="border:none;">
 <input type="button" value="수정" onclick="formAction('0');">
 <input type="button" value="삭제" onclick="formAction('1');">
 </td>
 </tr>
+</s:if>
 
 </table>
 </form>

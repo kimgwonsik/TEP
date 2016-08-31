@@ -5,6 +5,9 @@
 <head>
 <meta content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/TEP/static/css/boardwrite.css" type="text/css">
+<link rel="stylesheet" href="/TEP/static/css/alertify.core.css">
+<link rel="stylesheet" href="/TEP/static/css/alertify.default.css">
+<script src="/TEP/static/js/alertify.min.js"></script>
 <script src="/TEP/static/js/ckeditor/ckeditor.js"></script>
 <script src="/TEP/static/js/boardwrite.js"></script>
 <script>

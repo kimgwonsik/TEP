@@ -15,3 +15,8 @@ td.bw_title{
 	font-family: sans-serif;
 	text-align: center;
 }
+td.bw_content{
+	font-size: small;
+	font-family: sans-serif;
+	text-align: center;
+}

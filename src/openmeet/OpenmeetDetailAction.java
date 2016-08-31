@@ -18,11 +18,10 @@ public class OpenmeetDetailAction implements SessionAware{
 	private OpenmeetModel detailData = new OpenmeetModel();
 	private List<CommentsModel> cmtData = new ArrayList<CommentsModel>();
 	private SqlMapClient sqlMapper;
-	private int currentPage;
 	private int o_no;
 	private String c_content;
 	private Calendar today = Calendar.getInstance();
-	private Map<String,String> session;
+	private Map session;
 	
 	public OpenmeetDetailAction(){
 		sqlMapper = SqlMapper.getMapper();
@@ -50,10 +49,11 @@ public class OpenmeetDetailAction implements SessionAware{
 	public String insertComments(){
 		try {
 			CommentsModel data = new CommentsModel();
-			data.setC_name(session.get("session_m_name"));
+			data.setC_name(session.get("session_m_name").toString());
 			data.setC_content(getC_content());
 			data.setC_date(today.getTime());
 			data.setO_no(getO_no());
+			data.setM_no((Integer) session.get("session_m_no"));
 			sqlMapper.insert("jin.comments_insert", data);
 		} catch (Exception e) {
 			System.out.println("insertComments EX : "+e.getMessage());
@@ -79,14 +79,6 @@ public class OpenmeetDetailAction implements SessionAware{
 		this.cmtData = cmtData;
 	}
 
-	public int getCurrentPage() {
-		return currentPage;
-	}
-
-	public void setCurrentPage(int currentPage) {
-		this.currentPage = currentPage;
-	}
-
 	public int getO_no() {
 		return o_no;
 	}
@@ -108,7 +100,7 @@ public class OpenmeetDetailAction implements SessionAware{
 		this.session = session;
 	}
 
-	public Map<String, String> getSession() {
+	public Map getSession() {
 		return session;
 	}
 	
