@@ -20,6 +20,9 @@ function insert(){
     	join.m_password.focus();
     	return false;
     }
+    
+    
+    
     var f=document.userinput;
 	f.submit();
 }
