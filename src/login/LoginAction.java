@@ -14,7 +14,6 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	private static final long serialVersionUID = 1L;
 
 	private SqlMapClient sqlMapper;
-
 	private String m_email;
 	private String m_password;
 	private Map session;
@@ -101,5 +100,6 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	public Map getSession() {
 		return session;
 	}
+
 	
 }
