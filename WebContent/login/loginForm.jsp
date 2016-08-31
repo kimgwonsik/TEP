@@ -76,7 +76,7 @@ function openConfirmId(){
 	<tr align="center" border="0" cellspacing="0" cellpadding="0">
 		<td border="0" cellspacing="0" cellpadding="0">
 			<input type="button" class="login2" onclick="openConfirmId();" value="ID/PW 찾기"/>&nbsp;&nbsp;
-			<input type="button" class="login2" onclick="window:location='MembersForm.action'" value="회원가입"/>
+			<input type="button" class="login2" onclick="window:location='AgreementForm.action'" value="회원가입"/>
 		</td>
 	</tr>
 	

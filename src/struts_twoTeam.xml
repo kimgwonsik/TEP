@@ -4,6 +4,10 @@
 <struts>
 	<package name="struts_twoTeam_package" namespace="/" extends="struts-default, tiles-default">
 		<!-- 회원가입 -->
+		<action name="AgreementForm" class="members.Agreement">
+			<result name="success" type="tiles">agreementForm</result>
+		</action>
+		
 		<action name="MembersForm" class="members.MembersAction" method="MemberForm">
 			<result name="success" type="tiles">MembersForm</result>
 		</action>

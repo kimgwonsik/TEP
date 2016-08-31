@@ -16,8 +16,6 @@
 		<result property="m_date" column="m_date"/>
 	</resultMap>
 	
-	<typeAlias alias="board" type="board.BoardModel" />
-	
 	<!-- 로그인 -->
 	<select id="loginCheck" resultClass="MembersModel" parameterClass="MembersModel">
 		SELECT * FROM MEMBERS
@@ -60,52 +58,5 @@
 		DELETE FROM MEMBERS WHERE m_email=#m_email#
 	</delete>
 	
-	<!-- write history -->
-	<sql id="select_all">
-		select * from board
-	</sql>
-	
-	<sql id="where_b_no">
-		where b_no=#b_no#
-	</sql>
-	<sql id="where_b_kind">
-		where b_kind=#b_kind#
-	</sql>
-	<sql id="where_search_b_subject">
-		where b_subject like '%'||#searchWord#||'%'
-	</sql>
-	<sql id="where_search_b_subject_content">
-		where b_subject like '%'||#searchWord#||'%' or b_content like '%'||#searchWord#||'%'
-	</sql>
-	<sql id="where_search_b_name">
-		where b_name like '%'||#searchWord#||'%'
-	</sql>
-	
-	<sql id="orderby">
-		order by b_no desc
-	</sql>
-	
-	<select id="select_all" resultClass="board">
-		<include refid="select_all"/>
-		<include refid="orderby"/>
-	</select>
-	
-	<select id="search_b_subject_select_all" resultClass="board" parameterClass="String">
-		<include refid="select_all"/>
-		<include refid="where_search_b_subject"/>
-		<include refid="orderby"/>
-	</select>
-	
-	<select id="search_b_subject_content_select_all" resultClass="board"  parameterClass="String">
-		<include refid="select_all"/>
-		<include refid="where_search_b_subject_content"/>
-		<include refid="orderby"/>
-	</select>
-	
-	<select id="search_b_name_select_all" resultClass="board"  parameterClass="String">
-		<include refid="elect_all"/>
-		<include refid="where_search_b_name"/>
-		<include refid="orderby"/>
-	</select>
 	
 </sqlMap>
