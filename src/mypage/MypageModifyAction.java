@@ -54,7 +54,7 @@ public class MypageModifyAction implements SessionAware{
 		paramClass.setM_fav_area(getM_fav_area());
 		paramClass.setM_fav_field(getM_fav_field());
 
-		sqlMapper.update("two.modifyMember", paramClass);//여기가 이상한듯?
+		sqlMapper.update("two.modifyMember", paramClass);
 
 		return "success";
 	}

@@ -78,5 +78,8 @@
 		<action name="mypageView" class="mypage.MypageAction">
 			<result name="success" type="tiles">mypageView</result>
 		</action>
+		<action name="writeHistory" class="mypage.MypageWriteHistoryAction">
+			<result name="success" type="tiles">writeHistory</result>
+		</action>
 	</package>
 </struts>

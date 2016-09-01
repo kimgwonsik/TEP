@@ -59,7 +59,7 @@ function openConfirmId(){
 	
 	<tr align="center" border="0" cellspacing="0" cellpadding="0">
 		<td>
-				<input type="button" value="로그인" onclick="insert()">
+				<input type="button" value="로그인" onclick="insert()" >
 			</form>
 		</td>
 	</tr>

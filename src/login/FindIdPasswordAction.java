@@ -12,7 +12,7 @@ public class FindIdPasswordAction extends ActionSupport{
 	private MembersModel paramClass;
 	private MembersModel resultClass;
 	private List<MembersModel> list = new ArrayList<MembersModel>();
-	//list»ç¿ëÇÒÇÊ¿ä¾øÀ½. ojbect·Î ¼öÁ¤.
+	//listí•„ìš”ì—†ìŒ ìˆ˜ì •í•˜ê¸°.
 	private String m_email;
 	private String m_name;
 	private String m_phone;
@@ -32,7 +32,7 @@ public class FindIdPasswordAction extends ActionSupport{
 		
 		paramClass.setM_name(getM_name());
 		paramClass.setM_phone(getM_phone());
-		//object·Î ¼öÁ¤ÇÏ±â
+	
 		list=sqlMapper.queryForList("two.findId",paramClass);
 		return "success";
 	}

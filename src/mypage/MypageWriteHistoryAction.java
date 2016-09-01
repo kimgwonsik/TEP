@@ -3,6 +3,9 @@ package mypage;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
 
@@ -10,7 +13,7 @@ import board.BoardModel;
 import config.SqlMapper;
 import util.PagingCalculator;
 
-public class MypageWriteHistoryAction {
+public class MypageWriteHistoryAction implements SessionAware{
 	private static final int SEARCHKEY_SUBEJCT = 0;
 	private static final int SEARCHKEY_SUBJECT_CONTENT = 1;
 	private static final int SEARCHKEY_NAME = 2;
@@ -18,6 +21,8 @@ public class MypageWriteHistoryAction {
 	private List<BoardModel> list = new ArrayList<BoardModel>();
 	private SqlMapClient sqlMapper;
 	
+	private int m_no;
+	private Map session;
 	private int currentPage = 1;
 	private int totalCount;
 	private int blockCount = 9;
@@ -34,11 +39,13 @@ public class MypageWriteHistoryAction {
 	
 	@SuppressWarnings("unchecked")
 	public String execute(){
+		//setM_no((Integer)session.get("session_m_no"));
+		//m_no=2;
 		try {
 			if(searchKey != -1 && searchWord.length() > 0){
 				search();
 			} else {
-				list = sqlMapper.queryForList("board_select_all");
+				list = sqlMapper.queryForList("two.writeBoardList", session.get("session_m_no"));
 			}
 			
 			totalCount = list.size();
@@ -74,6 +81,15 @@ public class MypageWriteHistoryAction {
 		}
 	}
 	
+	
+	public int getM_no() {
+		return m_no;
+	}
+
+	public void setM_no(int m_no) {
+		this.m_no = m_no;
+	}
+
 	public List<BoardModel> getList() {
 		return list;
 	}
@@ -144,5 +160,15 @@ public class MypageWriteHistoryAction {
 
 	public void setSearchWord(String searchWord) {
 		this.searchWord = searchWord;
+	}
+
+	public Map getSession() {
+		return session;
+	}
+
+	@Override
+	public void setSession(Map arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }

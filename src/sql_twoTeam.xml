@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
 <sqlMap namespace="two">
-	
+	<typeAlias alias="boardModel" type="board.BoardModel" />
 	<typeAlias alias="MembersModel" type="members.MembersModel"/>
 	<resultMap class="MembersModel" id="membersRes">
 		<result property="m_no" column="m_no"/>
@@ -36,6 +36,11 @@
 	<!-- 회원정보 검색 -->
 	<select id="selectOneMember" resultMap="membersRes">
 		SELECT * FROM MEMBERS WHERE m_email=#m_email#
+	</select>
+	
+	<!-- 글쓴내역 검색 -->
+	<select id="writeBoardList" resultClass="boardModel" parameterClass="int">
+		SELECT * FROM BOARD WHERE m_no=#m_no#
 	</select>
 
 	<!-- 회원가입 -->

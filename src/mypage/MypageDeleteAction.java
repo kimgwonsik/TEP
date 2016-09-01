@@ -5,7 +5,7 @@ import com.opensymphony.xwork2.ActionContext;
 import members.MembersModel;
 import java.util.Map;
 public class MypageDeleteAction{
-	//implements SessionAware·Î ¼öÁ¤ÇØ¾ßÇÔ.
+	//implements SessionAwareë¡œ ìˆ˜ì •í•˜ê¸°
 	private SqlMapClient sqlMapper;
 	private MembersModel paramClass;
 	private MembersModel resultClass;
