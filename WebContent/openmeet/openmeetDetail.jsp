@@ -164,7 +164,7 @@ geocoder.addr2coord('<s:property value="detailData.o_addr"/>', function(status, 
 } 
 });
 
-function om_check(kind){
+function om_check(kind,no){
 	var session_id = '<s:property value="#session.session_m_email"/>';
 	var area = document.getElementById('cmt_content');
 	
@@ -177,7 +177,6 @@ function om_check(kind){
 		area.focus();
 		return false;
 	}
-}
 </script>
 
 <!-- 댓글 -->
@@ -189,11 +188,25 @@ function om_check(kind){
 <div align="right"><input type="submit" value="내용입력"></div>
 </s:form>
 
+<s:form action="omd_delete_cmt" method="post" name="cmt_delete_form">
 <s:iterator value="cmtData" status="cmtStat">
 <hr class="om_detail_hr">
-<div style="padding-left:13px;font-weight: bold;font-family: sans-serif;font-size: x-small;"><s:property value="c_name"/></div>
+<div style="padding-left:13px;font-weight: bold;font-family: sans-serif;font-size: x-small;">
+<s:property value="c_name"/>
+
+<!-- 댓글 삭제 -->
+<input type="hidden" name="c_no" value="<s:property value="c_no"/>">
+<input type="hidden" name="o_no" value="<s:property value="o_no"/>">
+<s:if test="#session.session_m_no != null && #session.session_m_no == m_no">
+<span style="float:right;">
+<s:a href="#" onclick="document.cmt_delete_form.submit();">삭제</s:a>
+</span>
+</s:if>
+
+</div>
 <div style="padding-top:5px; padding-left:13px;font-family: monospace;font-size: x-small;"><s:property value="c_content"/></div>
 </s:iterator>
+</s:form>
 
 <!-- 참여신청/취소안내 -->
 <div style="font-weight: bold;font-size:small;padding-top: 50px">참여신청/취소안내</div>

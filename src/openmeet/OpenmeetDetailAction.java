@@ -19,6 +19,7 @@ public class OpenmeetDetailAction implements SessionAware{
 	private List<CommentsModel> cmtData = new ArrayList<CommentsModel>();
 	private SqlMapClient sqlMapper;
 	private int o_no;
+	private int c_no;
 	private String c_content;
 	private Calendar today = Calendar.getInstance();
 	private Map session;
@@ -37,7 +38,7 @@ public class OpenmeetDetailAction implements SessionAware{
 			
 			cmtData = sqlMapper.queryForList("jin.comments_select_all_o_no", getO_no());
 		} catch (SQLException e) {
-			System.out.println("openmeet detail EX : "+e.getMessage());
+			System.out.println("openmeet detail e : "+e.getMessage());
 		}
 		return "success";
 	}
@@ -56,9 +57,22 @@ public class OpenmeetDetailAction implements SessionAware{
 			data.setM_no((Integer) session.get("session_m_no"));
 			sqlMapper.insert("jin.comments_insert", data);
 		} catch (Exception e) {
-			System.out.println("insertComments EX : "+e.getMessage());
+			System.out.println("insertComments e : "+e.getMessage());
 		}
 		
+		execute();
+		return "success";
+	}
+	
+	public String deleteComments(){
+		try {
+			CommentsModel data = new CommentsModel();
+			data.setC_no(c_no);
+			data.setM_no((Integer) session.get("session_m_no"));
+			sqlMapper.delete("jin.comments_o_delete", data);
+		} catch (Exception e) {
+			System.out.println("deleteComments e : "+e.getMessage());
+		}
 		execute();
 		return "success";
 	}
@@ -85,6 +99,10 @@ public class OpenmeetDetailAction implements SessionAware{
 
 	public void setO_no(int o_no) {
 		this.o_no = o_no;
+	}
+
+	public void setC_no(int c_no) {
+		this.c_no = c_no;
 	}
 
 	public String getC_content() {

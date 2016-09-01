@@ -23,6 +23,10 @@
 			<result name="success" type="tiles">openmeetDetail</result>
 		</action>
 		
+		<action name="omd_delete_cmt" class="openmeet.OpenmeetDetailAction" method="deleteComments">
+			<result name="success" type="tiles">openmeetDetail</result>
+		</action>
+		
 		<action name="board" class="board.BoardAction">
 			<result name="success" type="tiles">board</result>
 		</action>

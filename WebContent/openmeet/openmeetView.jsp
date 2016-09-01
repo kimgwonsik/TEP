@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="/TEP/static/css/openmeetview.css" type="text/css">
 </head>
 <body>
-<table border="0" width=100% cellpadding=15>
+<table border="0" width=900px cellpadding=15 align=center>
 <tr>
 
 <!-- 모임 리스트 -->
