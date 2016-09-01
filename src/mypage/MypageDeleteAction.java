@@ -1,12 +1,11 @@
 package mypage;
-import com.opensymphony.xwork2.ActionContext;
 import config.SqlMapper;
 import com.ibatis.sqlmap.client.SqlMapClient;
+import com.opensymphony.xwork2.ActionContext;
 import members.MembersModel;
 import java.util.Map;
-
-public class MypageDeleteAction {
-
+public class MypageDeleteAction{
+	//implements SessionAware로 수정하기
 	private SqlMapClient sqlMapper;
 	private MembersModel paramClass;
 	private MembersModel resultClass;
@@ -14,22 +13,20 @@ public class MypageDeleteAction {
 	private String m_email;
 	private String m_password;
 	private int deleteCheck;
-	private Map session;
+	private Map<String, String> session;
 	
-	public MypageDeleteAction(){
+	public MypageDeleteAction() {
 		sqlMapper=SqlMapper.getMapper();
 	}
 	
 	public String deleteForm() throws Exception{
-		ActionContext context=ActionContext.getContext();
-		session=context.getSession();
 		return "success";
 	}
 	
 	public String execute() throws Exception{
 		paramClass=new MembersModel();
 		resultClass=new MembersModel();
-		
+		//m_email=session.get("session_m_email");
 		m_email=ActionContext.getContext().getSession().get("session_m_email").toString();
 		resultClass=(MembersModel)sqlMapper.queryForObject("two.selectOneMember", m_email);
 		
@@ -84,13 +81,14 @@ public class MypageDeleteAction {
 		this.deleteCheck = deleteCheck;
 	}
 
-	public Map getSession() {
+	public Map<String, String> getSession() {
 		return session;
 	}
 
-	public void setSession(Map session) {
+	public void setSession(Map<String, String> session) {
 		this.session = session;
 	}
+
 	
 	
 }
