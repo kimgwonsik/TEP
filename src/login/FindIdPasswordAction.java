@@ -1,27 +1,22 @@
 package login;
 import members.MembersModel;
 import com.opensymphony.xwork2.ActionSupport;
-import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
-import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import config.SqlMapper;
 import java.util.*;
-import java.io.Reader;
 import java.io.IOException;
 
 public class FindIdPasswordAction extends ActionSupport{
-	
+	private static final long serialVersionUID = 1L;
 	private SqlMapClient sqlMapper;
-	
 	private MembersModel paramClass;
 	private MembersModel resultClass;
-	private List<MembersModel> list = new ArrayList();
+	private List<MembersModel> list = new ArrayList<MembersModel>();
+	//list필요없음 수정하기.
 	private String m_email;
 	private String m_name;
 	private String m_phone;
-
-	
-	
+		
 	public FindIdPasswordAction() throws IOException{
 		sqlMapper = SqlMapper.getMapper();
 	}
@@ -37,7 +32,7 @@ public class FindIdPasswordAction extends ActionSupport{
 		
 		paramClass.setM_name(getM_name());
 		paramClass.setM_phone(getM_phone());
-		
+	
 		list=sqlMapper.queryForList("two.findId",paramClass);
 		return "success";
 	}
@@ -49,7 +44,6 @@ public class FindIdPasswordAction extends ActionSupport{
 		paramClass.setM_email(getM_email());
 		paramClass.setM_name(getM_name());
 		paramClass.setM_phone(getM_phone());
-		
 		
 		resultClass=(MembersModel)sqlMapper.queryForObject("two.findPassword",paramClass);
 		if(resultClass != null){
