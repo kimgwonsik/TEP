@@ -36,7 +36,6 @@ public class BoardWriteAction extends BoardModel implements SessionAware{
 				setB_readcount(0);
 				sqlMapper.insert("jin.board_insert",this);
 			} else if(update == 1){
-				
 			}
 		} catch (Exception e) {
 			System.out.println("BoardWriteAction insert ex : "+e.getMessage());

@@ -136,4 +136,10 @@
 		<put-attribute name="body" value="/mypage/mypageWriteHistoryView.jsp"></put-attribute>
 	</definition>
 	
+	<!-- 고객센터 -->
+	<definition name="helpWriteForm" extends=".default">
+		<put-attribute name="title" value="TEP - 고객센터게시판"></put-attribute>
+		<put-attribute name="body" value="/board/help/boardhelpWrite.jsp"></put-attribute>
+	</definition>
+	
 </tiles-definitions>

@@ -81,5 +81,13 @@
 		<action name="writeHistory" class="mypage.MypageWriteHistoryAction">
 			<result name="success" type="tiles">writeHistory</result>
 		</action>
+		
+		<!-- 고객센터 -->
+		<action name="helpWriteForm" class="board.help.BoardhelpWriteAction" method="form">
+			<result name="success" type="tiles">helpWriteForm</result>
+		</action>
+		<action name="helpWriteInsert" class="board.help.BoardhelpWriteAction" method="insert">
+			<param name="actionName">boardHelp</param>
+		</action>
 	</package>
 </struts>

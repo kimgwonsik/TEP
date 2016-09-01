@@ -2,6 +2,7 @@
 <!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
 <sqlMap namespace="two">
 	<typeAlias alias="boardModel" type="board.BoardModel" />
+	<typeAlias alias="boardHelpModel" type="board.help.BoardhelpModel"/>
 	<typeAlias alias="MembersModel" type="members.MembersModel"/>
 	<resultMap class="MembersModel" id="membersRes">
 		<result property="m_no" column="m_no"/>
@@ -64,7 +65,12 @@
 	</delete>
 	
 	<!-- 고객센터 -->
-	
+	<select id="selectOneMember_m_no" parameterClass="int" resultMap="membersRes">
+		SELECT * FROM MEMBERS WHERE m_no=#m_no#
+	</select>
+	<insert id="boardHelpInsert" parameterClass="boardHelpModel">
+		insert into board_help values(board_help_seq.nextval,#bh_name#,#bh_phone#,#bh_email#,#bh_subject#,#bh_category1#,#bh_category2#,#bh_content#,#bh_date#,#m_no#)
+	</insert>
 	
 	
 </sqlMap>
