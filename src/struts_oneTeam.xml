@@ -14,5 +14,10 @@
 		<action name="lendplaceDetail" class="lendplace.LendplaceDetailAction">
 			<result name="success" type="tiles">lendplaceDetail</result>
 		</action> 
+
+		<action name="lendplaceBook" class="lendplace.LendplaceBookAction">
+			<result name="success" type="tiles">lendplaceBook</result>
+		</action>		
+		
 	</package>
 </struts>
