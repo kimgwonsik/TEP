@@ -46,9 +46,10 @@
 <div><s:property value="detailData.l_content"/></div>
 <br>
 <br>
+
 <table  align="right">
 <tr><td align="right">
-<input type="button" name="lendplace_submit" value="장소사용 신청하기">
+<input type="button" name="lendplace_submit" value="장소사용 신청하기" onclick="location.href='lendplaceBook.action?l_no=<s:property value="detailData.l_no"/>'">
 </td></tr>
 </table>
 
