@@ -57,7 +57,7 @@ public class OpenmeetDetailAction implements SessionAware{
 			data.setM_no((Integer) session.get("session_m_no"));
 			sqlMapper.insert("jin.comments_insert", data);
 		} catch (Exception e) {
-			System.out.println("insertComments e : "+e.getMessage());
+			System.out.println("omd insert cmt e : "+e.getMessage());
 		}
 		
 		execute();
@@ -69,9 +69,9 @@ public class OpenmeetDetailAction implements SessionAware{
 			CommentsModel data = new CommentsModel();
 			data.setC_no(c_no);
 			data.setM_no((Integer) session.get("session_m_no"));
-			sqlMapper.delete("jin.comments_o_delete", data);
+			sqlMapper.delete("jin.comments_delete", data);
 		} catch (Exception e) {
-			System.out.println("deleteComments e : "+e.getMessage());
+			System.out.println("omd delete cmt e : "+e.getMessage());
 		}
 		execute();
 		return "success";

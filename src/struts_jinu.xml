@@ -45,6 +45,14 @@
 			<result name="success" type="tiles">boardDetail</result>
 		</action>
 		
+		<action name="board_insert_cmt" class="board.BoardDetailAction" method="insertComments">
+			<result name="success" type="tiles">boardDetail</result>
+		</action>
+		
+		<action name="board_delete_cmt" class="board.BoardDetailAction" method="deleteComments">
+			<result name="success" type="tiles">boardDetail</result>
+		</action>
+		
 		<action name="boardModify" class="board.BoardDetailAction" method="modify">
 			<result name="success" type="tiles">boardModify</result>
 		</action>

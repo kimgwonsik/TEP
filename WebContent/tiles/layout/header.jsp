@@ -22,12 +22,11 @@
 	<a href="logout.action">로그아웃</a>&nbsp;&nbsp;|&nbsp;&nbsp;	
 	</s:elseif>
 	<s:if test="#session.session_m_email != null">
-	<a href="mypageView.action">마이페이지</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+	<a href="mypageView.action">마이페이지</a>&nbsp;&nbsp;
 	</s:if>
 	<s:if test="#session.session_m_email == null">
-	<a href="loginForm.action">마이페이지</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+	<a href="loginForm.action">마이페이지</a>&nbsp;&nbsp;
 	</s:if>
-	<a href="#">사이트맵</a>&nbsp;&nbsp;
 </span>
 </div>
 	<table class="searchBar" align=center>

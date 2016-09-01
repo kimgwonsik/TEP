@@ -1,12 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta content="text/html; charset=UTF-8">
+<link href="/TEP/static/js/jquery.bxslider/jquery.bxslider.css" rel="stylesheet" />
+<link href="/TEP/static/css/root.css" rel="stylesheet" />
 <script src="/TEP/static/js/jquery-3.1.0.js"></script>
 <script src="/TEP/static/js/jquery.bxslider/jquery.bxslider.min.js"></script>
-<link href="/TEP/static/js/jquery.bxslider/jquery.bxslider.css" rel="stylesheet" />
+<script src="/TEP/static/js/root.js"></script>
 </head>
 <body>
 
@@ -34,6 +36,16 @@ $('.bxslider').bxSlider({
 	  captions: true, // 이미지의 title 속성이 노출된다.
 	  autoControls: true, //default:false 정지,시작 콘트롤 노출, css 수정이 필요
 	});
+	
+	function loginChk(){
+		var session_id = '<s:property value="#session.session_m_email"/>';
+		var area = document.getElementById('omw_action');
+
+		if (session_id == null || session_id.length <= 0) {
+			alertify.error("로그인 상태가 아닙니다.");
+			return false;
+		}
+	}
 </script>
 
 
@@ -44,7 +56,7 @@ $('.bxslider').bxSlider({
 <map name="main_map_link">
 	<area shape="rect" alt="모임" title="모임" coords="73,27,140,104" href="openmeet.action" />
 	<area shape="rect" alt="장소" title="장소" coords="71,152,141,228" href="lendplace.action" />
-	<area shape="rect" alt="모임개설하기" title="모임개설하기" coords="13,279,194,318" href="openmeet_write.action" />
+	<area id="omw_action" shape="rect" alt="모임개설하기" title="모임개설하기" coords="13,279,194,318" href="openmeet_write.action" onclick="return loginChk();"/>
 </map>
 
 </body>

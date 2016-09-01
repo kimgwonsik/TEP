@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="/TEP/static/css/alertify.core.css" />
 <link rel="stylesheet" href="/TEP/static/css/alertify.default.css" />
 <script src="/TEP/static/js/alertify.min.js"></script>
+<script src="/TEP/static/js/comments.js"></script>
 <script src="/TEP/static/js/ckeditor/ckeditor.js"></script>
 <script>
 	window.onload = function() {
@@ -103,8 +104,40 @@ function form_action(val){
 </tr>
 </s:if>
 
-</table>
+<tr>
+<td colspan="2">
+<!-- 댓글 -->
+<div style="font-weight: bold;font-size:small;padding-top: 10px">댓글(<s:property value="cmtData.size()"/>)</div>
+<hr class="om_detail_hr">
+<s:form action="board_insert_cmt" onsubmit="return cmt_check('1');" method="post">
+<input type="hidden" name="b_no" value='<s:property value="b_no"/>'>
+<div style="padding-right:6px;padding-bottom:5px;"><textarea id="cmt_content" name="c_content" class="om_detail_comments"></textarea></div>
+<div align="right"><input type="submit" value="내용입력"></div>
+</s:form>
 
+<s:form action="board_delete_cmt" method="post" name="cmt_delete_form">
+<s:iterator value="cmtData" status="cmtStat">
+<hr class="om_detail_hr">
+<div style="padding-left:13px;font-weight: bold;font-family: sans-serif;font-size: x-small;">
+<s:property value="c_name"/>
+
+<!-- 댓글 삭제 -->
+<input type="hidden" name="c_no" value="<s:property value="c_no"/>">
+<input type="hidden" name="b_no" value="<s:property value="b_no"/>">
+<s:if test="#session.session_m_no != null && #session.session_m_no == m_no">
+<span style="float:right;">
+<s:a href="#" onclick="document.cmt_delete_form.submit();">삭제</s:a>
+</span>
+</s:if>
+
+</div>
+<div style="padding-top:5px; padding-left:13px;font-family: monospace;font-size: x-small;"><s:property value="c_content"/></div>
+</s:iterator>
+</s:form>
+</td>
+</tr>
+
+</table>
 
 </body>
 </html>

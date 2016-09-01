@@ -88,9 +88,14 @@
 		insert into comments values(comments_seq.nextval,#c_name#,#c_content#,#c_date#,#c_my_no#,#o_no#,#b_no#,#m_no#)
 	</insert>
 	
-	<delete id="comments_o_delete" parameterClass="comments">
+	<delete id="comments_delete" parameterClass="comments">
 		<include refid="cmt_delete_all"/>
 		<include refid="cmt_where_c_no_m_no"/>
+	</delete>
+	
+	<delete id="comments_delete_all_board" parameterClass="int">
+		<include refid="cmt_delete_all"/>
+		<include refid="cmt_where_b_no"/>
 	</delete>
 
 <!-- board query -->
