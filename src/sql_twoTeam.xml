@@ -68,6 +68,19 @@
 	<select id="selectOneMember_m_no" parameterClass="int" resultMap="membersRes">
 		SELECT * FROM MEMBERS WHERE m_no=#m_no#
 	</select>
+	<select id="selectBoardHelpAll" resultClass="boardHelpModel">
+		SELECT * FROM BOARD_HELP ORDER BY bh_no desc
+	</select>
+	<select id="boardHelp_search_bh_subject_select_all" resultClass="boardHelpModel" parameterClass="String">
+		SELECT * FROM BOARD_HELP WHERE bh_subject like '%'||#searchWord#||'%' ORDER BY bh_no desc
+	</select>
+	<select id="boardHelp_search_bh_subject_content_select_all" resultClass="boardHelpModel" parameterClass="String">
+		SELECT * FROM BOARD_HELP  WHERE bh_subject like '%'||#searchWord#||'%' or bh_content like '%'||#searchWord#||'%' ORDER BY bh_no desc
+	</select>
+	<select id="boardHelp_search_bh_name_select_all" resultClass="boardHelpModel" parameterClass="String">
+		SELECT * FROM BOARD_HELP  WHERE bh_name like '%'||#searchWord#||'%' ORDER BY bh_no desc
+	</select>
+
 	<insert id="boardHelpInsert" parameterClass="boardHelpModel">
 		insert into board_help values(board_help_seq.nextval,#bh_name#,#bh_phone#,#bh_email#,#bh_subject#,#bh_category1#,#bh_category2#,#bh_content#,#bh_date#,#m_no#)
 	</insert>
