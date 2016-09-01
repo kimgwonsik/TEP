@@ -10,6 +10,7 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 import board.BoardModel;
+import comments.CommentsModel;
 import config.SqlMapper;
 import util.PagingCalculator;
 
@@ -39,13 +40,13 @@ public class MypageWriteHistoryAction implements SessionAware{
 	
 	@SuppressWarnings("unchecked")
 	public String execute(){
-		//setM_no((Integer)session.get("session_m_no"));
-		//m_no=2;
+		setM_no((Integer)session.get("session_m_no"));
+
 		try {
 			if(searchKey != -1 && searchWord.length() > 0){
 				search();
 			} else {
-				list = sqlMapper.queryForList("two.writeBoardList", session.get("session_m_no"));
+				list = sqlMapper.queryForList("two.writeBoardList", m_no);
 			}
 			
 			totalCount = list.size();
