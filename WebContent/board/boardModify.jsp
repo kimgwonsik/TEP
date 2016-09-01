@@ -13,12 +13,15 @@
 <script>
 	window.onload = function() {
 		CKEDITOR.replace('b_content');
+		
+		
 	}
 </script>
 </head>
 <body>
 
 <form action="boardWriteInsert.action" method="post" onsubmit="return valuecheck();">
+<input type="hidden" name="update" value="1">
 <table class="boardwrite" align=center border="0">
 
 <tr>
