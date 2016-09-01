@@ -97,9 +97,18 @@
 	<sql id="bd_select_all">
 		select * from board
 	</sql>
+	<sql id="bd_delete_all">
+		delete from board
+	</sql>
 	
 	<sql id="bd_where_b_no">
 		where b_no=#b_no#
+	</sql>
+	<sql id="bd_where_m_no">
+		where m_no=#m_no#
+	</sql>
+	<sql id="bd_where_b_no_m_no">
+		where b_no=#b_no# and m_no=#m_no#
 	</sql>
 	<sql id="bd_where_b_kind">
 		where b_kind=#b_kind#
@@ -152,8 +161,13 @@
 	</select>
 	
 	<insert id="board_insert" parameterClass="board">
-		insert into board values(board_seq.nextval,#b_kind#,#b_name#,#b_email#,#b_company#,#b_category#,#b_subject#,#b_content#,#b_fav_area#,#b_fav_field#,#b_payment#,#b_date#,#b_readcount#)
+		insert into board values(board_seq.nextval,#b_kind#,#b_name#,#b_email#,#b_company#,#b_category#,#b_subject#,#b_content#,#b_fav_area#,#b_fav_field#,#b_payment#,#b_date#,#b_readcount#,#m_no#)
 	</insert>
+	
+	<delete id="board_delete" parameterClass="board">
+		<include refid="bd_delete_all"/>
+		<include refid="bd_where_b_no_m_no"/>
+	</delete>
 	
 <!-- member query -->
 	<sql id="mem_select_all">
@@ -171,11 +185,6 @@
 	<select id="members_select_one_where_m_no" parameterClass="int" resultClass="members">
 		<include refid="mem_select_all"/>
 		<include refid="mem_where_m_no"/>
-	</select>
-
-	<select id="members_select_one_where_m_email" parameterClass="String" resultClass="members">
-		<include refid="mem_select_all"/>
-		<include refid="mem_where_m_email"/>
 	</select>
 	
 </sqlMap>
