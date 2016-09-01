@@ -43,7 +43,7 @@ public class PagingCalculator {
 
 		pagingHtml = new StringBuffer();
 		if (currentPage > blockPage) {
-			pagingHtml.append("<a class='paging' href=" + action + ".action?currentPage=" + (startPage - 1) + ">◀</a>");
+			pagingHtml.append("<a class='paging' href=" + action + ".action?currentPage=" + (startPage - 1) + ">◁</a>");
 		}
 		pagingHtml.append("&nbsp;|&nbsp;");
 
@@ -64,7 +64,7 @@ public class PagingCalculator {
 
 		// 다음 블럭 페이지
 		if (totalPage - startPage >= blockPage) {
-			pagingHtml.append("<a class='paging' href=" + action + ".action?currentPage=" + (endPage + 1) + ">▶</a>");
+			pagingHtml.append("<a class='paging' href=" + action + ".action?currentPage=" + (endPage + 1) + ">▷</a>");
 		}
 	}
 

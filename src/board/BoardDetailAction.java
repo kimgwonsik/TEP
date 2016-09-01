@@ -29,7 +29,11 @@ public class BoardDetailAction implements SessionAware{
 	}
 	
 	public String modify(){
-		execute();
+		try {
+			data = (BoardModel)sqlMapper.queryForObject("jin.board_select_one",b_no);
+		} catch (Exception e) {
+			System.out.println("Board modify SQL error : "+e.getMessage());
+		}
 		return "success";
 	}
 	
