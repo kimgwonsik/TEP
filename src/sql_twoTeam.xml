@@ -63,5 +63,8 @@
 		DELETE FROM MEMBERS WHERE m_email=#m_email#
 	</delete>
 	
+	<!-- 고객센터 -->
+	
+	
 	
 </sqlMap>
