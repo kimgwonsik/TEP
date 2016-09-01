@@ -164,7 +164,7 @@ geocoder.addr2coord('<s:property value="detailData.o_addr"/>', function(status, 
 } 
 });
 
-function om_check(kind,no){
+function om_check(kind){
 	var session_id = '<s:property value="#session.session_m_email"/>';
 	var area = document.getElementById('cmt_content');
 	
@@ -177,6 +177,7 @@ function om_check(kind,no){
 		area.focus();
 		return false;
 	}
+}
 </script>
 
 <!-- 댓글 -->

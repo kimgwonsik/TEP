@@ -40,8 +40,19 @@ function check(){
 	}
 }
 </script>
+<link rel="stylesheet" href="/TEP/static/css/menubar.css" type="text/css">
 </head>
 <body>
+<nav id="topMenu" >
+   <ul>
+      <li><a class="menuLink" href="mypageView.action">마이페이지 홈</a></li>
+      <li><a class="menuLink" href="modifyPwChk.action">회원정보수정</a></li>
+      <li><a class="menuLink" href="#">내가쓴글보기</a></li>
+      <li><a class="menuLink" href="#">모임참여내역</a></li>
+      <li><a class="menuLink" href="#">고객센터</a></li>
+      <li><a class="menuLink" href="deleteMemberForm.action">회원탈퇴</a></li>
+   </ul>
+</nav>
 <br>
 <form action="modifyMember.action" name="joinForm" method="post" onSubmit="return check();">
 <table align="center" width="834" border="0" cellspacing="0" cellpadding="0">

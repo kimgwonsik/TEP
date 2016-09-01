@@ -20,6 +20,9 @@ function insert(){
     	join.m_password.focus();
     	return false;
     }
+    
+    
+    
     var f=document.userinput;
 	f.submit();
 }
@@ -56,7 +59,7 @@ function openConfirmId(){
 	
 	<tr align="center" border="0" cellspacing="0" cellpadding="0">
 		<td>
-				<input type="button" value="로그인" onclick="insert()">
+				<input type="button" value="로그인" onclick="insert()" >
 			</form>
 		</td>
 	</tr>
@@ -73,7 +76,7 @@ function openConfirmId(){
 	<tr align="center" border="0" cellspacing="0" cellpadding="0">
 		<td border="0" cellspacing="0" cellpadding="0">
 			<input type="button" class="login2" onclick="openConfirmId();" value="ID/PW 찾기"/>&nbsp;&nbsp;
-			<input type="button" class="login2" onclick="window:location='MembersForm.action'" value="회원가입"/>
+			<input type="button" class="login2" onclick="window:location='AgreementForm.action'" value="회원가입"/>
 		</td>
 	</tr>
 	

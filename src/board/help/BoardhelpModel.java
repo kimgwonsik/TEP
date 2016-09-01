@@ -31,6 +31,16 @@ public class BoardhelpModel {
 
 	// 게시날짜
 	private Date bh_date;
+	
+	private Integer m_no;
+	
+	public Integer getM_no() {
+		return m_no;
+	}
+
+	public void setM_no(Integer m_no) {
+		this.m_no = m_no;
+	}
 
 	public Integer getBh_no() {
 		return bh_no;
