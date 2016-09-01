@@ -1,7 +1,10 @@
-// include
-/*<script src="PATH_TO_FILE/alertify.min.js"></script>
-<link rel="stylesheet" href="PATH_TO_FILE/alertify.css" />
-<link rel="stylesheet" href="PATH_TO_FILE/alertify.default.css" />*/
+
+
+// HEAD include
+
+/*<link rel="stylesheet" href="/TEP/static/css/alertify.core.css" />
+<link rel="stylesheet" href="/TEP/static/css/alertify.default.css" />
+<script src="/TEP/static/js/alertify.min.js"></script>*/
 
 //------------------Default dialogs
 alertify.alert("Message");

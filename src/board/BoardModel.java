@@ -43,6 +43,8 @@ public class BoardModel {
 
 	// 조회수
 	private Integer b_readcount;
+	
+	private Integer m_no;
 
 	public Integer getB_no() {
 		return b_no;
@@ -146,6 +148,14 @@ public class BoardModel {
 
 	public void setB_readcount(Integer b_readcount) {
 		this.b_readcount = b_readcount;
+	}
+
+	public Integer getM_no() {
+		return m_no;
+	}
+
+	public void setM_no(Integer m_no) {
+		this.m_no = m_no;
 	}
 
 }

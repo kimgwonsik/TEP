@@ -13,6 +13,7 @@ import members.MembersModel;
 public class BoardWriteAction extends BoardModel implements SessionAware{
 	private SqlMapClient sqlMapper;
 	private Map session;
+	private int update = -1;
 	
 	public BoardWriteAction(){
 		sqlMapper = SqlMapper.getMapper();
@@ -23,16 +24,20 @@ public class BoardWriteAction extends BoardModel implements SessionAware{
 	}
 	
 	public String insert(){
-		String sid = getSession().get("session_m_email").toString();
+		int m_no = (int) session.get("session_m_no");
 		try {
-			MembersModel meminfo = (MembersModel)sqlMapper.queryForObject("jin.members_select_one_where_m_email",sid);
+			MembersModel meminfo = (MembersModel)sqlMapper.queryForObject("jin.members_select_one_where_m_no",m_no);
 			setB_name(meminfo.getM_name());
 			setB_email(meminfo.getM_email());
 			setB_company(meminfo.getM_company());
 			setB_date(Calendar.getInstance().getTime());
-			setB_readcount(0);
-			
-			sqlMapper.insert("jin.board_insert",this);
+			setM_no(m_no);
+			if(update == -1){
+				setB_readcount(0);
+				sqlMapper.insert("jin.board_insert",this);
+			} else if(update == 1){
+				
+			}
 		} catch (Exception e) {
 			System.out.println("BoardWriteAction insert ex : "+e.getMessage());
 		}
@@ -44,8 +49,8 @@ public class BoardWriteAction extends BoardModel implements SessionAware{
 		this.session = session;
 	}
 
-	public Map getSession() {
-		return session;
+	public void setUpdate(int update) {
+		this.update = update;
 	}
 	
 }

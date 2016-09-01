@@ -76,6 +76,8 @@ public class OpenmeetModel {
 
 	// 조회수
 	private Integer o_readcount;
+	
+	private Integer m_no;
 
 	public Integer getO_no() {
 		return o_no;
@@ -267,5 +269,13 @@ public class OpenmeetModel {
 
 	public void setO_readcount(Integer o_readcount) {
 		this.o_readcount = o_readcount;
+	}
+
+	public Integer getM_no() {
+		return m_no;
+	}
+
+	public void setM_no(Integer m_no) {
+		this.m_no = m_no;
 	}
 }
