@@ -25,6 +25,11 @@
 		<put-attribute name="body" value="/openmeet/openmeetDetail.jsp" />
 	</definition>
 	
+	<definition name="openmeetSubscribe" extends=".default">
+		<put-attribute name="title" value="TEP - 모임 신청하기" />
+		<put-attribute name="body" value="/openmeet/openmeetSubscribe.jsp" />
+	</definition>
+	
 	<definition name="openmeetWrite" extends=".default">
 		<put-attribute name="title" value="TEP - 모임개설하기" />
 		<put-attribute name="body" value="/openmeet/openmeetWrite.jsp" />

@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta content="text/html; charset=UTF-8">
+<link href="/TEP/static/css/root.css" rel="stylesheet" />
 <title>로그인</title>
 <script>
 function insert(){
