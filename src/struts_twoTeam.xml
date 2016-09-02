@@ -86,6 +86,9 @@
 		<action name="boardHelp" class="board.help.BoardhelpAction">
 			<result name="success" type="tiles">boardHelp</result>
 		</action>
+		<action name="boardHelpDetail" class="board.help.BoardhelpDetailAction">
+			<result name="success" type="tiles">boardHelpDetail</result>
+		</action>
 		<action name="helpWriteForm" class="board.help.BoardhelpWriteAction" method="form">
 			<result name="success" type="tiles">helpWriteForm</result>
 		</action>

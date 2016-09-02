@@ -35,11 +35,7 @@ public class BoardhelpWriteAction extends BoardhelpModel implements SessionAware
 			setBh_date(Calendar.getInstance().getTime());
 			setM_no(m_no);
 		
-			if(update == -1){
-				sqlMapper.insert("two.boardHelpInsert",this);
-			} else if(update == 1){
-				
-			}
+			sqlMapper.insert("two.boardHelpInsert",this);
 		} catch (Exception e) {
 			System.out.println("BoardHelpWriteAction insert ex : "+e.getMessage());
 		}

@@ -63,8 +63,11 @@
 	<delete id="deleteMember" parameterClass="MembersModel">
 		DELETE FROM MEMBERS WHERE m_email=#m_email#
 	</delete>
-	
+
 	<!-- 고객센터 -->
+	<select id="selectBoardHelpOne" resultClass="boardHelpModel" parameterClass="int">
+		SELECT * FROM BOARD_HELP WHERE bh_no=#bh_no#
+	</select>
 	<select id="selectOneMember_m_no" parameterClass="int" resultMap="membersRes">
 		SELECT * FROM MEMBERS WHERE m_no=#m_no#
 	</select>

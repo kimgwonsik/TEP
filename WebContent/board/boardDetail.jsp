@@ -19,10 +19,10 @@
 function form_action(val){
 	var f = document.detail_form;
 	if(val == 0){
-		f.action="boardModify.action";
+		f.action="boardHelpModify.action";
 		f.submit();
 	} else if(val == 1){
-		f.action="boardDelete.action";
+		f.action="boardHelpDelete.action";
 		f.submit();
 	}
 }
