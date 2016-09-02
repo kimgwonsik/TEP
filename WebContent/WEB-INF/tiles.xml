@@ -143,6 +143,10 @@
 	</definition>
 	
 	<!-- 고객센터 -->
+	<definition name="boardHelp" extends=".mypage">
+		<put-attribute name="title" value="TEP - 고객센터 글목록"></put-attribute>
+		<put-attribute name="body" value="/board/help/boardhelpView.jsp"></put-attribute>
+	</definition>
 	<definition name="helpWriteForm" extends=".default">
 		<put-attribute name="title" value="TEP - 고객센터게시판"></put-attribute>
 		<put-attribute name="body" value="/board/help/boardhelpWrite.jsp"></put-attribute>
