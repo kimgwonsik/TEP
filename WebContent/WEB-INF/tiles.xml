@@ -77,6 +77,7 @@
 	</definition>
 	<!-- 회원가입종료 -->
 	
+	<!-- 장소대관 -->
 	<definition name="lendplace" extends=".default">
 		<put-attribute name="title" value="TEP - 대관신청 목록" />
 		<put-attribute name="body" value="/lendplace/lendplaceView.jsp" />
@@ -85,6 +86,11 @@
 		<put-attribute name="title" value="TEP - 대관신청 목록상세" />
 		<put-attribute name="body" value="/lendplace/lendplaceDetail.jsp" />
 	</definition>
+	<definition name="lendplaceBook" extends=".default">
+		<put-attribute name="title" value="TEP - 대관신청 접수" />
+		<put-attribute name="body" value="/lendplace/lendplaceBook.jsp" />
+	</definition>
+	<!-- 장소대관 종료 -->
 
 	<!-- 로그인 -->
 	<definition name="loginForm" extends=".default">
