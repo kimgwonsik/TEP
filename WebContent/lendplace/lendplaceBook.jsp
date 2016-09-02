@@ -91,25 +91,25 @@
 			</tr>
 			<tr>
 				<td align=right>*신청자 이름&nbsp;&nbsp;</td>
-				<td><input type="text" name="name" maxlength="10" /></td>
+				<td><input type="text" name="name" maxlength="20" value='<s:property value="sessionData.m_name"/>' /></td>
 			</tr>
 			<tr>
 				<td align=right>*신청자 소속&nbsp;&nbsp;</td>
-				<td><input type="text" name="name" maxlength="10" /></td>
+				<td><input type="text" name="name" maxlength="20" alt="예) TEP" value="예) TEP" onclick="this.value=''" /></td>
 			</tr>
 			<tr>
 				<td align=right>*신청자 전화번호&nbsp;&nbsp;</td>
-				<td><input type="text" name="name" maxlength="10" /></td>
+				<td><input type="text" name="name" maxlength="20" value='<s:property value="sessionData.m_phone"/>' /></td>
 			</tr>
 			<tr>
 				<td align=right>*신청자 이메일&nbsp;&nbsp;</td>
-				<td><input type="text" name="email" maxlength="50" class="w300" /></td>
+				<td><input type="text" name="email" maxlength="50" value='<s:property value="sessionData.m_email"/>' /></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td>
 				<input type="button" name="lendplace_submit" value="접수완료">
-				<input type="button" name="lendplace_submit" value="취소">
+				<input type="button" name="lendplace_submit" value="취소" onclick="location.href='lendplace.action'">
 				</td>
 			</tr>
 		</table>

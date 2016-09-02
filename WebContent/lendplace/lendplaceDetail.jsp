@@ -49,7 +49,7 @@
 
 <table  align="right">
 <tr><td align="right">
-<input type="button" name="lendplace_submit" value="장소사용 신청하기" onclick="location.href='lendplaceBook.action?l_no=<s:property value="detailData.l_no"/>'">
+<input type="button" name="lendplace_submit" value="장소사용 신청하기" onclick="return lp_check();">
 </td></tr>
 </table>
 
@@ -118,53 +118,20 @@ geocoder.addr2coord('<s:property value="detailData.l_addr"/>', function(status, 
 });
 
 
-
-
-
-
-
-/* 신청전 로그인 확인 테스트 시작부분 */
-
-function om_check(kind){
+/* 장소사용 신청전 로그인 확인  */
+function lp_check(kind){
 	var session_id = '<s:property value="#session.session_m_email"/>';
-	var area = document.getElementById('cmt_content');
 	
 	if(session_id == null || session_id.length <= 0){
 		alertify.error("로그인 상태가 아닙니다.");
 		return false;
 	}
-	if(kind == 1 && !area.value){
-		alertify.error("댓글에 내용이 입력되지 않았습니다.");
-		area.focus();
-		return false;
+	if(session_id != null){
+		location.href='lendplaceBook.action?l_no=<s:property value="detailData.l_no"/>';
 	}
 }
+
 </script>
-
-<!-- 댓글 -->
-<div>댓글</div>
-
-<s:form action="omd_insert_cmt" onsubmit="return om_check('1');" method="post">
-<div><textarea id="cmt_content" name="c_content" class="om_detail_comments"></textarea></div>
-<div align="right"><input type="submit" value="내용입력"></div>
-</s:form>
-
-
-
-<table  align="right">
-<tr><td align="right">
-<input type="button" name="lendplace_submit" value="장소사용 신청하기" onclick="location.href='lendplaceBook.action?l_no=<s:property value="detailData.l_no"/>'">
-<input type="button" name="lendplace_submit" value="장소사용 신청하기" onclick="location.href='lendplaceBook.action?l_no=<s:property value="detailData.l_no"/>'">
-</td></tr>
-</table>
-
-<!-- 신청전 로그인 확인 테스트 끝부분 -->
-
-
-
-
-
-
 
 
 <!-- 참여신청/취소안내 -->
