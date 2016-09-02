@@ -24,28 +24,24 @@ public class BoardhelpWriteAction extends BoardhelpModel implements SessionAware
 		return "success";
 	}
 	
-	/*public String insert(){
+	public String insert(){
 		int m_no = (int) session.get("session_m_no");
 		try {
-			MembersModel meminfo = (MembersModel)sqlMapper.queryForObject("jin.members_select_one_where_m_no",m_no);
+			MembersModel meminfo = (MembersModel)sqlMapper.queryForObject("two.selectOneMember_m_no",m_no);
 			
-			setB_name(meminfo.getM_name());
-			setB_email(meminfo.getM_email());
-			setB_company(meminfo.getM_company());
-			setB_date(Calendar.getInstance().getTime());
+			setBh_name(meminfo.getM_name());
+			setBh_email(meminfo.getM_email());
+			setBh_phone(meminfo.getM_phone());
+			setBh_date(Calendar.getInstance().getTime());
 			setM_no(m_no);
-			if(update == -1){
-				setB_readcount(0);
-				sqlMapper.insert("jin.board_insert",this);
-			} else if(update == 1){
-				
-			}
+		
+			sqlMapper.insert("two.boardHelpInsert",this);
 		} catch (Exception e) {
-			System.out.println("BoardWriteAction insert ex : "+e.getMessage());
+			System.out.println("BoardHelpWriteAction insert ex : "+e.getMessage());
 		}
 		return "success";
 	}
-	*/
+	
 	@Override
 	public void setSession(Map session) {
 		this.session = session;

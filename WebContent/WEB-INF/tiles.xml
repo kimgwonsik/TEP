@@ -106,39 +106,59 @@
 	<!-- 로그인부분 종료 -->
 	
 	<!-- 회원탈퇴 -->
-	<definition name="deleteMember" extends=".default">
+	<definition name="deleteMember" extends=".mypage">
 		<put-attribute name="title" value="TEP - 회원탈퇴"></put-attribute>
 		<put-attribute name="body" value="/mypage/mypageDelete.jsp"></put-attribute>
 	</definition>
-	<definition name="deleteResult" extends=".default">
+	<definition name="deleteResult" extends=".mypage">
 		<put-attribute name="title" value="TEP - 탈퇴완료"></put-attribute>
 		<put-attribute name="body" value="/mypage/deleteResult.jsp"></put-attribute>
 	</definition>
 	<!-- 탈퇴완료 -->
 	
 	<!-- 수정시작 -->
-	<definition name="modifyPwChk" extends=".default">
+	<definition name="modifyPwChk" extends=".mypage">
 		<put-attribute name="title" value="TEP - 비밀번호확인"></put-attribute>
 		<put-attribute name="body" value="/mypage/modifyPwChk.jsp"></put-attribute>
 	</definition>
-	<definition name="modifyMember" extends=".default">
+	<definition name="modifyMember" extends=".mypage">
 		<put-attribute name="title" value="TEP - 회원정보수정"></put-attribute>
 		<put-attribute name="body" value="/mypage/mypageModify.jsp"></put-attribute>
 	</definition>
-	<definition name="modifyResult" extends=".default">
+	<definition name="modifyResult" extends=".mypage">
 		<put-attribute name="title" value="TEP - 수정완료"></put-attribute>
 		<put-attribute name="body" value="/mypage/modifyResult.jsp"></put-attribute>
 	</definition>
 	<!-- 수정완료 -->
 
 	<!-- 마이페이지 -->
-	<definition name="mypageView" extends=".default">
+	<definition name=".mypage" template="/tiles/mypagelayout.jsp">
+		<put-attribute name="header" value="/tiles/layout/header.jsp" />
+		<put-attribute name="mypageMenu" value="/tiles/layout/mypageMenu.jsp"></put-attribute>
+		<put-attribute name="footer" value="/tiles/layout/footer.jsp" />
+	</definition>
+	
+	<definition name="mypageView" extends=".mypage">
 		<put-attribute name="title" value="TEP - 마이페이지"></put-attribute>
 		<put-attribute name="body" value="/mypage/mypageView.jsp"></put-attribute>
 	</definition>
-	<definition name="writeHistory" extends=".default">
+	<definition name="helpHistory" extends=".mypage">
 		<put-attribute name="title" value="TEP - 내가쓴글"></put-attribute>
-		<put-attribute name="body" value="/mypage/mypageWriteHistoryView.jsp"></put-attribute>
+		<put-attribute name="body" value="/mypage/mypageHelpHistoryView.jsp"></put-attribute>
+	</definition>
+	
+	<!-- 고객센터 -->
+	<definition name="boardHelpDetail" extends=".default">
+		<put-attribute name="title" value="TEP - 고객센터게시판 상세보기"></put-attribute>
+		<put-attribute name="body" value="/board/help/boardhelpDetail.jsp"></put-attribute>
+	</definition>
+	<definition name="boardHelp" extends=".default">
+		<put-attribute name="title" value="TEP - 고객센터 글목록"></put-attribute>
+		<put-attribute name="body" value="/board/help/boardhelpView.jsp"></put-attribute>
+	</definition>
+	<definition name="helpWriteForm" extends=".default">
+		<put-attribute name="title" value="TEP - 문의,신고하기"></put-attribute>
+		<put-attribute name="body" value="/board/help/boardhelpWrite.jsp"></put-attribute>
 	</definition>
 	
 </tiles-definitions>

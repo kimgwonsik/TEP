@@ -110,7 +110,7 @@ function openConfirmId(userinput){
 		<tr>
 			<td>전화번호</td>
 			<td>
-				<input type="text" name="m_phone" id="m_phone">
+				<input type="number" name="m_phone" id="m_phone">
 			</td>
 		</tr>
 		<tr>
