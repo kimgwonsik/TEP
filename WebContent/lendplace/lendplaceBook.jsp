@@ -13,7 +13,7 @@
 <tr>
 <td>
 
-<div style="font-weight: bold;font-size: x-large;">&nbsp;모임장소 추천</div>
+<div style="font-weight: bold;font-size: large;">&nbsp;&nbsp;&nbsp;모임장소 추천</div>
 
 <!-- 위 테이블 -->
 <table class="om_detail_header_table">
