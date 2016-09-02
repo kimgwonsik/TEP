@@ -81,7 +81,7 @@
 <tr>
 <td colspan="2" align="right" style="border:none;">
 <input type="submit" value="저장">
-<input type="button" value="취소" onclick="location.href='boardHelp.action'">
+<input type="button" value="취소" onclick="location.href='helpHistory.action'">
 </td>
 </tr>
 

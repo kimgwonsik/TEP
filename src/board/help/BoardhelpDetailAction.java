@@ -7,6 +7,8 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
+
+import board.BoardModel;
 import board.help.BoardhelpModel;
 import config.SqlMapper;
 
@@ -26,6 +28,27 @@ public class BoardhelpDetailAction implements SessionAware{
 			
 		} catch (Exception e) {
 			System.out.println("BoardHelpDetail SQL error : "+e.getMessage());
+		}
+		return "success";
+	}
+	
+	public String modify(){
+		try {
+			data = (BoardhelpModel)sqlMapper.queryForObject("two.selectBoardHelpOne",bh_no);
+		} catch (Exception e) {
+			System.out.println("Boardhelp modify SQL error : "+e.getMessage());
+		}
+		return "success";
+	}
+	
+	public String delete(){
+		BoardhelpModel data = new BoardhelpModel();
+		data.setBh_no(bh_no);
+		data.setM_no((Integer) session.get("session_m_no"));
+		try {
+			sqlMapper.delete("two.boardHelpDelete",data);
+		} catch (Exception e) {
+			System.out.println("Boardhelp delete SQL error : "+e.getMessage());
 		}
 		return "success";
 	}

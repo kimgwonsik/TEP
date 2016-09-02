@@ -92,6 +92,9 @@
 	<select id="writeBoardHelpList" resultClass="boardHelpModel" parameterClass="int">
 		SELECT * FROM BOARD_HELP WHERE m_no=#m_no#
 	</select>
+	<delete id="boardHelpDelete" parameterClass="boardHelpModel">
+		DELETE * FROM BOARD_HELP WHERE bh_no=#bh_no# and m_no=#m_no#
+	</delete>
 	
 	
 </sqlMap>

@@ -81,6 +81,11 @@
 		<action name="helpHistory" class="mypage.MypageHelpHistoryAction">
 			<result name="success" type="tiles">helpHistory</result>
 		</action>
+		<action name="boardHelpDelete" class="board.help.BoardhelpDetailAction" method="delete">
+			<result type="redirect-action">
+				<param name="actionName">helpHistory</param>
+			</result>
+		</action>
 		
 		<!-- 고객센터 -->
 		<action name="boardHelp" class="board.help.BoardhelpAction">
