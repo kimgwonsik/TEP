@@ -69,15 +69,9 @@ font.board_subject_kind{
 	</s:url>
 	<tr class="board_content_tr">
 	<td><s:property value="bh_no"/></td>
-	<s:property value="bh_category1"/>
+	<td><s:property value="bh_category1"/></td>
 	<td class="board_subject">
 		<s:a cssClass="" href="%{boardHelpDetailURL}">
-		<s:if test="b_kind == 1">
-		<font class="board_subject_kind">[스승찾아요]</font>
-		</s:if>
-		<s:elseif test="b_kind == 2">
-		<font class="board_subject_kind">[제자찾아요]</font>
-		</s:elseif>
 		<s:property value="bh_subject"/>
 		</s:a>
 	</td>
