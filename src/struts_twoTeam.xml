@@ -78,8 +78,8 @@
 		<action name="mypageView" class="mypage.MypageAction">
 			<result name="success" type="tiles">mypageView</result>
 		</action>
-		<action name="writeHistory" class="mypage.MypageWriteHistoryAction">
-			<result name="success" type="tiles">writeHistory</result>
+		<action name="helpHistory" class="mypage.MypageHelpHistoryAction">
+			<result name="success" type="tiles">helpHistory</result>
 		</action>
 		
 		<!-- 고객센터 -->

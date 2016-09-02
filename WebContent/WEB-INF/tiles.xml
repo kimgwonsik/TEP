@@ -137,9 +137,9 @@
 		<put-attribute name="title" value="TEP - 마이페이지"></put-attribute>
 		<put-attribute name="body" value="/mypage/mypageView.jsp"></put-attribute>
 	</definition>
-	<definition name="writeHistory" extends=".mypage">
+	<definition name="helpHistory" extends=".mypage">
 		<put-attribute name="title" value="TEP - 내가쓴글"></put-attribute>
-		<put-attribute name="body" value="/mypage/mypageWriteHistoryView.jsp"></put-attribute>
+		<put-attribute name="body" value="/mypage/mypageHelpHistoryView.jsp"></put-attribute>
 	</definition>
 	
 	<!-- 고객센터 -->

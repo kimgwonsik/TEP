@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import board.help.BoardhelpModel;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
 
-import board.BoardModel;
 import config.SqlMapper;
 import util.PagingCalculator;
 
@@ -18,7 +18,7 @@ public class MypageHelpHistoryAction implements SessionAware{
 	private static final int SEARCHKEY_SUBJECT_CONTENT = 1;
 	private static final int SEARCHKEY_NAME = 2;
 	
-	private List<BoardModel> list = new ArrayList<BoardModel>();
+	private List<BoardhelpModel> list = new ArrayList<>();
 	private SqlMapClient sqlMapper;
 	
 	private int m_no;
@@ -43,11 +43,11 @@ public class MypageHelpHistoryAction implements SessionAware{
 			if(searchKey != -1 && searchWord.length() > 0){
 				search();
 			} else {
-				list = sqlMapper.queryForList("two.writeBoardList", m_no);
+				list = sqlMapper.queryForList("two.writeBoardHelpList", session.get("session_m_no"));
 			}
 			
 			totalCount = list.size();
-			page = new PagingCalculator("board", currentPage, totalCount, blockCount, blockPage);
+			page = new PagingCalculator("boardHelp", currentPage, totalCount, blockCount, blockPage);
 			pagingHtml = page.getPagingHtml().toString();
 			
 			int lastCount = totalCount;
@@ -68,13 +68,13 @@ public class MypageHelpHistoryAction implements SessionAware{
 	private void search() throws SQLException {
 		switch (getSearchKey()) {
 		case SEARCHKEY_SUBEJCT:
-			list = sqlMapper.queryForList("two.search_b_subject_select_all", getSearchWord());
+			list = sqlMapper.queryForList("two.boardHelp_search_bh_subject_select_all", getSearchWord());
 			break;
 		case SEARCHKEY_SUBJECT_CONTENT:
-			list = sqlMapper.queryForList("two.search_b_subject_content_select_all", getSearchWord());
+			list = sqlMapper.queryForList("two.boardHelp_search_bh_subject_content_select_all", getSearchWord());
 			break;
 		case SEARCHKEY_NAME:
-			list = sqlMapper.queryForList("two.search_b_name_select_all", getSearchWord());
+			list = sqlMapper.queryForList("two.boardHelp_search_bh_name_select_all", getSearchWord());
 			break;
 		}
 	}
@@ -88,11 +88,11 @@ public class MypageHelpHistoryAction implements SessionAware{
 		this.m_no = m_no;
 	}
 
-	public List<BoardModel> getList() {
+	public List<BoardhelpModel> getList() {
 		return list;
 	}
 
-	public void setList(List<BoardModel> list) {
+	public void setList(List<BoardhelpModel> list) {
 		this.list = list;
 	}
 
@@ -165,7 +165,8 @@ public class MypageHelpHistoryAction implements SessionAware{
 	}
 
 	@Override
-	public void setSession(Map arg0) {
+	public void setSession(Map session) {
+		this.session = session;
 		// TODO Auto-generated method stub
 		
 	}

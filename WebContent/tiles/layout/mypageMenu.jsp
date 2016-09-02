@@ -14,7 +14,7 @@
       <li><a class="menuLink" href="modifyPwChk.action">회원정보수정</a></li>
       <li><a class="menuLink" href="#">내가쓴글보기</a></li>
       <li><a class="menuLink" href="#">모임참여내역</a></li>
-      <li><a class="menuLink" href="#">문의내역</a></li>
+      <li><a class="menuLink" href="helpHistory.action">문의내역</a></li>
       <li><a class="menuLink" href="deleteMemberForm.action">회원탈퇴</a></li>
    </ul>
 </nav>

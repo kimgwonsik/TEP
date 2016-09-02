@@ -88,5 +88,10 @@
 		insert into board_help values(board_help_seq.nextval,#bh_name#,#bh_phone#,#bh_email#,#bh_subject#,#bh_category1#,#bh_category2#,#bh_content#,#bh_date#,#m_no#)
 	</insert>
 	
+	<!-- 마이페이지 문의내역 -->
+	<select id="writeBoardHelpList" resultClass="boardHelpModel" parameterClass="int">
+		SELECT * FROM BOARD_HELP WHERE m_no=#m_no#
+	</select>
+	
 	
 </sqlMap>
