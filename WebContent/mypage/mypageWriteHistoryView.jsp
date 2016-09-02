@@ -50,19 +50,8 @@ font.board_subject_kind{
 	padding-right:5px;
 }
 </style>
-<link rel="stylesheet" href="/TEP/static/css/menubar.css" type="text/css">
 </head>
 <body>
-<nav id="topMenu">
-   <ul>
-      <li><a class="menuLink" href="mypageView.action">마이페이지 홈</a></li>
-      <li><a class="menuLink" href="modifyPwChk.action">회원정보수정</a></li>
-      <li><a class="menuLink" href="writeHistory.action">내가쓴글보기</a></li>
-      <li><a class="menuLink" href="#">모임참여내역</a></li>
-      <li><a class="menuLink" href="#">고객센터</a></li>
-      <li><a class="menuLink" href="deleteMemberForm.action">회원탈퇴</a></li>
-   </ul>
-</nav>
 <br>
 
 <table class="board" align=center cellspacing=0>

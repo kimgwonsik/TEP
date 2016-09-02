@@ -6,7 +6,6 @@
 <meta content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/TEP/static/css/openmeetdetail.css" type="text/css">
 <script type="text/javascript" src="/TEP/static/js/root.js"></script>
-<script type="text/javascript" src="/TEP/static/js/comments.js"></script>
 </head>
 <body>
 <table width=930px border="0" align=center>
@@ -17,7 +16,7 @@
 <tr>
 
 <td width="15%" class="om_detail_header_table_td1">
-<div><img class="om_detail_header" src="/TEP/openmeet/image/ex1.jpg"></div>
+<div><img class="om_detail_header" src="<s:property value="detailData.o_rep_img"/>"></div>
 <dl class="om_detail_header">
 <dt class="om_detail_header_dt">개설자 정보</dt>
 <hr class="om_detail_hr">
@@ -69,13 +68,15 @@
 <s:elseif test="detailData.o_payment > 0">
 유료 : <s:property value="detailData.o_payment"/>원
 </s:elseif>
-·
-<input type="number" name="o_current_pnum" size="1" class="om_detail_register_input">명</td>
+</td>
 </tr>
 </table>
 </td></tr>
 <tr><td align="right">
-<input type="button" name="openmeet_submit" value="신청하기" onclick="return cmt_check();">
+<s:form action="omd_subscribe" method="post" onsubmit="return cmt_check('0');">
+	<input type="hidden" name="o_no" value='<s:property value="o_no"/>'>
+	<input type="submit" value="신청하기">
+</s:form>
 </td></tr>
 </table>
 
@@ -164,6 +165,23 @@ geocoder.addr2coord('<s:property value="detailData.o_addr"/>', function(status, 
     map.setCenter(coords);
 } 
 });
+
+function cmt_check(kind) {
+	var session_id = '<s:property value="#session.session_m_email"/>';
+	var area = document.getElementById('cmt_content');
+
+	if (session_id == null || session_id.length <= 0) {
+		alertify.error("로그인 상태가 아닙니다.");
+		return false;
+	}
+	
+	if (kind == 1 && !area.value) {
+		alertify.error("댓글에 내용이 입력되지 않았습니다.");
+		area.focus();
+		return false;
+	}
+	
+}
 </script>
 
 <!-- 댓글 -->
