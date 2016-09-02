@@ -14,14 +14,20 @@
 	window.onload = function() {
 		CKEDITOR.replace('b_content');
 		
-		
+		var f = document.mForm;
+		f.b_kind.value='<s:property value="data.b_kind"/>';
+		f.b_category.value='<s:property value="data.b_category"/>';
+		f.b_fav_field.value='<s:property value="data.b_fav_field"/>';
+		f.b_fav_area.value='<s:property value="data.b_fav_area"/>';
+		f.b_payment.value= '<s:property value="data.b_payment"/>';
+		f.b_subject.value='<s:property value="data.b_subject"/>';
 	}
 </script>
 </head>
 <body>
-
-<form action="boardWriteInsert.action" method="post" onsubmit="return valuecheck();">
+<form name="mForm" action="boardWriteInsert.action" method="post" onsubmit="return valuecheck();">
 <input type="hidden" name="update" value="1">
+<input type="hidden" name="b_no" value="<s:property value="data.b_no"/>">
 <table class="boardwrite" align=center border="0">
 
 <tr>
@@ -103,7 +109,7 @@
 
 <tr>
 <td class="bw_title">내&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;용</td>
-<td><textarea id="b_content" name="b_content"></textarea></td>
+<td><textarea name="b_content"><s:property value='data.b_content' escape='false'/></textarea></td>
 </tr>
 
 

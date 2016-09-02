@@ -88,9 +88,14 @@
 		insert into comments values(comments_seq.nextval,#c_name#,#c_content#,#c_date#,#c_my_no#,#o_no#,#b_no#,#m_no#)
 	</insert>
 	
-	<delete id="comments_o_delete" parameterClass="comments">
+	<delete id="comments_delete" parameterClass="comments">
 		<include refid="cmt_delete_all"/>
 		<include refid="cmt_where_c_no_m_no"/>
+	</delete>
+	
+	<delete id="comments_delete_all_board" parameterClass="int">
+		<include refid="cmt_delete_all"/>
+		<include refid="cmt_where_b_no"/>
 	</delete>
 
 <!-- board query -->
@@ -164,12 +169,9 @@
 		insert into board values(board_seq.nextval,#b_kind#,#b_name#,#b_email#,#b_company#,#b_category#,#b_subject#,#b_content#,#b_fav_area#,#b_fav_field#,#b_payment#,#b_date#,#b_readcount#,#m_no#)
 	</insert>
 	
-	<!-- update board 
-			set b_kind=0,b_name='lalalala',b_date=sysdate,m_no=41 
-			where b_no=1 -->
-	
 	<update id="board_update" parameterClass="board">
-		update board set b_kind=#b_kind#,#b_name#,#b_email#,#b_company#,#b_category#,#b_subject#,#b_content#,#b_fav_area#,#b_fav_field#,#b_payment#,#b_date#,#b_readcount#,#m_no#
+		update board set b_kind=#b_kind#,b_name=#b_name#,b_email=#b_email#,b_company=#b_company#,b_category=#b_category#,b_subject=#b_subject#,b_content=#b_content#,b_fav_area=#b_fav_area#,b_fav_field=#b_fav_field#,b_payment=#b_payment#,b_date=#b_date#,m_no=#m_no#
+		<include refid="bd_where_b_no"/>	
 	</update>
 	
 	<delete id="board_delete" parameterClass="board">

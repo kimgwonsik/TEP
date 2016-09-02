@@ -6,6 +6,7 @@
 <meta content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/TEP/static/css/openmeetdetail.css" type="text/css">
 <script type="text/javascript" src="/TEP/static/js/root.js"></script>
+<script type="text/javascript" src="/TEP/static/js/comments.js"></script>
 </head>
 <body>
 <table width=930px border="0" align=center>
@@ -74,7 +75,7 @@
 </table>
 </td></tr>
 <tr><td align="right">
-<input type="button" name="openmeet_submit" value="신청하기" onclick="return om_check();">
+<input type="button" name="openmeet_submit" value="신청하기" onclick="return cmt_check();">
 </td></tr>
 </table>
 
@@ -163,27 +164,12 @@ geocoder.addr2coord('<s:property value="detailData.o_addr"/>', function(status, 
     map.setCenter(coords);
 } 
 });
-
-function om_check(kind){
-	var session_id = '<s:property value="#session.session_m_email"/>';
-	var area = document.getElementById('cmt_content');
-	
-	if(session_id == null || session_id.length <= 0){
-		alertify.error("로그인 상태가 아닙니다.");
-		return false;
-	}
-	if(kind == 1 && !area.value){
-		alertify.error("댓글에 내용이 입력되지 않았습니다.");
-		area.focus();
-		return false;
-	}
-}
 </script>
 
 <!-- 댓글 -->
 <div style="font-weight: bold;font-size:small;padding-top: 50px">댓글(<s:property value="cmtData.size()"/>)</div>
 <hr class="om_detail_hr">
-<s:form action="omd_insert_cmt" onsubmit="return om_check('1');" method="post">
+<s:form action="omd_insert_cmt" onsubmit="return cmt_check('1');" method="post">
 <input type="hidden" name="o_no" value='<s:property value="o_no"/>'>
 <div style="padding-right:6px;padding-bottom:5px;"><textarea id="cmt_content" name="c_content" class="om_detail_comments"></textarea></div>
 <div align="right"><input type="submit" value="내용입력"></div>
