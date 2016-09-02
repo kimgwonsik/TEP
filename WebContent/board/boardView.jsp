@@ -4,52 +4,8 @@
 <html>
 <head>
 <meta content="text/html; charset=UTF-8">
-<style type="text/css">
-table.board{
-	width: 900px;
-	text-align: center;
-}
-table.board td{
-	padding:5px;
-}
-tr.board_head_tr{
-	background-color: #FFEDED;
-	font-family: sans-serif;
-	font-size: small;
-	font-weight: bold;
-}
-tr.board_head_tr td{
-	border-top: 3px solid red;
-	border-bottom: 0.5px solid red;
-	height: 30px;
-}
-td.board_subject{
-	text-align: left;
-	padding-left:5px;
-}
-td.board_subject a{
-	text-decoration: none;
-	color: gray;
-}
-td.board_subject a:HOVER{
-	color: red;
-}
-tr.board_content_tr{
-	font-family: sans-serif;
-	font-size: small;
-	color: gray;
-}
-tr.board_content_tr td{
-	border-bottom: 0.3px solid red;
-	height: 25px;
-}
-font.board_subject_kind{
-	color: red;
-	font-family: sans-serif;
-	font-size: x-small;
-	padding-right:5px;
-}
-</style>
+<link rel="stylesheet" href="/TEP/static/css/boardview.css" type="text/css">
+<link rel="stylesheet" href="/TEP/static/css/root.css" type="text/css">
 </head>
 <body>
 <table class="board" align=center cellspacing=0>
