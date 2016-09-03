@@ -14,7 +14,6 @@ public class BoardhelpWriteAction extends BoardhelpModel implements SessionAware
 
 	private SqlMapClient sqlMapper;
 	private Map session;
-	private int update = -1;
 	
 	public BoardhelpWriteAction(){
 		sqlMapper = SqlMapper.getMapper();
@@ -45,9 +44,5 @@ public class BoardhelpWriteAction extends BoardhelpModel implements SessionAware
 	@Override
 	public void setSession(Map session) {
 		this.session = session;
-	}
-
-	public void setUpdate(int update) {
-		this.update = update;
 	}
 }

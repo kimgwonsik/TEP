@@ -32,7 +32,7 @@ public class BoardhelpDetailAction implements SessionAware{
 		return "success";
 	}
 	
-	public String modify(){
+	public String modifyForm(){
 		try {
 			data = (BoardhelpModel)sqlMapper.queryForObject("two.selectBoardHelpOne",bh_no);
 		} catch (Exception e) {

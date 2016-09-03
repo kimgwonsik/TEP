@@ -86,6 +86,17 @@
 				<param name="actionName">helpHistory</param>
 			</result>
 		</action>
+		<action name="helpHistoryDetail" class="board.help.BoardhelpDetailAction">
+			<result name="success" type="tiles">helpHistoryDetail</result>
+		</action>
+		<action name="boardHelpUpdate" class="board.help.BoardhelpDetailAction" method="modifyForm">
+			<result name="success" type="tiles">boardHelpUpdate</result>
+		</action>
+		<action name="HelpUpdate" class="board.help.BoardhelpModifyAction" method="update">
+			<result type="redirect-action">
+				<param name="actionName">helpHistory</param>
+			</result>
+		</action>
 		
 		<!-- 고객센터 -->
 		<action name="boardHelp" class="board.help.BoardhelpAction">

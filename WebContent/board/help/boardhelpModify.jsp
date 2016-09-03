@@ -15,17 +15,15 @@
 		CKEDITOR.replace('bh_content');
 		
 		var f = document.mForm;
-		f.b_kind.value='<s:property value="data.b_kind"/>';
-		f.b_category.value='<s:property value="data.b_category"/>';
-		f.b_fav_field.value='<s:property value="data.b_fav_field"/>';
-		f.b_fav_area.value='<s:property value="data.b_fav_area"/>';
-		f.b_payment.value= '<s:property value="data.b_payment"/>';
-		f.b_subject.value='<s:property value="data.b_subject"/>';
+		f.bh_category1.value='<s:property value="data.bh_category1"/>';
+		f.bh_category2.value='<s:property value="data.bh_category2"/>';
+		f.bh_subject.value='<s:property value="data.bh_subject"/>';
 	}
 </script>
 </head>
 <body>
-<form id="writeForm" action="boardHelpUpdate.action" method="post" onsubmit="return valuecheck();">
+<form id="mForm" action="HelpUpdate.action" method="post" onsubmit="return valuecheck();">
+<input type="hidden" name="bh_no" value="<s:property value="data.bh_no"/>">
 <table class="boardwrite" align=center border="0">
 
 <tr>
@@ -75,7 +73,7 @@
 
 <tr>
 <td class="bw_title">내&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;용</td>
-<td><textarea id="bh_content" name="bh_content"></textarea></td>
+<td><textarea name="bh_content"><s:property value='data.bh_content' escape='false'/></textarea></td>
 </tr>
 
 <tr>
