@@ -11,7 +11,7 @@
 <table width=930px border="0" align=center>
 <tr>
 <td>
-<div style="font-weight: bold;font-size: x-large;">&nbsp;모임장소 추천</div>
+<div style="font-weight: bold;font-size: large;">&nbsp;&nbsp;&nbsp;모임장소 추천</div>
 <table class="om_detail_header_table">
 <tr>
 
@@ -46,9 +46,10 @@
 <div><s:property value="detailData.l_content"/></div>
 <br>
 <br>
+
 <table  align="right">
 <tr><td align="right">
-<input type="button" name="lendplace_submit" value="장소사용 신청하기">
+<input type="button" name="lendplace_submit" value="장소사용 신청하기" onclick="return lp_check();">
 </td></tr>
 </table>
 
@@ -116,15 +117,22 @@ geocoder.addr2coord('<s:property value="detailData.l_addr"/>', function(status, 
 } 
 });
 
-function om_cmt_check(){
-	var area = document.getElementById('cmt_content');
-	if(!area.value){
-		alert("댓글에 내용이 입력되지 않았습니다.");
-		area.focus();
+
+/* 장소사용 신청전 로그인 확인  */
+function lp_check(kind){
+	var session_id = '<s:property value="#session.session_m_email"/>';
+	
+	if(session_id == null || session_id.length <= 0){
+		alertify.error("로그인 상태가 아닙니다.");
 		return false;
 	}
+	if(session_id != null){
+		location.href='lendplaceBook.action?l_no=<s:property value="detailData.l_no"/>';
+	}
 }
+
 </script>
+
 
 <!-- 참여신청/취소안내 -->
 <div style="font-weight: bold;font-size:small;padding-top: 50px">모임장소 추천안내</div>

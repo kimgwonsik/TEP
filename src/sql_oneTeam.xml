@@ -2,6 +2,7 @@
 <!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
 <sqlMap>
 	<typeAlias alias="lendplace" type="lendplace.LendplaceModel" />
+	<typeAlias alias="members" type="members.MembersModel" />
 
 	<resultMap class="lendplace" id="lendplace_rm">
 		<result property="l_no" column="l_no" />
@@ -40,4 +41,24 @@
 		<include refid="lp_select_all" />
 		<include refid="lp_where_l_no" />
 	</select>
+	
+	
+	<!-- member query -->
+	<sql id="mem_select_all">
+		select * from members
+	</sql>
+	
+	<sql id="mem_where_m_no">
+		where m_no=#m_no#
+	</sql>
+	
+	<sql id="mem_where_m_email">
+		where m_email=#m_email#
+	</sql>
+	
+	<select id="members_select_one_where_m_no" parameterClass="int" resultClass="members">
+		<include refid="mem_select_all"/>
+		<include refid="mem_where_m_no"/>
+	</select>
+	
 </sqlMap>
