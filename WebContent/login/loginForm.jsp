@@ -21,7 +21,10 @@ function insert(){
     	join.m_password.focus();
     	return false;
     }
-    
+    /* alertify.log("Notification", type, wait);
+    alertify.success("Success notification");
+    alertify.error("Error notification"); */
+
     
     
     var f=document.userinput;

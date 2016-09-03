@@ -92,7 +92,7 @@ font.board_subject_kind{
 </tr>
 
 <!-- 게시판 검색 -->
-<tr>
+<%-- <tr>
 <td colspan="5" align="center">
 	<form method="post" action="mypageHelpHistory.action">
 		<table>
@@ -110,7 +110,7 @@ font.board_subject_kind{
 		</table>
 	</form>
 </td>
-</tr>
+</tr> --%>
 
 </table>
 </body>
