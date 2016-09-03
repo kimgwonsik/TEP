@@ -94,7 +94,7 @@ font.board_subject_kind{
 <!-- 게시판 검색 -->
 <%-- <tr>
 <td colspan="5" align="center">
-	<form method="post" action="mypageHelpHistory.action">
+	<form method="post" action="helpHistory.action">
 		<table>
 		<tr>
 		<td>

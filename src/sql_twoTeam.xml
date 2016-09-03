@@ -89,6 +89,16 @@
 	</insert>
 	
 	<!-- 마이페이지 문의내역 -->
+<!-- 	검색 미완성 <select id="HelpHistory_search_bh_subject_select_all" resultClass="boardHelpModel" parameterClass="String">
+		SELECT * FROM BOARD_HELP WHERE m_no=#m_no# and bh_subject like '%'||#searchWord#||'%' ORDER BY bh_no desc
+	</select>
+	<select id="HelpHistory_search_bh_subject_content_select_all" resultClass="boardHelpModel" parameterClass="String">
+		SELECT * FROM BOARD_HELP  WHERE m_no=#m_no# and bh_subject like '%'||#searchWord#||'%' or bh_content like '%'||#searchWord#||'%' ORDER BY bh_no desc
+	</select>
+	<select id="HelpHistory_search_bh_name_select_all" resultClass="boardHelpModel" parameterClass="String">
+		SELECT * FROM BOARD_HELP  WHERE m_no=#m_no# and bh_name like '%'||#searchWord#||'%' ORDER BY bh_no desc
+	</select> -->
+	
 	<select id="writeBoardHelpList" resultClass="boardHelpModel" parameterClass="int">
 		SELECT * FROM BOARD_HELP WHERE m_no=#m_no# ORDER BY bh_no desc
 	</select>
@@ -99,5 +109,6 @@
 		UPDATE BOARD_HELP SET bh_name=#bh_name#,bh_phone=#bh_phone#,bh_email=#bh_email#,bh_subject=#bh_subject#,bh_category1=#bh_category1#,bh_category2=#bh_category2#,bh_content=#bh_content#,bh_date=#bh_date#,m_no=#m_no#
 		WHERE bh_no=#bh_no#
 	</update>
+	
 	
 </sqlMap>
