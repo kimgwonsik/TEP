@@ -82,6 +82,7 @@
 				<td align=right>*신청하는 장소&nbsp;&nbsp; </td>
 				<td><b><s:property value="detailData.l_subject"/></b></td>
 			</tr>
+			<input type="hidden" name="l_subject" id="l_subject" value="<s:property value="detailData.l_subject"/>">
 			<tr>
 				<td align=right>*대관시간&nbsp;&nbsp;</td>
 				<td><input type="date" name="l_sdate" id="l_sdate" />부터</td>
@@ -92,19 +93,19 @@
 			</tr>
 			<tr>
 				<td align=right>*신청자 이름&nbsp;&nbsp;</td>
-				<td><input type="text" name="m_name" id="m_name" value='<s:property value="sessionData.m_name"/>' /></td>
+				<td><input type="text" name="l_name" id="l_name" value='<s:property value="sessionData.m_name"/>' /></td>
 			</tr>
 			<tr>
 				<td align=right>*신청자 소속&nbsp;&nbsp;</td>
-				<td><input type="text" name="m_company" id="m_company" alt="예) TEP" value="예) TEP" onclick="this.value=''" /></td>
+				<td><input type="text" name="l_company" id="l_company" alt="예) TEP" value="예) TEP" onclick="this.value=''" /></td>
 			</tr>
 			<tr>
 				<td align=right>*신청자 전화번호&nbsp;&nbsp;</td>
-				<td><input type="number" name="m_phone" id="m_phone" value='<s:property value="sessionData.m_phone"/>' /></td>
+				<td><input type="number" name="l_phone" id="l_phone" value='<s:property value="sessionData.m_phone"/>' /></td>
 			</tr>
 			<tr>
 				<td align=right>*신청자 이메일&nbsp;&nbsp;</td>
-				<td><input type="text" name="m_email" id="m_email" value='<s:property value="sessionData.m_email"/>' /></td>
+				<td><input type="text" name="l_email" id="l_email" value='<s:property value="sessionData.m_email"/>' /></td>
 			</tr>
 			<tr>
 				<td></td>
