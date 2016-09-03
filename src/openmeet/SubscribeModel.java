@@ -1,13 +1,14 @@
 package openmeet;
 
 public class SubscribeModel {
-	private Integer s_no;
-	private String s_name;
-	private String e_mail;
-	private String s_company;
-	private String s_phone;
-	private Integer o_no;
-	private Integer m_no;
+	private Integer s_no; //auto increase
+	private String s_name; //이름
+	private String s_email; //이메일
+	private String s_company; //소속
+	private String s_phone; //전화번호
+	private Integer s_snum; //신청인원
+	private Integer o_no; //모임글번호
+	private Integer m_no; //회원번호
 	
 	public Integer getS_no() {
 		return s_no;
@@ -21,11 +22,11 @@ public class SubscribeModel {
 	public void setS_name(String s_name) {
 		this.s_name = s_name;
 	}
-	public String getE_mail() {
-		return e_mail;
+	public String getS_email() {
+		return s_email;
 	}
-	public void setE_mail(String e_mail) {
-		this.e_mail = e_mail;
+	public void setS_email(String s_email) {
+		this.s_email = s_email;
 	}
 	public String getS_company() {
 		return s_company;
@@ -50,5 +51,11 @@ public class SubscribeModel {
 	}
 	public void setM_no(Integer m_no) {
 		this.m_no = m_no;
+	}
+	public Integer getS_snum() {
+		return s_snum;
+	}
+	public void setS_snum(Integer s_snum) {
+		this.s_snum = s_snum;
 	}
 }
