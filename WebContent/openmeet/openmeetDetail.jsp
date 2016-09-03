@@ -75,7 +75,12 @@
 <tr><td align="right">
 <s:form action="omd_subscribe" method="post" onsubmit="return cmt_check('0');">
 	<input type="hidden" name="o_no" value='<s:property value="o_no"/>'>
+	<s:if test="detailData.o_permit_pnum <= 0">
+	<input type="button" value="신청마감" disabled="disabled" style="background-color: gray;">
+	</s:if>
+	<s:else>
 	<input type="submit" value="신청하기">
+	</s:else>
 </s:form>
 </td></tr>
 </table>
