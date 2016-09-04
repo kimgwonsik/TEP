@@ -62,32 +62,32 @@
 			f.o_subject.focus();
 			return false;
 		}
-		if(!f.o_m_sdate.value){
+		if(!f.o_msdate.value){
 			alertify.error('모임일시가 지정되지 않았습니다.');
-			f.o_m_sdate.focus();
+			f.o_msdate.focus();
 			return false;
-		} else if(!f.o_m_edate.value){
+		} else if(!f.o_medate.value){
 			alertify.error('모임일시가 지정되지 않았습니다.');
-			f.o_m_edate.focus();
+			f.o_medate.focus();
 			return false;
 		}
-		if(!f.o_r_sdate.value){
+		if(!f.o_rsdate.value){
 			alertify.error('접수기간이 지정되지 않았습니다.');
-			f.o_r_sdate.focus();
+			f.o_rsdate.focus();
 			return false;
-		} else if(!f.o_r_edate.value){
+		} else if(!f.o_redate.value){
 			alertify.error('접수기간이 지정되지 않았습니다.');
-			f.o_r_edate.focus();
-			return false;
-		}
-		if(!f.o_title.value){
-			alertify.error('모임장소명이 입력되지 않았습니다.');
-			f.o_title.focus();
+			f.o_redate.focus();
 			return false;
 		}
 		if(!f.o_addr.value){
 			alertify.error('상세주소가 입력되지 않았습니다.');
 			f.o_addr.focus();
+			return false;
+		}
+		if(!f.o_title.value){
+			alertify.error('간략소개가 입력되지 않았습니다.');
+			f.o_title.focus();
 			return false;
 		}
 		if(!f.o_total_pnum.value){
@@ -204,13 +204,6 @@
 </tr>
 
 <tr>
-<td class="td_title">모임 장소명</td>
-<td>
-<input type="text" name="o_title" size="25%" maxlength="10">
-</td>
-</tr>
-
-<tr>
 <td class="td_title">모임 상세주소</td>
 <td>
 <div>
@@ -218,6 +211,14 @@
 </div>
 </td>
 </tr>
+
+<tr>
+<td class="td_title">모임 간략소개</td>
+<td>
+<textarea class="ofm_o_title" name="o_title" rows="3" cols="71" maxlength="90"></textarea>
+</td>
+</tr>
+
 
 <tr>
 <td class="td_title">총 모임 인원</td>

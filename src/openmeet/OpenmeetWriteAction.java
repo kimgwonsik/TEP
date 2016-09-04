@@ -1,6 +1,7 @@
 package openmeet;
 
 import java.io.File;
+import java.util.Calendar;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -8,6 +9,9 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 import config.SqlMapper;
+import members.MembersModel;
+import util.FileUploadService;
+import util.TepUtils;
 
 public class OpenmeetWriteAction extends OpenmeetModel implements SessionAware{
 	private SqlMapClient sqlMapper;
@@ -27,37 +31,41 @@ public class OpenmeetWriteAction extends OpenmeetModel implements SessionAware{
 	}
 	
 	public String write(){
-		System.out.println("1 : "+getO_addr());
-		System.out.println("2 : "+getO_category());
-//		System.out.println(getO_company());
-		System.out.println("3 : "+getO_content());
-//		System.out.println(getO_content_img());
-//		System.out.println(getO_email());
-//		System.out.println(getO_meetdate());
-//		System.out.println(getO_name());
-		System.out.println("4 : "+getO_payment());
-//		System.out.println(getO_phone());
-//		System.out.println(getO_registerdate());
-//		System.out.println(getO_rep_img()); //대표이미지
-		System.out.println("5 : "+getO_subject());
-		System.out.println("6 : "+getO_title());
-//		System.out.println(getO_current_pnum());
-//		System.out.println(getO_date());
-		System.out.println("7 : "+getO_medate());
-		System.out.println("8 : "+getO_msdate());
-//		System.out.println(getO_no());
-//		System.out.println(getO_permit_pnum());
-		System.out.println("9 : "+getO_redate());
-		System.out.println("10 : "+getO_rsdate());
-		System.out.println("11 : "+getO_total_pnum());
-		/*String basePath = FileUploadService.UPLOAD_TEMP_PATH;
+		String basePath = FileUploadService.UPLOAD_TEMP_PATH;
 		FileUploadService fs = new FileUploadService();
 		try {
 			uploadFileName = System.currentTimeMillis()+"_"+uploadFileName;
 			serverFullPath = fs.saveFile(upload, basePath, uploadFileName);
 		} catch (Exception e) {
 			System.out.println("file upload error : "+e.getMessage());
-		}*/
+		}
+		
+		try {
+			int m_no = (int) session.get("session_m_no");
+			MembersModel mdata = (MembersModel) sqlMapper.queryForObject("jin.members_select_one_where_m_no",m_no);
+			setO_email(mdata.getM_email());
+			setO_name(mdata.getM_name());
+			setO_phone(mdata.getM_phone());
+			setO_company(mdata.getM_company());
+			setO_rep_img(serverFullPath);
+			setO_content_img(session.get("o_content_img"+m_no).toString());
+			setO_m_sdate(TepUtils.dateParse(getO_msdate()));
+			setO_m_edate(TepUtils.dateParse(getO_medate()));
+			setO_r_sdate(TepUtils.dateParse(getO_rsdate()));
+			setO_r_edate(TepUtils.dateParse(getO_redate()));
+			setO_current_pnum(0);
+			setO_date(Calendar.getInstance().getTime());
+			setO_readcount(0);
+			setM_no(m_no);
+			
+			sqlMapper.insert("jin.openmeet_insert",this);
+			
+			if(session.get("o_content_img"+m_no) != null){
+				session.remove("o_content_img"+m_no);
+			}
+		} catch (Exception e) {
+			System.out.println("openmeet insert error : "+e.getMessage());
+		}
 		
 		return "success";
 	}

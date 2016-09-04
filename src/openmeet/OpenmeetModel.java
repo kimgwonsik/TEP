@@ -26,9 +26,15 @@ public class OpenmeetModel {
 	// 제목
 	private String o_subject;
 
+	// 모임간략소개
+	private String o_title;
+	
 	// 내용
 	private String o_content;
 
+	// 모임장소 세부위치
+	private String o_addr;
+	
 	// 리스트 대표이미지
 	private String o_rep_img;
 
@@ -52,12 +58,6 @@ public class OpenmeetModel {
 	
 	// 신청기간
 	private String o_registerdate;
-
-	// 모임장소명
-	private String o_title;
-
-	// 모임장소 세부위치
-	private String o_addr;
 
 	// 총 모임 인원
 	private Integer o_total_pnum;

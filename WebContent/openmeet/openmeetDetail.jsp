@@ -38,17 +38,14 @@
 <td>모임기간 : <s:property value="detailData.o_meetdate"/></td>
 </tr>
 <tr>
-<td>모임장소명 : <s:property value="detailData.o_title"/></td>
-</tr>
-<tr>
-<td>모임세부주소 : <s:property value="detailData.o_addr"/></td>
+<td>모임장소 : <s:property value="detailData.o_addr"/></td>
 </tr>
 <tr>
 <td>신청인원 : 총<s:property value="detailData.o_total_pnum"/>명</td>
 </tr>
 </table>
 <hr class="om_detail_hr">
-<div><s:property value="detailData.o_content"/></div>
+<div><s:property value="detailData.o_title"/></div>
 <br>
 <br>
 <table  align="right">
@@ -105,11 +102,11 @@
 <div style="font-size: small;color:navy;">※ 접수 후에는 정식접수 안내를 위해 전화 또는 문자를 드리고 있습니다. (문의 070-4739-9697)</div>
 <br>
 <div>
-<s:if test="detailData.o_content_img != null">
+<%-- <s:if test="detailData.o_content_img != null">
 <img src="<s:property value="detailData.o_content_img"/>">
 <br>
-</s:if>
-<s:property value="detailData.o_content"/>
+</s:if> --%>
+<s:property value="detailData.o_content" escape="false"/>
 </div>
 
 </td>
@@ -120,9 +117,6 @@
 <hr class="om_detail_hr">
 <div style="font-weight: bold;font-size: large;">지도보기</div>
 <div id="map" style="width:100%;height:350px;" class="om_detail_contet_map"></div>
-<br>
-<b>※&nbsp;<s:property value="detailData.o_addr"/>&nbsp;(<s:property value="detailData.o_title"/>)</b>
-<br>
 
 <script src="//apis.daum.net/maps/maps3.js?apikey=a18085cad4f8315645fc4a233bdb2875&libraries=services" onerror="alertify.log('지도 로드중 에러!')"></script>
 <script>
@@ -165,7 +159,7 @@ geocoder.addr2coord('<s:property value="detailData.o_addr"/>', function(status, 
 
     // 인포윈도우로 장소에 대한 설명을 표시합니다
     var infowindow = new daum.maps.InfoWindow({
-        content: '<div style="width:150px;text-align:center;padding:6px 0;"><s:property value="detailData.o_title"/></div>'
+        content: '<div style="width:150px;text-align:center;padding:6px 0;"><s:property value="detailData.o_addr"/></div>'
     });
     infowindow.open(map, marker);
 
