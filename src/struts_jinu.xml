@@ -15,8 +15,18 @@
 			<result name="success" type="tiles">openmeetDetail</result>
 		</action>
 		
-		<action name="omd_insert" class="openmeet.OpenmeetDetailAction" method="insert">
-			<result name="success" type="tiles"><!-- 모임개설 하기 폼 페이지 --></result>
+		<action name="openmeetForm" class="openmeet.OpenmeetWriteAction" method="form">
+			<result name="success" type="tiles">openmeetForm</result>
+		</action>
+		
+		<action name="openmeetWrite" class="openmeet.OpenmeetWriteAction" method="write">
+			<result type="redirect-action">
+				<param name="actionName">openmeet</param>
+			</result>
+		</action>
+		
+		<action name="ckeditorImageUpload" class="openmeet.CkImageUploadAction">
+			<result name="success">/openmeet/ck_imgup_result.jsp</result>
 		</action>
 		
 		<action name="omd_subscribe" class="openmeet.SubscribeAction">

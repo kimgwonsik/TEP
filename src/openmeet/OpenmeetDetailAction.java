@@ -42,10 +42,6 @@ public class OpenmeetDetailAction implements SessionAware{
 		return "success";
 	}
 	
-	public String insert(){
-		return "success";
-	}
-	
 	public String insertComments(){
 		try {
 			CommentsModel data = new CommentsModel();

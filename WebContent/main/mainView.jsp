@@ -4,11 +4,12 @@
 <html>
 <head>
 <meta content="text/html; charset=UTF-8">
-<link href="/TEP/static/js/jquery.bxslider/jquery.bxslider.css" rel="stylesheet" />
-<link href="/TEP/static/css/root.css" rel="stylesheet" />
+<link rel="stylesheet" href="/TEP/static/css/root.css">
+<link rel="stylesheet" href="/TEP/static/js/jquery.bxslider/jquery.bxslider.css">
+<link rel="stylesheet" href="/TEP/static/css/alertify.default.css">
+<script src="/TEP/static/js/alertify.min.js"></script>
 <script src="/TEP/static/js/jquery-3.1.0.js"></script>
 <script src="/TEP/static/js/jquery.bxslider/jquery.bxslider.min.js"></script>
-<script src="/TEP/static/js/root.js"></script>
 </head>
 <body>
 
@@ -56,7 +57,7 @@ $('.bxslider').bxSlider({
 <map name="main_map_link">
 	<area shape="rect" alt="모임" title="모임" coords="73,27,140,104" href="openmeet.action" />
 	<area shape="rect" alt="장소" title="장소" coords="71,152,141,228" href="lendplace.action" />
-	<area id="omw_action" shape="rect" alt="모임개설하기" title="모임개설하기" coords="13,279,194,318" href="openmeet_write.action" onclick="return loginChk();"/>
+	<area id="omw_action" shape="rect" alt="모임개설하기" title="모임개설하기" coords="13,279,194,318" href="openmeetForm.action" onclick="return loginChk();"/>
 </map>
 
 </body>

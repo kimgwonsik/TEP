@@ -47,9 +47,6 @@ td.footer_td_text a:HOVER {
 <a href="boardHelp.action">고객센터</a>
 </td></tr>
 <tr>
-<td>&nbsp;</td>
-</tr>
-<tr>
 <td>
 <pre class="footer_pre">
 <font color="red" face="bold">          (주) TEP</font>     대표이사 유진우 | 개인정보관리책임자 유진우 | 사업자등록번호 234-91-54811 | 통신판매업 신고번호 제 2016-서울강남-0254호

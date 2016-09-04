@@ -5,7 +5,9 @@
 <head>
 <meta content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/TEP/static/css/openmeetdetail.css" type="text/css">
-<script type="text/javascript" src="/TEP/static/js/root.js"></script>
+<link rel="stylesheet" href="/TEP/static/css/alertify.default.css" type="text/css">
+<script src="/TEP/static/js/alertify.min.js"></script>
+
 </head>
 <body>
 <table width=930px border="0" align=center>
@@ -122,10 +124,11 @@
 <b>※&nbsp;<s:property value="detailData.o_addr"/>&nbsp;(<s:property value="detailData.o_title"/>)</b>
 <br>
 
+<script src="//apis.daum.net/maps/maps3.js?apikey=a18085cad4f8315645fc4a233bdb2875&libraries=services" onerror="alertify.log('지도 로드중 에러!')"></script>
 <script>
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 mapOption = {
-    center: new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+    center: new daum.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
     level: 3 // 지도의 확대 레벨
 };  
 

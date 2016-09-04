@@ -72,6 +72,9 @@ div.om_detail_contet_map{
 textarea.om_detail_comments{
 	width: 100%;
 	height: 45px;
+	border-color: red;
+	border-style: solid;
+	border-width: thin;
 }
 body, ul, ol, html, h1, h2, h3, h4, h5, h6, p, img, form, dl, dd, dt{
     padding: 0;
