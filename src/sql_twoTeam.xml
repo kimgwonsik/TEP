@@ -89,7 +89,7 @@
 	</insert>
 	
 	<!-- 마이페이지 문의내역 -->
-<!-- 	검색 미완성 <select id="HelpHistory_search_bh_subject_select_all" resultClass="boardHelpModel" parameterClass="String">
+	<!-- <select id="HelpHistory_search_bh_subject_select_all" resultClass="boardHelpModel" parameterClass="String">
 		SELECT * FROM BOARD_HELP WHERE m_no=#m_no# and bh_subject like '%'||#searchWord#||'%' ORDER BY bh_no desc
 	</select>
 	<select id="HelpHistory_search_bh_subject_content_select_all" resultClass="boardHelpModel" parameterClass="String">

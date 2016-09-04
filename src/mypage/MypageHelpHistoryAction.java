@@ -34,7 +34,6 @@ public class MypageHelpHistoryAction implements SessionAware{
 	private int searchKey = -1;
 	private String searchWord = "";
 	
-	
 	public MypageHelpHistoryAction(){
 		sqlMapper = SqlMapper.getMapper();
 	}
@@ -67,6 +66,7 @@ public class MypageHelpHistoryAction implements SessionAware{
 	
 	@SuppressWarnings("unchecked")
 	private void search() throws SQLException {
+		 m_no = (int)session.get("session_m_no");
 		switch (getSearchKey()) {
 		case SEARCHKEY_SUBEJCT:
 			list = sqlMapper.queryForList("two.HelpHistory_search_bh_subject_select_all", getSearchWord());
