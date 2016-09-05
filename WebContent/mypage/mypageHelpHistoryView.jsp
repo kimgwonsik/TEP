@@ -62,7 +62,7 @@ font.board_subject_kind{
 </tr>
 
 <s:iterator value="list" status="stat">
-	<s:url id="boardHelpDetailURL" action="boardHelpDetail">
+	<s:url id="boardHelpDetailURL" action="helpHistoryDetail">
 		<s:param name="bh_no">
 			<s:property value="bh_no"/>
 		</s:param>
@@ -92,9 +92,9 @@ font.board_subject_kind{
 </tr>
 
 <!-- 게시판 검색 -->
-<tr>
+<%-- <tr>
 <td colspan="5" align="center">
-	<form method="post" action="mypageHelpHistory.action">
+	<form method="post" action="helpHistory.action">
 		<table>
 		<tr>
 		<td>
@@ -110,7 +110,7 @@ font.board_subject_kind{
 		</table>
 	</form>
 </td>
-</tr>
+</tr> --%>
 
 </table>
 </body>

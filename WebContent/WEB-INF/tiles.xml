@@ -152,6 +152,14 @@
 		<put-attribute name="title" value="TEP - 내가쓴글"></put-attribute>
 		<put-attribute name="body" value="/mypage/mypageHelpHistoryView.jsp"></put-attribute>
 	</definition>
+	<definition name="helpHistoryDetail" extends=".mypage">
+		<put-attribute name="title" value="TEP - 문의내역 상세보기"></put-attribute>
+		<put-attribute name="body" value="/board/help/boardhelpDetail.jsp"></put-attribute>
+	</definition>
+	<definition name="boardHelpUpdate" extends=".mypage">
+		<put-attribute name="title" value="TEP - 문의내역 수정하기"></put-attribute>
+		<put-attribute name="body" value="/board/help/boardhelpModify.jsp"></put-attribute>
+	</definition>
 	
 	<!-- 고객센터 -->
 	<definition name="boardHelpDetail" extends=".default">

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import board.BoardModel;
 import board.help.BoardhelpModel;
 import org.apache.struts2.interceptor.SessionAware;
 
@@ -20,7 +21,7 @@ public class MypageHelpHistoryAction implements SessionAware{
 	
 	private List<BoardhelpModel> list = new ArrayList<>();
 	private SqlMapClient sqlMapper;
-	
+	private BoardhelpModel data;
 	private int m_no;
 	private Map session;
 	private int currentPage = 1;
@@ -32,7 +33,6 @@ public class MypageHelpHistoryAction implements SessionAware{
 	
 	private int searchKey = -1;
 	private String searchWord = "";
-	
 	
 	public MypageHelpHistoryAction(){
 		sqlMapper = SqlMapper.getMapper();
@@ -66,15 +66,16 @@ public class MypageHelpHistoryAction implements SessionAware{
 	
 	@SuppressWarnings("unchecked")
 	private void search() throws SQLException {
+		 m_no = (int)session.get("session_m_no");
 		switch (getSearchKey()) {
 		case SEARCHKEY_SUBEJCT:
-			list = sqlMapper.queryForList("two.boardHelp_search_bh_subject_select_all", getSearchWord());
+			list = sqlMapper.queryForList("two.HelpHistory_search_bh_subject_select_all", getSearchWord());
 			break;
 		case SEARCHKEY_SUBJECT_CONTENT:
-			list = sqlMapper.queryForList("two.boardHelp_search_bh_subject_content_select_all", getSearchWord());
+			list = sqlMapper.queryForList("two.HelpHistory_search_bh_subject_content_select_all", getSearchWord());
 			break;
 		case SEARCHKEY_NAME:
-			list = sqlMapper.queryForList("two.boardHelp_search_bh_name_select_all", getSearchWord());
+			list = sqlMapper.queryForList("two.HelpHistory_search_bh_name_select_all", getSearchWord());
 			break;
 		}
 	}

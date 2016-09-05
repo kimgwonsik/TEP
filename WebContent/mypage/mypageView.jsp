@@ -7,6 +7,6 @@
 <title></title>
 </head>
 <body>
-
+마이페이지 홈
 </body>
 </html>

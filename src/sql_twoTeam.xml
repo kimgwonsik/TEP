@@ -53,7 +53,7 @@
 	<!-- 회원정보 수정 -->
 	<update id="modifyMember" parameterClass="MembersModel">
 		update members set m_name=#m_name#, m_nickname=#m_nickname#, m_password=#m_password#, m_phone=#m_phone#, m_company=#m_company#, m_fav_area=#m_fav_area#, m_fav_field=#m_fav_field#
-		where m_email=#m_email#
+		where m_no=#m_no#
 	</update>
 	<!-- 비밀번호 초기화 -->
 	<update id="setPassword1111" parameterClass="String">
@@ -89,12 +89,26 @@
 	</insert>
 	
 	<!-- 마이페이지 문의내역 -->
+	<!-- <select id="HelpHistory_search_bh_subject_select_all" resultClass="boardHelpModel" parameterClass="String">
+		SELECT * FROM BOARD_HELP WHERE m_no=#m_no# and bh_subject like '%'||#searchWord#||'%' ORDER BY bh_no desc
+	</select>
+	<select id="HelpHistory_search_bh_subject_content_select_all" resultClass="boardHelpModel" parameterClass="String">
+		SELECT * FROM BOARD_HELP  WHERE m_no=#m_no# and bh_subject like '%'||#searchWord#||'%' or bh_content like '%'||#searchWord#||'%' ORDER BY bh_no desc
+	</select>
+	<select id="HelpHistory_search_bh_name_select_all" resultClass="boardHelpModel" parameterClass="String">
+		SELECT * FROM BOARD_HELP  WHERE m_no=#m_no# and bh_name like '%'||#searchWord#||'%' ORDER BY bh_no desc
+	</select> -->
+	
 	<select id="writeBoardHelpList" resultClass="boardHelpModel" parameterClass="int">
-		SELECT * FROM BOARD_HELP WHERE m_no=#m_no#
+		SELECT * FROM BOARD_HELP WHERE m_no=#m_no# ORDER BY bh_no desc
 	</select>
 	<delete id="boardHelpDelete" parameterClass="boardHelpModel">
-		DELETE * FROM BOARD_HELP WHERE bh_no=#bh_no# and m_no=#m_no#
+		DELETE FROM BOARD_HELP WHERE bh_no=#bh_no# and m_no=#m_no#
 	</delete>
+	<update id="boardHelpUpdate" parameterClass="boardHelpModel">
+		UPDATE BOARD_HELP SET bh_name=#bh_name#,bh_phone=#bh_phone#,bh_email=#bh_email#,bh_subject=#bh_subject#,bh_category1=#bh_category1#,bh_category2=#bh_category2#,bh_content=#bh_content#,bh_date=#bh_date#,m_no=#m_no#
+		WHERE bh_no=#bh_no#
+	</update>
 	
 	
 </sqlMap>
