@@ -1,5 +1,6 @@
 package util;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -25,4 +26,13 @@ public class TepUtils {
 		return sf.format(start)+" ~ "+ef.format(end);
 	}
 	
+	/**
+	 * @param 다음의 형식을 같는 문자열  2016-09-05 00:30
+	 * @return Date 객체
+	 * @throws ParseException 
+	 */
+	public static Date dateParse(String date) throws ParseException{
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		return sf.parse(date);
+	}
 }

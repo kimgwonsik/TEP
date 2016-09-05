@@ -5,7 +5,9 @@
 <head>
 <meta content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/TEP/static/css/openmeetdetail.css" type="text/css">
-<script type="text/javascript" src="/TEP/static/js/root.js"></script>
+<link rel="stylesheet" href="/TEP/static/css/alertify.default.css" type="text/css">
+<script src="/TEP/static/js/alertify.min.js"></script>
+
 </head>
 <body>
 <table width=930px border="0" align=center>
@@ -36,17 +38,14 @@
 <td>모임기간 : <s:property value="detailData.o_meetdate"/></td>
 </tr>
 <tr>
-<td>모임장소명 : <s:property value="detailData.o_title"/></td>
-</tr>
-<tr>
-<td>모임세부주소 : <s:property value="detailData.o_addr"/></td>
+<td>모임장소 : <s:property value="detailData.o_addr"/></td>
 </tr>
 <tr>
 <td>신청인원 : 총<s:property value="detailData.o_total_pnum"/>명</td>
 </tr>
 </table>
 <hr class="om_detail_hr">
-<div><s:property value="detailData.o_content"/></div>
+<div><s:property value="detailData.o_title"/></div>
 <br>
 <br>
 <table  align="right">
@@ -103,11 +102,11 @@
 <div style="font-size: small;color:navy;">※ 접수 후에는 정식접수 안내를 위해 전화 또는 문자를 드리고 있습니다. (문의 070-4739-9697)</div>
 <br>
 <div>
-<s:if test="detailData.o_content_img != null">
+<%-- <s:if test="detailData.o_content_img != null">
 <img src="<s:property value="detailData.o_content_img"/>">
 <br>
-</s:if>
-<s:property value="detailData.o_content"/>
+</s:if> --%>
+<s:property value="detailData.o_content" escape="false"/>
 </div>
 
 </td>
@@ -118,14 +117,12 @@
 <hr class="om_detail_hr">
 <div style="font-weight: bold;font-size: large;">지도보기</div>
 <div id="map" style="width:100%;height:350px;" class="om_detail_contet_map"></div>
-<br>
-<b>※&nbsp;<s:property value="detailData.o_addr"/>&nbsp;(<s:property value="detailData.o_title"/>)</b>
-<br>
 
+<script src="//apis.daum.net/maps/maps3.js?apikey=a18085cad4f8315645fc4a233bdb2875&libraries=services" onerror="alertify.log('지도 로드중 에러!')"></script>
 <script>
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 mapOption = {
-    center: new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+    center: new daum.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
     level: 3 // 지도의 확대 레벨
 };  
 
@@ -162,7 +159,7 @@ geocoder.addr2coord('<s:property value="detailData.o_addr"/>', function(status, 
 
     // 인포윈도우로 장소에 대한 설명을 표시합니다
     var infowindow = new daum.maps.InfoWindow({
-        content: '<div style="width:150px;text-align:center;padding:6px 0;"><s:property value="detailData.o_title"/></div>'
+        content: '<div style="width:150px;text-align:center;padding:6px 0;"><s:property value="detailData.o_addr"/></div>'
     });
     infowindow.open(map, marker);
 
@@ -185,7 +182,6 @@ function cmt_check(kind) {
 		area.focus();
 		return false;
 	}
-	
 }
 </script>
 
@@ -234,8 +230,23 @@ function cmt_check(kind) {
 </table>
 
 
+<table cellpadding=3 align=right>
+<tr>
+<s:if test="detailData.m_no == #session.session_m_no">
+<td><input type="button" value="수정하기" onclick="location.href='openmeetModify.action?o_no=<s:property value="o_no"/>'"></td>
+<td><input type="button" value="삭제하기" onclick="location.href='openmeetDelete.action?o_no=<s:property value="o_no"/>'"></td>
+</s:if>
+<td>
+<input type="button" value="뒤로가기" onclick="history.back();">
 </td>
 </tr>
 </table>
+
+
+</td>
+</tr>
+</table>
+
+
 </body>
 </html>

@@ -58,7 +58,7 @@
 
 <!-- 모임개설 검색 카테고리 -->
 <div class="title">모임제목 / 본문</div>
-<div><input type="text" name="openmeet_category_search" alt="키워드로 모임을 검색하세요" value="키워드로 모임을 검색하세요" onclick="this.value=''" size="26"/></div>
+<div><input type="text" name="openmeet_category_search" alt="키워드로 모임을 검색하세요" placeholder="키워드로 모임을 검색하세요" size="26"/></div>
 <br>
 <div class="title">카테고리</div>
 <table class="gborder">

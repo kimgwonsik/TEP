@@ -5,7 +5,6 @@
 <head>
 <meta content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/TEP/static/css/openmeetdetail.css" type="text/css">
-<script type="text/javascript" src="/TEP/static/js/root.js"></script>
 </head>
 <body>
 <!-- 전체 테이블 -->

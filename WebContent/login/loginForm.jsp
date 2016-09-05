@@ -8,7 +8,6 @@
 <title>로그인</title>
 <script>
 function insert(){
-	  
     var join=document.userinput
     
     if(join.m_email.value==""){
@@ -16,16 +15,21 @@ function insert(){
     	join.m_email.focus();
     	return false;
     }
-    else if(join.m_password.value==""){
+     if(join.m_password.value==""){
     	alert("비밀번호를 입력해주세요");
     	join.m_password.focus();
     	return false;
     }
-    
-    
-    
     var f=document.userinput;
 	f.submit();
+}
+function enterkey(){
+	if(event.keyCode == 13){
+		insert();
+	}
+}
+function idFocus(){
+	document.getElementById('id').focus();
 }
 function openConfirmId(){
 	var url="findIdPassword.action";
@@ -33,7 +37,7 @@ function openConfirmId(){
 }
 </script>
 </head>
-<body>
+<body onload="idFocus();">
 
 <br>
 
@@ -53,8 +57,8 @@ function openConfirmId(){
 	<tr align="center" border="0" cellspacing="0" cellpadding="0">
 		<td>
 			<form action="login.action" method="post" name="userinput">
-				<input type="text" name="m_email" maxlength="20" placeholder="아이디" /><br/>
-				<input type="password" name="m_password" maxlength="20" placeholder="비밀번호"/>
+				<input id="id" type="text" name="m_email" maxlength="20" placeholder="아이디" onkeypress="enterkey();"/><br/>
+				<input type="password" name="m_password" maxlength="20" placeholder="비밀번호" onkeypress="enterkey();"/>
 		</td>
 	</tr>
 	

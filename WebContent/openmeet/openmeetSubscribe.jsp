@@ -75,7 +75,7 @@
 <td>신청인원 : 총<s:property value="detailData.o_total_pnum"/>명&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 <s:property value="detailData.o_permit_pnum"/>명 신청가능
 ·
-<input type="number" id="c_pnum" name="o_current_pnum" size="1" class="om_detail_register_input">명
+<input type="number" id="c_pnum" name="o_current_pnum" size="1" class="om_detail_register_input" maxlength="4">명
 
 </td>
 </tr>
@@ -92,18 +92,18 @@
 <table class="omds_member_info">
 <tr>
 <td width="15%" align="right" class="omds_title_td">이름</td>
-<td width="35%"><input type="text" name="s_name" value="<s:property value="mData.m_name"/>"></td>
+<td width="35%"><input type="text" name="s_name" value="<s:property value="mData.m_name"/>" maxlength="10"></td>
 <td width="15%" align="right" class="omds_title_td">이메일</td>
 <td width="35%"><input type="text" value="<s:property value="mData.m_email"/>" disabled="disabled"></td>
 </tr>
 <tr>
 <td align="right" class="omds_title_td">소속</td>
 <td>
-<input type="text" name="s_company" value="<s:property value="mData.m_company"/>">
+<input type="text" name="s_company" value="<s:property value="mData.m_company"/>" maxlength="10">
 </td>
 <td align="right" class="omds_title_td">전화번호</td>
 <td>
-<input type="number" name="s_phone" value="<s:property value="mData.m_phone"/>">
+<input type="number" name="s_phone" value="<s:property value="mData.m_phone"/>" maxlength="16">
 </td>
 </tr>
 </table>

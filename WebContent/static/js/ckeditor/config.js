@@ -9,7 +9,7 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.uiColor = '#AADC6E';
 	
 	config.height=300;
-	config.width=776;
+	config.width=876;
 	config.uiColor='#FF9999';
 	
 	config.toolbarGroups = [
@@ -21,16 +21,16 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
 		{ name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
 		{ name: 'links', groups: [ 'links' ] },
-		{ name: 'insert', groups: [ 'insert' ] },
 		'/',
 		{ name: 'styles', groups: [ 'styles' ] },
 		{ name: 'colors', groups: [ 'colors' ] },
+		{ name: 'insert', groups: [ 'insert' ] },
 		{ name: 'tools', groups: [ 'tools' ] },
 		{ name: 'others', groups: [ 'others' ] },
 		{ name: 'about', groups: [ 'about' ] }
 	];
 
-	config.removeButtons = 'Save,About,NewPage,Print,Templates,Scayt,Form,Image,Flash,PageBreak,Iframe,BidiLtr,BidiRtl,Language';
+	config.removeButtons = 'Save,About,NewPage,Print,Templates,Scayt,Form,PageBreak,Flash,BidiLtr,BidiRtl,Language';
 
 
 };
