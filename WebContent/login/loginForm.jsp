@@ -20,15 +20,7 @@ function insert(){
     	join.m_password.focus();
     	return false;
     }
-<<<<<<< HEAD
-    /* alertify.log("Notification", type, wait);
-    alertify.success("Success notification");
-    alertify.error("Error notification"); */
 
-    
-    
-=======
->>>>>>> branch 'master' of https://github.com/JinuYoo/TEP.git
     var f=document.userinput;
 	f.submit();
 }
