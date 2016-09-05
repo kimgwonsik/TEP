@@ -17,7 +17,7 @@ import util.PagingCalculator;
 public class MypageHelpHistoryAction implements SessionAware{
 	private static final int SEARCHKEY_SUBEJCT = 0;
 	private static final int SEARCHKEY_SUBJECT_CONTENT = 1;
-	private static final int SEARCHKEY_NAME = 2;
+	private static final int SEARCHKEY_CATEGORY1 = 2;
 	
 	private List<BoardhelpModel> list = new ArrayList<>();
 	private SqlMapClient sqlMapper;
@@ -66,16 +66,21 @@ public class MypageHelpHistoryAction implements SessionAware{
 	
 	@SuppressWarnings("unchecked")
 	private void search() throws SQLException {
-		 m_no = (int)session.get("session_m_no");
+		m_no = (int) session.get("session_m_no");
+		data = new BoardhelpModel();
+		data.setM_no(m_no);
+		data.setBh_subject(getSearchWord());
+		data.setBh_content(getSearchWord());
+		data.setBh_category1(getSearchWord());
 		switch (getSearchKey()) {
 		case SEARCHKEY_SUBEJCT:
-			list = sqlMapper.queryForList("two.HelpHistory_search_bh_subject_select_all", getSearchWord());
+			list = sqlMapper.queryForList("two.HelpHistory_search_bh_subject_select_all", data);
 			break;
 		case SEARCHKEY_SUBJECT_CONTENT:
-			list = sqlMapper.queryForList("two.HelpHistory_search_bh_subject_content_select_all", getSearchWord());
+			list = sqlMapper.queryForList("two.HelpHistory_search_bh_subject_content_select_all", data);
 			break;
-		case SEARCHKEY_NAME:
-			list = sqlMapper.queryForList("two.HelpHistory_search_bh_name_select_all", getSearchWord());
+		case SEARCHKEY_CATEGORY1:
+			list = sqlMapper.queryForList("two.HelpHistory_search_bh_category1_select_all", data);
 			break;
 		}
 	}

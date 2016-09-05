@@ -149,7 +149,7 @@
 		<put-attribute name="body" value="/mypage/mypageView.jsp"></put-attribute>
 	</definition>
 	<definition name="helpHistory" extends=".mypage">
-		<put-attribute name="title" value="TEP - 내가쓴글"></put-attribute>
+		<put-attribute name="title" value="TEP - 문의내역"></put-attribute>
 		<put-attribute name="body" value="/mypage/mypageHelpHistoryView.jsp"></put-attribute>
 	</definition>
 	<definition name="helpHistoryDetail" extends=".mypage">

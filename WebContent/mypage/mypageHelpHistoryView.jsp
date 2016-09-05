@@ -92,7 +92,7 @@ font.board_subject_kind{
 </tr>
 
 <!-- 게시판 검색 -->
-<%-- <tr>
+<tr>
 <td colspan="5" align="center">
 	<form method="post" action="helpHistory.action">
 		<table>
@@ -101,7 +101,7 @@ font.board_subject_kind{
 		<select name="searchKey">
 			<option value="0" selected="selected">제목</option>
 			<option value="1">제목+내용</option>
-			<option value="2">작성자</option>
+			<option value="2">카테고리</option>
 		</select>
 		</td>
 		<td><input type="text" name="searchWord" size="15" maxlength="50" /></td>
@@ -110,7 +110,7 @@ font.board_subject_kind{
 		</table>
 	</form>
 </td>
-</tr> --%>
+</tr>
 
 </table>
 </body>
