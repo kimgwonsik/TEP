@@ -45,6 +45,10 @@
 			<result name="success">/openmeet/ck_imgup_result.jsp</result>
 		</action>
 		
+		<action name="ckeditorImageUploadModify" class="openmeet.CkImageUploadAction" method="">
+			<result name="success">/openmeet/ck_imgup_result.jsp</result>
+		</action>
+		
 		<action name="omd_subscribe" class="openmeet.SubscribeAction">
 			<result name="success" type="tiles">openmeetSubscribe</result>
 		</action>

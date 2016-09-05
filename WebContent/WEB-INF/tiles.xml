@@ -31,8 +31,13 @@
 	</definition>
 	
 	<definition name="openmeetForm" extends=".default">
-		<put-attribute name="title" value="TEP - 모임개설하기" />
+		<put-attribute name="title" value="TEP - 모임 개설하기" />
 		<put-attribute name="body" value="/openmeet/openmeetForm.jsp" />
+	</definition>
+	
+	<definition name="openmeetModify" extends=".default">
+		<put-attribute name="title" value="TEP - 모임 수정하기" />
+		<put-attribute name="body" value="/openmeet/openmeetModify.jsp" />
 	</definition>
 	
 	<definition name="board" extends=".default">

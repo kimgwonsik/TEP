@@ -44,6 +44,11 @@
 		<include refid="om_where_o_no"/>
 	</update>
 	
+	<update id="openmeet_update" parameterClass="openmeet">
+		update openmeet set o_category=#o_category#,o_subject=#o_subject#,o_title=#o_title#,o_content=#o_content#,o_rep_img=#o_rep_img#,o_content_img=#o_content_img#,o_addr=#o_addr#,o_m_sdate=#o_m_sdate#,o_m_edate=#o_m_edate#,o_r_sdate=#o_r_sdate#,o_r_edate=#o_r_edate#,o_total_pnum=#o_total_pnum#,o_payment=#o_payment#,o_date=#o_date#
+		<include refid="om_where_o_no"/>
+	</update>
+	
 	<insert id="openmeet_insert" parameterClass="openmeet">
 		insert into openmeet values(openmeet_seq.nextval,#o_name#,#o_email#,#o_phone#,#o_company#,#o_category#,#o_subject#,#o_title#,#o_content#,#o_rep_img#,#o_content_img#,#o_addr#,#o_m_sdate#,#o_m_edate#,#o_r_sdate#,#o_r_edate#,#o_total_pnum#,#o_current_pnum#,#o_payment#,#o_date#,#o_readcount#,#m_no#)
 	</insert>
@@ -62,7 +67,7 @@
 	</sql>
 	
 	<insert id="sub_insert" parameterClass="subscribe">
-		insert into subscribe values(subscribe_seq.nextval,#s_name#,#s_email#,#s_company#,#s_phone#,#s_snum#,#o_no#,#m_no#)
+		insert into subscribe values(subscribe_seq.nextval,#s_name#,#s_email#,#s_company#,#s_phone#,#s_snum#,#s_date#,#o_no#,#m_no#)
 	</insert>
 	
 <!-- comments query -->
@@ -132,6 +137,11 @@
 	<delete id="comments_delete_all_board" parameterClass="int">
 		<include refid="cmt_delete_all"/>
 		<include refid="cmt_where_b_no"/>
+	</delete>
+
+	<delete id="comments_delete_all_openmeet" parameterClass="int">
+		<include refid="cmt_delete_all"/>
+		<include refid="cmt_where_o_no"/>
 	</delete>
 
 <!-- board query -->

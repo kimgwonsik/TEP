@@ -25,7 +25,7 @@
 <dd class="om_detail_header_dd1"><s:property value="detailData.o_name"/></dd>
 <dd class="om_detail_header_dd2">＠&nbsp;<s:property value="detailData.o_email"/></dd>
 <dd class="om_detail_header_dd2">☏&nbsp;<s:property value="detailData.o_phone"/></dd>
-<dd class="om_detail_header_dd2">＃&nbsp;<s:property value="detailData.o_company"/></dd>
+<dd class="om_detail_header_dd2">＃&nbsp;<s:if test="detailData.o_company != null"><s:property value="detailData.o_company"/></s:if><s:else>소속없음</s:else></dd>
 </dl>
 <hr class="om_detail_hr">
 </td>
