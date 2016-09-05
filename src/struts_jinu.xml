@@ -25,6 +25,22 @@
 			</result>
 		</action>
 		
+		<action name="openmeetModify" class="openmeet.OpenmeetModifyAction" method="view">
+			<result name="success" type="tiles">openmeetModify</result>
+		</action>
+		
+		<action name="openmeetModifyPro" class="openmeet.OpenmeetModifyAction" method="modify">
+			<result type="redirect-action">
+				<param name="actionName">openmeet</param>
+			</result>
+		</action>
+		
+		<action name="openmeetDelete" class="openmeet.OpenmeetModifyAction" method="delete">
+			<result type="redirect-action">
+				<param name="actionName">openmeet</param>
+			</result>
+		</action>
+		
 		<action name="ckeditorImageUpload" class="openmeet.CkImageUploadAction">
 			<result name="success">/openmeet/ck_imgup_result.jsp</result>
 		</action>

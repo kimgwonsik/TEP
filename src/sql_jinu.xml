@@ -19,6 +19,10 @@
 	<sql id="om_orderby">
 		order by o_no desc
 	</sql>
+	
+	<sql id="om_delete_all">
+		delete from openmeet
+	</sql>
 
 	<select id="openmeet_select_all" resultClass="openmeet">
 		<include refid="om_select_all" />
@@ -35,9 +39,19 @@
 		<include refid="om_where_o_no"/>
 	</update>
 	
+	<update id="openmeet_update_readcount" parameterClass="int">
+		update openmeet set o_readcount=o_readcount+1
+		<include refid="om_where_o_no"/>
+	</update>
+	
 	<insert id="openmeet_insert" parameterClass="openmeet">
 		insert into openmeet values(openmeet_seq.nextval,#o_name#,#o_email#,#o_phone#,#o_company#,#o_category#,#o_subject#,#o_title#,#o_content#,#o_rep_img#,#o_content_img#,#o_addr#,#o_m_sdate#,#o_m_edate#,#o_r_sdate#,#o_r_edate#,#o_total_pnum#,#o_current_pnum#,#o_payment#,#o_date#,#o_readcount#,#m_no#)
 	</insert>
+	
+	<delete id="openmeet_delete" parameterClass="int">
+		<include refid="om_delete_all"/>
+		<include refid="om_where_o_no"/>
+	</delete>
 
 <!-- subscribe query -->
 	<sql id="sub_select_all">

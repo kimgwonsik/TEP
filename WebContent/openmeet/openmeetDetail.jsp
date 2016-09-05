@@ -182,7 +182,6 @@ function cmt_check(kind) {
 		area.focus();
 		return false;
 	}
-	
 }
 </script>
 
@@ -231,8 +230,23 @@ function cmt_check(kind) {
 </table>
 
 
+<table cellpadding=3 align=right>
+<tr>
+<s:if test="detailData.m_no == #session.session_m_no">
+<td><input type="button" value="수정하기" onclick="location.href='openmeetModify.action?o_no=<s:property value="o_no"/>'"></td>
+<td><input type="button" value="삭제하기" onclick="location.href='openmeetDelete.action?o_no=<s:property value="o_no"/>'"></td>
+</s:if>
+<td>
+<input type="button" value="뒤로가기" onclick="history.back();">
 </td>
 </tr>
 </table>
+
+
+</td>
+</tr>
+</table>
+
+
 </body>
 </html>
