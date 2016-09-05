@@ -17,7 +17,13 @@
 
 		<action name="lendplaceBook" class="lendplace.LendplaceBookAction">
 			<result name="success" type="tiles">lendplaceBook</result>
-		</action>		
+		</action>
+		
+		<action name="lendplaceBookInsert" class="lendplace.LendplaceBookAction" method="insert">
+			<result type="redirect-action">
+				<param name="actionName">lendplace</param>
+			</result>
+		</action>
 		
 	</package>
 </struts>

@@ -64,6 +64,7 @@
 <!-- 위쪽과 아래쪽 테이블 분기선 -->
 <hr class="om_detail_hr">
 
+<form id="bookForm" action="lendplaceBookInsert.action" method="post">
 <table class="om_detail_content">
 <tr><td>
 
@@ -78,50 +79,48 @@
 			</tr>
 			<tr>
 				<td align=right>*신청하는 장소&nbsp;&nbsp; </td>
-				<td><input type="text" name="id" maxlength="10" /></td>
+				<td><b><s:property value="detailData.l_subject"/></b></td>
 			</tr>
+			<input type="hidden" name="l_subject" id="l_subject" value="<s:property value="detailData.l_subject"/>">
 			<tr>
 				<td align=right>*대관시간&nbsp;&nbsp;</td>
-				<td><input type="text" name="id" maxlength="10" />부터</td>
+				<td><input type="date" name="l_sdate" id="l_sdate" />부터</td>
 			</tr>
 			<tr>
 				<td align=right></td>
-				<td><input type="text" name="id" maxlength="10" />까지 사용합니다.</td>
+				<td><input type="date" name="l_edate" id="l_edate" />까지 사용합니다.</td>
 			</tr>
 			<tr>
 				<td align=right>*신청자 이름&nbsp;&nbsp;</td>
-				<td><input type="text" name="name" maxlength="20" value='<s:property value="sessionData.m_name"/>' /></td>
+				<td><input type="text" name="l_name" id="l_name" value='<s:property value="sessionData.m_name"/>' /></td>
 			</tr>
 			<tr>
 				<td align=right>*신청자 소속&nbsp;&nbsp;</td>
-				<td><input type="text" name="name" maxlength="20" alt="예) TEP" value="예) TEP" onclick="this.value=''" /></td>
+				<td><input type="text" name="l_company" id="l_company" alt="예) TEP" value="예) TEP" onclick="this.value=''" /></td>
 			</tr>
 			<tr>
 				<td align=right>*신청자 전화번호&nbsp;&nbsp;</td>
-				<td><input type="text" name="name" maxlength="20" value='<s:property value="sessionData.m_phone"/>' /></td>
+				<td><input type="number" name="l_phone" id="l_phone" value='<s:property value="sessionData.m_phone"/>' /></td>
 			</tr>
 			<tr>
 				<td align=right>*신청자 이메일&nbsp;&nbsp;</td>
-				<td><input type="text" name="email" maxlength="50" value='<s:property value="sessionData.m_email"/>' /></td>
+				<td><input type="text" name="l_email" id="l_email" value='<s:property value="sessionData.m_email"/>' /></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td>
-				<input type="button" name="lendplace_submit" value="접수완료">
-				<input type="button" name="lendplace_submit" value="취소" onclick="location.href='lendplace.action'">
+				<input type="submit" value="접수완료">
+				<input type="button" value="취소" onclick="location.href='lendplace.action'">
 				</td>
 			</tr>
 		</table>
 
 
 
-
-
-
 <!-- 아래쪽 테이블 닫는 태그-->
 </td></tr>
 </table>
-
+</form>
 
 <!-- 전체 테이블 닫는 태그 -->
 </td>
