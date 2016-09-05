@@ -21,9 +21,9 @@
       <li class="topMenuLi">
       	<a class="menuLink" href="#">내가쓴글보기</a>
       		<ul class="submenu">
-      			<li><a href="#" class="submenuLink">게시판내역</a></li>
-      			<li><a href="#" class="submenuLink">답글내역</a></li>
-      			<li><a href="#" class="submenuLink">모임개설내역</a></li>
+      			<li><a href="writeHistoryBoard.action" class="submenuLink">게시판내역</a></li>
+      			<li><a href="writeHistoryCmt.action" class="submenuLink">답글내역</a></li>
+      			<li><a href="writeHistoryOmeet.action" class="submenuLink">모임개설내역</a></li>
       		</ul>	
       </li>
       <li>|</li>

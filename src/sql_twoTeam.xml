@@ -2,6 +2,7 @@
 <!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
 <sqlMap namespace="two">
 	<typeAlias alias="boardModel" type="board.BoardModel" />
+	<typeAlias alias="commentsModel" type="comments.CommentsModel"/>
 	<typeAlias alias="boardHelpModel" type="board.help.BoardhelpModel"/>
 	<typeAlias alias="MembersModel" type="members.MembersModel"/>
 	<typeAlias alias="subscribeModel" type="openmeet.SubscribeModel"/>
@@ -117,7 +118,106 @@
 		SELECT * FROM SUBSCRIBE WHERE m_no=#m_no#
 	</select>
 	<select id="openmeetHistory_select_all" resultClass="openmeetModel" parameterClass="int">
-		SELECT * FROM OPENMEET WHERE o_no=#o_no#
+		SELECT * FROM OPENMEET WHERE o_no=#o_no# 
+	</select>
+	
+	<!-- 마이페이지 내가쓴글 내역 -->
+		<!-- board에서 내가쓴글 -->
+	<select id="writeHistoryBoard" parameterClass="int" resultClass="boardModel">
+		SELECT * FROM BOARD  where m_no=#m_no# order by b_no desc
+	</select>
+		<!-- comments에서 내가쓴글 -->
+	<select id="writeHistoryCmt" parameterClass="int" resultClass="commentsModel">
+		SELECT * FROM COMMENTS  where m_no=#m_no# order by c_no desc
+	</select>
+		<!--openmeet에서 내가쓴글 -->
+	<select id="writeHistoryOmeet" parameterClass="int" resultClass="openmeetModel">
+		SELECT * FROM OPENMEET where m_no=#m_no# order by o_no desc
+	</select>
+	
+	<!-- 마이페이지 검색 -->
+	
+	<!-- 1. 마이페이지 board검색 -->
+
+	<sql id="bd_select_all">
+		select * from board
+	</sql>
+	
+	<sql id="bd_where_b_no">
+		where b_no=#b_no#
+	</sql>
+	<sql id="bd_where_m_no">
+		where m_no=#m_no#
+	</sql>
+	<sql id="bd_where_b_no_m_no">
+		where b_no=#b_no# and m_no=#m_no#
+	</sql>
+	<!-- select * from board where b_subject like '%'||'과'||'%' and m_no=81 -->
+	<sql id="bd_where_search_b_subject">
+		where b_subject like '%'||#b_subject#||'%' and m_no=#m_no#
+	</sql>
+	<!-- select * from board where b_subject like '%'||'과'||'%' or b_content like '%'||'스'||'%' and m_no=81 -->
+	<sql id="bd_where_search_b_subject_content">
+		where b_subject like '%'||#b_subject#||'%' or b_content like '%'||#b_content#||'%'and m_no=#m_no#
+	</sql>
+	
+	<sql id="bd_orderby">
+		order by b_no desc
+	</sql>
+	
+	<select id="board_select_all" resultClass="boardModel">
+		<include refid="bd_select_all"/>
+		<include refid="bd_orderby"/>
+
+	</select>
+	
+	<select id="board_search_b_subject_select_all" resultClass="boardModel" parameterClass="boardModel">
+		<include refid="bd_select_all"/>
+		<include refid="bd_where_search_b_subject"/>
+		<include refid="bd_orderby"/>
+	</select>
+	
+	<select id="board_search_b_subject_content_select_all" resultClass="boardModel"  parameterClass="boardModel">
+		<include refid="bd_select_all"/>
+		<include refid="bd_where_search_b_subject_content"/>
+		<include refid="bd_orderby"/>
+	</select>
+	
+	<!-- 3. 마이페이지 openmeet검색 -->
+	<sql id="om_select_all">
+		select * from openmeet
+	</sql>
+
+	<sql id="om_where_o_no">
+		where o_no=#o_no#
+	</sql>
+	
+	<sql id="om_orderby">
+		order by o_no desc	
+	</sql>
+	<sql id="om_where_search_o_subject">
+		where o_subject like '%'||#o_subject#||'%'and m_no=#m_no#
+	</sql>
+	<sql id="om_where_search_o_subject_content">
+		where o_subject like '%'||#o_subject#||'%' or o_content like '%'||#o_content#||'%'and m_no=#m_no#
+	</sql>
+	
+
+	<select id="om_select_all" resultClass="openmeetModel">
+		<include refid="om_select_all" />
+		<include refid="om_orderby"/>
+	</select>
+	
+	<select id="openmeet_search_o_subject_select_all" resultClass="openmeetModel" parameterClass="openmeetModel">
+		<include refid="om_select_all"/>
+		<include refid="om_where_search_o_subject"/>
+		<include refid="om_orderby"/>
+	</select>
+	
+	<select id="openmeet_search_o_subject_content_select_all" resultClass="openmeetModel"  parameterClass="openmeetModel">
+		<include refid="om_select_all"/>
+		<include refid="om_where_search_o_subject_content"/>
+		<include refid="om_orderby"/>
 	</select>
 	
 </sqlMap>
