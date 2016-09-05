@@ -1,16 +1,18 @@
 package lendplace;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
 
+import board.BoardModel;
 import config.SqlMapper;
 
 import members.*;
 
-public class LendplaceBookAction implements SessionAware{
+public class LendplaceBookAction extends LendplaceModel implements SessionAware{
 	private LendplaceModel detailData = new LendplaceModel();
 	private MembersModel sessionData = new MembersModel();
 	private SqlMapClient sqlMapper;
@@ -31,6 +33,32 @@ public class LendplaceBookAction implements SessionAware{
 		}
 		return "success";
 	}
+	
+	public String insert() throws Exception{
+		LendplaceModel bi = new LendplaceModel();
+		int m_no = (int) session.get("session_m_no");
+		try {
+			
+			bi.setL_subject(getL_subject());
+			bi.setL_sdate(getL_sdate());
+			bi.setL_edate(getL_edate());
+			bi.setL_name(getL_name());
+			bi.setL_company(getL_company());
+			bi.setL_phone(getL_phone());
+			bi.setL_email(getL_email());
+			bi.setL_date(Calendar.getInstance().getTime());
+			bi.setM_no(m_no);
+			
+			sqlMapper.insert("book_insert",bi);
+			
+		} catch (Exception e) {
+			System.out.println("LendplaceBookAction insert ex : "+e.getMessage());
+		}
+		return "success";
+	}
+	
+	
+	
 	public LendplaceModel getDetailData() {
 		return detailData;
 	}
@@ -55,21 +83,6 @@ public class LendplaceBookAction implements SessionAware{
 		this.currentPage = currentPage;
 	}
 
-	public int getL_no() {
-		return l_no;
-	}
-
-	public void setL_no(int l_no) {
-		this.l_no = l_no;
-	}
-	
-	public int getM_no() {
-		return m_no;
-	}
-
-	public void setM_no(int m_no) {
-		this.m_no = m_no;
-	}
 	
 	@Override
 	public void setSession(Map session) {

@@ -52,6 +52,8 @@ public class LendplaceModel {
 
 	// 게시날짜
 	private Date l_date;
+	
+	private Integer m_no;
 
 	public Integer getL_no() {
 		return l_no;
@@ -179,6 +181,14 @@ public class LendplaceModel {
 
 	public void setL_date(Date l_date) {
 		this.l_date = l_date;
+	}
+	
+	public Integer getM_no() {
+		return m_no;
+	}
+
+	public void setM_no(Integer m_no) {
+		this.m_no = m_no;
 	}
 
 
