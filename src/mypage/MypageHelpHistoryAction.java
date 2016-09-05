@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import board.BoardModel;
 import board.help.BoardhelpModel;
 import org.apache.struts2.interceptor.SessionAware;
 
@@ -38,6 +37,7 @@ public class MypageHelpHistoryAction implements SessionAware{
 		sqlMapper = SqlMapper.getMapper();
 	}
 	
+	@SuppressWarnings("unchecked")
 	public String execute(){
 		try {
 			if(searchKey != -1 && searchWord.length() > 0){

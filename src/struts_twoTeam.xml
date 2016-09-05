@@ -113,5 +113,11 @@
 				<param name="actionName">boardHelp</param>
 			</result>
 		</action>
+		
+		<!-- 마이페이지 모임참여내역 -->
+		<action name="openmeetHistory" class="mypage.MypageMeetHistoryAction">
+			<result name="success" type="tiles">openmeetHistory</result>
+		</action>
+		
 	</package>
 </struts>

@@ -28,7 +28,7 @@
       </li>
       <li>|</li>
       <li class="topMenuLi">
-      	<a class="menuLink" href="#">모임참여내역</a>
+      	<a class="menuLink" href="openmeetHistory.action">모임참여내역</a>
       </li>
       <li>|</li>
       <li class="topMenuLi">
