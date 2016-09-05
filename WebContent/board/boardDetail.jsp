@@ -80,7 +80,13 @@ function form_action(val){
 
 <tr>
 <td class="bw_title">비&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;용</td>
-<td class="bw_content"><s:property value="data.b_payment"/>원</td>
+<td class="bw_content">
+<s:if test="data.b_payment == 0">
+무료
+</s:if>
+<s:else>
+<s:property value="data.b_payment"/>원</td>
+</s:else>
 </tr>
 
 <tr>
@@ -89,8 +95,7 @@ function form_action(val){
 </tr>
 
 <tr>
-<td class="bw_title">내&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;용</td>
-<td>
+<td colspan="2">
 <textarea id="b_content" disabled="disabled"><s:property value="data.b_content"/></textarea>
 </td>
 </tr>

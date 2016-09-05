@@ -30,6 +30,9 @@ public class OpenmeetDetailAction implements SessionAware{
 	@SuppressWarnings("unchecked")
 	public String execute(){
 		try {
+			// readcount increase
+			sqlMapper.update("jin.openmeet_update_readcount",getO_no());
+			
 			detailData = (OpenmeetModel) sqlMapper.queryForObject("jin.openmeet_select_one", getO_no());
 			detailData.setO_meetdate(TepUtils.dateFormat(detailData.getO_m_sdate(), detailData.getO_m_edate()));
 			detailData.setO_registerdate(TepUtils.dateFormat(detailData.getO_r_sdate(), detailData.getO_r_edate()));
@@ -39,10 +42,6 @@ public class OpenmeetDetailAction implements SessionAware{
 		} catch (SQLException e) {
 			System.out.println("openmeet detail e : "+e.getMessage());
 		}
-		return "success";
-	}
-	
-	public String insert(){
 		return "success";
 	}
 	

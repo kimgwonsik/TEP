@@ -90,17 +90,16 @@
 
 <tr>
 <td class="bw_title">비&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;용</td>
-<td><input type="number" name="b_payment" value="0"></td>
+<td><input type="number" name="b_payment" value="0" maxlength="10"><b style="font-size: xx-small;font-family:monospace;color: gray;">&nbsp;&nbsp;*값을 0원으로 설정하면, 무료로 표시됩니다.</b></td>
 </tr>
 
 <tr>
 <td class="bw_title">제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;목</td>
-<td><input id="b_subject" type="text" name="b_subject" size="100%"></td>
+<td><input id="b_subject" type="text" name="b_subject" maxlength="50"></td>
 </tr>
 
 <tr>
-<td class="bw_title">내&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;용</td>
-<td><textarea id="b_content" name="b_content"></textarea></td>
+<td colspan="2"><textarea id="b_content" name="b_content"></textarea></td>
 </tr>
 
 

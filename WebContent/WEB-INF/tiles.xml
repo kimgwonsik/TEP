@@ -30,9 +30,9 @@
 		<put-attribute name="body" value="/openmeet/openmeetSubscribe.jsp" />
 	</definition>
 	
-	<definition name="openmeetWrite" extends=".default">
+	<definition name="openmeetForm" extends=".default">
 		<put-attribute name="title" value="TEP - 모임개설하기" />
-		<put-attribute name="body" value="/openmeet/openmeetWrite.jsp" />
+		<put-attribute name="body" value="/openmeet/openmeetForm.jsp" />
 	</definition>
 	
 	<definition name="board" extends=".default">

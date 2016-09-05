@@ -26,9 +26,15 @@ public class OpenmeetModel {
 	// 제목
 	private String o_subject;
 
+	// 모임간략소개
+	private String o_title;
+	
 	// 내용
 	private String o_content;
 
+	// 모임장소 세부위치
+	private String o_addr;
+	
 	// 리스트 대표이미지
 	private String o_rep_img;
 
@@ -53,12 +59,6 @@ public class OpenmeetModel {
 	// 신청기간
 	private String o_registerdate;
 
-	// 모임장소명
-	private String o_title;
-
-	// 모임장소 세부위치
-	private String o_addr;
-
 	// 총 모임 인원
 	private Integer o_total_pnum;
 
@@ -78,6 +78,45 @@ public class OpenmeetModel {
 	private Integer o_readcount;
 	
 	private Integer m_no;
+	
+	// 모임개설시 날짜부분이 스트링값으로 넘어와 String 날짜변수생성 (모임기간/접수기간)
+	private String o_msdate; //모임시작
+	private String o_medate; //모임종료
+	private String o_rsdate; //접수시작
+	private String o_redate;//접수종료
+
+	
+	public String getO_msdate() {
+		return o_msdate;
+	}
+
+	public void setO_msdate(String o_msdate) {
+		this.o_msdate = o_msdate;
+	}
+
+	public String getO_medate() {
+		return o_medate;
+	}
+
+	public void setO_medate(String o_medate) {
+		this.o_medate = o_medate;
+	}
+
+	public String getO_rsdate() {
+		return o_rsdate;
+	}
+
+	public void setO_rsdate(String o_rsdate) {
+		this.o_rsdate = o_rsdate;
+	}
+
+	public String getO_redate() {
+		return o_redate;
+	}
+
+	public void setO_redate(String o_redate) {
+		this.o_redate = o_redate;
+	}
 
 	public Integer getO_no() {
 		return o_no;
