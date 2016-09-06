@@ -113,5 +113,24 @@
 				<param name="actionName">boardHelp</param>
 			</result>
 		</action>
+		
+		<!-- 마이페이지 모임참여내역 -->
+		<action name="openmeetHistory" class="mypage.MypageMeetHistoryAction">
+			<result name="success" type="tiles">openmeetHistory</result>
+		</action>
+		
+		<!-- board에서 내가쓴글 -->
+		<action name="writeHistoryBoard" class="mypage.MypageWriteHistoryAction" method="writeHistoryBoard">
+			<result name="success" type="tiles">writeHistoryBoard</result>
+		</action>
+		<action name="writeHistoryCmt" class="mypage.MypageWriteHistoryAction" method="writeHistoryCmt">
+			<result name="success" type="tiles">writeHistoryCmt</result>
+		</action>
+		<action name="writeHistoryOmeet" class="mypage.MypageWriteHistoryAction" method="writeHistoryOmeet">
+			<result name="success" type="tiles">writeHistoryOmeet</result>
+		</action>
+		
+		
+
 	</package>
 </struts>

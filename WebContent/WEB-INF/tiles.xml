@@ -159,7 +159,7 @@
 		<put-attribute name="body" value="/mypage/mypageView.jsp"></put-attribute>
 	</definition>
 	<definition name="helpHistory" extends=".mypage">
-		<put-attribute name="title" value="TEP - 내가쓴글"></put-attribute>
+		<put-attribute name="title" value="TEP - 문의내역"></put-attribute>
 		<put-attribute name="body" value="/mypage/mypageHelpHistoryView.jsp"></put-attribute>
 	</definition>
 	<definition name="helpHistoryDetail" extends=".mypage">
@@ -183,6 +183,26 @@
 	<definition name="helpWriteForm" extends=".default">
 		<put-attribute name="title" value="TEP - 문의,신고하기"></put-attribute>
 		<put-attribute name="body" value="/board/help/boardhelpWrite.jsp"></put-attribute>
+	</definition>
+	
+	<!-- 마이페이지 모임참여내역 -->
+	<definition name="openmeetHistory" extends=".mypage">
+		<put-attribute name="title" value="TEP - 모임참여내역"></put-attribute>
+		<put-attribute name="body" value="/mypage/mypageMeetHistoryView.jsp"></put-attribute>
+	</definition>
+	
+	<!-- 마이페이지 내가쓴글,답글,모임개설 -->
+	<definition name="writeHistoryBoard" extends=".mypage">
+		<put-attribute name="title" value="TEP - 내가쓴글내역"></put-attribute>
+		<put-attribute name="body" value="/mypage/mypageWriteHistoryBoardView.jsp"></put-attribute>
+	</definition>
+	<definition name="writeHistoryCmt" extends=".mypage">
+		<put-attribute name="title" value="TEP - 내가쓴글내역"></put-attribute>
+		<put-attribute name="body" value="/mypage/mypageWriteHistoryCmtView.jsp"></put-attribute>
+	</definition>
+	<definition name="writeHistoryOmeet" extends=".mypage">
+		<put-attribute name="title" value="TEP - 내가쓴글내역"></put-attribute>
+		<put-attribute name="body" value="/mypage/mypageWriteHistoryOmeetView.jsp"></put-attribute>
 	</definition>
 	
 </tiles-definitions>

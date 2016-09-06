@@ -43,7 +43,7 @@ function validation2(){
 <table align="center" width="350" border="0" cellspacing="0" cellpadding="0">
 	
 	<tr height="25">
-			<td bgcolor="#ff8c00" align="left" colspan="1" width="10"></td>
+			<td bgcolor="#FF2929" align="left" colspan="1" width="10"></td>
 			<td align="left" colspan="3"><strong>&nbsp;&nbsp;ID 찾기</strong></td>
 	</tr>
 	
@@ -97,7 +97,7 @@ function validation2(){
 <table align="center" width="350" border="0" cellspacing="0" cellpadding="0">
 	
 	<tr height="25">
-			<td bgcolor="#ff8c00" align="left" colspan="1" width="10"></td>
+			<td bgcolor="#FF2929" align="left" colspan="1" width="10"></td>
 			<td align="left" colspan="3"><strong>&nbsp;&nbsp;비밀번호 리셋</strong></td>
 	</tr>
 	

@@ -39,17 +39,16 @@ function openConfirmId(){
 </script>
 </head>
 <body onload="idFocus();">
-
-<br>
-
-<br>
+<center>
+<h3>로그인</h3>
+</center>
 
 <table align="center" width="200" border="0" cellspacing="0" cellpadding="0">
 	
 
-	<tr align="center" height="1" bgcolor="#888888">
+	<!-- <tr align="center" height="1" bgcolor="#888888">
 		<td width="166"></td>
-	</tr>
+	</tr> -->
 	
 	<tr align="center" height="20">
 		<td width="166"></td>
@@ -58,8 +57,8 @@ function openConfirmId(){
 	<tr align="center" border="0" cellspacing="0" cellpadding="0">
 		<td>
 			<form action="login.action" method="post" name="userinput">
-				<input id="id" type="text" name="m_email" maxlength="20" placeholder="아이디" onkeypress="enterkey();"/><br/>
-				<input type="password" name="m_password" maxlength="20" placeholder="비밀번호" onkeypress="enterkey();"/>
+				<input id="id" type="text" name="m_email" maxlength="20" size="20" placeholder="아이디" onkeypress="enterkey();"/><br/>
+				<input type="password" name="m_password" maxlength="20" size="21" placeholder="비밀번호" onkeypress="enterkey();"/>
 		</td>
 	</tr>
 	
@@ -74,10 +73,10 @@ function openConfirmId(){
 		<td width="166"></td>
 	</tr>
 	
-	<tr align="center" height="1" bgcolor="#888888">
+	<!-- <tr align="center" height="1" bgcolor="#888888">
 		<td width="166"></td>
 	</tr>
-	
+	 -->
 
 	<tr align="center" border="0" cellspacing="0" cellpadding="0">
 		<td border="0" cellspacing="0" cellpadding="0">
