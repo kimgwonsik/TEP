@@ -81,54 +81,54 @@ function openConfirmId(userinput){
 <center>
 <h3>회원가입 정보입력</h3>
 <form method="post" action="InsertMembers.action" name="userinput">
-	<table border="1" bordercolor="#ccccff" cellpadding="0" cellspacing="0" width="300" height="300">
+	<table border="1" bordercolor="#FF2929" cellpadding="0" cellspacing="0" width="500" height="300">
 		<tr>
 			<td>ID(이메일)</td>
 			<td>
-				<input type="text" name="m_email" id="m_email">
+				<input type="text" name="m_email" id="m_email" size="30" placeholder="이메일 형식으로 입력해주세요.">
 				<input type="button" name="confirmId" value="ID 중복확인" onclick="openConfirmId(this.form)" class="topb"/>
 			</td>
 		</tr>
 		<tr>
 			<td>이름</td>
 			<td>
-				<input type="text" name="m_name" id="m_name">
+				<input type="text" name="m_name" id="m_name" size="30">
 			</td>
 		</tr>
 		<tr>
 			<td>닉네임</td>
 			<td>
-				<input type="text" name="m_nickname" id="m_nickname">
+				<input type="text" name="m_nickname" id="m_nickname" size="30">
 			</td>
 		</tr>
 		<tr>
 			<td>패스워드</td>
 			<td>
-				<input type="password" name="m_password" id="m_password">
+				<input type="password" name="m_password" id="m_password" size="31" placeholder="4자리 이상  입력해주세요">
 			</td>
 		</tr>
 		<tr>
 			<td>전화번호</td>
 			<td>
-				<input type="number" name="m_phone" id="m_phone">
+				<input type="number" name="m_phone" id="m_phone" size="30" placeholder=" - 없이 입력해주세요">
 			</td>
 		</tr>
 		<tr>
 			<td>소속</td>
 			<td>
-				<input type="text" name="m_company" id="m_company">
+				<input type="text" name="m_company" id="m_company" size="30">
 			</td>
 		</tr>
 		<tr>
 			<td>관심 지역</td>
 			<td>
-				<input type="text" name="m_fav_area" id="m_fav_area">
+				<input type="text" name="m_fav_area" id="m_fav_area" size="30">
 			</td>
 		</tr>
 		<tr>
 			<td>관심 분야</td>
 			<td>
-				<input type="text" name="m_fav_field" id="m_fav_field">
+				<input type="text" name="m_fav_field" id="m_fav_field" size="30">
 			</td>
 		</tr>
 		

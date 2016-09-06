@@ -37,7 +37,7 @@ function form_action(val){
 
 <tr>
 <td colspan="2" align="right" style="border:none;">
-<input type="button" value="목록보기" onclick="location.href='boardHelp.action'">
+<input type="button" value="목록보기" onclick="history.back();">
 </td>
 </tr>
 
@@ -83,9 +83,6 @@ function form_action(val){
 </tr>
 </s:if>
 
-<tr>
-<td colspan="2">
-</tr>
 
 </table>
 
