@@ -4,11 +4,12 @@
 <html>
 <head>
 <meta content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="/TEP/static/css/openmeetview.css" type="text/css">
 <link rel="stylesheet" href="/TEP/static/css/root.css" type="text/css">
 <title></title>
 </head>
 <body>
-<table border="0" width=100% cellpadding=15>
+<table border="0" cellpadding=15 width=900px align=center>
 <tr>
 
 <!-- 장소 리스트 -->

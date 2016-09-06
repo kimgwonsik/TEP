@@ -11,8 +11,10 @@ import board.BoardModel;
 import config.SqlMapper;
 
 import members.*;
+import util.TepUtils;
 
-public class LendplaceBookAction extends LendplaceModel implements SessionAware{
+
+public class LendplaceBookAction extends LendplacebookModel implements SessionAware{
 	private LendplaceModel detailData = new LendplaceModel();
 	private MembersModel sessionData = new MembersModel();
 	private SqlMapClient sqlMapper;
@@ -35,19 +37,18 @@ public class LendplaceBookAction extends LendplaceModel implements SessionAware{
 	}
 	
 	public String insert() throws Exception{
-		LendplaceModel bi = new LendplaceModel();
+		LendplacebookModel bi = new LendplacebookModel();
 		int m_no = (int) session.get("session_m_no");
 		try {
-			
-			bi.setL_subject(getL_subject());
-			bi.setL_sdate(getL_sdate());
-			bi.setL_edate(getL_edate());
-			bi.setL_name(getL_name());
-			bi.setL_company(getL_company());
-			bi.setL_phone(getL_phone());
-			bi.setL_email(getL_email());
-			bi.setL_date(Calendar.getInstance().getTime());
+			bi.setLb_sdate(TepUtils.dateParse(getLb_t_sdate()));
+			bi.setLb_edate(TepUtils.dateParse(getLb_t_edate()));
+			bi.setLb_name(getLb_name());
+			bi.setLb_company(getLb_company());
+			bi.setLb_phone(getLb_phone());
+			bi.setLb_email(getLb_email());
+			bi.setLb_regdate(Calendar.getInstance().getTime());
 			bi.setM_no(m_no);
+			bi.setL_no(getL_no());
 			
 			sqlMapper.insert("book_insert",bi);
 			
