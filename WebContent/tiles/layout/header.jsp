@@ -29,6 +29,7 @@
 	</s:if>
 </span>
 </div>
+
 	<table class="searchBar" align=center>
 		<tr>
 			<td class="logo">

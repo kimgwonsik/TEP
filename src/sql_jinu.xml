@@ -23,6 +23,10 @@
 	<sql id="om_delete_all">
 		delete from openmeet
 	</sql>
+	
+	<sql id="om_where_search_o_subject_content">
+		where b_subject like '%'||#searchWord#||'%' or b_content like '%'||#searchWord#||'%'
+	</sql>
 
 	<select id="openmeet_select_all" resultClass="openmeet">
 		<include refid="om_select_all" />

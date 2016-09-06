@@ -113,7 +113,7 @@
 <tr>
 <td class="td_title">모임 간략소개</td>
 <td>
-<textarea class="ofm_o_title" name="o_title" rows="3" cols="71" maxlength="90"></textarea>
+<textarea class="ofm_o_title" id="o_title" name="o_title" rows="3" cols="71" maxlength="90"></textarea>
 </td>
 </tr>
 
@@ -180,7 +180,7 @@
 
 
 
-<script src="//apis.daum.net/maps/maps3.js?apikey=a18085cad4f8315645fc4a233bdb2875&libraries=services" onerror="alertify.log('지도 로드중 에러!')"></script>
+<script src="//apis.daum.net/maps/maps3.js?apikey=a18085cad4f8315645fc4a233bdb2875&libraries=services"></script>
 <script>
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	mapOption = {
@@ -227,9 +227,16 @@
 	    });
 
 	    daum.maps.event.addListener(marker, 'click', function() {
-	        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-	        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.title + '</div>');
-	        infowindow.open(map, marker);
+	    	searchDetailAddrFromCoords(new daum.maps.LatLng(place.latitude, place.longitude), function(status, result) {
+				if (status === daum.maps.services.Status.OK) {
+					var detailAddr = !!result[0].roadAddress.name ? result[0].roadAddress.name : result[0].jibunAddress.name;
+					document.getElementById('detail_addr').value=detailAddr;
+					document.getElementById('o_title').value=place.title;
+					// 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+			        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.title + '</div>');
+			        infowindow.open(map, marker);
+				}
+			});
 	    });
 	}
 	

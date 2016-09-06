@@ -59,6 +59,11 @@
 		<put-attribute name="title" value="TEP - 게시판 수정 페이지 ;)" />
 		<put-attribute name="body" value="/board/boardModify.jsp" />
 	</definition>
+	
+	<definition name="search" extends=".default">
+		<put-attribute name="title" value="TEP - 통합 검색 페이지 ;)" />
+		<put-attribute name="body" value="/main/searchResultView.jsp" />
+	</definition>
 
 
 	<!-- 회원가입 -->
