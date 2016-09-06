@@ -31,8 +31,13 @@
 	</definition>
 	
 	<definition name="openmeetForm" extends=".default">
-		<put-attribute name="title" value="TEP - 모임개설하기" />
+		<put-attribute name="title" value="TEP - 모임 개설하기" />
 		<put-attribute name="body" value="/openmeet/openmeetForm.jsp" />
+	</definition>
+	
+	<definition name="openmeetModify" extends=".default">
+		<put-attribute name="title" value="TEP - 모임 수정하기" />
+		<put-attribute name="body" value="/openmeet/openmeetModify.jsp" />
 	</definition>
 	
 	<definition name="board" extends=".default">
@@ -53,6 +58,11 @@
 	<definition name="boardModify" extends=".default">
 		<put-attribute name="title" value="TEP - 게시판 수정 페이지 ;)" />
 		<put-attribute name="body" value="/board/boardModify.jsp" />
+	</definition>
+	
+	<definition name="search" extends=".default">
+		<put-attribute name="title" value="TEP - 통합 검색 페이지 ;)" />
+		<put-attribute name="body" value="/main/searchResultView.jsp" />
 	</definition>
 
 

@@ -11,26 +11,21 @@ CKEDITOR.editorConfig = function( config ) {
 	config.height=300;
 	config.width=876;
 	config.uiColor='#FF9999';
+	config.enterMode=CKEDITOR.ENTER_BR;
+	config.extraPlugins = 'youtube';
 	
-	config.toolbarGroups = [
-		{ name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
-		{ name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
-		{ name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
-		{ name: 'forms', groups: [ 'forms' ] },
+	config.toolbar = [
+		{ name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-',] },
+		{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat' ] },
+		{ name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
+		{ name: 'links', items: [ 'Link', 'Unlink'] },{ name: 'document', items: [ 'Source', '-', 'Preview' ] },
 		'/',
-		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-		{ name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] },
-		{ name: 'links', groups: [ 'links' ] },
-		'/',
-		{ name: 'styles', groups: [ 'styles' ] },
-		{ name: 'colors', groups: [ 'colors' ] },
-		{ name: 'insert', groups: [ 'insert' ] },
-		{ name: 'tools', groups: [ 'tools' ] },
-		{ name: 'others', groups: [ 'others' ] },
-		{ name: 'about', groups: [ 'about' ] }
+		{ name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
+		{ name: 'colors', items: [ 'TextColor', 'BGColor' ] },
+		{ name: 'insert', items: [ 'Image', 'Youtube', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar' ] },
+		{ name: 'forms', items: [ 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button' ] },
+		{ name: 'tools', items: [ 'Maximize'] }
 	];
-
-	config.removeButtons = 'Save,About,NewPage,Print,Templates,Scayt,Form,PageBreak,Flash,BidiLtr,BidiRtl,Language';
 
 
 };

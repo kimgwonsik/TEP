@@ -317,4 +317,37 @@ public class OpenmeetModel {
 	public void setM_no(Integer m_no) {
 		this.m_no = m_no;
 	}
+	
+	// OpenmeetModel 모델 복사
+    public void CopyData(OpenmeetModel param) {
+    	this.o_no = param.getO_no();
+    	this.o_name = param.getO_name();
+    	this.o_email = param.getO_email();
+    	this.o_phone = param.getO_phone();
+    	this.o_company = param.getO_company();
+    	this.o_category = param.getO_category();
+    	this.o_subject = param.getO_subject();
+    	this.o_title = param.getO_title();
+    	this.o_content = param.getO_content();
+    	this.o_addr = param.getO_addr();
+    	this.o_rep_img = param.getO_rep_img();
+    	this.o_content_img = param.getO_content_img();
+    	this.o_m_sdate = param.getO_m_sdate();
+    	this.o_m_edate = param.getO_m_edate();
+    	this.o_meetdate = param.getO_meetdate();
+    	this.o_r_sdate = param.getO_r_sdate();
+    	this.o_r_edate = param.getO_r_edate();
+    	this.o_registerdate = param.getO_registerdate();
+    	this.o_total_pnum = param.getO_total_pnum();
+    	this.o_current_pnum = param.getO_current_pnum();
+    	this.o_permit_pnum = param.getO_permit_pnum();
+    	this.o_payment = param.getO_payment();
+    	this.o_date = param.getO_date();
+    	this.o_readcount = param.getO_readcount();
+    	this.m_no = param.getM_no();
+    	this.o_msdate = param.getO_msdate();
+    	this.o_medate = param.getO_medate();
+    	this.o_rsdate = param.getO_rsdate();
+    	this.o_redate = param.getO_redate();
+    }
 }

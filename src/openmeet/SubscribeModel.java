@@ -1,5 +1,7 @@
 package openmeet;
 
+import java.util.Date;
+
 public class SubscribeModel {
 	private Integer s_no; //auto increase
 	private String s_name; //이름
@@ -7,6 +9,7 @@ public class SubscribeModel {
 	private String s_company; //소속
 	private String s_phone; //전화번호
 	private Integer s_snum; //신청인원
+	private Date s_date;
 	private Integer o_no; //모임글번호
 	private Integer m_no; //회원번호
 	
@@ -54,6 +57,12 @@ public class SubscribeModel {
 	}
 	public Integer getS_snum() {
 		return s_snum;
+	}
+	public Date getS_date() {
+		return s_date;
+	}
+	public void setS_date(Date s_date) {
+		this.s_date = s_date;
 	}
 	public void setS_snum(Integer s_snum) {
 		this.s_snum = s_snum;

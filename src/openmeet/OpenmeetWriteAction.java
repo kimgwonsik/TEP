@@ -47,8 +47,11 @@ public class OpenmeetWriteAction extends OpenmeetModel implements SessionAware{
 			setO_name(mdata.getM_name());
 			setO_phone(mdata.getM_phone());
 			setO_company(mdata.getM_company());
+			
 			setO_rep_img(serverFullPath);
-			setO_content_img(session.get("o_content_img"+m_no).toString());
+			if(session.get("o_content_img"+m_no) != null){
+				setO_content_img(session.get("o_content_img"+m_no).toString());
+			}
 			setO_m_sdate(TepUtils.dateParse(getO_msdate()));
 			setO_m_edate(TepUtils.dateParse(getO_medate()));
 			setO_r_sdate(TepUtils.dateParse(getO_rsdate()));

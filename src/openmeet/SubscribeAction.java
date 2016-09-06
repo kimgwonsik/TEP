@@ -1,6 +1,7 @@
 package openmeet;
 
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -53,6 +54,7 @@ public class SubscribeAction extends SubscribeModel implements SessionAware{
 		
 		// 신청자정보 등록 및 기존회원정보 업데이트(true일 경우)
 		setS_snum(o_current_pnum);
+		setS_date(Calendar.getInstance().getTime());
 		setO_no(getO_no());
 		setM_no((Integer) session.get("session_m_no"));
 		try {
