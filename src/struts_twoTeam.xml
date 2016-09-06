@@ -113,5 +113,18 @@
 				<param name="actionName">boardHelp</param>
 			</result>
 		</action>
+		
+		 <!--  footer 회사소개, 개인정보보호, 이용약관 -->
+		<action name="footerActionA" class="footer.footerAction">
+			<result name="success" type="tiles">CompanyIntroduction</result>
+		</action> 
+		
+		<action name="footerActionB" class="footer.footerAction">
+			<result name="success" type="tiles">PrivacyAgreement</result>
+		</action> 
+		
+		<action name="footerActionC" class="footer.footerAction">
+			<result name="success" type="tiles">theTermsAndConditions</result>
+		</action>  
 	</package>
 </struts>

@@ -38,12 +38,14 @@ td.footer_td_text a:HOVER {
 <table class="footer">
 <tr><td class="footer_td_text">
 &nbsp;&nbsp;&nbsp;
-<a href="#">회사소개</a>
+<a href="footerActionA.action">회사소개</a>
 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
-<a href="#">서비스약관 및 정책</a>
+<a href="footerActionB.action">개인정보취급방침</a>
 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
-<a href="#">개인정보취급방침</a>
+<a href="footerActionC.action">이용약관 </a>
 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
+
+
 <a href="boardHelp.action">고객센터</a>
 </td></tr>
 <tr>
