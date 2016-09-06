@@ -11,115 +11,13 @@
 <script src="/TEP/static/js/dtpicker/jquery-1.7.1.js"></script>
 <script src="/TEP/static/js/dtpicker/jquery.simple-dtpicker.js"></script>
 <script src="/TEP/static/js/ckeditor/ckeditor.js"></script>
+<script src="/TEP/static/js/openmeetform.js"></script>
 
 <script>
 	window.onload = function() {
 		CKEDITOR.replace('o_content',{
 				'filebrowserUploadUrl':'ckeditorImageUpload.action'
 		});
-	}
-</script>
-
-<script>
-	$(function() {
-		// -- append by class just for lower strings count --
-		$('.dtpicker2').appendDtpicker({
-			"futureOnly" : false,
-			"autodateOnStart" : false,
-			"locale":"ko"
-		});
-
-		$('#startdt').change(function() {
-			var de = new Date($('#startdt').handleDtpicker('getDate')); // constructor need to avoid linking object
-			de.setDate(de.getDate());
-			$('#enddt').handleDtpicker('setMinDate', de); //set min end date is 7 day later then start date
-		});
-		$('#enddt').change(function() {
-			var ds = new Date($('#enddt').handleDtpicker('getDate'));
-			ds.setDate(ds.getDate());
-			$('#startdt').handleDtpicker('setMaxDate', ds); //set max end date is 7 day earlier then end date
-		});
-		$('#startdt2').change(function() {
-			var de = new Date($('#startdt2').handleDtpicker('getDate'));
-			de.setDate(de.getDate());
-			$('#enddt2').handleDtpicker('setMinDate', de);
-		});
-		$('#enddt2').change(function() {
-			var ds = new Date($('#enddt2').handleDtpicker('getDate'));
-			ds.setDate(ds.getDate());
-			$('#startdt2').handleDtpicker('setMaxDate', ds);
-		});
-	});
-</script>
-
-<script>
-	function valueCheck(){
-		var f = document.omf_form;
-		var content = CKEDITOR.instances.o_content;
-		
-		if(!f.o_subject.value){
-			alertify.error('모임명이 입력되지 않았습니다.');
-			f.o_subject.focus();
-			return false;
-		}
-		if(!f.o_msdate.value){
-			alertify.error('모임일시가 지정되지 않았습니다.');
-			f.o_msdate.focus();
-			return false;
-		} else if(!f.o_medate.value){
-			alertify.error('모임일시가 지정되지 않았습니다.');
-			f.o_medate.focus();
-			return false;
-		}
-		if(!f.o_rsdate.value){
-			alertify.error('접수기간이 지정되지 않았습니다.');
-			f.o_rsdate.focus();
-			return false;
-		} else if(!f.o_redate.value){
-			alertify.error('접수기간이 지정되지 않았습니다.');
-			f.o_redate.focus();
-			return false;
-		}
-		if(!f.o_addr.value){
-			alertify.error('상세주소가 입력되지 않았습니다.');
-			f.o_addr.focus();
-			return false;
-		}
-		if(!f.o_title.value){
-			alertify.error('간략소개가 입력되지 않았습니다.');
-			f.o_title.focus();
-			return false;
-		}
-		if(!f.o_total_pnum.value){
-			alertify.error('인원이 입력되지 않았습니다.');
-			f.o_total_pnum.focus();
-			return false;
-		} else if(f.o_total_pnum.value < 2){
-			alertify.error('최소인원은 2명입니다.');
-			f.o_total_pnum.focus();
-			f.o_total_pnum.value=2;
-			return false;
-		}
-		if(!f.o_payment.value){
-			alertify.error('비용이 입력되지 않았습니다.');
-			f.o_payment.focus();
-			return false;
-		} else if(f.o_payment.value < 0){
-			alertify.error('음수는 입력할수 없습니다.');
-			f.o_payment.focus();
-			f.o_payment.value=0;
-			return false;
-		}
-		if(!f.upload.value){
-			alertify.error('대표 이미지가 선택되지 않았습니다.');
-			f.upload.focus();
-			return false;
-		}
-		if(!content.getData()){
-			alertify.error("내용이 입력되지 않았습니다.");
-			content.focus();
-			return false;
-		}
 	}
 </script>
 
@@ -215,7 +113,7 @@
 <tr>
 <td class="td_title">모임 간략소개</td>
 <td>
-<textarea class="ofm_o_title" name="o_title" rows="3" cols="71" maxlength="90"></textarea>
+<textarea class="ofm_o_title" id="o_title" name="o_title" rows="3" cols="71" maxlength="90"></textarea>
 </td>
 </tr>
 
@@ -271,7 +169,8 @@
 
 <tr>
 <td colspan="2" align="center" style="padding-bottom:11px;">
-<input type="submit" value="모임개설">&nbsp;&nbsp;&nbsp;<input type="button" value="취소하기" onclick="location.href='main.action'">
+<input type="button" value="모임개설" onclick="return valueCheck();">&nbsp;&nbsp;&nbsp;
+<input type="button" value="취소하기" onclick="location.href='main.action'">
 </td>
 </tr>
 
@@ -281,7 +180,7 @@
 
 
 
-<script src="//apis.daum.net/maps/maps3.js?apikey=a18085cad4f8315645fc4a233bdb2875&libraries=services" onerror="alertify.log('지도 로드중 에러!')"></script>
+<script src="//apis.daum.net/maps/maps3.js?apikey=a18085cad4f8315645fc4a233bdb2875&libraries=services"></script>
 <script>
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	mapOption = {
@@ -328,9 +227,16 @@
 	    });
 
 	    daum.maps.event.addListener(marker, 'click', function() {
-	        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-	        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.title + '</div>');
-	        infowindow.open(map, marker);
+	    	searchDetailAddrFromCoords(new daum.maps.LatLng(place.latitude, place.longitude), function(status, result) {
+				if (status === daum.maps.services.Status.OK) {
+					var detailAddr = !!result[0].roadAddress.name ? result[0].roadAddress.name : result[0].jibunAddress.name;
+					document.getElementById('detail_addr').value=detailAddr;
+					document.getElementById('o_title').value=place.title;
+					// 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+			        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.title + '</div>');
+			        infowindow.open(map, marker);
+				}
+			});
 	    });
 	}
 	
