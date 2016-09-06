@@ -50,7 +50,7 @@ function check(){
 <table align="center" width="834" border="0" cellspacing="0" cellpadding="0">
 
 <tr height="25">
-	<td bgcolor="#ff8c00"align="left" colspan="1" width="10"></td>
+	<td bgcolor="#FF2929"align="left" colspan="1" width="10"></td>
 	<td align="left" colspan="3"><strong>&nbsp;&nbsp;개인 정보 수정</strong></td>
 </tr>
 </table>

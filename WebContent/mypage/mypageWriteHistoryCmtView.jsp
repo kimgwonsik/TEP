@@ -52,7 +52,15 @@ font.comments_subject_kind{
 </style>
 </head>
 <body>
+<br>
+<table align="center" width="834" border="0" cellspacing="0" cellpadding="0">
 
+	<tr height="25">
+			<td bgcolor="#FF2929" align="left" colspan="1" width="10"></td>
+			<td align="left" colspan="3"><strong>&nbsp;&nbsp;답글내역</strong></td>
+	</tr>
+
+</table>
 <br>
 
 <table class="comments" align=center cellspacing=0>
