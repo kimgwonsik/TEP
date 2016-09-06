@@ -8,18 +8,18 @@
 </head>
 <body>
 
-	Company Introduction
+	Company Introduction<br><br>
 
-			TEP(Talent Exchange Program)은 
-								CONNECTING THE DOTS를 지향합니다.
+			TEP(Talent Exchange Program)은 <br>
+								<br>CONNECTING THE DOTS를 지향합니다.<br><br>
 
-						누구나 한가지쯤은 잘하는 것이 있기 마련이죠. 
+						누구나 한가지쯤은 잘하는 것이 있기 마련이죠. <br>
 
-					여러분의 소중한 재능을 세상에 알리고 함께 나눠보세요. 
+					여러분의 소중한 재능을 세상에 알리고 함께 나눠보세요. <br>
 
-								더 큰 기회가 펼쳐집니다.
+								더 큰 기회가 펼쳐집니다.<br>
 								
-					점과 점을 이어 선을 만드는 과정을  TEP과 함께 이어나가보세요. 
+					점과 점을 이어 선을 만드는 과정을  TEP과 함께 이어나가보세요. <br>
 
 
 </body>
