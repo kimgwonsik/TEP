@@ -66,10 +66,10 @@
 <td>모임기간 : <s:property value="detailData.o_meetdate"/></td>
 </tr>
 <tr>
-<td>모임장소명 : <s:property value="detailData.o_title"/></td>
+<td>모임소개 : <s:property value="detailData.o_title"/></td>
 </tr>
 <tr>
-<td>모임세부주소 : <s:property value="detailData.o_addr"/></td>
+<td>모임주소 : <s:property value="detailData.o_addr"/></td>
 </tr>
 <tr>
 <td>신청인원 : 총<s:property value="detailData.o_total_pnum"/>명&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
