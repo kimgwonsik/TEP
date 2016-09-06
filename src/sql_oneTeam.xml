@@ -2,6 +2,7 @@
 <!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
 <sqlMap>
 	<typeAlias alias="lendplace" type="lendplace.LendplaceModel" />
+	<typeAlias alias="lendplacebook" type="lendplace.LendplacebookModel" />
 	<typeAlias alias="members" type="members.MembersModel" />
 
 	<resultMap class="lendplace" id="lendplace_rm">
@@ -43,8 +44,8 @@
 	</select>
 	
 	
-	<insert id="book_insert" parameterClass="lendplace">
-		insert into lendplace values(lendplace_seq.nextval,#l_subject#,0,#l_company#,0,0,0,#l_name#,#l_phone#,#l_email#,0,#l_sdate#,#l_edate#,0,0,#l_date#,#m_no#)
+	<insert id="book_insert" parameterClass="lendplacebook">
+		insert into lendplacebook values(lendplacebook_seq.nextval,#lb_name#,#lb_email#,#lb_company#,#lb_phone#,#lb_sdate#,#lb_edate#,#lb_regdate#,#l_no#,#m_no#)
 	</insert>
 	
 	
