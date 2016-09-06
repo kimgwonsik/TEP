@@ -21,6 +21,7 @@
 								
 					점과 점을 이어 선을 만드는 과정을  TEP과 함께 이어나가보세요. <br>
 
+ <a href="footerActionB.action"><img src="/TEP/static/image/connect-the-dots.jpg"/></a>
 
 </body>
 </html>
