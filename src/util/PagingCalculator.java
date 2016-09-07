@@ -43,16 +43,16 @@ public class PagingCalculator {
 
 		pagingHtml = new StringBuffer();
 		if (currentPage > blockPage) {
-			pagingHtml.append("<a class='paging' href=" + action + ".action?currentPage=" + (startPage - 1) + ">◁</a>");
+			pagingHtml.append("<a class='paging_move' href=" + action + ".action?currentPage=" + (startPage - 1) + ">◀</a>");
 		}
-		pagingHtml.append("&nbsp;|&nbsp;");
+		pagingHtml.append("&nbsp;");
 
 		for (int i = startPage; i <= endPage; i++) {
 			if (i > totalPage) {
 				break;
 			}
 			if (i == currentPage) {
-				pagingHtml.append("&nbsp;<b><font color='red'>" + i + "</font></b>");
+				pagingHtml.append("&nbsp;<b class='paging'>" + i + "</b>");
 			} else {
 				pagingHtml.append("&nbsp;");
 				pagingHtml.append("<a class='paging' href=" + action + ".action?currentPage=" + i + ">" + i + "</a>");
@@ -60,11 +60,11 @@ public class PagingCalculator {
 			pagingHtml.append("&nbsp;");
 		}
 
-		pagingHtml.append("&nbsp;|&nbsp;");
+		pagingHtml.append("&nbsp;");
 
 		// 다음 블럭 페이지
 		if (totalPage - startPage >= blockPage) {
-			pagingHtml.append("<a class='paging' href=" + action + ".action?currentPage=" + (endPage + 1) + ">▷</a>");
+			pagingHtml.append("<a class='paging_move' href=" + action + ".action?currentPage=" + (endPage + 1) + ">▶</a>");
 		}
 	}
 

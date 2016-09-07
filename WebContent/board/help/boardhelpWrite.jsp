@@ -9,10 +9,26 @@
 <link rel="stylesheet" href="/TEP/static/css/alertify.default.css">
 <script src="/TEP/static/js/alertify.min.js"></script>
 <script src="/TEP/static/js/ckeditor/ckeditor.js"></script>
-<script src="/TEP/static/js/boardwrite.js"></script>
 <script>
 	window.onload = function() {
 		CKEDITOR.replace('bh_content');
+	}
+	
+	function valuecheck(){
+		var subject = document.getElementById("bh_subject");
+		var content = CKEDITOR.instances.bh_content;
+		
+		if(!subject.value){
+			alertify.error("제목이 입력되지 않았습니다.");
+			subject.focus();
+			return false;
+		}
+		
+		if(!content.getData()){
+			alertify.error("내용이 입력되지 않았습니다.");
+			content.focus();
+			return false;
+		}
 	}
 </script>
 </head>
@@ -20,13 +36,6 @@
 
 <form id="writeForm" action="helpWriteInsert.action" method="post" onsubmit="return valuecheck();">
 <table class="boardwrite" align=center border="0">
-
-<tr>
-<td class="bw_title">종&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;류</td>
-<td>
-고객센터
-</td>
-</tr>
 
 <tr>
 <td class="bw_title">카테고리</td>
@@ -63,12 +72,11 @@
 
 <tr>
 <td class="bw_title">제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;목</td>
-<td><input id="bh_subject" type="text" name="bh_subject" size="100%"></td>
+<td><input id="bh_subject" type="text" name="bh_subject" size="50" maxlength="25"></td>
 </tr>
 
 <tr>
-<td class="bw_title">내&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;용</td>
-<td><textarea id="bh_content" name="bh_content"></textarea></td>
+<td colspan="2"><textarea id="bh_content" name="bh_content"></textarea></td>
 </tr>
 
 <tr>

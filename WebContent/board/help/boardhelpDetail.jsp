@@ -33,20 +33,14 @@ function form_action(val){
 <input type="hidden" name="bh_no" value='<s:property value="data.bh_no"/>'>
 </form>
 
+<table style="width:890px;" border="0" align=center>
+<tr>
+<td style="font-weight: bold;font-size: large;font-family: sans-serif;">고객문의 게시판</td>
+<td align="right"><input type="button" value="목록보기" onclick="location.href='boardHelp.action'"></td>
+</tr>
+</table>
+
 <table class="boardwrite" align=center border="0">
-
-<tr>
-<td colspan="2" align="right" style="border:none;">
-<input type="button" value="목록보기" onclick="history.back();">
-</td>
-</tr>
-
-<tr>
-<td class="bw_title">종&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;류</td>
-<td  class="bw_content">
-고객센터
-</td>
-</tr>
 
 <tr>
 <td class="bw_title">카테고리</td>
@@ -68,8 +62,7 @@ function form_action(val){
 </tr>
 
 <tr>
-<td class="bw_title">내&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;용</td>
-<td>
+<td colspan="2">
 <textarea id="bh_content" disabled="disabled"><s:property value="data.bh_content"/></textarea>
 </td>
 </tr>

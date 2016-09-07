@@ -3,13 +3,20 @@ package board;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.interceptor.ServletRequestAware;
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 import config.SqlMapper;
 import util.PagingCalculator;
+import util.TepUtils;
 
-public class BoardAction {
+public class BoardAction implements SessionAware, ServletRequestAware{
 	private static final int SEARCHKEY_SUBEJCT = 0;
 	private static final int SEARCHKEY_SUBJECT_CONTENT = 1;
 	private static final int SEARCHKEY_NAME = 2;
@@ -27,12 +34,16 @@ public class BoardAction {
 	private int searchKey = -1;
 	private String searchWord = "";
 	
+	private Map session;
+	private HttpServletRequest request;
+	
 	public BoardAction(){
 		sqlMapper = SqlMapper.getMapper();
 	}
 	
 	@SuppressWarnings("unchecked")
 	public String execute(){
+		TepUtils.savePageURI(request, session);
 		try {
 			if(searchKey != -1 && searchWord.length() > 0){
 				search();
@@ -145,4 +156,13 @@ public class BoardAction {
 		this.searchWord = searchWord;
 	}
 	
+	@Override
+	public void setSession(Map session) {
+		this.session = session;
+	}
+
+	@Override
+	public void setServletRequest(HttpServletRequest request) {
+		this.request = request;
+	}
 }

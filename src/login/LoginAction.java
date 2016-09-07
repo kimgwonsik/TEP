@@ -4,26 +4,23 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
-import com.opensymphony.xwork2.ActionSupport;
 
 import config.SqlMapper;
 import members.MembersModel;
+import util.TepUtils;
 
-public class LoginAction extends ActionSupport implements SessionAware{
-	public static SqlMapClient sqlMapper1;
-	private static final long serialVersionUID = 1L;
-
+public class LoginAction implements SessionAware{
+	public static final String M_EMAIL = "session_m_email";
+	public static final String M_NAME= "session_m_name";
+	public static final String M_NO = "session_m_no";
+	
 	private SqlMapClient sqlMapper;
+	private Map session;
+	
 	private String m_email;
 	private String m_password;
-	private Map session;
-	private MembersModel paramClass;
-	private MembersModel resultClass;
-
+	
 	public String index() throws Exception{
-		/*if(session.get("session_m_email")==null)
-			return "login";
-		else*/
 			return "success";
 	}
 	
@@ -32,64 +29,40 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	}
 	
 	public String login() throws Exception{
-		paramClass=new MembersModel();
-		
-		paramClass.setM_email(m_email);
-		paramClass.setM_password(m_password);
+		MembersModel data = new MembersModel();
+		data.setM_email(m_email);
+		data.setM_password(m_password);
 	
-		resultClass = (MembersModel)sqlMapper.queryForObject("two.loginCheck", paramClass);
+		MembersModel resultData = (MembersModel)sqlMapper.queryForObject("two.loginCheck", data);
 		
-		if(resultClass != null){
-			session.put("session_m_email", resultClass.getM_email());
-			session.put("session_m_name", resultClass.getM_name());
-			session.put("session_m_no", resultClass.getM_no());
+		if(resultData != null){
+			session.put(M_EMAIL, resultData.getM_email());
+			session.put(M_NAME, resultData.getM_name());
+			session.put(M_NO, resultData.getM_no());
 			return "success";
 		}
 		return "error";
 	}
 	
 	public String logout() throws Exception{
-		if(session.get("session_m_email") != null){
-			session.remove("session_m_email");
-			session.remove("session_m_name");
-			session.remove("session_m_no");
+		if(session.get(M_EMAIL) != null){
+			session.remove(M_EMAIL);
+			session.remove(M_NAME);
+			session.remove(M_NO);
+
+			if(session.get(TepUtils.SAVEURI) != null){
+				session.remove(TepUtils.SAVEURI);
+			}
 		}
 		return "success";
 	}
 	
-
-	
-
-	public String getM_email() {
-		return m_email;
-	}
-
 	public void setM_email(String m_email) {
 		this.m_email = m_email;
 	}
 
-	public String getM_password() {
-		return m_password;
-	}
-
 	public void setM_password(String m_password) {
 		this.m_password = m_password;
-	}
-
-	public MembersModel getParamClass() {
-		return paramClass;
-	}
-
-	public void setParamClass(MembersModel paramClass) {
-		this.paramClass = paramClass;
-	}
-
-	public MembersModel getResultClass() {
-		return resultClass;
-	}
-
-	public void setResultClass(MembersModel resultClass) {
-		this.resultClass = resultClass;
 	}
 
 	@Override
@@ -97,9 +70,4 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		this.session = session;
 	}
 
-	public Map getSession() {
-		return session;
-	}
-
-	
 }
