@@ -61,9 +61,9 @@ function openConfirmId(){
 				<input type="password" name="m_password" maxlength="20" size="21" placeholder="비밀번호" onkeypress="enterkey();"/>
 		</td>
 	</tr>
-	
 	<tr align="center" border="0" cellspacing="0" cellpadding="0">
 		<td>
+		<br>
 				<input type="button" value="로그인" onclick="insert()" >
 			</form>
 		</td>
