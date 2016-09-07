@@ -6,6 +6,9 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
@@ -14,14 +17,16 @@ import comments.CommentsModel;
 import config.SqlMapper;
 import util.TepUtils;
 
-public class OpenmeetDetailAction implements SessionAware{
+public class OpenmeetDetailAction implements SessionAware, ServletRequestAware{
 	private OpenmeetModel detailData;
 	private List<CommentsModel> cmtData = new ArrayList<CommentsModel>();
 	private SqlMapClient sqlMapper;
 	private int o_no;
 	private int c_no;
 	private String c_content;
+	
 	private Map session;
+	private HttpServletRequest request;
 	
 	public OpenmeetDetailAction(){
 		sqlMapper = SqlMapper.getMapper();
@@ -29,6 +34,7 @@ public class OpenmeetDetailAction implements SessionAware{
 	
 	@SuppressWarnings("unchecked")
 	public String execute(){
+		TepUtils.savePageURI(request, session);
 		try {
 			// readcount increase
 			sqlMapper.update("jin.openmeet_update_readcount",getO_no());
@@ -116,8 +122,9 @@ public class OpenmeetDetailAction implements SessionAware{
 		this.session = session;
 	}
 
-	public Map getSession() {
-		return session;
+	@Override
+	public void setServletRequest(HttpServletRequest request) {
+		this.request = request;
 	}
-	
+
 }

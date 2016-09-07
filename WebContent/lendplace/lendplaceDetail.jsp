@@ -12,7 +12,14 @@
 <table width=930px border="0" align=center>
 <tr>
 <td>
-<div style="font-weight: bold;font-size: large;">&nbsp;&nbsp;&nbsp;모임장소 추천</div>
+
+<table style="width:100%;" border="0">
+<tr>
+<td style="font-weight: bold;font-size: large;font-family: sans-serif;">모임장소 추천</td>
+<td align="right"><input type="button" value="목록보기" onclick="location.href='lendplace.action'"></td>
+</tr>
+</table>
+
 <table class="om_detail_header_table">
 <tr>
 

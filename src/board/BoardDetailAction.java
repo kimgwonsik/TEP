@@ -5,27 +5,34 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 import comments.CommentsModel;
 import config.SqlMapper;
+import util.TepUtils;
 
-public class BoardDetailAction implements SessionAware{
+public class BoardDetailAction implements SessionAware,ServletRequestAware{
 	private SqlMapClient sqlMapper;
 	private BoardModel data;
 	private List<CommentsModel> cmtData = new ArrayList<>();
 	private int b_no;
 	private int c_no;
 	private String c_content;
+	
 	private Map session;
+	private HttpServletRequest request;
 	
 	public BoardDetailAction(){
 		sqlMapper = SqlMapper.getMapper();
 	}
 	
 	public String execute(){
+		TepUtils.savePageURI(request, session);
 		try {
 			sqlMapper.update("jin.board_update_readcount",b_no);
 			data = (BoardModel)sqlMapper.queryForObject("jin.board_select_one",b_no);
@@ -117,5 +124,9 @@ public class BoardDetailAction implements SessionAware{
 	public void setC_content(String c_content) {
 		this.c_content = c_content;
 	}
-
+	
+	@Override
+	public void setServletRequest(HttpServletRequest request) {
+		this.request = request;
+	}
 }

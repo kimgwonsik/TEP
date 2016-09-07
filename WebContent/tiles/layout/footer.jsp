@@ -44,7 +44,7 @@ td.footer_td_text a:HOVER {
 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
 <a href="#">개인정보취급방침</a>
 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
-<a href="boardHelp.action">고객센터</a>
+<a href="boardHelp.action">고객문의</a>
 </td></tr>
 <tr>
 <td>

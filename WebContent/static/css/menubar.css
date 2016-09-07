@@ -30,8 +30,8 @@
         color: white;
     }
     .topMenuLi:hover .menuLink {    /* �긽�쐞 硫붾돱�쓽 li�뿉 留덉슦�뒪�삤踰� �릺�뿀�쓣 �븣 �뒪���씪 �꽕�젙 */
-        color: red;                 /* 湲��뵪 �깋 鍮④컙�깋 */
-        background-color: #4d4d4d;  /* 諛곌꼍�깋�쓣 諛앹� �쉶�깋�쑝濡� �꽕�젙 */
+        color: black;                 /* 湲��뵪 �깋 鍮④컙�깋 */
+        background-color: gray;  /* 諛곌꼍�깋�쓣 諛앹� �쉶�깋�쑝濡� �꽕�젙 */
     }
     .submenuLink {          /* �븯�쐞 硫붾돱�쓽 a �깭洹� �뒪���씪 �꽕�젙 */
         color: #2d2d2d;             /* 湲��뵪 �깋�쓣 RGB(2D2D2D)濡� �꽕�젙 */

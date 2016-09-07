@@ -25,8 +25,14 @@
 	</sql>
 	
 	<sql id="om_where_search_o_subject_content">
-		where b_subject like '%'||#searchWord#||'%' or b_content like '%'||#searchWord#||'%'
+		where o_subject like '%'||#searchWord#||'%' or o_content like '%'||#searchWord#||'%'
 	</sql>
+
+	<select id="openmeet_search_o_subject_content_select_all">
+		<include refid="om_select_all"/>
+		<include refid="om_where_search_o_subject_content"/>
+		<include refid="om_orderby"/>
+	</select>
 
 	<select id="openmeet_select_all" resultClass="openmeet">
 		<include refid="om_select_all" />

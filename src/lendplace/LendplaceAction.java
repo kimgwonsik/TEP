@@ -2,13 +2,20 @@ package lendplace;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.interceptor.ServletRequestAware;
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 import config.SqlMapper;
 import util.PagingCalculator;
+import util.TepUtils;
 
-public class LendplaceAction{
+public class LendplaceAction implements SessionAware, ServletRequestAware{
 	private List<LendplaceModel> list = new ArrayList<>();
 	private SqlMapClient sqlMapper;
 	
@@ -19,12 +26,16 @@ public class LendplaceAction{
 	private String pagingHtml;
 	private PagingCalculator page;
 	
+	private Map session;
+	private HttpServletRequest request;
+	
 	public LendplaceAction(){
 		sqlMapper = SqlMapper.getMapper();
 	}
 	
 	@SuppressWarnings("unchecked")
 	public String execute(){
+		TepUtils.savePageURI(request, session);
 		try {
 			list = sqlMapper.queryForList("lendplace_select_all");
 			totalCount = list.size();
@@ -94,5 +105,15 @@ public class LendplaceAction{
 
 	public void setPage(PagingCalculator page) {
 		this.page = page;
+	}
+
+	@Override
+	public void setServletRequest(HttpServletRequest request) {
+		this.request = request;
+	}
+
+	@Override
+	public void setSession(Map session) {
+		this.session = session;
 	}
 }

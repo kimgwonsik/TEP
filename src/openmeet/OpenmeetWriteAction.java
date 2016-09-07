@@ -4,6 +4,9 @@ import java.io.File;
 import java.util.Calendar;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
@@ -13,7 +16,7 @@ import members.MembersModel;
 import util.FileUploadService;
 import util.TepUtils;
 
-public class OpenmeetWriteAction extends OpenmeetModel implements SessionAware{
+public class OpenmeetWriteAction extends OpenmeetModel implements SessionAware, ServletRequestAware{
 	private SqlMapClient sqlMapper;
 	private Map session;
 
@@ -21,6 +24,8 @@ public class OpenmeetWriteAction extends OpenmeetModel implements SessionAware{
 	private String uploadFileName; //업로드할 로컬 파일명
 	private String uploadContentType; //업로드할 파일의 컨텐츠 타입
 	private String serverFullPath; //저장할 실제 파일의 전체 경로
+	
+	private HttpServletRequest request;
 	
 	public OpenmeetWriteAction(){
 		sqlMapper = SqlMapper.getMapper();
@@ -47,10 +52,10 @@ public class OpenmeetWriteAction extends OpenmeetModel implements SessionAware{
 			setO_name(mdata.getM_name());
 			setO_phone(mdata.getM_phone());
 			setO_company(mdata.getM_company());
-			
 			setO_rep_img(serverFullPath);
-			if(session.get("o_content_img"+m_no) != null){
-				setO_content_img(session.get("o_content_img"+m_no).toString());
+			String content_img = TepUtils.getCookies(request, CkImageUploadAction.CKIMG_PATH);
+			if(content_img != null){
+				setO_content_img(content_img);
 			}
 			setO_m_sdate(TepUtils.dateParse(getO_msdate()));
 			setO_m_edate(TepUtils.dateParse(getO_medate()));
@@ -62,10 +67,6 @@ public class OpenmeetWriteAction extends OpenmeetModel implements SessionAware{
 			setM_no(m_no);
 			
 			sqlMapper.insert("jin.openmeet_insert",this);
-			
-			if(session.get("o_content_img"+m_no) != null){
-				session.remove("o_content_img"+m_no);
-			}
 		} catch (Exception e) {
 			System.out.println("openmeet insert error : "+e.getMessage());
 		}
@@ -76,6 +77,11 @@ public class OpenmeetWriteAction extends OpenmeetModel implements SessionAware{
 	@Override
 	public void setSession(Map session) {
 		this.session = session;
+	}
+	
+	@Override
+	public void setServletRequest(HttpServletRequest request) {
+		this.request = request;
 	}
 
 	public File getUpload() {

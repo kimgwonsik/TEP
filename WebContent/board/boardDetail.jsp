@@ -48,13 +48,14 @@ function cmt_check(kind) {
 <input type="hidden" name="b_no" value='<s:property value="data.b_no"/>'>
 </form>
 
-<table class="boardwrite" align=center border="0">
-
+<table style="width:890px;" border="0" align=center>
 <tr>
-<td colspan="2" align="right" style="border:none;">
-<input type="button" value="목록보기" onclick="location.href='board.action'">
-</td>
+<td style="font-weight: bold;font-size: large;font-family: sans-serif;">게시판</td>
+<td align="right"><input type="button" value="목록보기" onclick="location.href='board.action'"></td>
 </tr>
+</table>
+
+<table class="boardwrite" align=center border="0">
 
 <tr>
 <td class="bw_title">종&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;류</td>
