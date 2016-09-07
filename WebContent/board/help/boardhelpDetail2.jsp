@@ -14,18 +14,7 @@
 		CKEDITOR.replace('bh_content');
 	}
 </script>
-<script type="text/javascript">
-function form_action(val){
-	var f = document.detail_form;
-	if(val == 0){
-		f.action="boardHelpUpdate.action";
-		f.submit();
-	} else if(val == 1){
-		f.action="boardHelpDelete.action";
-		f.submit();
-	}
-}
-</script>
+
 </head>
 <body>
 
@@ -77,7 +66,7 @@ function form_action(val){
 <s:if test="#session.session_m_no != null && #session.session_m_no == data.m_no">
 <tr>
 <td colspan="2" align="right" style="border:none;">
-<input type="text" value="수정및 삭제는 마이페이지 문의내역에서 확인해주세요!!">
+<input type="button" value="수정및 삭제는 마이페이지 문의내역에서 확인해주세요!!" onclick="location.href='helpHistory.action'">
 </td>
 </tr>
 </s:if>

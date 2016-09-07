@@ -68,7 +68,7 @@ function check(){
 	<tr>
 		<td align="center">
 			<input type="submit" value="계속" class="inputb"/>
-			<input type="button" value="취소" onclick="history.go(-1)" class="inputb"/>
+			<input type="button" value="취소" onclick="window:location='mypageView.action'" class="inputb"/>
 		</td>
 	</tr>
 	
