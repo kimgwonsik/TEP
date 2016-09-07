@@ -45,8 +45,8 @@ td.footer_td_text a:HOVER {
 <a href="footerActionC.action">이용약관 </a>
 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
 
+<a href="boardHelp.action">고객문의</a>
 
-<a href="boardHelp.action">고객센터</a>
 </td></tr>
 <tr>
 <td>

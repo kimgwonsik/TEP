@@ -5,55 +5,55 @@
 <head>
 <meta content="text/html; charset=UTF-8">
 <title></title>
-<script language="javascript">
+<script type="text/javascript">
 function check(){
-	var join=document.joinForm;
-	if(join.m_email.value==""){
-		alert("아이디를 입력해주세요");
-		join.m_email.focus();
-		return false;
-	}
-	else if(join.m_password.value==""){
-		alert("비밀번호를 입력해주세요");
-		join.m_password.focus();
-		return false;
-	}
-	else if(join.m_password.value != join.m_password1.value){
-		alert("비밀번호가 틀립니다.");
-		join.m_password1.focus();
-		return false;
-	}
-	else if(join.m_name.value==""){
-		alert("이름을 입력해주세요");
-		join.m_name.focus();
-		return false;
-	}
-	else if(join.m_nickname.value==""){
-		alert("닉네임을 입력해주세요");
-		join.m_nickname.focus();
-		return false;
-	}
-	else if(join.m_phone.value==""){
-		alert("휴대폰번호를 입력해주세요");
-		join.m_phone.focus();
-		return false;
-	}
+	 var join=document.userinput
+
+	    if(join.m_name.value==""){
+	    	alert("이름을 입력해주세요");
+	    	join.m_name.focus();
+	    	return false;
+	    }
+	    else if(join.m_nickname.value==""){
+	    	alert("닉네임을 입력해주세요");
+	    	join.m_nickname.focus();
+	    	return false;
+	    }
+	    else if(join.m_password.value==""){
+	    	alert("비밀번호를 입력해주세요");
+	    	join.m_password.focus();
+	    	return false;
+	    }
+	    else if(join.m_phone.value==""){
+	    	alert("핸드폰 번호를 입력해주세요");
+	    	join.m_phone.focus();
+	    	return false;
+	    }
+
+	    if(userinput.m_password.value.length < 4){
+	    	alert("최소 4자리 이상 입력해주세요!");
+	    	userinput.m_password.value= "";
+	   	 	userinput.m_password.focus();
+	   	 	return false;
+	  	}
+	    
+		var f=document.userinput;
+		f.submit();
 }
 </script>
 
 </head>
 <body>
-
-<br>
-<form action="modifyMember.action" name="joinForm" method="post" onSubmit="return check();">
 <table align="center" width="834" border="0" cellspacing="0" cellpadding="0">
 
-<tr height="25">
-	<td bgcolor="#ff8c00"align="left" colspan="1" width="10"></td>
-	<td align="left" colspan="3"><strong>&nbsp;&nbsp;개인 정보 수정</strong></td>
-</tr>
+	<tr height="25">
+			<td bgcolor="#FF2929" align="left" colspan="1" width="10"></td>
+			<td align="left" colspan="3"><strong>&nbsp;&nbsp;회원 탈퇴</strong></td>
+	</tr>
+
 </table>
 <br>
+<form action="modifyMember.action" name="userinput" method="post">
 <table align="center" width="390" border="0" cellspacing="0" cellpadding="0">
 
 	<tr bgcolor="#888888">
@@ -178,7 +178,7 @@ function check(){
 	<tr>
 		<td align=center>
 			<input type="reset" value="리셋" class="inputb"/>
-			<input name="submit" type="submit" value="수정" class="inputb"/>
+			<input type="button" value="수정" onclick="check()">
 		</td>
 	</tr>
 	

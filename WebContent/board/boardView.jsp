@@ -50,17 +50,15 @@
 	</tr>
 </s:if>
 
-<!-- 글쓰기 -->
-<s:if test="#session.session_m_email != null">
-<tr>
-<td colspan="6" align="right"><input type="button" value="글쓰기" onclick="location.href='boardWrite.action'"></td>
-</tr>
-</s:if>
-
 
 <!-- 페이징 -->
 <tr>
-<td colspan="6" width="100%" align="center"><s:property value="pagingHtml" escape="false"/></td>
+<td colspan="6" width="100%" align="center" style="padding-top:20px;padding-bottom:10px">
+<s:property value="pagingHtml" escape="false"/>
+<s:if test="#session.session_m_email != null">
+<input type="button" value="글쓰기" onclick="location.href='boardWrite.action'" style="float:right;margin-top: -6px;">
+</s:if>
+</td>
 </tr>
 
 <!-- 게시판 검색 -->

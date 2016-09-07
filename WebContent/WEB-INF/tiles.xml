@@ -107,6 +107,10 @@
 		<put-attribute name="title" value="TEP - 로그인"></put-attribute>
 		<put-attribute name="body" value="/login/loginForm.jsp"></put-attribute>
 	</definition>	
+	<definition name="loginSuccess" extends=".default">
+		<put-attribute name="title" value="TEP - 로그인성공"></put-attribute>
+		<put-attribute name="body" value="/login/loginSuccess.jsp"></put-attribute>
+	</definition>	
 	<definition name="findForm" extends=".default">
 		<put-attribute name="title" value="TEP - 아이디,비밀번호 찾기"></put-attribute>
 		<put-attribute name="body" value="/login/findIdPassword.jsp"></put-attribute>
@@ -159,7 +163,7 @@
 		<put-attribute name="body" value="/mypage/mypageView.jsp"></put-attribute>
 	</definition>
 	<definition name="helpHistory" extends=".mypage">
-		<put-attribute name="title" value="TEP - 내가쓴글"></put-attribute>
+		<put-attribute name="title" value="TEP - 문의내역"></put-attribute>
 		<put-attribute name="body" value="/mypage/mypageHelpHistoryView.jsp"></put-attribute>
 	</definition>
 	<definition name="helpHistoryDetail" extends=".mypage">
@@ -172,12 +176,17 @@
 	</definition>
 	
 	<!-- 고객센터 -->
-	<definition name="boardHelpDetail" extends=".default">
+	<definition name="boardHelpDetail2" extends=".default">
 		<put-attribute name="title" value="TEP - 고객센터게시판 상세보기"></put-attribute>
+		<put-attribute name="body" value="/board/help/boardhelpDetail2.jsp"></put-attribute>
+		</definition>
+	<!-- 고객문의 -->
+	<definition name="boardHelpDetail" extends=".default">
+		<put-attribute name="title" value="TEP - 고객문의 상세보기"></put-attribute>
 		<put-attribute name="body" value="/board/help/boardhelpDetail.jsp"></put-attribute>
 	</definition>
 	<definition name="boardHelp" extends=".default">
-		<put-attribute name="title" value="TEP - 고객센터 글목록"></put-attribute>
+		<put-attribute name="title" value="TEP - 고객문의 글목록"></put-attribute>
 		<put-attribute name="body" value="/board/help/boardhelpView.jsp"></put-attribute>
 	</definition>
 	<definition name="helpWriteForm" extends=".default">
@@ -199,6 +208,29 @@
 	<definition name="theTermsAndConditions" extends=".default">
 		<put-attribute name="title" value="TEP - 이용약관"></put-attribute>
 		<put-attribute name="body" value="/footer/theTermsAndConditions.jsp"></put-attribute>
+
+	<!-- 마이페이지 모임참여내역 -->
+	<definition name="openmeetHistory" extends=".mypage">
+		<put-attribute name="title" value="TEP - 모임참여내역"></put-attribute>
+		<put-attribute name="body" value="/mypage/mypageMeetHistoryView.jsp"></put-attribute>
+	</definition>
+	<definition name="meetHistoryDetail" extends=".mypage">
+		<put-attribute name="title" value="TEP - 모임참여내역 상세보기"></put-attribute>
+		<put-attribute name="body" value="/openmeet/openmeetDetail.jsp"></put-attribute>
+	</definition>
+	
+	<!-- 마이페이지 내가쓴글,답글,모임개설 -->
+	<definition name="writeHistoryBoard" extends=".mypage">
+		<put-attribute name="title" value="TEP - 내가쓴글내역"></put-attribute>
+		<put-attribute name="body" value="/mypage/mypageWriteHistoryBoardView.jsp"></put-attribute>
+	</definition>
+	<definition name="writeHistoryCmt" extends=".mypage">
+		<put-attribute name="title" value="TEP - 내가쓴글내역"></put-attribute>
+		<put-attribute name="body" value="/mypage/mypageWriteHistoryCmtView.jsp"></put-attribute>
+	</definition>
+	<definition name="writeHistoryOmeet" extends=".mypage">
+		<put-attribute name="title" value="TEP - 내가쓴글내역"></put-attribute>
+		<put-attribute name="body" value="/mypage/mypageWriteHistoryOmeetView.jsp"></put-attribute>
 	</definition>
 	
 </tiles-definitions>

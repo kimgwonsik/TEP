@@ -28,7 +28,7 @@
 		</action>
 
 		<action name="login" class="login.LoginAction" method="login">
-			<result name="success" type="tiles">main</result>
+			<result name="success" type="tiles">loginSuccess</result>
 			<result name="error">/login/loginError.jsp</result>
 		</action>
 		
@@ -102,8 +102,8 @@
 		<action name="boardHelp" class="board.help.BoardhelpAction">
 			<result name="success" type="tiles">boardHelp</result>
 		</action>
-		<action name="boardHelpDetail" class="board.help.BoardhelpDetailAction">
-			<result name="success" type="tiles">boardHelpDetail</result>
+		<action name="boardHelpDetail2" class="board.help.BoardhelpDetailAction">
+			<result name="success" type="tiles">boardHelpDetail2</result>
 		</action>
 		<action name="helpWriteForm" class="board.help.BoardhelpWriteAction" method="form">
 			<result name="success" type="tiles">helpWriteForm</result>
@@ -114,6 +114,7 @@
 			</result>
 		</action>
 		
+
 		 <!--  footer 회사소개, 개인정보보호, 이용약관 -->
 		<action name="footerActionA" class="footer.footerAction">
 			<result name="success" type="tiles">CompanyIntroduction</result>
@@ -126,5 +127,26 @@
 		<action name="footerActionC" class="footer.footerAction">
 			<result name="success" type="tiles">theTermsAndConditions</result>
 		</action>  
+
+		<!-- 마이페이지 모임참여내역 -->
+		<action name="openmeetHistory" class="mypage.MypageMeetHistoryAction">
+			<result name="success" type="tiles">openmeetHistory</result>
+		</action>
+		<action name="meetHistoryDetail" class="openmeet.OpenmeetDetailAction">
+			<result name="success" type="tiles">meetHistoryDetail</result>
+		</action>
+		
+		<!-- board에서 내가쓴글 -->
+		<action name="writeHistoryBoard" class="mypage.MypageWriteHistoryAction" method="writeHistoryBoard">
+			<result name="success" type="tiles">writeHistoryBoard</result>
+		</action>
+		<action name="writeHistoryCmt" class="mypage.MypageWriteHistoryAction" method="writeHistoryCmt">
+			<result name="success" type="tiles">writeHistoryCmt</result>
+		</action>
+		<action name="writeHistoryOmeet" class="mypage.MypageWriteHistoryAction" method="writeHistoryOmeet">
+			<result name="success" type="tiles">writeHistoryOmeet</result>
+		</action>
+		
+
 	</package>
 </struts>

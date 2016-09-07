@@ -14,18 +14,7 @@
 		CKEDITOR.replace('bh_content');
 	}
 </script>
-<script type="text/javascript">
-function form_action(val){
-	var f = document.detail_form;
-	if(val == 0){
-		f.action="boardHelpUpdate.action";
-		f.submit();
-	} else if(val == 1){
-		f.action="boardHelpDelete.action";
-		f.submit();
-	}
-}
-</script>
+
 </head>
 <body>
 
@@ -33,14 +22,20 @@ function form_action(val){
 <input type="hidden" name="bh_no" value='<s:property value="data.bh_no"/>'>
 </form>
 
-<table style="width:890px;" border="0" align=center>
-<tr>
-<td style="font-weight: bold;font-size: large;font-family: sans-serif;">고객문의 게시판</td>
-<td align="right"><input type="button" value="목록보기" onclick="location.href='boardHelp.action'"></td>
-</tr>
-</table>
-
 <table class="boardwrite" align=center border="0">
+
+<tr>
+<td colspan="2" align="right" style="border:none;">
+<input type="button" value="목록보기" onclick="history.back();">
+</td>
+</tr>
+
+<tr>
+<td class="bw_title">종&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;류</td>
+<td  class="bw_content">
+고객센터
+</td>
+</tr>
 
 <tr>
 <td class="bw_title">카테고리</td>
@@ -62,7 +57,8 @@ function form_action(val){
 </tr>
 
 <tr>
-<td colspan="2">
+<td class="bw_title">내&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;용</td>
+<td>
 <textarea id="bh_content" disabled="disabled"><s:property value="data.bh_content"/></textarea>
 </td>
 </tr>
@@ -70,8 +66,7 @@ function form_action(val){
 <s:if test="#session.session_m_no != null && #session.session_m_no == data.m_no">
 <tr>
 <td colspan="2" align="right" style="border:none;">
-<input type="button" value="수정" onclick="form_action('0');">
-<input type="button" value="삭제" onclick="form_action('1');">
+<input type="button" value="수정및 삭제는 마이페이지 문의내역에서 확인해주세요!!" onclick="location.href='helpHistory.action'">
 </td>
 </tr>
 </s:if>

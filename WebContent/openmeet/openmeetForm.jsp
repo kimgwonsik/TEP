@@ -63,16 +63,16 @@
 <tr>
 <td class="td_title">모임일시</td>
 <td>
-<input type="text" class="dtpicker2" name="o_msdate" id="startdt">부터&nbsp;&nbsp;&nbsp;
-<input type="text" class="dtpicker2" name="o_medate" id="enddt">까지
+<input type="text" class="dtpicker2" name="o_msdate" id="startdt"  size="13">부터&nbsp;&nbsp;&nbsp;
+<input type="text" class="dtpicker2" name="o_medate" id="enddt" size="13">까지
 </td>
 </tr>
 
 <tr>
 <td class="td_title">접수기간</td>
 <td>
-<input type="text" class="dtpicker2" name="o_rsdate" id="startdt2">부터&nbsp;&nbsp;&nbsp;
-<input type="text" class="dtpicker2" name="o_redate" id="enddt2">까지
+<input type="text" class="dtpicker2" name="o_rsdate" id="startdt2" size="13">부터&nbsp;&nbsp;&nbsp;
+<input type="text" class="dtpicker2" name="o_redate" id="enddt2" size="13">까지
 </td>
 </tr>
 

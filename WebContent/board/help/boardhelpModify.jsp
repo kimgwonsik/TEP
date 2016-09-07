@@ -17,7 +17,6 @@
 		var f = document.mForm;
 		f.bh_category1.value='<s:property value="data.bh_category1"/>';
 		f.bh_category2.value='<s:property value="data.bh_category2"/>';
-		f.bh_subject.value='<s:property value="data.bh_subject"/>';
 	}
 </script>
 </head>
@@ -68,7 +67,7 @@
 
 <tr>
 <td class="bw_title">제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;목</td>
-<td><input id="bh_subject" type="text" name="bh_subject" size="100%"></td>
+<td><input id="bh_subject" type="text" name="bh_subject" size="100%" value='<s:property value="data.bh_subject"/>'></td>
 </tr>
 
 <tr>

@@ -5,6 +5,32 @@
 <head>
 <meta content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/TEP/static/css/openmeetdetail.css" type="text/css">
+<link rel="stylesheet" href="/TEP/static/js/dtpicker/jquery.simple-dtpicker.css">
+<script src="/TEP/static/js/dtpicker/jquery-1.7.1.js"></script>
+<script src="/TEP/static/js/dtpicker/jquery.simple-dtpicker.js"></script>
+
+<script>
+	$(function() {
+		// -- append by class just for lower strings count --
+		$('.dtpicker2').appendDtpicker({
+			"futureOnly" : false,
+			"autodateOnStart" : false,
+			"locale":"ko"
+		});
+
+		$('#startdt').change(function() {
+			var de = new Date($('#startdt').handleDtpicker('getDate')); // constructor need to avoid linking object
+			de.setDate(de.getDate());
+			$('#enddt').handleDtpicker('setMinDate', de); //set min end date is 7 day later then start date
+		});
+		$('#enddt').change(function() {
+			var ds = new Date($('#enddt').handleDtpicker('getDate'));
+			ds.setDate(ds.getDate());
+			$('#startdt').handleDtpicker('setMaxDate', ds); //set max end date is 7 day earlier then end date
+		});
+	});
+</script>
+
 </head>
 <body>
 <!-- 전체 테이블 -->
@@ -64,7 +90,7 @@
 <!-- 위쪽과 아래쪽 테이블 분기선 -->
 <hr class="om_detail_hr">
 
-<form id="bookForm" action="lendplaceBookInsert.action" method="post">
+<form id="bookForm" action="lendplaceBookInsert.action" method="post" enctype="multipart/form-data" theme="simple">
 <table class="om_detail_content">
 <tr><td>
 
@@ -81,30 +107,32 @@
 				<td align=right>*신청하는 장소&nbsp;&nbsp; </td>
 				<td><b><s:property value="detailData.l_subject"/></b></td>
 			</tr>
-			<input type="hidden" name="l_subject" id="l_subject" value="<s:property value="detailData.l_subject"/>">
+			<input type="hidden" name="l_no" value="<s:property value="detailData.l_no"/>">
+			
 			<tr>
 				<td align=right>*대관시간&nbsp;&nbsp;</td>
-				<td><input type="date" name="l_sdate" id="l_sdate" />부터</td>
+				<td><input type="text" class="dtpicker2" name="lb_t_sdate" id="startdt" />부터</td>
 			</tr>
 			<tr>
 				<td align=right></td>
-				<td><input type="date" name="l_edate" id="l_edate" />까지 사용합니다.</td>
+				<td><input type="text" class="dtpicker2" name="lb_t_edate" id="enddt" />까지 사용합니다.</td>
 			</tr>
+			
 			<tr>
 				<td align=right>*신청자 이름&nbsp;&nbsp;</td>
-				<td><input type="text" name="l_name" id="l_name" value='<s:property value="sessionData.m_name"/>' /></td>
+				<td><input type="text" name="lb_name" value='<s:property value="sessionData.m_name"/>' /></td>
 			</tr>
 			<tr>
 				<td align=right>*신청자 소속&nbsp;&nbsp;</td>
-				<td><input type="text" name="l_company" id="l_company" alt="예) TEP" value="예) TEP" onclick="this.value=''" /></td>
+				<td><input type="text" name="lb_company" alt="예) TEP" value="예) TEP" onclick="this.value=''" /></td>
 			</tr>
 			<tr>
 				<td align=right>*신청자 전화번호&nbsp;&nbsp;</td>
-				<td><input type="number" name="l_phone" id="l_phone" value='<s:property value="sessionData.m_phone"/>' /></td>
+				<td><input type="number" name="lb_phone" value='<s:property value="sessionData.m_phone"/>' /></td>
 			</tr>
 			<tr>
 				<td align=right>*신청자 이메일&nbsp;&nbsp;</td>
-				<td><input type="text" name="l_email" id="l_email" value='<s:property value="sessionData.m_email"/>' /></td>
+				<td><input type="text" name="lb_email" value='<s:property value="sessionData.m_email"/>' /></td>
 			</tr>
 			<tr>
 				<td></td>

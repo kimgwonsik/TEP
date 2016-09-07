@@ -54,6 +54,30 @@ public class LendplaceModel {
 	private Date l_date;
 	
 	private Integer m_no;
+	
+	
+	// 장소신청시 날짜부분이 스트링값으로 넘어와 String 날짜변수생성
+	private String l_t_sdate; //대관시작
+	private String l_t_edate; //대관종료
+	
+	public String getL_t_sdate() {
+		return l_t_sdate;
+	}
+
+	public void setL_t_sdate(String l_t_sdate) {
+		this.l_t_sdate = l_t_sdate;
+	}
+
+	public String getL_t_edate() {
+		return l_t_edate;
+	}
+
+	public void setL_t_edate(String l_t_edate) {
+		this.l_t_edate = l_t_edate;
+	}
+
+	
+	
 
 	public Integer getL_no() {
 		return l_no;
