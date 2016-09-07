@@ -65,7 +65,7 @@ function check(){
 	<tr>
 		<td align="center">
 			<input type="submit" value="탈퇴" class="inputb"/>
-			<input type="button" value="취소" onclick="history.go(-1)" class="inputb"/>
+			<input type="button" value="취소" onclick="window:location='mypageView.action'" class="inputb"/>
 		</td>
 	</tr>
 	

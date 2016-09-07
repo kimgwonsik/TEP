@@ -62,7 +62,7 @@ font.board_subject_kind{
 </tr>
 
 <s:iterator value="list" status="stat">
-	<s:url id="boardHelpDetailURL" action="boardHelpDetail">
+	<s:url id="boardHelpDetailURL" action="boardHelpDetail2">
 		<s:param name="bh_no">
 			<s:property value="bh_no"/>
 		</s:param>

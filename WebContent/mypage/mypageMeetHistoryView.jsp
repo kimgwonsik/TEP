@@ -32,7 +32,7 @@
 </tr> -->
 
 <s:iterator value="list" status="stat">
-	<s:url id="openmeetDetailURL" action="openmeetDetail">
+	<s:url id="openmeetDetailURL" action="meetHistoryDetail">
 		<s:param name="o_no">
 			<s:property value="o_no"/>
 		</s:param>
