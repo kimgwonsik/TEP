@@ -208,7 +208,8 @@
 	<definition name="theTermsAndConditions" extends=".default">
 		<put-attribute name="title" value="TEP - 이용약관"></put-attribute>
 		<put-attribute name="body" value="/footer/theTermsAndConditions.jsp"></put-attribute>
-
+	</definition>
+	
 	<!-- 마이페이지 모임참여내역 -->
 	<definition name="openmeetHistory" extends=".mypage">
 		<put-attribute name="title" value="TEP - 모임참여내역"></put-attribute>
@@ -233,4 +234,4 @@
 		<put-attribute name="body" value="/mypage/mypageWriteHistoryOmeetView.jsp"></put-attribute>
 	</definition>
 	
-</tiles-definitions>
+	</tiles-definitions>
