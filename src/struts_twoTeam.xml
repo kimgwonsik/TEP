@@ -136,7 +136,7 @@
 			<result name="success" type="tiles">meetHistoryDetail</result>
 		</action>
 		
-		<!-- board에서 내가쓴글 -->
+		<!-- 마에페이지에서 내가쓴글 -->
 		<action name="writeHistoryBoard" class="mypage.MypageWriteHistoryAction" method="writeHistoryBoard">
 			<result name="success" type="tiles">writeHistoryBoard</result>
 		</action>

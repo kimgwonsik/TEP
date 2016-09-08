@@ -97,7 +97,7 @@ tr.Omeet_content_tr td{
 
 
 		<s:iterator value="Olist" status="stat">
-			<s:url id="OmeetDetailURL" action="OmeetDetail">
+			<s:url id="openmeetDetailURL" action="openmeetDetail">
 					<s:param name="o_no">
 						<s:property value="o_no" />
 					</s:param>
@@ -106,7 +106,7 @@ tr.Omeet_content_tr td{
 				
 				<td><s:property value="o_no" /></td>
 
-				<td><s:a href="%{OmeetDetailURL}">
+				<td><s:a href="%{openmeetDetailURL}">
 						<s:property value="o_subject" />
 					</s:a></td>
 
