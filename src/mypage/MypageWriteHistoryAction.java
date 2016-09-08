@@ -91,7 +91,6 @@ public class MypageWriteHistoryAction implements SessionAware{
 					Blist= sqlMapper.queryForList("two.writeHistoryBoard", session.get("session_m_no"));
 			}
 			totalCount = Blist.size();
-			System.out.println(totalCount);
 			page = new PagingCalculator("writeHistoryBoard", currentPage, totalCount, blockCount, blockPage);
 			pagingHtml = page.getPagingHtml().toString();
 			

@@ -4,15 +4,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="/TEP/static/css/boardview.css" type="text/css">
+<link rel="stylesheet" href="/TEP/static/css/root.css" type="text/css">
+<link rel="stylesheet" href="/TEP/static/css/alertify.default.css">
+<script src="/TEP/static/js/alertify.min.js"></script>
+<script src="/TEP/static/js/jquery-3.1.0.js"></script>
 <title>이용약관</title>
 <SCRIPT type="text/javascript">
 function check_agree(form) {
 	if (!form.agree.checked) {
-	alert('이용 약관에 동의 후 회원가입을 진행하실 수 있습니다.');
+	alertify.error('이용 약관에 동의 후 회원가입을 진행하실 수 있습니다.');
 	form.agree.focus();
 	return false;
 } else if (!form.agree2.checked) {
-	alert('개인 정보 수집에 동의 후 회원가입을 진행하실 수 있습니다.');
+	alertify.error('개인 정보 수집에 동의 후 회원가입을 진행하실 수 있습니다.');
 	form.agree2.focus();
 	return false;
 }
@@ -35,20 +40,20 @@ function check_agree(form) {
 		<td></td>
 	</tr>
 	
-	<tr align="center" bgcolor="#888888" height="1">
+<!-- 	<tr align="center" bgcolor="#FF2929" height="1">
 		<td colspan="4"></td>
 	</tr>
 	
 </table>
 	
 <br>
-<br>
+<br> -->
 	
 <table align="center" width="834" border="0" cellspacing="0" cellpadding="0">
 
 <tr align="center">
 	<td align="center">
-		<textarea align="left" wrap="hard" theme="simple" rows="10" cols="90" readonly>개인 회원 약관 (개정 2016. 08. 04 / 적용 2016. 08. 04)
+		<textarea style="border:1px solid red;" align="left" wrap="hard" theme="simple" rows="10" cols="90" readonly>개인 회원 약관 (개정 2016. 08. 04 / 적용 2016. 08. 04)
 제 1 장 총칙
 제1조 목적
 이 약관은 주식회사 Talent Exchange Program(이하 “회사” 라고 합니다)를 통하여 제공하는 이벤트관리 서비스 및 기타 정보서비스(이하 “서비스”라고 합니다.)와 관련하여 회사와 회원간의 권리와 의무, 책임사항 및 회원의 서비스이용절차에 관한 사항을 규정함을 목적으로 합니다.
@@ -261,7 +266,7 @@ D. 무료모임을 개설하고 '모임요약내용' 또는 '모임세부설명'
 	<td></td>
 </tr>
 	
-<tr align="center" bgcolor="#888888" height="1">
+<tr align="center" bgcolor="#FF2929" height="1">
 	<td colspan="4"></td>
 </tr>
 
@@ -282,21 +287,21 @@ D. 무료모임을 개설하고 '모임요약내용' 또는 '모임세부설명'
 	<tr height="25">
 		<td></td>
 	</tr>
-	
-	<tr align="center" bgcolor="#888888" height="1">
+<!-- 	
+	<tr align="center" bgcolor="#FF2929" height="1">
 		<td colspan="4"></td>
 	</tr>
 	
 </table>
 
 <br>
-<br>
+<br> -->
 
 <table align="center" width="834" border="0" cellspacing="0" cellpadding="0">
 
 <tr align="center">
 	<td align="center">
-		<textarea align="left" wrap="hard" theme="simple" rows="10" cols="90" readonly>
+		<textarea style="border:1px solid red;" align="left" wrap="hard" theme="simple" rows="10" cols="90" readonly>
 [목차]
 0. 수집하는 개인정보의 항목
 1. 개인정보의 수집 및 이용목적
@@ -360,7 +365,7 @@ D. 무료모임을 개설하고 '모임요약내용' 또는 '모임세부설명'
 	<td></td>
 </tr>
 	
-<tr align="center" bgcolor="#888888" height="1">
+<tr align="center" bgcolor="#FF2929" height="1">
 	<td colspan="4"></td>
 </tr>
 

@@ -15,6 +15,7 @@ import util.PagingCalculator;
 public class MypageMeetHistoryAction extends OpenmeetModel implements SessionAware{
 	private List<OpenmeetModel> list = new ArrayList<>();
 	private List<SubscribeModel> list2 = new ArrayList<>();
+	private List<List<SubscribeModel>> list3;
 	private Integer t;
 	private SqlMapClient sqlMapper;
 	private Map session;
@@ -32,11 +33,13 @@ public class MypageMeetHistoryAction extends OpenmeetModel implements SessionAwa
 	@SuppressWarnings("unchecked")
 	public String execute(){
 		try {
-			list2 = sqlMapper.queryForList("two.subscribe_select_all", session.get("session_m_no"));
+			///list2 = sqlMapper.queryForList("two.subscribe_select_all", session.get("session_m_no"));
 			for(SubscribeModel data : list2){
-				t = data.getO_no();
+				list2 = sqlMapper.queryForList("two.subscribe_select_all", session.get("session_m_no"));
+				list3.add(list2);
 			}
-			list = sqlMapper.queryForList("two.openmeetHistory_select_all", t);
+			
+			list = sqlMapper.queryForList("two.openmeetHistory_select_all", list3);
 			totalCount = list.size();
 			page = new PagingCalculator("openmeetHistory", currentPage, totalCount, blockCount, blockPage);
 			pagingHtml = page.getPagingHtml().toString();

@@ -4,34 +4,44 @@
 <html>
 <head>
 <meta content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="/TEP/static/css/boardview.css" type="text/css">
+<link rel="stylesheet" href="/TEP/static/css/root.css" type="text/css">
+<link rel="stylesheet" href="/TEP/static/css/alertify.default.css">
+<script src="/TEP/static/js/alertify.min.js"></script>
+<script src="/TEP/static/js/jquery-3.1.0.js"></script>
 <title></title>
 <script type="text/javascript">
 function check(){
 	 var join=document.userinput
 
 	    if(join.m_name.value==""){
-	    	alert("이름을 입력해주세요");
+	    	alertify.error("이름을 입력해주세요");
 	    	join.m_name.focus();
 	    	return false;
 	    }
 	    else if(join.m_nickname.value==""){
-	    	alert("닉네임을 입력해주세요");
+	    	alertify.error("닉네임을 입력해주세요");
 	    	join.m_nickname.focus();
 	    	return false;
 	    }
 	    else if(join.m_password.value==""){
-	    	alert("비밀번호를 입력해주세요");
+	    	alertify.error("비밀번호를 입력해주세요");
 	    	join.m_password.focus();
 	    	return false;
 	    }
+	    else if(join.m_password.value != join.m_password1.value){
+	    	alertify.error("비밀번호가 틀립니다 다시 확인해주세요.");
+	    	join.m_password1.focus();
+	    	return false;
+	    }
 	    else if(join.m_phone.value==""){
-	    	alert("핸드폰 번호를 입력해주세요");
+	    	alertify.error("핸드폰 번호를 입력해주세요");
 	    	join.m_phone.focus();
 	    	return false;
 	    }
 
 	    if(userinput.m_password.value.length < 4){
-	    	alert("최소 4자리 이상 입력해주세요!");
+	    	alertify.error("최소 4자리 이상 입력해주세요!");
 	    	userinput.m_password.value= "";
 	   	 	userinput.m_password.focus();
 	   	 	return false;
@@ -44,131 +54,73 @@ function check(){
 
 </head>
 <body>
-<table align="center" width="834" border="0" cellspacing="0" cellpadding="0">
+<br>
+<table align="center" width="920" border="0" cellspacing="0" cellpadding="0">
 
 	<tr height="25">
 			<td bgcolor="#FF2929" align="left" colspan="1" width="10"></td>
-			<td align="left" colspan="3"><strong>&nbsp;&nbsp;회원 탈퇴</strong></td>
+			<td align="left" colspan="3"><strong>&nbsp;&nbsp;회원 수정</strong></td>
 	</tr>
 
 </table>
 <br>
 <form action="modifyMember.action" name="userinput" method="post">
-<table align="center" width="390" border="0" cellspacing="0" cellpadding="0">
-
-	<tr bgcolor="#888888">
-		<td height="1" colspan="2"></td>
-	</tr>
-	
-	<tr height="30">
-		<td align="center" bgcolor="#e9e9e9" width="135"><font size="2"><strong>ID</strong></font></td>
-		<td width="255" bgcolor="#FFFFFF">
-			&nbsp;&nbsp;${session.session_m_email }
-		<s:hidden name="id" value="%{session.session_m_email }"/>
-		</td>
-	</tr>
-	
-	<tr bgcolor="#888888">
-		<td height="1" colspan="2"></td>
-	</tr>
-	
-	<tr height="30">
-		<td align="center" bgcolor="#e9e9e9" width="135"><font size="2"><strong>비밀번호</strong></font></td>
-		<td width="255" bgcolor="#FFFFFF">
-			&nbsp;&nbsp;<input type="password" name="m_password" maxlength="20"/>
-		</td>
-	</tr>
-	
-	<tr bgcolor="#888888">
-		<td height="1" colspan="2"></td>
-	</tr>
-	
-	<tr height="30">
-		<td align="center" bgcolor="#e9e9e9" width="135"><font size="2"><strong>비밀번호 확인</strong></font></td>
-		<td width="255" bgcolor="#FFFFFF">
-			&nbsp;&nbsp;<input type="password" name="m_password1" maxlength="20"/>
-		</td>
-	</tr>
-	
-	<tr bgcolor="#888888">
-		<td height="1" colspan="2"></td>
-	</tr>
-	
-	<tr bgcolor="#888888">
-		<td height="1" colspan="2"></td>
-	</tr>
-	
-	<tr height="30">
-		<td align="center" bgcolor="#e9e9e9" width="135"><font size="2"><strong>이름</strong></font></td>
-		<td width="255" bgcolor="#FFFFFF">
-		&nbsp;&nbsp;<s:textfield name="m_name" theme="simple" value="%{resultClass.m_name}" maxlength="40"/>
-		</td>
-	</tr>
-	
-	<tr bgcolor="#888888">
-		<td height="1" colspan="2"></td>
-	</tr>
-		
-	<tr bgcolor="#888888">
-		<td height="1" colspan="2"></td>
-	</tr>
-	
-	<tr height="30">
-		<td align="center" bgcolor="e9e9e9" width="135"><font size="2"><strong>닉네임</strong></font></td>
-		<td width="255" bgcolor="#FFFFFF">
-		&nbsp;&nbsp;<s:textfield name="m_nickname" theme="simple"  value="%{resultClass.m_nickname}" maxlength="13"/><!--  -->
-		</td>
-	</tr>
-	
-	<tr bgcolor="#888888">
-		<td height="1" colspan="2"></td>
-	</tr>
-	
-	<tr height="30">
-		<td align="center" bgcolor="#e9e9e9" width="135"><font size="2"><strong>핸드폰 번호</strong></font></td>
-		<td width="255" bgcolor="#FFFFFF">
-		&nbsp;&nbsp;<s:textfield name="m_phone" theme="simple" value="%{resultClass.m_phone}" maxlength="13"/>
-		</td>
-	</tr>
-	
-	<tr bgcolor="#888888">
-		<td height="1" colspan="2"></td>
-	</tr>
-	
-	<tr height="30">
-		<td align="center" bgcolor="#e9e9e9" width="135"><font size="2"><strong>소속</strong></font></td>
-		<td width="255" bgcolor="#FFFFFF">
-		&nbsp;&nbsp;<s:textfield name="m_company" theme="simple" value="%{resultClass.m_company}" maxlength="13"/>
-		</td>
-	</tr>
-	
-	<tr bgcolor="#888888">
-		<td height="1" colspan="2"></td>
-	</tr>
-	
-	<tr height="30">
-		<td align="center" bgcolor="#e9e9e9" width="135"><font size="2"><strong>선호 지역</strong></font></td>
-		<td width="255" bgcolor="#FFFFFF">
-		&nbsp;&nbsp;<s:textfield name="m_fav_area" theme="simple" value="%{resultClass.m_fav_area}" maxlength="70"/>
-		</td>
-	</tr>
-	
-	<tr bgcolor="#888888">
-		<td height="1" colspan="2"></td>
-	</tr>
-	
-	<tr height="30">
-		<td align="center" bgcolor="#e9e9e9" width="135"><font size="2"><strong>선호 분야</strong></font></td>
-		<td width="300" bgcolor="#FFFFFF">
-		&nbsp;&nbsp;<s:textfield name="m_fav_field" theme="simple" value="%{resultClass.m_fav_field}" maxlength="70"/>
-		</td>
-	</tr>
-	
-	<tr bgcolor="#888888">
-		<td height="1" colspan="2"></td>
-	</tr>
-	
-</table>
+<table border="0" bordercolor="#FF2929" cellpadding="0" cellspacing="0" width="600" height="300" style="margin-left: auto; margin-right: auto;">
+		<tr>
+			<td><font color="red">*</font> ID(이메일)</td>
+			<td>
+				<input type="text" name="m_email" id="m_email" size="50%" value="${session.session_m_email }">
+			</td>
+		</tr>
+		<tr>
+			<td><font color="red">*</font> 이름</td>
+			<td>
+				<input type="text" name="m_name" id="m_name" size="50%" value="${resultClass.m_name}">
+			</td>
+		</tr>
+		<tr>
+			<td><font color="red">*</font> 닉네임</td>
+			<td>
+				<input type="text" name="m_nickname" id="m_nickname" size="50%" value="${resultClass.m_nickname}">
+			</td>
+		</tr>
+		<tr>
+			<td><font color="red">*</font> 패스워드</td>
+			<td>
+				<input type="password" name="m_password" id="m_password" size="50%">
+			</td>
+		</tr>
+		<tr>
+			<td><font color="red">*</font> 패스워드 확인</td>
+			<td>
+				<input type="password" name="m_password1" id="m_password1" size="50%">
+			</td>
+		</tr>
+		<tr>
+			<td><font color="red">*</font> 전화번호</td>
+			<td>
+				<input type="text" name="m_phone" id="m_phone" size="50%" value="${resultClass.m_phone}">
+			</td>
+		</tr>
+		<tr>
+			<td>   소속</td>
+			<td>
+				<input type="text" name="m_company" id="m_company" size="50%" value="${resultClass.m_company}">
+			</td>
+		</tr>
+		<tr> 
+			<td>   관심 지역</td>
+			<td>
+				<input type="text" name="m_fav_area" id="m_fav_area" size="50%" value="${resultClass.m_fav_area}">
+			</td>
+		</tr>
+		<tr>
+			<td>   관심 분야</td>
+			<td>
+				<input type="text" name="m_fav_field" id="m_fav_field" size="50%" value="${resultClass.m_fav_field}">
+			</td>
+		</tr>
+	</table>
 
 <br>
 <br>
