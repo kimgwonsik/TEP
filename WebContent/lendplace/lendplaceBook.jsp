@@ -137,7 +137,7 @@
 			<tr>
 				<td></td>
 				<td>
-				<input type="submit" value="접수완료">
+				<input type="submit" value="접수완료" onclick="alert('접수가 완료되었습니다.')">
 				<input type="button" value="취소" onclick="location.href='lendplace.action'">
 				</td>
 			</tr>
