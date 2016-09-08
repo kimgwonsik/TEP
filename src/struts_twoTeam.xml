@@ -114,6 +114,20 @@
 			</result>
 		</action>
 		
+
+		 <!--  footer 회사소개, 개인정보보호, 이용약관 -->
+		<action name="footerActionA" class="footer.footerAction">
+			<result name="success" type="tiles">CompanyIntroduction</result>
+		</action> 
+		
+		<action name="footerActionB" class="footer.footerAction">
+			<result name="success" type="tiles">PrivacyAgreement</result>
+		</action> 
+		
+		<action name="footerActionC" class="footer.footerAction">
+			<result name="success" type="tiles">theTermsAndConditions</result>
+		</action>  
+
 		<!-- 마이페이지 모임참여내역 -->
 		<action name="openmeetHistory" class="mypage.MypageMeetHistoryAction">
 			<result name="success" type="tiles">openmeetHistory</result>
@@ -122,7 +136,7 @@
 			<result name="success" type="tiles">meetHistoryDetail</result>
 		</action>
 		
-		<!-- board에서 내가쓴글 -->
+		<!-- 마에페이지에서 내가쓴글 -->
 		<action name="writeHistoryBoard" class="mypage.MypageWriteHistoryAction" method="writeHistoryBoard">
 			<result name="success" type="tiles">writeHistoryBoard</result>
 		</action>
@@ -132,7 +146,6 @@
 		<action name="writeHistoryOmeet" class="mypage.MypageWriteHistoryAction" method="writeHistoryOmeet">
 			<result name="success" type="tiles">writeHistoryOmeet</result>
 		</action>
-		
 		
 
 	</package>

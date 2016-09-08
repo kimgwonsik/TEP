@@ -194,6 +194,22 @@
 		<put-attribute name="body" value="/board/help/boardhelpWrite.jsp"></put-attribute>
 	</definition>
 	
+		<!--footer 회사소개, 개인정보보호, 이용약관 -->
+	<definition name="CompanyIntroduction" extends=".default">
+		<put-attribute name="title" value="TEP - 회사소개"></put-attribute>
+		<put-attribute name="body" value="/footer/CompanyIntroduction.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="PrivacyAgreement" extends=".default">
+		<put-attribute name="title" value="TEP - 개인정보보호"></put-attribute>
+		<put-attribute name="body" value="/footer/PrivacyAgreement.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="theTermsAndConditions" extends=".default">
+		<put-attribute name="title" value="TEP - 이용약관"></put-attribute>
+		<put-attribute name="body" value="/footer/theTermsAndConditions.jsp"></put-attribute>
+	</definition>
+	
 	<!-- 마이페이지 모임참여내역 -->
 	<definition name="openmeetHistory" extends=".mypage">
 		<put-attribute name="title" value="TEP - 모임참여내역"></put-attribute>
@@ -218,4 +234,4 @@
 		<put-attribute name="body" value="/mypage/mypageWriteHistoryOmeetView.jsp"></put-attribute>
 	</definition>
 	
-</tiles-definitions>
+	</tiles-definitions>
