@@ -1,100 +1,144 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@taglib prefix="s" uri="/struts-tags" %>
+<%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="/TEP/static/css/root.css" type="text/css">
 <style type="text/css">
-table.comments{
-	width: 900px;
+
+table.Cmt {
+	width: 920px;
 	text-align: center;
+	margin-right:6px;
 }
-table.comments td{
-	padding:5px;
+
+table.Cmt td {
+	padding: 5px;
 }
-tr.comments_head_tr{
+
+tr.Cmt_head_tr {
 	background-color: #FFEDED;
 	font-family: sans-serif;
 	font-size: small;
 	font-weight: bold;
 }
-tr.comments_head_tr td{
+
+tr.Cmt_head_tr td {
 	border-top: 3px solid red;
 	border-bottom: 0.5px solid red;
-	height: 30px;
+	height: 25px;
 }
-td.comments_subject{
-	text-align: left;
-	padding-left:5px;
-}
-td.comments_subject a{
-	text-decoration: none;
-	color: gray;
-}
-td.comments_subject a:HOVER{
-	color: red;
-}
-tr.comments_content_tr{
+
+/* 					
+					
+					a{
+						text-decoration: none;
+						color:gray;
+					}
+					a:HOVER{
+						color: red;
+					}
+ */
+tr.Cmt_content_tr {
 	font-family: sans-serif;
 	font-size: small;
 	color: gray;
 }
-tr.comments_content_tr td{
-	border-bottom: 0.3px solid red;
-	height: 25px;
+
+tr.Cmt_content_tr td {
+	border-top: 0.1px solid red;
+	border-bottom: 0.8px solid red;
+	height: 10px;
 }
-font.comments_subject_kind{
+
+tr.Cmt_content_tr td {
+	text-align: center;
+	padding-left: 5px;
+}
+
+tr.Cmt_content_tr a {
+	text-decoration: none;
+	color: gray;
+}
+
+tr.Cmt_content_tr a:HOVER {
 	color: red;
-	font-family: sans-serif;
-	font-size: x-small;
-	padding-right:5px;
 }
 </style>
 </head>
-<body>
-<br>
-<table align="center" width="834" border="0" cellspacing="0" cellpadding="0">
 
-	<tr height="25">
+<body>
+	<br>
+	<table align="center" width="834" border="0" cellspacing="0"
+		cellpadding="0">
+
+		<tr height="25">
 			<td bgcolor="#FF2929" align="left" colspan="1" width="10"></td>
 			<td align="left" colspan="3"><strong>&nbsp;&nbsp;답글내역</strong></td>
-	</tr>
+		</tr>
 
-</table>
-<br>
+	</table>
+	<br>
+	<table class="Cmt" align=center cellspacing=0>
+		<tr class="Cmt_head_tr">
+			<td>번호</td>
+			<td width="55%">내용</td>
+			<td>작성자</td>
+			<td>등록일</td>
 
-<table class="comments" align=center cellspacing=0>
- <tr class="comments_head_tr">
-<td>작성자</td>
-<td width="55%">제목</td>
-<td>번호</td>
-<td>등록일</td>
 
-</tr> 
+		</tr>
 
-<s:iterator value="Clist" status="stat">
-	
-	
-	<tr>
-	<td><s:property value="c_name"/></td>
-	<td><s:property value="c_content"/></td>
-	<td><s:property value="c_no"/><td> 
-	<td><s:property value="c_my_no"/><td> 
-	<td><s:property value="c_date"/> 
-	</tr>
-</s:iterator>
 
-<s:if test="Clist.size() <= 0">
-	<tr>
-	<td colspan="5" align="center"><h3>등록된 게시물이 없습니다.</h3></td>
-	</tr>
-</s:if>
+		<s:iterator value="Clist" status="stat">
 
-<!-- 페이징 -->
-<tr>
-<td colspan="5" width="100%" align="center"><s:property value="pagingHtml" escape="false"/></td>
-</tr>
 
-</table>
+			<s:if test="b_no != null">
+				<s:url id="CmtDetailURL" action="boardDetail">
+					<s:param name="b_no">
+						<s:property value="b_no" />
+					</s:param>
+				</s:url>
+			</s:if>
+
+
+			<s:elseif test="o_no != null">
+				<s:url id="CmtDetailURL" action="openmeetDetail">
+					<s:param name="o_no">
+						<s:property value="o_no" />
+					</s:param>
+				</s:url>
+			</s:elseif>
+
+
+			<tr class="Cmt_content_tr">
+
+				<td><s:property value="c_no" /></td>
+
+				<td><s:a href="%{CmtDetailURL}">
+						<s:property value="c_content" />
+					</s:a></td>
+
+				<td><s:property value="c_name" /></td>
+				<td><s:date name="c_date" format="yyyy.MM.dd" /></td>
+
+			</tr>
+		</s:iterator>
+
+		<s:if test="Clist.size() <= 0">
+			<tr>
+				<td colspan="5" align="center"><h3>등록된 게시물이 없습니다.</h3></td>
+			</tr>
+		</s:if>
+
+		<!-- 페이징 -->
+		<tr>
+			<td colspan="5" width="100%" align="center"
+				style="padding-top: 20px; padding-bottom: 10px"><s:property
+					value="pagingHtml" escape="false" /></td>
+		</tr>
+	</table>
 </body>
+</html>
 </html>

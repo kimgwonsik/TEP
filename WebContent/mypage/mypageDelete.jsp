@@ -18,13 +18,9 @@ function check(){
 </script>
 </head>
 <body>
-
 <form name="deleteform" action="deleteMember.action" method="post" onsubmit="return check();">
-
 <br>
-
-<table align="center" width="834" border="0" cellspacing="0" cellpadding="0">
-
+<table align="center" width="920" border="0" cellspacing="0" cellpadding="0">
 	<tr height="25">
 			<td bgcolor="#FF2929" align="left" colspan="1" width="10"></td>
 			<td align="left" colspan="3"><strong>&nbsp;&nbsp;회원 탈퇴</strong></td>
@@ -36,7 +32,7 @@ function check(){
 
 <table align="center" width="265" border="0" cellspacing="0" cellpadding="0">
 	
-	<tr bgcolor="#888888">
+	<tr bgcolor="#FF2929">
 		<td height="1"></td>
 	</tr>
 	
@@ -52,7 +48,7 @@ function check(){
 		<td></td>
 	</tr>
 	
-	<tr bgcolor="#888888">
+	<tr bgcolor="#FF2929">
 		<td height="1"></td>
 	</tr>
 	

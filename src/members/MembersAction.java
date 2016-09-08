@@ -2,11 +2,18 @@ package members;
 import members.MembersModel;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import java.util.*;
+
+import org.apache.struts2.interceptor.SessionAware;
+
 import config.SqlMapper;
 import java.sql.*;
-public class MembersAction extends MembersModel{
-	private SqlMapClient sqlMapper;
+public class MembersAction extends MembersModel implements SessionAware{
+	public static final String M_EMAIL = "session_m_email";
+	public static final String M_NAME= "session_m_name";
+	public static final String M_NO = "session_m_no";
 	
+	private SqlMapClient sqlMapper;
+	private Map session;
 	Calendar today = Calendar.getInstance();
 	
 	public MembersAction(){
@@ -33,9 +40,17 @@ public class MembersAction extends MembersModel{
 		
 		sqlMapper.insert("two.insertMember", vo);
 		
+		session.put(M_EMAIL, vo.getM_email());
+		session.put(M_NAME, vo.getM_name());
+		session.put(M_NO, vo.getM_no());
+		
 		return "success";
 		
 	
 	}
-	
+	@Override
+	public void setSession(Map session) {
+		this.session = session;
+	}
+
 }

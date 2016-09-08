@@ -6,6 +6,8 @@
 <meta content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/TEP/static/css/openmeetdetail.css" type="text/css">
 <link rel="stylesheet" href="/TEP/static/js/dtpicker/jquery.simple-dtpicker.css">
+<link rel="stylesheet" href="/TEP/static/css/alertify.default.css">
+<script src="/TEP/static/js/alertify.min.js"></script>
 <script src="/TEP/static/js/dtpicker/jquery-1.7.1.js"></script>
 <script src="/TEP/static/js/dtpicker/jquery.simple-dtpicker.js"></script>
 
@@ -29,6 +31,45 @@
 			$('#startdt').handleDtpicker('setMaxDate', ds); //set max end date is 7 day earlier then end date
 		});
 	});
+</script>
+
+<script type="text/javascript">
+	function valueChk(){
+	var f = document.bookForm;
+	
+		if(!f.lb_t_sdate.value){
+				alertify.error("대관시작 시간이 입력되지 않았습니다.");
+				f.lb_t_sdate.focus();
+				return false;
+			} 
+			 if(!f.lb_t_edate.value){
+				alertify.error("대관종료 시간이 입력되지 않았습니다.");
+				f.lb_t_edate.focus();
+				return false;
+			}
+			if(!f.lb_phone.value){
+				alertify.error("전화번호가 입력되지 않았습니다.");
+				f.lb_phone.focus();
+				return false;
+			}
+			 if(!f.lb_name.value){
+					alertify.error("이름이 입력되지 않았습니다.");
+					f.lb_name.focus();
+					return false;
+				} 
+				if(!f.lb_company.value){
+					alertify.error("소속이 입력되지 않았습니다.");
+					f.lb_company.focus();
+					return false;
+				}
+				if(!f.lb_email.value){
+					alertify.error("이메일이 입력되지 않았습니다.");
+					f.lb_email.focus();
+					return false;
+				}
+				else
+					alertify.error("장소신청이 완료되었습니다.")
+	} 
 </script>
 
 </head>
@@ -90,7 +131,7 @@
 <!-- 위쪽과 아래쪽 테이블 분기선 -->
 <hr class="om_detail_hr">
 
-<form id="bookForm" action="lendplaceBookInsert.action" method="post" enctype="multipart/form-data" theme="simple">
+<form name="bookForm" action="lendplaceBookInsert.action" method="post" enctype="multipart/form-data" theme="simple">
 <table class="om_detail_content">
 <tr><td>
 
@@ -137,7 +178,7 @@
 			<tr>
 				<td></td>
 				<td>
-				<input type="submit" value="접수완료">
+				<input type="submit" value="접수완료" onclick="return valueChk();">
 				<input type="button" value="취소" onclick="location.href='lendplace.action'">
 				</td>
 			</tr>

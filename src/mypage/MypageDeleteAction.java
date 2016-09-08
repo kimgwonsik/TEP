@@ -4,7 +4,12 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.opensymphony.xwork2.ActionContext;
 import members.MembersModel;
 import java.util.Map;
-public class MypageDeleteAction{
+
+import org.apache.struts2.interceptor.SessionAware;
+public class MypageDeleteAction implements SessionAware{
+	public static final String M_EMAIL = "session_m_email";
+	public static final String M_NAME= "session_m_name";
+	public static final String M_NO = "session_m_no";
 	//implements SessionAware로 수정하기
 	private SqlMapClient sqlMapper;
 	private MembersModel paramClass;
@@ -13,7 +18,7 @@ public class MypageDeleteAction{
 	private String m_email;
 	private String m_password;
 	private int deleteCheck;
-	private Map<String, String> session;
+	private Map session;
 	
 	public MypageDeleteAction() {
 		sqlMapper=SqlMapper.getMapper();
@@ -38,6 +43,9 @@ public class MypageDeleteAction{
 		}else{
 			deleteCheck=0;
 		}
+		session.remove(M_EMAIL);
+		session.remove(M_NAME);
+		session.remove(M_NO);
 		return "success";
 	}
 
@@ -81,11 +89,11 @@ public class MypageDeleteAction{
 		this.deleteCheck = deleteCheck;
 	}
 
-	public Map<String, String> getSession() {
+	public Map getSession() {
 		return session;
 	}
 
-	public void setSession(Map<String, String> session) {
+	public void setSession(Map session) {
 		this.session = session;
 	}
 

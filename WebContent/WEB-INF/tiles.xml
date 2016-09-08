@@ -100,6 +100,10 @@
 		<put-attribute name="title" value="TEP - 대관신청 접수" />
 		<put-attribute name="body" value="/lendplace/lendplaceBook.jsp" />
 	</definition>
+	<definition name="lendplaceForm" extends=".default">
+		<put-attribute name="title" value="TEP - 관리자 장소등록" />
+		<put-attribute name="body" value="/lendplace/lendplaceForm.jsp" />
+	</definition>
 	<!-- 장소대관 종료 -->
 
 	<!-- 로그인 -->
@@ -194,6 +198,22 @@
 		<put-attribute name="body" value="/board/help/boardhelpWrite.jsp"></put-attribute>
 	</definition>
 	
+		<!--footer 회사소개, 개인정보보호, 이용약관 -->
+	<definition name="CompanyIntroduction" extends=".default">
+		<put-attribute name="title" value="TEP - 회사소개"></put-attribute>
+		<put-attribute name="body" value="/footer/CompanyIntroduction.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="PrivacyAgreement" extends=".default">
+		<put-attribute name="title" value="TEP - 개인정보보호"></put-attribute>
+		<put-attribute name="body" value="/footer/PrivacyAgreement.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="theTermsAndConditions" extends=".default">
+		<put-attribute name="title" value="TEP - 이용약관"></put-attribute>
+		<put-attribute name="body" value="/footer/theTermsAndConditions.jsp"></put-attribute>
+	</definition>
+	
 	<!-- 마이페이지 모임참여내역 -->
 	<definition name="openmeetHistory" extends=".mypage">
 		<put-attribute name="title" value="TEP - 모임참여내역"></put-attribute>
@@ -201,7 +221,7 @@
 	</definition>
 	<definition name="meetHistoryDetail" extends=".mypage">
 		<put-attribute name="title" value="TEP - 모임참여내역 상세보기"></put-attribute>
-		<put-attribute name="body" value="/openmeet/openmeetDetail.jsp"></put-attribute>
+		<put-attribute name="body" value="/mypage/mypageMeetHistoryDetail.jsp"></put-attribute>
 	</definition>
 	
 	<!-- 마이페이지 내가쓴글,답글,모임개설 -->
@@ -218,4 +238,4 @@
 		<put-attribute name="body" value="/mypage/mypageWriteHistoryOmeetView.jsp"></put-attribute>
 	</definition>
 	
-</tiles-definitions>
+	</tiles-definitions>

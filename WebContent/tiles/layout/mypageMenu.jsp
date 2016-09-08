@@ -1,13 +1,15 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/TEP/static/css/menubar.css" type="text/css">
+<link rel="stylesheet" href="/TEP/static/css/boardview.css" type="text/css">
+<link rel="stylesheet" href="/TEP/static/css/root.css" type="text/css">
 <title></title>
 </head>
 <body>
+<center>
 <nav id="topMenu">
    <ul>
       <li class="topMenuLi">
