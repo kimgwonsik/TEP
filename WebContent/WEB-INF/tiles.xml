@@ -100,6 +100,10 @@
 		<put-attribute name="title" value="TEP - 대관신청 접수" />
 		<put-attribute name="body" value="/lendplace/lendplaceBook.jsp" />
 	</definition>
+	<definition name="lendplaceForm" extends=".default">
+		<put-attribute name="title" value="TEP - 관리자 장소등록" />
+		<put-attribute name="body" value="/lendplace/lendplaceForm.jsp" />
+	</definition>
 	<!-- 장소대관 종료 -->
 
 	<!-- 로그인 -->

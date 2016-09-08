@@ -7,19 +7,35 @@
 			<result name="success" type="tiles">main</result>
 		</action> -->
 		
+		<!-- 장소대관 목록 -->
 		<action name="lendplace" class="lendplace.LendplaceAction">
 			<result name="success" type="tiles">lendplace</result>
 		</action> 
 		
+		<!-- 장소대관 상세보기 -->
 		<action name="lendplaceDetail" class="lendplace.LendplaceDetailAction">
 			<result name="success" type="tiles">lendplaceDetail</result>
 		</action> 
 
+		<!-- 장소사용 신청폼 -->
 		<action name="lendplaceBook" class="lendplace.LendplaceBookAction">
 			<result name="success" type="tiles">lendplaceBook</result>
 		</action>
 		
+		<!-- 장소신청 접수처리 -->
 		<action name="lendplaceBookInsert" class="lendplace.LendplaceBookAction" method="insert">
+			<result type="redirect-action">
+				<param name="actionName">lendplace</param>
+			</result>
+		</action>
+		
+		<!-- 장소입력 폼 -->
+		<action name="lendplaceForm" class="lendplace.LendplaceFormAction">
+			<result name="success" type="tiles">lendplaceForm</result>
+		</action>
+		
+		<!-- 장소입력 처리 -->
+		<action name="lendplaceFormInsert" class="lendplace.LendplaceFormAction" method="insert">
 			<result type="redirect-action">
 				<param name="actionName">lendplace</param>
 			</result>
