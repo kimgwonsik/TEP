@@ -4,13 +4,11 @@
 <html>
 <head>
 <meta content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="/TEP/static/css/root.css" type="text/css">
 <style type="text/css">
-
 table.Cmt {
 	width: 920px;
 	text-align: center;
-	margin-right:6px;
+	margin-right: 6px;
 }
 
 table.Cmt td {
@@ -30,16 +28,6 @@ tr.Cmt_head_tr td {
 	height: 25px;
 }
 
-/* 					
-					
-					a{
-						text-decoration: none;
-						color:gray;
-					}
-					a:HOVER{
-						color: red;
-					}
- */
 tr.Cmt_content_tr {
 	font-family: sans-serif;
 	font-size: small;
@@ -47,14 +35,8 @@ tr.Cmt_content_tr {
 }
 
 tr.Cmt_content_tr td {
-	border-top: 0.1px solid red;
-	border-bottom: 0.8px solid red;
-	height: 10px;
-}
-
-tr.Cmt_content_tr td {
-	text-align: center;
-	padding-left: 5px;
+	border-bottom: 0.5px solid red;
+	height: 25px;
 }
 
 tr.Cmt_content_tr a {
@@ -70,12 +52,13 @@ tr.Cmt_content_tr a:HOVER {
 
 <body>
 	<br>
-	<table align="center" width="834" border="0" cellspacing="0"
-		cellpadding="0">
+	<table align="center" width="920" border="0" cellspacing="0" cellpadding="0">
 
 		<tr height="25">
 			<td bgcolor="#FF2929" align="left" colspan="1" width="10"></td>
-			<td align="left" colspan="3"><strong>&nbsp;&nbsp;답글내역</strong></td>
+			<td align="left" colspan="3">
+				<strong>&nbsp;&nbsp;답글내역</strong>
+			</td>
 		</tr>
 
 	</table>
@@ -114,29 +97,39 @@ tr.Cmt_content_tr a:HOVER {
 
 			<tr class="Cmt_content_tr">
 
-				<td><s:property value="c_no" /></td>
+				<td>
+					<s:property value="c_no" />
+				</td>
 
-				<td><s:a href="%{CmtDetailURL}">
+				<td>
+					<s:a href="%{CmtDetailURL}">
 						<s:property value="c_content" />
-					</s:a></td>
+					</s:a>
+				</td>
 
-				<td><s:property value="c_name" /></td>
-				<td><s:date name="c_date" format="yyyy.MM.dd" /></td>
+				<td>
+					<s:property value="c_name" />
+				</td>
+				<td>
+					<s:date name="c_date" format="yyyy.MM.dd" />
+				</td>
 
 			</tr>
 		</s:iterator>
 
 		<s:if test="Clist.size() <= 0">
 			<tr>
-				<td colspan="5" align="center"><h3>등록된 게시물이 없습니다.</h3></td>
+				<td colspan="5" align="center">
+					<h3>등록된 게시물이 없습니다.</h3>
+				</td>
 			</tr>
 		</s:if>
 
 		<!-- 페이징 -->
 		<tr>
-			<td colspan="5" width="100%" align="center"
-				style="padding-top: 20px; padding-bottom: 10px"><s:property
-					value="pagingHtml" escape="false" /></td>
+			<td colspan="5" width="100%" align="center" style="padding-top: 20px; padding-bottom: 10px">
+				<s:property value="pagingHtml" escape="false" />
+			</td>
 		</tr>
 	</table>
 </body>

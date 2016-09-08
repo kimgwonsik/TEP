@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="/TEP/static/css/root.css">
 <script type="text/javascript">
 function validation(){
 	if(document.findId.m_name.value==""){
@@ -35,15 +36,19 @@ function validation2(){
 	}
 }
 </script>
-<title>ID/PW찾기</title>
+<style type="text/css">
+body.find_pw_body{
+	font-family: sans-serif;
+}
+</style>
 </head>
-<body>
+<body class="find_pw_body">
 <form action="findId.action" name="findId" method="post" onsubmit="return validation();">
 
 <table align="center" width="350" border="0" cellspacing="0" cellpadding="0">
 	
 	<tr height="25">
-			<td bgcolor="#FF2929" align="left" colspan="1" width="10"></td>
+			<td bgcolor="red" align="left" colspan="1" width="10"></td>
 			<td align="left" colspan="3"><strong>&nbsp;&nbsp;ID 찾기</strong></td>
 	</tr>
 	
@@ -53,29 +58,29 @@ function validation2(){
 
 <table align="center" width="350" border="0" cellspacing="0" cellpadding="0">
 
-	<tr bgcolor="#9aafc9">
+	<tr bgcolor="red">
 		<td height="1" colspan="2"></td>
 	</tr>
 
 	<tr height="30">
-		<td align="center" bgcolor="#e9e9e9" width="100"><font size="2"><strong>이름</strong></font></td>
+		<td align="center" bgcolor="#ffe9e9" width="100"><font size="2"><strong>이름</strong></font></td>
 		<td width="165">
 			&nbsp;&nbsp;<input type="text" name="m_name" maxlength="20"/>
 		</td>
 	</tr>
 	
-	<tr bgcolor="#9aafc9">
+	<tr bgcolor="red">
 		<td height="1" colspan="2"></td>
 	</tr>
 	
 	<tr height="30">
-		<td align="center" bgcolor="#e9e9e9" width="100"><font size="2"><strong>핸드폰 번호</strong></font></td>
+		<td align="center" bgcolor="#ffe9e9" width="100"><font size="2"><strong>핸드폰 번호</strong></font></td>
 		<td width="165">
 			&nbsp;&nbsp;<input type="text" name="m_phone" maxlength="20"/>
 		</td>
 	</tr>
 	
-	<tr bgcolor="#9aafc9">
+	<tr bgcolor="red">
 		<td height="1" colspan="2"></td>
 	</tr>
 	
@@ -97,7 +102,7 @@ function validation2(){
 <table align="center" width="350" border="0" cellspacing="0" cellpadding="0">
 	
 	<tr height="25">
-			<td bgcolor="#FF2929" align="left" colspan="1" width="10"></td>
+			<td bgcolor="red" align="left" colspan="1" width="10"></td>
 			<td align="left" colspan="3"><strong>&nbsp;&nbsp;비밀번호 리셋</strong></td>
 	</tr>
 	
@@ -107,40 +112,40 @@ function validation2(){
 
 <table align="center" width="350" border="0" cellspacing="0" cellpadding="0">
 
-	<tr bgcolor="#888888">
+	<tr bgcolor="red">
 		<td height="1" colspan="2"></td>
 	</tr>
 
 	<tr height="30">
-		<td align="center" bgcolor="#e9e9e9" width="200"><font size="2"><strong>ID</strong></font></td>
+		<td align="center" bgcolor="#ffe9e9" width="200"><font size="2"><strong>ID</strong></font></td>
 		<td width="165">
 			&nbsp;&nbsp;<input type="text" name="m_email" maxlength="20"/>
 		</td>
 	</tr>
 	
-	<tr bgcolor="#888888">
-		<td height="1" colspan="2"></td>
+	<tr bgcolor="red">
+		<td height="2" colspan="2"></td>
 	</tr>
 	
 	<tr height="30">
-		<td align="center" bgcolor="#e9e9e9" width="100"><font size="2"><strong>이름</strong></font></td>
+		<td align="center" bgcolor="#ffe9e9" width="100"><font size="2"><strong>이름</strong></font></td>
 		<td width="165">
 			&nbsp;&nbsp;<input type="text" name="m_name" maxlength="20"/>
 		</td>
 	</tr>
 	
-	<tr bgcolor="#9aafc9">
+	<tr bgcolor="red">
 		<td height="1" colspan="2"></td>
 	</tr>
 	
 	<tr height="30">
-		<td align="center" bgcolor="#e9e9e9" width="100"><font size="2"><strong>핸드폰 번호</strong></font></td>
+		<td align="center" bgcolor="#ffe9e9" width="100"><font size="2"><strong>핸드폰 번호</strong></font></td>
 		<td width="165">
 			&nbsp;&nbsp;<input type="text" name="m_phone" maxlength="20"/>
 		</td>
 	</tr>
 	
-	<tr bgcolor="#888888">
+	<tr bgcolor="red">
 		<td height="1" colspan="2"></td>
 	</tr>
 	
@@ -149,7 +154,7 @@ function validation2(){
 	</tr>
 	
 	<tr>
-		<td align="left" colspan="2"><font size="2" color="#FF0000">*</font><font size="2"> 입력된 정보가 유효할 경우, 비밀번호가 "1111" 로 리셋 됩니다.</font></td>
+		<td align="left" colspan="2"><font size="2" color="#3E38B2">*</font><font size="2"> 입력된 정보가 유효할 경우, 비밀번호가 "1111" 로 리셋 됩니다.</font></td>
 	</tr>
 	
 	<tr height="15">

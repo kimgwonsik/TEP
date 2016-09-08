@@ -23,7 +23,7 @@ public class OpenmeetAction implements SessionAware, ServletRequestAware, Servle
 	
 	private int currentPage = 1;
 	private int totalCount;
-	private int blockCount = 9;
+	private int blockCount = 6;
 	private int blockPage = 3;
 	private String pagingHtml;
 	private PagingCalculator page;

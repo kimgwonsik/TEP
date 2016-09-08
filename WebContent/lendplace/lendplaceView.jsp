@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="/TEP/static/css/openmeetview.css" type="text/css">
 <link rel="stylesheet" href="/TEP/static/css/root.css" type="text/css">
+<link rel="stylesheet" href="/TEP/static/css/openmeetview.css" type="text/css">
 <title></title>
 </head>
 <body>
@@ -34,8 +34,14 @@
 	
 	<td width="33%" align="center">
 		<s:a cssClass="contentSubject" href="%{lendplaceDetailURL}">
-			<img class="openmeet_rep" src='<s:property value="l_rep_img"/>'/>
-			<br><s:property value="l_subject"/>
+			<table border="0" class="om_img_base">
+			<tr>
+			<td><img class="openmeet_rep" src='<s:property value="l_rep_img"/>'/></td>
+			</tr>
+			<tr>
+			<td class="om_view_subject"><s:property value="l_subject"/></td>
+			</tr>
+			</table>
 		</s:a>
 	</td>
 </s:iterator>
@@ -49,7 +55,7 @@
 
 <!-- 페이징 -->
 <tr>
-<td colspan="3" width="100%" align="center"><s:property value="pagingHtml" escape="false"/></td>
+<td colspan="3" class="opemneet_paging"><s:property value="pagingHtml" escape="false"/></td>
 </tr>
 
 </table>

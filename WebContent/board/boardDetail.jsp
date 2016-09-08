@@ -51,7 +51,7 @@ function cmt_check(kind) {
 <table style="width:890px;" border="0" align=center>
 <tr>
 <td style="font-weight: bold;font-size: large;font-family: sans-serif;">게시판</td>
-<td align="right"><input type="button" value="목록보기" onclick="location.href='board.action'"></td>
+<td align="right"><input type="button" value="목록보기" onclick="history.back();"></td>
 </tr>
 </table>
 

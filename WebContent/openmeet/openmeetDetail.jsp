@@ -177,10 +177,17 @@ geocoder.addr2coord('<s:property value="detailData.o_addr"/>', function(status, 
 
 function cmt_check(kind) {
 	var session_id = '<s:property value="#session.session_m_email"/>';
+	var session_no = '<s:property value="#session.session_m_no"/>';
+	var writer_id = '<s:property value="detailData.m_no"/>';
 	var area = document.getElementById('cmt_content');
 
 	if (session_id == null || session_id.length <= 0) {
 		alertify.error("로그인 상태가 아닙니다.");
+		return false;
+	}
+	
+	if(session_no == writer_id){
+		alertify.error("본인이 개설한 모임은 신청 할수 없습니다.");
 		return false;
 	}
 	
