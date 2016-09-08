@@ -5,6 +5,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" href="/TEP/static/css/boardview.css" type="text/css">
+<link rel="stylesheet" href="/TEP/static/css/root.css" type="text/css">
 <title>아이디 중복 확인</title>
 <script language="javascript">
 function windowclose(){
@@ -86,7 +88,7 @@ function check(){
 
 	<table align="center" width="265" border="0" cellspacing="0" cellpadding="0">
 	
-		<tr bgcolor="#888888">
+		<tr bgcolor="#FF2929">
 			<td height="1"></td>
 		</tr>
 	
@@ -105,7 +107,7 @@ function check(){
 			<td></td>
 		</tr>
 	
-		<tr bgcolor="#888888">
+		<tr bgcolor="#FF2929">
 			<td height="1"></td>
 		</tr>
 	
@@ -128,7 +130,7 @@ function check(){
 	<table align="center" width="265" border="0" cellspacing="0" cellpadding="0">
 
 		<tr height="25">
-			<td bgcolor="#ff8c00" align="left" colspan="1" width="10"></td>
+			<td bgcolor="#FF2929" align="left" colspan="1" width="10"></td>
 			<td align="left" colspan="3"><font color="black"><strong>&nbsp;&nbsp;사용 가능</strong></font></td>
 		</tr>
 
@@ -138,7 +140,7 @@ function check(){
 
 	<table align="center" width="265" border="0" cellspacing="0" cellpadding="0">
 	
-		<tr bgcolor="#888888">
+		<tr bgcolor="#FF2929">
 			<td height="1"></td>
 		</tr>
 	
@@ -154,7 +156,7 @@ function check(){
 			<td></td>
 		</tr>
 		
-		<tr bgcolor="#888888">
+		<tr bgcolor="#FF2929">
 			<td height="1"></td>
 		</tr>
 		
@@ -163,7 +165,7 @@ function check(){
 		</tr>
 		
 		<tr>
-			<td align="center"><input type="button" class="login1" value="닫기" onclick="javascript:window.close();"/></td>
+			<td align="center"><input type="button" style="width: 113px" class="login1" value="닫기" onclick="javascript:window.close();"/></td>
 		</tr>
 	</table>
 </s:else>
