@@ -40,7 +40,7 @@ function check(){
 	</tr>
 	
 	<tr align="center">
-		<td align="center"><font size="2">비밀번호를 입력하세요</font><br><br><input type="text" name="m_password" maxlength="20"/></td>
+		<td align="center"><font size="2">비밀번호를 입력하세요</font><br><br><input type="password" name="m_password" maxlength="20"/></td>
 	</tr>
 	
 	<tr height="20">
