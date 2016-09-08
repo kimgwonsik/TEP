@@ -8,8 +8,9 @@
 <style type="text/css">
 
 table.board {
-	width: 930px;
+	width: 920px;
 	text-align: center;
+	margin-right:6px;
 }
 
 table.board td {

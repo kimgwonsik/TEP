@@ -8,14 +8,14 @@
 <style type="text/css">
 
 table.Omeet {
-	width: 930px;
+	width: 920px;
 	text-align: center;
+	margin-right:6px;
 }
 
 table.Omeet td {
 	padding: 5px;
 }
-
 tr.Omeet_head_tr {
 	background-color: #FFEDED;
 	font-family: sans-serif;

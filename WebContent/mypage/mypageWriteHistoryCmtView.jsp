@@ -1,15 +1,15 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@taglib prefix="s" uri="/struts-tags" %>
+<%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/TEP/static/css/root.css" type="text/css">
 <style type="text/css">
-
 table.Cmt {
-	width: 930px;
+	width: 920px;
 	text-align: center;
+	margin-right:6px;
 }
 
 table.Cmt td {
@@ -29,8 +29,6 @@ tr.Cmt_head_tr td {
 	height: 25px;
 }
 
-
-
 /* 					
 					
 					a{
@@ -41,34 +39,31 @@ tr.Cmt_head_tr td {
 						color: red;
 					}
  */
-
-
-tr.Cmt_content_tr{
+tr.Cmt_content_tr {
 	font-family: sans-serif;
 	font-size: small;
 	color: gray;
 }
- tr.Cmt_content_tr td{
+
+tr.Cmt_content_tr td {
 	border-top: 0.1px solid red;
 	border-bottom: 0.8px solid red;
 	height: 10px;
-} 
-
-tr.Cmt_content_tr td{
-	text-align: center;
-	padding-left:5px;
 }
 
-				tr.Cmt_content_tr a{
-					text-decoration: none;
-					color: gray;
-				}
-				tr.Cmt_content_tr a:HOVER{
-					color: red;
-				}
+tr.Cmt_content_tr td {
+	text-align: center;
+	padding-left: 5px;
+}
 
+tr.Cmt_content_tr a {
+	text-decoration: none;
+	color: gray;
+}
 
-
+tr.Cmt_content_tr a:HOVER {
+	color: red;
+}
 </style>
 </head>
 
@@ -90,19 +85,34 @@ tr.Cmt_content_tr td{
 			<td width="55%">내용</td>
 			<td>작성자</td>
 			<td>등록일</td>
-			
-	
+
+
 		</tr>
 
 
 		<s:iterator value="Clist" status="stat">
-			<s:url id="CmtDetailURL" action="CmtDetail">
-					<s:param name="c_no">
-						<s:property value="c_no" />
+
+
+			<s:if test="b_no != null">
+				<s:url id="CmtDetailURL" action="boardDetail">
+					<s:param name="b_no">
+						<s:property value="b_no" />
 					</s:param>
 				</s:url>
-				<tr class="Cmt_content_tr">
-				
+			</s:if>
+
+
+			<s:elseif test="o_no != null">
+				<s:url id="CmtDetailURL" action="openmeetDetail">
+					<s:param name="o_no">
+						<s:property value="o_no" />
+					</s:param>
+				</s:url>
+			</s:elseif>
+
+
+			<tr class="Cmt_content_tr">
+
 				<td><s:property value="c_no" /></td>
 
 				<td><s:a href="%{CmtDetailURL}">
@@ -111,7 +121,7 @@ tr.Cmt_content_tr td{
 
 				<td><s:property value="c_name" /></td>
 				<td><s:date name="c_date" format="yyyy.MM.dd" /></td>
-			
+
 			</tr>
 		</s:iterator>
 
@@ -123,10 +133,11 @@ tr.Cmt_content_tr td{
 
 		<!-- 페이징 -->
 		<tr>
-			<td colspan="5" width="100%" align="center" style="padding-top:20px;padding-bottom:10px">
-		<s:property value="pagingHtml" escape="false" /></td>
+			<td colspan="5" width="100%" align="center"
+				style="padding-top: 20px; padding-bottom: 10px"><s:property
+					value="pagingHtml" escape="false" /></td>
 		</tr>
-</table>
+	</table>
 </body>
 </html>
 </html>
