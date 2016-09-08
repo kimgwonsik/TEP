@@ -6,6 +6,62 @@
 <meta content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/TEP/static/css/openmeetview.css" type="text/css">
 <link rel="stylesheet" href="/TEP/static/css/root.css" type="text/css">
+<script type="text/javascript" src="/TEP/static/js/jquery-3.1.0.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.category').find("td").click(function() {
+			$(this).toggleClass("category_select");
+		});
+		$('.area').find("td").click(function() {
+			$(this).toggleClass("category_select");
+		});
+		$('.times').find("td").click(function() {
+			$(this).toggleClass("category_select");
+		});
+	});
+
+	$(function() {
+		$('#searchbox').keypress(function(event) {
+			if (event.keyCode == 13) {
+				var category = "";
+
+				if ($('.category').find("td").hasClass("category_select")) {
+					$('.category').find("td").each(function(i) {
+						if ($(this).hasClass("category_select")) {
+							category += $(this).text() + ",";
+						}
+					});
+				}
+
+				if ($('.area').find("td").hasClass("category_select")) {
+					$('.area').find("td").each(function(i) {
+						if ($(this).hasClass("category_select")) {
+							category += $(this).text() + ",";
+						}
+					});
+				}
+				
+				if ($('.times').find("td").hasClass("category_select")) {
+					$('.times').find("td").each(function(i) {
+						if ($(this).hasClass("category_select")) {
+							category += $(this).text() + ",";
+						}
+					});
+				}
+				
+				
+				
+				
+				
+				if (result.length > 0) {
+					alert("category : " + result);
+				}
+			}
+		});
+	});
+
+	
+</script>
 </head>
 <body>
 <table border="0" width=900px cellpadding=15 align=center>
@@ -54,111 +110,90 @@
 
 </table>
 
-<td>
-
+<td width="20%">
 <!-- 모임개설 검색 카테고리 -->
 <div class="title">모임제목 / 본문</div>
-<div><input type="text" name="openmeet_category_search" alt="키워드로 모임을 검색하세요" placeholder="키워드로 모임을 검색하세요" size="26"/></div>
+<div style="padding-left:2.2px;padding-right:2.2px;">
+<input id="searchbox" type="text" name="searchWord" value="<s:property value="searchWord"/>" onkeypress="submitchk()"  maxlength="13" placeholder="키워드로 모임을 검색하세요">
+</div>
+
 <br>
+
 <div class="title">카테고리</div>
-<table class="gborder">
+<table class="category">
 <tr>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;교육</a></td>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;강연</a></td>
+<td>교육</td>
+<td>강연</td>
 </tr>
 <tr>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;세미나/컨퍼런스</a></td>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;문화/예술</a></td>
+<td>세미나/컨퍼런스</td>
+<td>문화/예술</td>
 </tr>
 <tr>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;방송/연예</a></td>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;취미활동</a></td>
+<td>방송/연예</td>
+<td>취미활동</td>
 </tr>
 <tr>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;소모임/친목행사</a></td>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;공모전</a></td>
+<td>소모임/친목행사</td>
+<td>공모전</td>
 </tr>
 <tr>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;전시/박람회</a></td>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;패션/뷰티</a></td>
+<td>전시/박람회</td>
+<td>패션/뷰티</td>
 </tr>
 <tr>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;이벤트/파티</a></td>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;여행</a></td>
+<td>이벤트/파티</td>
+<td>여행</td>
 </tr>
 <tr>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;후원금 모금</a></td>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;기타</a></td>
+<td>후원금모금</td>
+<td>기타</td>
 </tr>
 </table>
+
 <br>
+
 <div class="title">지역</div>
-<table class="gborder">
+<table class="area">
 <tr>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;서울</a></td>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;부산/울산/경남</a></td>
+<td>서울</td>
+<td>부산/울산/경남</td>
 </tr>
 <tr>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;인천/경기</a></td>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;대전/충정/세종</a></td>
+<td>인천/경기</td>
+<td>대전/충정/세종</td>
 </tr>
 <tr>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;광주/전라</a></td>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;강원</a></td>
+<td>광주/전라</td>
+<td>강원</td>
 </tr>
 <tr>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;대구/경북</a></td>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;제주</a></td>
+<td>대구/경북</td>
+<td>제주</td>
 </tr>
 <tr>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;기타지역</a></td>
-<td class="cate"><a class="category" href="">&nbsp;</a></td>
+<td>기타지역</td>
 </tr>
 </table>
+
 <br>
+
 <div class="title">요일/시간</div>
-<table class="gborder">
+<table class="times">
 <tr>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;주중</a></td>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;주말</a></td>
+<td>주중</td>
+<td>주말</td>
 </tr>
 <tr>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;오전</a></td>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;오후</a></td>
+<td>오전</td>
+<td>오후</td>
 </tr>
 <tr>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;저녁</a></td>
-<td class="cate"><a class="category" href="">&nbsp;&nbsp;새벽</a></td>
+<td>저녁</td>
+<td>새벽</td>
 </tr>
 </table>
-<br>
-<div class="title">참여비용</div>
-<table class="gborder">
-<tr>
-<td align="center"><a class="category" href="">무&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;료</a></td>
-</tr>
-<tr>
-<td align="center"><a class="category" href="">~&nbsp;&nbsp;10,000원</a></td>
-</tr>
-<tr>
-<td align="center"><a class="category" href="">10,000원&nbsp;&nbsp;~&nbsp;&nbsp; 25,000원</a></td>
-</tr>
-<tr>
-<td align="center"><a class="category" href="">25,000원&nbsp;&nbsp;~&nbsp;&nbsp; 40,000원</a></td>
-</tr>
-<tr>
-<td align="center"><a class="category" href="">40,000원&nbsp;&nbsp;~&nbsp;&nbsp; 99,000원</a></td>
-</tr>
-<tr>
-<td align="center"><a class="category" href="">99,000원&nbsp;&nbsp;~</a></td>
-</tr>
-</table>
-<br>
-<div class="title">모임시작일</div>
-<span><input type="text" name="openmeet_date_search_start" size="5"/></span>
-&nbsp;~&nbsp;
-<span><input type="text" name="openmeet_date_search_end" size="5"/></span>
-</tr>
+
 
 </table>
 </body>

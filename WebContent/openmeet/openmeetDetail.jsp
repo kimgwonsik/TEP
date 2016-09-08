@@ -17,7 +17,7 @@
 <table style="width:100%;" border="0">
 <tr>
 <td style="font-weight: bold;font-size: large;font-family: sans-serif;">모임 상세보기</td>
-<td align="right"><input type="button" value="목록보기" onclick="location.href='openmeet.action'"></td>
+<td align="right"><input type="button" value="목록보기" onclick="history.back();"></td>
 </tr>
 </table>
 

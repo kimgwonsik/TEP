@@ -14,6 +14,7 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import config.SqlMapper;
 import members.MembersModel;
 import util.FileUploadService;
+import util.TepConstants;
 import util.TepUtils;
 
 public class OpenmeetWriteAction extends OpenmeetModel implements SessionAware, ServletRequestAware{
@@ -36,7 +37,7 @@ public class OpenmeetWriteAction extends OpenmeetModel implements SessionAware, 
 	}
 	
 	public String write(){
-		String basePath = FileUploadService.UPLOAD_TEMP_PATH;
+		String basePath = TepConstants.UPLOAD_TEMP_PATH;
 		FileUploadService fs = new FileUploadService();
 		try {
 			uploadFileName = System.currentTimeMillis()+"_"+uploadFileName;
@@ -53,7 +54,7 @@ public class OpenmeetWriteAction extends OpenmeetModel implements SessionAware, 
 			setO_phone(mdata.getM_phone());
 			setO_company(mdata.getM_company());
 			setO_rep_img(serverFullPath);
-			String content_img = TepUtils.getCookies(request, CkImageUploadAction.CKIMG_PATH);
+			String content_img = TepUtils.getCookies(request, TepConstants.CKIMG_PATH);
 			if(content_img != null){
 				setO_content_img(content_img);
 			}

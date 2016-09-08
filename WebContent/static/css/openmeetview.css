@@ -1,27 +1,45 @@
-div.title {
-	font-weight: bold;font-family:monospace;font-size: x-small;
-}
-table.gborder{
-	border-style: solid;border-width: thin;border-color: red;width: 100%
-}
-td.cate{
-	width: 50%;
-}
-a.contentSubject{
-	text-decoration: none;color: gray;font-size: x-small;
-}
-a.category{
-	text-decoration: none;color: gray;font-size: x-small;
-}
-a:HOVER {
-	color: red;
-}
-input[type=text]{
-	font-size: small;color: gray;
-}
-img.openmeet_rep{
-	width: 230px;height: 230px;
+img.openmeet_rep {
+	width: 230px;
+	height: 230px;
 	border-style: solid;
 	border-color: red;
 	border-width: thin;
+}
+
+div.title {
+	font-weight: bold;
+	font-family: monospace;
+	font-size: x-small;
+}
+
+table.category, table.area, table.times {
+	width: 100%;
+	border:0;
+	margin:0;
+	padding:0;
+}
+
+table.category td, table.area td, table.times td {
+	font-size: x-small;
+	border: 1px solid red;
+	padding: 1%;
+	width:50%;
+}
+
+table.category td:HOVER, table.area td:HOVER, table.times td:HOVER {
+	background-color: red;
+	font-weight: bold;
+	color: white;
+}
+
+.category_select{
+	background-color: red;
+	font-weight: bold;
+	color: white;
+}
+
+#searchbox{
+	color: gray;
+	font-size: x-small;
+	width: 200px;
 }

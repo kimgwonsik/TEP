@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="/TEP/static/css/root.css" type="text/css">
+<link rel="stylesheet" href="/TEP/static/css/searchresultview.css" type="text/css">
 <style>
 .menu a {
 	font-family:sans-serif;
@@ -14,9 +16,9 @@ select.o_category, select.b_category{
 	 width: 190px;
 }
 
-/* .menu .hide {
+ .menu .hide {
 	display: none;
-} */
+}
 
 body, ul, ol, html, h1, h2, h3, h4, h5, h6, p, img, form, dl, dd, dt {
 	padding: 0;
@@ -130,12 +132,52 @@ a.search_title{
             	</tr>
             	
             	<tr>
-            	<td colspan="2" align="center"><input type="submit" value="검     색" style="width:200px;"></td>
+            	<td colspan="2" align="center"><input type="submit" value="검     색" style="width:150px;"></td>
             	</tr>
             	</table>
            	</form>
             </ul>
         </li>
+ 
+ <li>
+ <table border="0" width=100% cellpadding=5>
+
+<s:iterator value="olist" status="stat">
+	<s:url id="openmeetDetailURL" action="openmeetDetail">
+		<s:param name="o_no">
+			<s:property value="o_no"/>
+		</s:param>
+		<s:param name="currentPage">
+			<s:property value="currentPage"/>
+		</s:param>
+	</s:url>
+	
+	<s:if test="#stat.index%4 == 0">
+	<tr>
+	</s:if>
+	<td width="25%" align="center">
+		<s:a cssClass="contentSubject" href="%{openmeetDetailURL}">
+			<img class="openmeet_rep" src='<s:property value="o_rep_img"/>'/>
+			<br><font style="font-family: sans-serif;"><s:property value="o_subject"/></font>
+		</s:a>
+	</td>
+	
+</s:iterator>
+	
+<s:if test="olist.size() <= 0">
+	<tr>
+	<td width=100%  align="center"><h5>검색된 게시물이 없습니다.</h5></td>
+	</tr>
+</s:if>
+
+<!-- 페이징 -->
+<tr>
+<td colspan="4" width="100%" align="center"><s:property value="pagingHtml" escape="false"/></td>
+</tr>
+
+</table>
+ 
+ </li>
  
         <li class="menu">
             <a class="search_title">게시판 상세검색</a>
@@ -195,7 +237,7 @@ a.search_title{
             	</tr>
             	
             	<tr>
-            	<td colspan="2" align="center"><input type="submit" value="검     색" style="width:200px;"></td>
+            	<td colspan="2" align="center"><input type="submit" value="검     색" style="width:150px;"></td>
             	</tr>
             	</table>
             </ul>

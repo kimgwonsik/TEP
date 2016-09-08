@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<table border="0" align=center>
+<table class="aa" border="0" align=center>
 <tr>
 <td>
 <img src="/TEP/main/image/main_page_category_frame.png" usemap="#main_map_link" border="0"/>

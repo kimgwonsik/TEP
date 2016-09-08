@@ -1,5 +1,7 @@
 	package util;
 
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -9,10 +11,9 @@ import java.util.Map;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 public class TepUtils {
-	public static final String SAVEURI = "save_current_page_uri";
-	
 	/**
 	 * @param date
 	 * @return 8월 30일 (화) 9시 00분
@@ -66,17 +67,25 @@ public class TepUtils {
 	}
 	
 	/**
-	 * 받은 이름과 값으로 쿠키 생성하여 반환
+	 * 받은 이름과 값으로 쿠키 생성
 	 * 기본 값 쿠키설정값 setPath : / , setMaxAge : 5분
+	 * @param response
 	 * @param name : 생성할 쿠키이름
 	 * @param value : 쿠키에 저장할 값
-	 * @return 생성된 쿠키값 반환
 	 */
-	public static Cookie getCookie(String name, String value){
-		Cookie cookie = new Cookie(name, value);
-		cookie.setPath("/");
-		cookie.setMaxAge((1000*60)*5);
-		return cookie;
+	public static void setCookie(HttpServletResponse response, String name, String value){
+		if(response == null){
+			return;
+		}
+		
+		try {
+			Cookie cookie = new Cookie(name, URLEncoder.encode(value,"UTF-8"));
+			cookie.setPath("/");
+			cookie.setMaxAge((1000*60)*5);
+			response.addCookie(cookie);
+		} catch (Exception e) {
+			System.out.println("setCookie error : "+e.getMessage());
+		}
 	}
 	
 	/**
@@ -90,23 +99,30 @@ public class TepUtils {
 			return null;
 		}
 		
-		for(Cookie c : request.getCookies()){
-			if(c.getName().equals(cookieName)){
-				return c.getValue();
+		try {
+			for(Cookie c : request.getCookies()){
+				if(c.getName().equals(cookieName)){
+					return URLDecoder.decode(c.getValue(), "UTF-8");
+				}
 			}
+		} catch (Exception e) {
+			System.out.println("getCookies error"+e.getMessage());
 		}
 		return null;
 	}
 	
 	/**
-	 * 기존 쿠기 삭제 : 삭제하고 싶은 쿠키 이름을 넣으면 age 0짜리 쿠키를 반환한다.
+	 * 기존 쿠기 삭제 : 삭제하고 싶은 쿠키 이름을 넣으면 삭제된다.
+	 * @param response
 	 * @param name : 쿠키명
-	 * @return age 0 짜리 Cookie 반환
 	 */
-	public static Cookie delCookie(String name){
+	public static void delCookie(HttpServletResponse response, String name){
+		if(response == null){
+			return;
+		}
 		Cookie cookie = new Cookie(name, "");
 		cookie.setMaxAge(0);
-		return cookie;
+		response.addCookie(cookie);
 	}
 	
 	/**
@@ -119,7 +135,7 @@ public class TepUtils {
 			return;
 		}
 		String currentURI = getUrl(request).substring("/TEP/".length());
-		session.put(SAVEURI, currentURI);
+		session.put(TepConstants.SAVEURI, currentURI);
 	}
 	
 	/**

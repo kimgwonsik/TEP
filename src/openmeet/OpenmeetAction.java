@@ -1,22 +1,24 @@
 package openmeet;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.interceptor.ServletRequestAware;
+import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 import config.SqlMapper;
 import util.PagingCalculator;
+import util.TepConstants;
 import util.TepUtils;
 
-public class OpenmeetAction implements SessionAware, ServletRequestAware{
-	private List<OpenmeetModel> list = new ArrayList<>();
+public class OpenmeetAction implements SessionAware, ServletRequestAware, ServletResponseAware{
+	private List<OpenmeetModel> list;
 	private SqlMapClient sqlMapper;
 	
 	private int currentPage = 1;
@@ -28,14 +30,42 @@ public class OpenmeetAction implements SessionAware, ServletRequestAware{
 	
 	private Map session;
 	private HttpServletRequest request;
+	private HttpServletResponse response;
+	
+	private String searchWord;
+	private String query;
 	
 	public OpenmeetAction(){
 		sqlMapper = SqlMapper.getMapper();
 	}
 	
-	@SuppressWarnings("unchecked")
 	public String execute(){
-		TepUtils.savePageURI(request, session);
+//		TepUtils.savePageURI(request, session);
+		search();
+		return "success";
+	}
+	
+	private void search(){
+		try {
+			cookieValues();
+			
+			list = sqlMapper.queryForList("jin.openmeet_search", query);
+			totalCount = list.size();
+			PagingCalculator page = new PagingCalculator("search", currentPage, totalCount, blockCount, blockPage);
+			pagingHtml = page.getPagingHtml().toString();
+			
+			int lastCount = totalCount;
+			if(page.getEndCount() < totalCount){
+				lastCount = page.getEndCount()+1;
+			}
+			
+			list = list.subList(page.getStartCount(), lastCount);
+		} catch (Exception e) {
+			System.out.println("search openmeet error : "+e.getMessage());
+		}
+	}
+	
+	private void listAll(){
 		try {
 			list = sqlMapper.queryForList("jin.openmeet_select_all");
 			totalCount = list.size();
@@ -50,9 +80,18 @@ public class OpenmeetAction implements SessionAware, ServletRequestAware{
 			
 			list = list.subList(page.getStartCount(), lastCount);
 		} catch (Exception e) {
-			System.out.println("openmeet Ex : "+e.getMessage());
+			System.out.println("openmeet listAll error : "+e.getMessage());
 		}
-		return "success";
+	}
+
+	private void cookieValues(){
+		if(searchWord != null && searchWord.length() > 0){
+			TepUtils.setCookie(response, TepConstants.SAVEWORD, searchWord);
+		} else {
+			searchWord = TepUtils.getCookies(request, TepConstants.SAVEWORD);
+		}
+		
+		query = "o_subject like '%"+searchWord+"%' or o_content like '%"+searchWord+"%'";
 	}
 	
 	public List<OpenmeetModel> getList() {
@@ -75,40 +114,8 @@ public class OpenmeetAction implements SessionAware, ServletRequestAware{
 		return totalCount;
 	}
 
-	public void setTotalCount(int totalCount) {
-		this.totalCount = totalCount;
-	}
-
-	public int getBlockCount() {
-		return blockCount;
-	}
-
-	public void setBlockCount(int blockCount) {
-		this.blockCount = blockCount;
-	}
-
-	public int getBlockPage() {
-		return blockPage;
-	}
-
-	public void setBlockPage(int blockPage) {
-		this.blockPage = blockPage;
-	}
-
 	public String getPagingHtml() {
 		return pagingHtml;
-	}
-
-	public void setPagingHtml(String pagingHtml) {
-		this.pagingHtml = pagingHtml;
-	}
-
-	public PagingCalculator getPage() {
-		return page;
-	}
-
-	public void setPage(PagingCalculator page) {
-		this.page = page;
 	}
 
 	@Override
@@ -120,4 +127,18 @@ public class OpenmeetAction implements SessionAware, ServletRequestAware{
 	public void setSession(Map session) {
 		this.session = session;
 	}
+
+	public void setSearchWord(String searchWord) {
+		this.searchWord = searchWord;
+	}
+
+	public String getSearchWord() {
+		return searchWord;
+	}
+
+	@Override
+	public void setServletResponse(HttpServletResponse response) {
+		this.response = response;
+	}
+
 }
