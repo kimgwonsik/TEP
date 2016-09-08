@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="/TEP/static/css/boardview.css" type="text/css">
+<link rel="stylesheet" href="/TEP/static/css/root.css" type="text/css">
 <style type="text/css">
 table.login_table{
 	border-style: solid;

@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +9,6 @@
 <link rel="stylesheet" href="/TEP/static/css/alertify.default.css">
 <script src="/TEP/static/js/alertify.min.js"></script>
 <script src="/TEP/static/js/ckeditor/ckeditor.js"></script>
-<script src="/TEP/static/js/boardwrite.js"></script>
 <script>
 	window.onload = function() {
 		CKEDITOR.replace('bh_content');
@@ -23,15 +22,15 @@
 <body>
 <form id="mForm" action="HelpUpdate.action" method="post" onsubmit="return valuecheck();">
 <input type="hidden" name="bh_no" value="<s:property value="data.bh_no"/>">
-<table class="boardwrite" align=center border="0">
 
+<table style="width:890px;" border="0" align=center>
 <tr>
-<td class="bw_title">종&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;류</td>
-<td>
-고객센터
-</td>
+<td style="font-weight: bold;font-size: large;font-family: sans-serif;">문의내역 수정하기</td>
+<td align="right"><input type="button" value="목록보기" onclick="location.href='helpHistory.action'"></td>
 </tr>
+</table>
 
+<table class="boardwrite" align=center border="0">
 <tr>
 <td class="bw_title">카테고리</td>
 <td>
@@ -67,12 +66,11 @@
 
 <tr>
 <td class="bw_title">제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;목</td>
-<td><input id="bh_subject" type="text" name="bh_subject" size="100%" value='<s:property value="data.bh_subject"/>'></td>
+<td><input id="bh_subject" type="text" name="bh_subject" size=50 maxlength="25" value='<s:property value="data.bh_subject"/>'></td>
 </tr>
 
 <tr>
-<td class="bw_title">내&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;용</td>
-<td><textarea name="bh_content"><s:property value='data.bh_content' escape='false'/></textarea></td>
+<td colspan="2"><textarea id="bh_content" name="bh_content"><s:property value='data.bh_content' escape='false'/></textarea></td>
 </tr>
 
 <tr>

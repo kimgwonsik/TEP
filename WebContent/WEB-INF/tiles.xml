@@ -221,7 +221,7 @@
 	</definition>
 	<definition name="meetHistoryDetail" extends=".mypage">
 		<put-attribute name="title" value="TEP - 모임참여내역 상세보기"></put-attribute>
-		<put-attribute name="body" value="/openmeet/openmeetDetail.jsp"></put-attribute>
+		<put-attribute name="body" value="/mypage/mypageMeetHistoryDetail.jsp"></put-attribute>
 	</definition>
 	
 	<!-- 마이페이지 내가쓴글,답글,모임개설 -->

@@ -19,27 +19,19 @@ function check(){
 
 </head>
 <body>
-
 <form name="modifyPwChk" action="modifyMemberForm.action" method="post" onsubmit="return check();">
-
 <br>
-<br>
-
-<table align="center" width="834" border="0" cellspacing="0" cellpadding="0">
-
+<table align="center" width="920" border="0" cellspacing="0" cellpadding="0">
 	<tr height="25">
 			<td bgcolor="#FF2929" align="left" colspan="1" width="10"></td>
 			<td align="left" colspan="3"><strong>&nbsp;&nbsp;회원정보 수정</strong></td>
 	</tr>
-
 </table>
-
-<br>
 <br>
 
 <table align="center" width="265" border="0" cellspacing="0" cellpadding="0">
 	
-	<tr bgcolor="#888888">
+	<tr bgcolor="#FF2929">
 		<td height="1"></td>
 	</tr>
 	
@@ -48,14 +40,14 @@ function check(){
 	</tr>
 	
 	<tr align="center">
-		<td align="center"><font size="2">비밀번호를 입력하세요</font><br><br><input type="text" name="m_password" maxlength="20"/></td>
+		<td align="center"><font size="2">비밀번호를 입력하세요</font><br><br><input type="password" name="m_password" maxlength="20"/></td>
 	</tr>
 	
 	<tr height="20">
 		<td></td>
 	</tr>
 	
-	<tr bgcolor="#888888">
+	<tr bgcolor="#FF2929">
 		<td height="1"></td>
 	</tr>
 	
