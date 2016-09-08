@@ -51,7 +51,7 @@
 </tr>
 </table>
 <hr class="om_detail_hr">
-<div><s:property value="detailData.l_content"/></div>
+<div><s:property value="detailData.l_content" escape="false"/></div>
 <br>
 <br>
 
