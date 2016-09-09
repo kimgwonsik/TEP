@@ -38,7 +38,11 @@ public class MypageMeetHistoryAction extends OpenmeetModel implements SessionAwa
 				list2 = sqlMapper.queryForList("two.subscribe_select_all", session.get("session_m_no"));
 				list3.add(list2);
 			}
-			
+		/*	sublist = sqlMapper.queryForList("two.subscribe_select_all",m_no);
+	         
+	         for(SubscribeModel data : sublist){
+	            olist.add((OpenmeetModel) sqlMapper.queryForObject("two.openmeetHistory_select_all",data.getO_no()));
+	         }*/
 			list = sqlMapper.queryForList("two.openmeetHistory_select_all", list3);
 			totalCount = list.size();
 			page = new PagingCalculator("openmeetHistory", currentPage, totalCount, blockCount, blockPage);

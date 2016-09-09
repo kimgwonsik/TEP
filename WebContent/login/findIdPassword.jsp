@@ -4,6 +4,11 @@
 <html>
 <head>
 <meta content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="/TEP/static/css/boardview.css" type="text/css">
+<link rel="stylesheet" href="/TEP/static/css/root.css" type="text/css">
+<link rel="stylesheet" href="/TEP/static/css/alertify.default.css">
+<script src="/TEP/static/js/alertify.min.js"></script>
+<script src="/TEP/static/js/jquery-3.1.0.js"></script>
 <script type="text/javascript">
 function validation(){
 	if(document.findId.m_name.value==""){
