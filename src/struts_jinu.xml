@@ -103,8 +103,12 @@
 			</result>
 		</action>
 		
-		<action name="search" class="header.SearchAction">
-			<result name="success" type="tiles">search</result>
+		<action name="search" class="openmeet.OpenmeetAction" method="search">
+			<result name="success" type="tiles">openmeet</result>
+		</action>
+		
+		<action name="lsearch" class="lendplace.LendplaceAction" method="search">
+			<result name="success" type="tiles">lendplace</result>
 		</action>
 	</package>
 </struts>

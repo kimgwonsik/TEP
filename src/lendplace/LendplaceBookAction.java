@@ -7,16 +7,14 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
 
-import board.BoardModel;
 import config.SqlMapper;
-
-import members.*;
+import members.MembersModel;
 import util.TepUtils;
 
 
 public class LendplaceBookAction extends LendplacebookModel implements SessionAware{
-	private LendplaceModel detailData = new LendplaceModel();
-	private MembersModel sessionData = new MembersModel();
+	private LendplaceModel detailData;
+	private MembersModel sessionData;
 	private SqlMapClient sqlMapper;
 	private int currentPage;
 	private int l_no;

@@ -67,8 +67,6 @@
 					f.lb_email.focus();
 					return false;
 				}
-				else
-					alertify.error("장소신청이 완료되었습니다.")
 	} 
 </script>
 
@@ -79,7 +77,12 @@
 <tr>
 <td>
 
-<div style="font-weight: bold;font-size: large;">&nbsp;&nbsp;&nbsp;모임장소 추천</div>
+<table style="width:100%;" border="0">
+<tr>
+<td style="font-weight: bold;font-size: large;font-family: sans-serif;">장소 신청하기</td>
+<td align="right"><input type="button" value="뒤로가기" onclick="history.back();"></td>
+</tr>
+</table>
 
 <!-- 위 테이블 -->
 <table class="om_detail_header_table">
@@ -88,8 +91,6 @@
 <!--위 왼쪽 칸-->
 <td width="15%" class="om_detail_header_table_td1">
 <div><img class="om_detail_header" src="<s:property value='detailData.l_rep_img'/>"></div>
-
-<hr class="om_detail_hr">
 </td>
 
 <!--위 오른쪽 칸-->
@@ -115,12 +116,12 @@
 </tr>
 </table>
 <hr class="om_detail_hr">
-<div><s:property value="detailData.l_content"/></div>
+<div><%-- <s:property value="detailData.l_content"/> --%></div>
 <br>
 <br>
 <table  align="right">
 <tr><td align="right">
-<input type="button" name="lendplace_submit" value="장소사용 신청하기">
+<!-- <input type="button" name="lendplace_submit" value="장소사용 신청하기"> -->
 </td></tr>
 </table>
 
@@ -131,67 +132,53 @@
 <!-- 위쪽과 아래쪽 테이블 분기선 -->
 <hr class="om_detail_hr">
 
-<form name="bookForm" action="lendplaceBookInsert.action" method="post" enctype="multipart/form-data" theme="simple">
+<form name="bookForm" action="lendplaceBookInsert.action" method="post" theme="simple">
 <table class="om_detail_content">
 <tr><td>
 
-<table>
-<div style="font-weight: bold;font-size: large;">장소 신청하기</div>
-</table>
-
-<table>
-
+		<input type="hidden" name="l_no" value="<s:property value="detailData.l_no"/>">
+		<table border="0" align=center cellpadding=5 width=500px>
 			<tr>
-				<td>장소 대관 시간과 신청자 정보를 정확히 입력해 주세요.</td>
-			</tr>
-			<tr>
-				<td align=right>*신청하는 장소&nbsp;&nbsp; </td>
+				<td align=right><font color="red">*</font> 신청하는 장소&nbsp;&nbsp; </td>
 				<td><b><s:property value="detailData.l_subject"/></b></td>
 			</tr>
-			<input type="hidden" name="l_no" value="<s:property value="detailData.l_no"/>">
 			
 			<tr>
-				<td align=right>*대관시간&nbsp;&nbsp;</td>
-				<td><input type="text" class="dtpicker2" name="lb_t_sdate" id="startdt" />부터</td>
-			</tr>
-			<tr>
-				<td align=right></td>
-				<td><input type="text" class="dtpicker2" name="lb_t_edate" id="enddt" />까지 사용합니다.</td>
+				<td align=right><font color="red">*</font> 대관시간&nbsp;&nbsp;</td>
+				<td><input type="text" class="dtpicker2" name="lb_t_sdate" id="startdt" size="13" />&nbsp;~&nbsp;<input type="text" class="dtpicker2" name="lb_t_edate" id="enddt" size="13"  />
+				</td>
 			</tr>
 			
 			<tr>
-				<td align=right>*신청자 이름&nbsp;&nbsp;</td>
+				<td align=right><font color="red">*</font> 신청자 이름&nbsp;&nbsp;</td>
 				<td><input type="text" name="lb_name" value='<s:property value="sessionData.m_name"/>' /></td>
 			</tr>
 			<tr>
-				<td align=right>*신청자 소속&nbsp;&nbsp;</td>
-				<td><input type="text" name="lb_company" alt="예) TEP" value="예) TEP" onclick="this.value=''" /></td>
+				<td align=right><font color="red">*</font> 신청자 소속&nbsp;&nbsp;</td>
+				<td><input type="text" name="lb_company" placeholder="예) TEP"  value='<s:property value="sessionData.m_name"/>' /></td>
 			</tr>
 			<tr>
-				<td align=right>*신청자 전화번호&nbsp;&nbsp;</td>
+				<td align=right><font color="red">*</font> 신청자 전화번호&nbsp;&nbsp;</td>
 				<td><input type="number" name="lb_phone" value='<s:property value="sessionData.m_phone"/>' /></td>
 			</tr>
 			<tr>
-				<td align=right>*신청자 이메일&nbsp;&nbsp;</td>
+				<td align=right><font color="red">*</font> 신청자 이메일&nbsp;&nbsp;</td>
 				<td><input type="text" name="lb_email" value='<s:property value="sessionData.m_email"/>' /></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td>
-				<input type="submit" value="접수완료" onclick="return valueChk();">
-				<input type="button" value="취소" onclick="location.href='lendplace.action'">
+				<input type="button" value="취소" onclick="location.href='lendplace.action'">&nbsp;&nbsp;&nbsp;
+				<input type="submit" value="접수완료" onclick="return valueChk();" style="width:130px;">
 				</td>
 			</tr>
 		</table>
 
-
-
-<!-- 아래쪽 테이블 닫는 태그-->
 </td></tr>
 </table>
 </form>
 
-<!-- 전체 테이블 닫는 태그 -->
+
 </td>
 </tr>
 </table>

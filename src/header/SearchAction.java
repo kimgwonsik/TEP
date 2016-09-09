@@ -42,9 +42,9 @@ public class SearchAction implements ServletRequestAware, ServletResponseAware{
 		System.out.println("search execute : "+searchWord);
 		try {
 			if(searchWord != null && searchWord.length() > 0){
-				TepUtils.setCookie(response, TepConstants.SAVEWORD, searchWord);
+				TepUtils.setCookie(response, TepConstants.SAVE_WORD, searchWord);
 			} else {
-				searchWord = TepUtils.getCookies(request, TepConstants.SAVEWORD);
+				searchWord = TepUtils.getCookies(request, TepConstants.SAVE_WORD);
 			}
 		
 			olist = sqlMapper.queryForList("jin.openmeet_search_o_subject_content_select_all", searchWord);

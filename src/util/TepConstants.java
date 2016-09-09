@@ -34,5 +34,10 @@ public interface TepConstants {
 	/**
 	 * save search keyword
 	 */
-	String SAVEWORD = "save_search_word";
+	String SAVE_WORD = "save_search_word";
+	String SAVE_CATEGORY = "save_session_data_category";
+	String SAVE_PEOPLE = "save_session_data_people";
+	String SAVE_AREA = "save_session_data_area";
+	String SAVE_PAYMENT = "save_session_data_payment";
+	
 }

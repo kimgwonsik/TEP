@@ -68,7 +68,7 @@ public class TepUtils {
 	
 	/**
 	 * 받은 이름과 값으로 쿠키 생성
-	 * 기본 값 쿠키설정값 setPath : / , setMaxAge : 5분
+	 * 기본 값 쿠키설정값 setPath : / , setMaxAge : 2분
 	 * @param response
 	 * @param name : 생성할 쿠키이름
 	 * @param value : 쿠키에 저장할 값
@@ -81,7 +81,7 @@ public class TepUtils {
 		try {
 			Cookie cookie = new Cookie(name, URLEncoder.encode(value,"UTF-8"));
 			cookie.setPath("/");
-			cookie.setMaxAge((1000*60)*5);
+			cookie.setMaxAge((1000*60)*2);
 			response.addCookie(cookie);
 		} catch (Exception e) {
 			System.out.println("setCookie error : "+e.getMessage());

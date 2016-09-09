@@ -5,14 +5,6 @@
 <head>
 <meta content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/TEP/static/css/header.css" type="text/css">
-<script type="text/javascript">
-	function submitChk() {
-		var f = document.search_form;
-		if (!f.searchWord.value) {
-			return false;
-		}
-	}
-</script>
 </head>
 <body>
 <br>
@@ -38,7 +30,7 @@
 </span>
 </div>
 
-<form name="search_form" action="openmeet.action" method="post" onsubmit="return submitChk();">
+<form name="search_form" action="search.action" method="post">
 	<table class="searchBar" align=center>
 		<tr>
 			<td class="logo">

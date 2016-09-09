@@ -6,6 +6,11 @@
 <meta content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/TEP/static/css/boardview.css" type="text/css">
 <link rel="stylesheet" href="/TEP/static/css/root.css" type="text/css">
+<script type="text/javascript">
+function pagingPush(){
+	
+}
+</script>
 </head>
 <body>
 <table class="board" align=center cellspacing=0 border="0">
@@ -74,7 +79,7 @@
 			<option value="2">작성자</option>
 		</select>
 		</td>
-		<td><input type="text" name="searchWord" size="15" maxlength="50" /></td>
+		<td><input type="text" name="searchWord" size="33" maxlength="15" /></td>
 		<td><input type="submit" value="검색" /></td>
 		</tr>
 		</table>
