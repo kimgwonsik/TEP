@@ -51,7 +51,7 @@ td.footer_td_text a:HOVER {
 <tr>
 <td>
 <pre class="footer_pre">
-<font color="red" face="bold">          (주) TEP</font>     대표이사 유진우 | 개인정보관리책임자 유진우 | 사업자등록번호 234-91-54811 | 통신판매업 신고번호 제 2016-서울강남-0254호
+<font color="red" face="bold">          (주) TEP</font>     대표이사 유진우 | 개인정보관리책임자 랄라이 | 사업자등록번호 234-91-54811 | 통신판매업 신고번호 제 2016-서울강남-0254호
   서울특별시 강남구 테헤란로 32길 92 높은빌딩 7층 | Tel 02-6854-5895 | Fax 02-6854-2258 | Email : webmaster@tep.com
 
   TEP 는 통신판매중개자이며 모임에 대한 당사자 및 주최자가 아닙니다. 따라서 TEP는 등록된 모임에 대하여 책임을 지지 않습니다.

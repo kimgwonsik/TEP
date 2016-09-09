@@ -11,19 +11,25 @@
 <script src="/TEP/static/js/jquery-3.1.0.js"></script>
 <title>이용약관</title>
 <SCRIPT type="text/javascript">
-function check_agree(form) {
-	if (!form.agree.checked) {
-	alertify.error('이용 약관에 동의 후 회원가입을 진행하실 수 있습니다.');
-	form.agree.focus();
-	return false;
-} else if (!form.agree2.checked) {
-	alertify.error('개인 정보 수집에 동의 후 회원가입을 진행하실 수 있습니다.');
-	form.agree2.focus();
-	return false;
-}
-	document.f.submit();
-}
+	function check_agree(form) {
+		if (!form.agree.checked) {
+			alertify.error('이용 약관에 동의 후 회원가입을 진행하실 수 있습니다.');
+			form.agree.focus();
+			return false;
+		} else if (!form.agree2.checked) {
+			alertify.error('개인 정보 수집에 동의 후 회원가입을 진행하실 수 있습니다.');
+			form.agree2.focus();
+			return false;
+		}
+		document.f.submit();
+	}
 </SCRIPT>
+<style type="text/css">
+input.agree_btn{
+	width: 200px;
+	height: 50px;
+}
+</style>
 </head>
 <body>
 <br>
@@ -381,11 +387,11 @@ D. 무료모임을 개설하고 '모임요약내용' 또는 '모임세부설명'
 <tr align="center">
 
 	<td align="center">
-			<input type="button" value="회원가입진행" class="login1" onClick="return check_agree(this.form);"/>
+			<input type="button" value="회원가입취소" class="agree_btn" onClick="window:location='loginForm.action'"/>
 	</td>
 	
 	<td align="center">
-			<input type="button" value="회원가입취소" class="login1" onClick="window:location='loginForm.action'"/>
+			<input type="button" value="회원가입진행" class="agree_btn" onClick="return check_agree(this.form);"/>
 	</td>
 	
 </tr>

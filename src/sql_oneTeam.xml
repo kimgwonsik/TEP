@@ -45,8 +45,7 @@
 	
 	
  	<insert id="lendplace_insert" parameterClass="lendplace">
-		insert into lendplace(L_NO,L_SUBJECT,L_ADDR,L_COMPANY,L_CONTENT,L_REP_IMG,L_NAME,L_PHONE,L_EMAIL,L_PNUM,L_SDATE,L_EDATE,L_USE_NUM,L_PAYMENT,L_DATE) 
-		values(lendplace_seq.nextval,#l_subject#,#l_addr#,0,#l_content#,#l_rep_img#,0,0,0,#l_pnum#,#l_sdate#,#l_edate#,0,#l_payment#,#l_date#)
+		insert into lendplace values(lendplace_seq.nextval,#l_subject#,#l_addr#,#l_content#,#l_rep_img#,#l_content_img#,#l_name#,#l_phone#,#l_email#,#l_company#,#l_pnum#,#l_sdate#,#l_edate#,#l_use_num#,#l_payment#,#l_date#,#m_no#)
 	</insert>
 	
 	<insert id="book_insert" parameterClass="lendplacebook">

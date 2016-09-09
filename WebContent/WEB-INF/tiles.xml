@@ -62,7 +62,7 @@
 	
 	<definition name="search" extends=".default">
 		<put-attribute name="title" value="TEP - 통합 검색 페이지 ;)" />
-		<put-attribute name="body" value="/main/searchResultView.jsp" />
+		<put-attribute name="body" value="/search/searchResultView.jsp" />
 	</definition>
 
 

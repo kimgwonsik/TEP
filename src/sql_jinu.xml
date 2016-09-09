@@ -2,10 +2,27 @@
 <!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
 <sqlMap namespace="jin">
 	<typeAlias alias="openmeet" type="openmeet.OpenmeetModel" />
+	<typeAlias alias="lendplace" type="lendplace.LendplaceModel" />
 	<typeAlias alias="subscribe" type="openmeet.SubscribeModel" />
 	<typeAlias alias="comments" type="comments.CommentsModel" />
 	<typeAlias alias="members" type="members.MembersModel" />
 	<typeAlias alias="board" type="board.BoardModel" />
+
+<!-- lendplace query -->
+	<sql id="lp_select_all">
+		select * from lendplace
+	</sql>
+	<sql id="lp_orderby">
+		order by l_no desc
+	</sql>
+
+	<select id="lendplace_search" resultClass="lendplace" parameterClass="String">
+		<include refid="lp_select_all"/>
+		<dynamic prepend="where">
+			$param$
+		</dynamic>
+		<include refid="lp_orderby"/>
+	</select>
 
 <!-- openmeet query -->
 	<sql id="om_select_all">
@@ -23,14 +40,15 @@
 	<sql id="om_delete_all">
 		delete from openmeet
 	</sql>
-	
 	<sql id="om_where_search_o_subject_content">
 		where o_subject like '%'||#searchWord#||'%' or o_content like '%'||#searchWord#||'%'
 	</sql>
 
-	<select id="openmeet_search_o_subject_content_select_all">
+	<select id="openmeet_search" resultClass="openmeet" parameterClass="String">
 		<include refid="om_select_all"/>
-		<include refid="om_where_search_o_subject_content"/>
+		<dynamic prepend="where">
+			$param$
+		</dynamic>
 		<include refid="om_orderby"/>
 	</select>
 
@@ -174,15 +192,6 @@
 	<sql id="bd_where_b_kind">
 		where b_kind=#b_kind#
 	</sql>
-	<sql id="bd_where_search_b_subject">
-		where b_subject like '%'||#searchWord#||'%'
-	</sql>
-	<sql id="bd_where_search_b_subject_content">
-		where b_subject like '%'||#searchWord#||'%' or b_content like '%'||#searchWord#||'%'
-	</sql>
-	<sql id="bd_where_search_b_name">
-		where b_name like '%'||#searchWord#||'%'
-	</sql>
 	
 	<sql id="bd_orderby">
 		order by b_no desc
@@ -203,21 +212,11 @@
 		<include refid="bd_where_b_no"/>
 	</update>
 	
-	<select id="board_search_b_subject_select_all" resultClass="board" parameterClass="String">
+	<select id="board_search" resultClass="board" parameterClass="String">
 		<include refid="bd_select_all"/>
-		<include refid="bd_where_search_b_subject"/>
-		<include refid="bd_orderby"/>
-	</select>
-	
-	<select id="board_search_b_subject_content_select_all" resultClass="board"  parameterClass="String">
-		<include refid="bd_select_all"/>
-		<include refid="bd_where_search_b_subject_content"/>
-		<include refid="bd_orderby"/>
-	</select>
-	
-	<select id="board_search_b_name_select_all" resultClass="board"  parameterClass="String">
-		<include refid="bd_select_all"/>
-		<include refid="bd_where_search_b_name"/>
+		<dynamic prepend="where">
+			$param$
+		</dynamic>
 		<include refid="bd_orderby"/>
 	</select>
 	

@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="/TEP/static/css/root.css">
 <script language="javascript">
 function validation(){
 	if(document.findId.m_name.value==""){
@@ -17,9 +18,13 @@ function validation(){
 	}
 }
 </script>
-<title>ID 찾기 결과</title>
+<style type="text/css">
+body.find_pw_body{
+	font-family: sans-serif;
+}
+</style>
 </head>
-<body>
+<body class="find_pw_body">
 
 <s:if test="list.size() <= 0">
 
@@ -29,7 +34,7 @@ function validation(){
 
 	<tr height="25">
 		<td bgcolor="red" align="left" colspan="1" width="10"></td>
-		<td align="left" colspan="3"><font color="red"><strong>&nbsp;&nbsp;ID 찾기 실패</strong></font></td>
+		<td align="left" colspan="3"><font color="black"><strong>&nbsp;&nbsp;ID 찾기 실패</strong></font></td>
 	</tr>
 
 </table>
@@ -65,7 +70,7 @@ function validation(){
 <table align="center" width="265" border="0" cellspacing="0" cellpadding="0">
 
 	<tr height="25">
-		<td bgcolor="#ff8c00" align="left" colspan="1" width="10"></td>
+		<td bgcolor="red" align="left" colspan="1" width="10"></td>
 		<td align="left" colspan="3"><font color="black"><strong>&nbsp;&nbsp;ID 다시 찾기</strong></font></td>
 	</tr>
 
@@ -75,29 +80,29 @@ function validation(){
 
 <table align="center" width="265" border="0" cellspacing="0" cellpadding="0">
 	
-	<tr bgcolor="#888888">
+	<tr bgcolor="red">
 		<td height="1" colspan="2"></td>
 	</tr>
 
 	<tr height="30">
-		<td align="center" bgcolor="#e9e9e9" width="100"><font size="2"><strong>이름</strong></font></td>
+		<td align="center" bgcolor="#ffe9e9" width="100"><font size="2"><strong>이름</strong></font></td>
 		<td width="165">
 			&nbsp;&nbsp;<input type="text" name="m_name" maxlength="20"/>
 		</td>
 	</tr>
 	
-	<tr bgcolor="#888888">
+	<tr bgcolor="red">
 		<td height="1" colspan="2"></td>
 	</tr>
 	
 	<tr height="30">
-		<td align="center" bgcolor="#e9e9e9" width="100"><font size="2"><strong>핸드폰 번호</strong></font></td>
+		<td align="center" bgcolor="#ffe9e9" width="100"><font size="2"><strong>핸드폰 번호</strong></font></td>
 		<td width="165">
 			&nbsp;&nbsp;<input type="text" name="m_phone" maxlength="20"/>
 		</td>
 	</tr>
 	
-	<tr bgcolor="#88888">
+	<tr bgcolor="red">
 		<td height="1" colspan="2"></td>
 	</tr>
 	
@@ -118,7 +123,7 @@ function validation(){
 <table align="center" width="265" border="0" cellspacing="0" cellpadding="0">
 
 	<tr height="25">
-		<td bgcolor="#ff8c00" align="left" colspan="1" width="10"></td>
+		<td bgcolor="red" align="left" colspan="1" width="10"></td>
 		<td align="left" colspan="3"><font color="black"><strong>&nbsp;&nbsp;ID 찾기 결과</strong></font></td>
 	</tr>
 
@@ -127,7 +132,7 @@ function validation(){
 <br>
 
 <table align="center" width="265" border="0" cellspacing="0" cellpadding="0">
-	<tr bgcolor="#888888">
+	<tr bgcolor="red">
 		<td height="1" colspan="4"></td>
 	</tr>
 </table>
@@ -147,7 +152,7 @@ function validation(){
 <br>
 
 <table align="center" width="265" border="0" cellspacing="0" cellpadding="0">
-	<tr bgcolor="#888888">
+	<tr bgcolor="red">
 		<td height="1" colspan="4"></td>
 	</tr>
 </table>

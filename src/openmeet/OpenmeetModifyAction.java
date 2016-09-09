@@ -10,6 +10,7 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 
 import config.SqlMapper;
 import util.FileUploadService;
+import util.TepConstants;
 import util.TepUtils;
 
 public class OpenmeetModifyAction extends OpenmeetModel implements SessionAware{
@@ -39,7 +40,7 @@ public class OpenmeetModifyAction extends OpenmeetModel implements SessionAware{
 	
 	//대표이미지 업로드
 	private String fileUpload(){
-		String basePath = FileUploadService.UPLOAD_TEMP_PATH;
+		String basePath = TepConstants.UPLOAD_TEMP_PATH;
 		FileUploadService fs = new FileUploadService();
 		try {
 			uploadFileName = System.currentTimeMillis()+"_"+uploadFileName;

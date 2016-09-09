@@ -7,13 +7,9 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 
 import config.SqlMapper;
 import members.MembersModel;
-import util.TepUtils;
+import util.TepConstants;
 
 public class LoginAction implements SessionAware{
-	public static final String M_EMAIL = "session_m_email";
-	public static final String M_NAME= "session_m_name";
-	public static final String M_NO = "session_m_no";
-	
 	private SqlMapClient sqlMapper;
 	private Map session;
 	
@@ -36,22 +32,22 @@ public class LoginAction implements SessionAware{
 		MembersModel resultData = (MembersModel)sqlMapper.queryForObject("two.loginCheck", data);
 		
 		if(resultData != null){
-			session.put(M_EMAIL, resultData.getM_email());
-			session.put(M_NAME, resultData.getM_name());
-			session.put(M_NO, resultData.getM_no());
+			session.put(TepConstants.M_EMAIL, resultData.getM_email());
+			session.put(TepConstants.M_NAME, resultData.getM_name());
+			session.put(TepConstants.M_NO, resultData.getM_no());
 			return "success";
 		}
 		return "error";
 	}
 	
 	public String logout() throws Exception{
-		if(session.get(M_EMAIL) != null){
-			session.remove(M_EMAIL);
-			session.remove(M_NAME);
-			session.remove(M_NO);
+		if(session.get(TepConstants.M_EMAIL) != null){
+			session.remove(TepConstants.M_EMAIL);
+			session.remove(TepConstants.M_NAME);
+			session.remove(TepConstants.M_NO);
 
-			if(session.get(TepUtils.SAVEURI) != null){
-				session.remove(TepUtils.SAVEURI);
+			if(session.get(TepConstants.SAVEURI) != null){
+				session.remove(TepConstants.SAVEURI);
 			}
 		}
 		return "success";

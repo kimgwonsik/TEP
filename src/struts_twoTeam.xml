@@ -14,6 +14,7 @@
 		
 		<action name="InsertMembers" class="members.MembersAction" method="Insert">
 			<result name="success">/members/membersSuccess.jsp</result>
+			<result name="error">/members/memberError.jsp</result>
 		</action>
 		<!-- 회원가입 종료 -->
 		

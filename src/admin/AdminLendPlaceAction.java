@@ -1,7 +1,6 @@
 package admin;
 
 import java.io.File;
-import java.util.Calendar;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -10,9 +9,8 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 
 import config.SqlMapper;
 import lendplace.LendplaceModel;
-import members.MembersModel;
 import util.FileUploadService;
-import util.TepUtils;
+import util.TepConstants;
 
 public class AdminLendPlaceAction extends LendplaceModel implements SessionAware{
 	
@@ -33,7 +31,7 @@ public class AdminLendPlaceAction extends LendplaceModel implements SessionAware
 	}
 	
 	public String write(){
-		String basePath = FileUploadService.UPLOAD_TEMP_PATH;
+		String basePath = TepConstants.UPLOAD_TEMP_PATH;
 		FileUploadService fs = new FileUploadService();
 		try {
 			uploadFileName = System.currentTimeMillis()+"_"+uploadFileName;

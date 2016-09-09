@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="/TEP/static/css/root.css">
 <link rel="stylesheet" href="/TEP/static/css/openmeetform.css">
 <link rel="stylesheet" href="/TEP/static/js/dtpicker/jquery.simple-dtpicker.css">
 <link rel="stylesheet" href="/TEP/static/css/alertify.default.css">
@@ -34,7 +35,7 @@
 <table cellpadding=0 cellspacing=0>
 <tr>
 <td>
-<select name="o_category">
+<select name="o_category" style="width:137px;">
 	<option value="교육">교육</option>
 	<option value="강연">강연</option>
 	<option value="세미나/컨퍼런스">세미나/컨퍼런스</option>
@@ -63,16 +64,16 @@
 <tr>
 <td class="td_title">모임일시</td>
 <td>
-<input type="text" class="dtpicker2" name="o_msdate" id="startdt"  size="13">부터&nbsp;&nbsp;&nbsp;
-<input type="text" class="dtpicker2" name="o_medate" id="enddt" size="13">까지
+<input type="text" class="dtpicker2" name="o_msdate" id="startdt"  size="13">&nbsp;&nbsp;~&nbsp;
+<input type="text" class="dtpicker2" name="o_medate" id="enddt" size="13">
 </td>
 </tr>
 
 <tr>
 <td class="td_title">접수기간</td>
 <td>
-<input type="text" class="dtpicker2" name="o_rsdate" id="startdt2" size="13">부터&nbsp;&nbsp;&nbsp;
-<input type="text" class="dtpicker2" name="o_redate" id="enddt2" size="13">까지
+<input type="text" class="dtpicker2" name="o_rsdate" id="startdt2" size="13">&nbsp;&nbsp;~&nbsp;
+<input type="text" class="dtpicker2" name="o_redate" id="enddt2" size="13">
 </td>
 </tr>
 

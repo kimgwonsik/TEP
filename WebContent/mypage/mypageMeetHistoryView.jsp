@@ -22,14 +22,9 @@
 <tr>
 
 <!-- 모임 리스트 -->
-<td width="80%">
+<td>
 
 <table border="0" width=100% cellpadding=5>
-
-<br>
-<!-- <tr>
-<td colspan="3"><font style="font-weight: bold;font-size: x-large;">모임참여내역</font></td>
-</tr> -->
 
 <s:iterator value="list" status="stat">
 	<s:url id="openmeetDetailURL" action="meetHistoryDetail">
@@ -47,8 +42,14 @@
 	
 	<td width="33%" align="center">
 		<s:a cssClass="contentSubject" href="%{openmeetDetailURL}">
-			<img class="openmeet_rep" src='<s:property value="o_rep_img"/>'/>
-			<br><font style="font-family: sans-serif;"><s:property value="o_subject"/></font>
+			<table border="0" class="om_img_base">
+			<tr>
+			<td><img class="openmeet_rep" src='<s:property value="o_rep_img"/>'/></td>
+			</tr>
+			<tr>
+			<td class="om_view_subject"><s:property value="o_subject"/></td>
+			</tr>
+			</table>
 		</s:a>
 	</td>
 </s:iterator>
@@ -61,7 +62,7 @@
 
 <!-- 페이징 -->
 <tr>
-<td colspan="3" width="100%" align="center"><s:property value="pagingHtml" escape="false"/></td>
+<td colspan="3"  class="opemneet_paging"><s:property value="pagingHtml" escape="false"/></td>
 </tr>
 
 </table>

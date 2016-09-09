@@ -25,8 +25,6 @@
 
 <td width="15%" class="om_detail_header_table_td1">
 <div><img class="om_detail_header" src="<s:property value='detailData.l_rep_img'/>"></div>
-
-<hr class="om_detail_hr">
 </td>
 
 <td width="85%" class="om_detail_header_table_td2">
@@ -51,9 +49,8 @@
 </tr>
 </table>
 <hr class="om_detail_hr">
-<div><s:property value="detailData.l_content" escape="false"/></div>
-<br>
-<br>
+
+
 
 <table  align="right">
 <tr><td align="right">
@@ -68,6 +65,16 @@
 <hr class="om_detail_hr">
 
 <table  class="om_detail_content">
+<tr>
+<td>
+<div style="font-weight: bold;font-size: large;">장소정보</div>
+<div style="border:1px solid red;padding:2%;"><s:property value="detailData.l_content" escape="false"/></div>
+
+<br>
+<br>
+</td>
+</tr>
+
 <tr><td>
 
 <div style="font-weight: bold;font-size: large;">지도보기</div>

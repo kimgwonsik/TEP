@@ -30,6 +30,7 @@
 </span>
 </div>
 
+<form name="search_form" action="search.action" method="post">
 	<table class="searchBar" align=center>
 		<tr>
 			<td class="logo">
@@ -38,13 +39,14 @@
 				</a>
 			</td>
 			<td style="padding-right: 10px; padding-left: 20px;">
-				<input type="text" name="totalSearchKeyword" size="50">
+				<input type="text" name="searchWord" size="50">
 			</td>
 			<td>
-				<input type="button" name="totalSearchBtn" value="검색">
+				<input class="search_btn" type="submit" value="검   색">
 			</td>
 		</tr>
 	</table>
+</form>
 
 	<hr color=red class="header">
 <br>

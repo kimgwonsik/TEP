@@ -6,8 +6,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class FileUploadService {
-	public static final String UPLOAD_TEMP_PATH = "C:/temp";
-
 	public void makeBasePath(String path) {
 		File dir = new File(path);
 		if (!dir.exists()) {
