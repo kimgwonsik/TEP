@@ -40,4 +40,5 @@ public interface TepConstants {
 	String SAVE_AREA = "save_session_data_area";
 	String SAVE_PAYMENT = "save_session_data_payment";
 	
+	String REG_ID_CHECK = "registration_id_check";
 }

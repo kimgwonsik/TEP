@@ -97,13 +97,13 @@ public class OpenmeetAction implements SessionAware, ServletRequestAware, Servle
 		if(search_category != null){
 			TepUtils.setCookie(response, TepConstants.SAVE_CATEGORY, search_category);
 		} else {
-			search_category = TepUtils.getCookies(request, TepConstants.SAVE_CATEGORY);
+//			search_category = TepUtils.getCookies(request, TepConstants.SAVE_CATEGORY);
 		}
 		
 		if(search_area != null){
 			TepUtils.setCookie(response, TepConstants.SAVE_AREA, search_area);
 		} else {
-			search_area = TepUtils.getCookies(request, TepConstants.SAVE_AREA);
+//			search_area = TepUtils.getCookies(request, TepConstants.SAVE_AREA);
 		}
 		
 		
@@ -123,6 +123,7 @@ public class OpenmeetAction implements SessionAware, ServletRequestAware, Servle
 			query = "(o_subject like '%"+searchWord+"%' or o_content like '%"+searchWord+"%')";
 		}
 		
+//		System.out.println("q : "+query);
 	}
 	
 	public List<OpenmeetModel> getList() {

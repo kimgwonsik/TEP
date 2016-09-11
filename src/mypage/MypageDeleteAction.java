@@ -1,102 +1,74 @@
 package mypage;
-import config.SqlMapper;
-import com.ibatis.sqlmap.client.SqlMapClient;
-import com.opensymphony.xwork2.ActionContext;
-import members.MembersModel;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
+
+import com.ibatis.sqlmap.client.SqlMapClient;
+
+import config.SqlMapper;
+import members.MembersModel;
+import util.TepConstants;
 public class MypageDeleteAction implements SessionAware{
-	public static final String M_EMAIL = "session_m_email";
-	public static final String M_NAME= "session_m_name";
-	public static final String M_NO = "session_m_no";
-	//implements SessionAware로 수정하기
 	private SqlMapClient sqlMapper;
-	private MembersModel paramClass;
-	private MembersModel resultClass;
-	
-	private String m_email;
-	private String m_password;
-	private int deleteCheck;
 	private Map session;
+	
+	private String password;
 	
 	public MypageDeleteAction() {
 		sqlMapper=SqlMapper.getMapper();
 	}
 	
-	public String deleteForm() throws Exception{
+	public String deleteForm() {
 		return "success";
 	}
 	
-	public String execute() throws Exception{
-		paramClass=new MembersModel();
-		resultClass=new MembersModel();
-		//m_email=session.get("session_m_email");
-		m_email=ActionContext.getContext().getSession().get("session_m_email").toString();
-		resultClass=(MembersModel)sqlMapper.queryForObject("two.selectOneMember", m_email);
-		
-		if(resultClass.getM_password().equals(m_password)){
-			deleteCheck=1;
-			paramClass.setM_email(getM_email());
+	public String execute() {
+		try {
+			if(session.get(TepConstants.M_EMAIL) == null){
+				return "sessionError";
+			}
 			
-			sqlMapper.delete("two.deleteMember", paramClass);
-		}else{
-			deleteCheck=0;
+			String email = session.get(TepConstants.M_EMAIL).toString();
+			MembersModel m = (MembersModel)sqlMapper.queryForObject("two.selectOneMember", email);
+			if(m.getM_password().equals(password)){
+				
+				sqlMapper.delete("jin.mem_delete_openmeet",m.getM_no());
+				sqlMapper.delete("jin.mem_delete_subscribe",m.getM_no());
+				sqlMapper.delete("jin.mem_delete_board",m.getM_no());
+				sqlMapper.delete("jin.mem_delete_board_help",m.getM_no());
+				sqlMapper.delete("jin.mem_delete_comments",m.getM_no());
+				sqlMapper.delete("jin.mem_delete_lendplacebook",m.getM_no());
+				sqlMapper.delete("jin.mem_delete_members",m.getM_no());
+				
+				if(session.get(TepConstants.M_EMAIL) != null){
+					session.remove(TepConstants.M_EMAIL);
+				}
+				if(session.get(TepConstants.M_NAME) != null){
+					session.remove(TepConstants.M_NAME);
+				}
+				if(session.get(TepConstants.M_NO) != null){
+					session.remove(TepConstants.M_NO);
+				}
+				
+				return "success";
+			} else {
+				return "pwWrong";
+			}
+			
+		} catch (Exception e) {
+			System.out.println("mypage delete error : "+e.getMessage());
 		}
-		session.remove(M_EMAIL);
-		session.remove(M_NAME);
-		session.remove(M_NO);
-		return "success";
+		
+		return "error";
 	}
-
-	public MembersModel getParamClass() {
-		return paramClass;
-	}
-
-	public void setParamClass(MembersModel paramClass) {
-		this.paramClass = paramClass;
-	}
-
-	public MembersModel getResultClass() {
-		return resultClass;
-	}
-
-	public void setResultClass(MembersModel resultClass) {
-		this.resultClass = resultClass;
-	}
-
-	public String getM_email() {
-		return m_email;
-	}
-
-	public void setM_email(String m_email) {
-		this.m_email = m_email;
-	}
-
-	public String getM_password() {
-		return m_password;
-	}
-
-	public void setM_password(String m_password) {
-		this.m_password = m_password;
-	}
-
-	public int getDeleteCheck() {
-		return deleteCheck;
-	}
-
-	public void setDeleteCheck(int deleteCheck) {
-		this.deleteCheck = deleteCheck;
-	}
-
-	public Map getSession() {
-		return session;
-	}
-
+	
+	@Override
 	public void setSession(Map session) {
 		this.session = session;
 	}
-
 	
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	
 }

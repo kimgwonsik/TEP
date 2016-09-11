@@ -3,6 +3,9 @@ import java.io.File;
 import java.util.Calendar;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
@@ -13,7 +16,7 @@ import util.FileUploadService;
 import util.TepConstants;
 import util.TepUtils;
 
-public class LendplaceFormAction extends LendplaceModel implements SessionAware{
+public class LendplaceFormAction extends LendplaceModel implements SessionAware, ServletRequestAware{
 	private SqlMapClient sqlMapper;
 	
 	private File upload; //업로드할 실제파일
@@ -22,6 +25,7 @@ public class LendplaceFormAction extends LendplaceModel implements SessionAware{
 	private String serverFullPath; //저장할 실제 파일의 전체 경로
 
 	private Map session;
+	private HttpServletRequest request;
 	
 	public LendplaceFormAction(){
 		sqlMapper=SqlMapper.getMapper();
@@ -101,6 +105,11 @@ public class LendplaceFormAction extends LendplaceModel implements SessionAware{
 	@Override
 	public void setSession(Map session) {
 		this.session = session;
+	}
+
+	@Override
+	public void setServletRequest(HttpServletRequest request) {
+		this.request = request;
 	}
 	
 }

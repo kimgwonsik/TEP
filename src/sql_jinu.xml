@@ -256,5 +256,28 @@
 		update members set m_name=#m_name#,m_company=#m_company#,m_phone=#m_phone#
 		<include refid="mem_where_m_no"/>
 	</update>
-	
+
+
+<!-- 회원탈퇴시 게시물 전체 삭제 -->
+	<delete id="mem_delete_openmeet" parameterClass="int">
+		delete from openmeet where m_no=#m_no#
+	</delete>
+	<delete id="mem_delete_board" parameterClass="int">
+		delete from board where m_no=#m_no#
+	</delete>
+	<delete id="mem_delete_board_help" parameterClass="int">
+		delete from board_help where m_no=#m_no#
+	</delete>
+	<delete id="mem_delete_comments" parameterClass="int">
+		delete from comments where m_no=#m_no#
+	</delete>
+	<delete id="mem_delete_lendplacebook" parameterClass="int">
+		delete from lendplacebook where m_no=#m_no#
+	</delete>
+	<delete id="mem_delete_subscribe" parameterClass="int">
+		delete from subscribe where m_no=#m_no#
+	</delete>
+	<delete id="mem_delete_members" parameterClass="int">
+		delete from members where m_no=#m_no#
+	</delete>
 </sqlMap>

@@ -10,7 +10,7 @@
 <script language="javascript">
 	function windowclose() {
 		opener.document.userinput.m_email.value = "${m_email}";
-		/* opener.document.joinForm.checkConfirmId.value="true"; */
+		/* opener.document.userinput.checkConfirmId.value="1"; */
 		window.close();
 	}
 

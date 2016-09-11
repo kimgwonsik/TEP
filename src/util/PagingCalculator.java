@@ -66,6 +66,8 @@ public class PagingCalculator {
 		if (totalPage - startPage >= blockPage) {
 			pagingHtml.append("<a class='paging_move' href=" + action + ".action?currentPage=" + (endPage + 1) + ">▶</a>");
 		}
+		
+//		System.out.println("paging html : "+pagingHtml.toString());
 	}
 
 	public int getCurrentPage() {

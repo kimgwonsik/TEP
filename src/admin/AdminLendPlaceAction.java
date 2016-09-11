@@ -3,6 +3,9 @@ package admin;
 import java.io.File;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
@@ -12,7 +15,7 @@ import lendplace.LendplaceModel;
 import util.FileUploadService;
 import util.TepConstants;
 
-public class AdminLendPlaceAction extends LendplaceModel implements SessionAware{
+public class AdminLendPlaceAction extends LendplaceModel implements SessionAware,ServletRequestAware{
 	
 	private SqlMapClient sqlMapper;
 	private Map session;
@@ -21,6 +24,8 @@ public class AdminLendPlaceAction extends LendplaceModel implements SessionAware
 	private String uploadFileName; //업로드할 로컬 파일명
 	private String uploadContentType; //업로드할 파일의 컨텐츠 타입
 	private String serverFullPath; //저장할 실제 파일의 전체 경로
+	
+	private HttpServletRequest request;
 	
 	public AdminLendPlaceAction(){
 		sqlMapper = SqlMapper.getMapper();
@@ -32,6 +37,7 @@ public class AdminLendPlaceAction extends LendplaceModel implements SessionAware
 	
 	public String write(){
 		String basePath = TepConstants.UPLOAD_TEMP_PATH;
+		
 		FileUploadService fs = new FileUploadService();
 		try {
 			uploadFileName = System.currentTimeMillis()+"_"+uploadFileName;
@@ -80,5 +86,10 @@ public class AdminLendPlaceAction extends LendplaceModel implements SessionAware
 
 	public void setServerFullPath(String serverFullPath) {
 		this.serverFullPath = serverFullPath;
+	}
+
+	@Override
+	public void setServletRequest(HttpServletRequest request) {
+		this.request = request;
 	}
 }

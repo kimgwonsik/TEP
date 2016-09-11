@@ -5,7 +5,7 @@
 <head>
 <script language="javascript">
 	window.onload = function() {
-		alert("아이디가 존재하지 않거나 비밀번호가 일치하지 않습니다.");
+		alert("에러가 발생했습니다. 다시한번 시도 후 동일하다면, 문의게시판에 글을 남겨주시면 빠른 조치 하겠습니다.");
 		history.go(-1);
 	}
 </script>

@@ -73,7 +73,7 @@ input.sub_btn{
 
 </head>
 <body onload="idFocus();">
-
+<center>
 <form action="login.action" method="post" name="userinput">
 <table class="loginform_border" align=center>
 <tr><td>

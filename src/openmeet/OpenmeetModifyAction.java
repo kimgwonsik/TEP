@@ -4,6 +4,9 @@ import java.io.File;
 import java.util.Calendar;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
@@ -13,13 +16,15 @@ import util.FileUploadService;
 import util.TepConstants;
 import util.TepUtils;
 
-public class OpenmeetModifyAction extends OpenmeetModel implements SessionAware{
+public class OpenmeetModifyAction extends OpenmeetModel implements SessionAware, ServletRequestAware{
 	private SqlMapClient sqlMapper;
 	private Map session;
 	
 	private File upload; //업로드할 실제파일
 	private String uploadFileName; //업로드할 로컬 파일명
 	private String uploadContentType; //업로드할 파일의 컨텐츠 타입
+	
+	private HttpServletRequest request;
 	
 	public OpenmeetModifyAction(){
 		sqlMapper = SqlMapper.getMapper();
@@ -41,6 +46,7 @@ public class OpenmeetModifyAction extends OpenmeetModel implements SessionAware{
 	//대표이미지 업로드
 	private String fileUpload(){
 		String basePath = TepConstants.UPLOAD_TEMP_PATH;
+		System.out.println(basePath);
 		FileUploadService fs = new FileUploadService();
 		try {
 			uploadFileName = System.currentTimeMillis()+"_"+uploadFileName;
@@ -140,6 +146,11 @@ public class OpenmeetModifyAction extends OpenmeetModel implements SessionAware{
 
 	public void setUploadContentType(String uploadContentType) {
 		this.uploadContentType = uploadContentType;
+	}
+
+	@Override
+	public void setServletRequest(HttpServletRequest request) {
+		this.request = request;
 	}
 
 }

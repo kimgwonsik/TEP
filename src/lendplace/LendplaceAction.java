@@ -49,14 +49,12 @@ public class LendplaceAction implements SessionAware, ServletRequestAware, Servl
 	}
 	
 	public String search(){
-//		System.out.println("search in");
 		try {
 			cookieValues();
 			
 			list = sqlMapper.queryForList("jin.lendplace_search", query);
-//			System.out.println("list : "+list.size());
 			totalCount = list.size();
-			PagingCalculator page = new PagingCalculator("lsearch", currentPage, totalCount, blockCount, blockPage);
+			page = new PagingCalculator("lsearch", currentPage, totalCount, blockCount, blockPage);
 			pagingHtml = page.getPagingHtml().toString();
 			
 			int lastCount = totalCount;
@@ -192,8 +190,8 @@ public class LendplaceAction implements SessionAware, ServletRequestAware, Servl
 		this.currentPage = currentPage;
 	}
 
-	public void setPagingHtml(String pagingHtml) {
-		this.pagingHtml = pagingHtml;
+	public String getPagingHtml() {
+		return pagingHtml;
 	}
 
 	@Override

@@ -6,6 +6,8 @@
 <meta content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/TEP/static/css/root.css" type="text/css">
 <link rel="stylesheet" href="/TEP/static/css/openmeetview.css" type="text/css">
+<link rel="stylesheet" href="/TEP/static/css/alertify.default.css">
+<script src="/TEP/static/js/alertify.min.js"></script>
 <script type="text/javascript" src="/TEP/static/js/jquery-3.1.0.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -45,10 +47,16 @@
 				
 				if(category.length > 0){
 					$('#search_category').val(category.substring(0,category.length-1));
-				} 
+				} else {
+					alertify.error("카테고리가 선택되지 않았습니다.");
+					return false;
+				}
 				
 				if(area.length > 0){
 					$('#search_area').val(area.substring(0,area.length-1));
+				} else {
+					alertify.error("지역이 선택되지 않았습니다.");
+					return false;
 				}
 				
 				document.search_form.submit();
