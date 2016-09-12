@@ -53,7 +53,7 @@ public class OpenmeetWriteAction extends OpenmeetModel implements SessionAware, 
 			setO_email(mdata.getM_email());
 			setO_name(mdata.getM_name());
 			setO_phone(mdata.getM_phone());
-			if(mdata.getM_company() == null && mdata.getM_company().length() <= 0){
+			if(mdata.getM_company() == null || mdata.getM_company().length() <= 0){
 				mdata.setM_company("소속 미등록");
 			}
 			setO_company(mdata.getM_company());
