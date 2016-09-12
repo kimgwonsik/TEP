@@ -1,14 +1,21 @@
 package login;
-import members.MembersModel;
-import com.ibatis.sqlmap.client.SqlMapClient;
-import config.SqlMapper;
+import java.util.Map;
 
-public class EmailCheckAction {
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.ibatis.sqlmap.client.SqlMapClient;
+
+import config.SqlMapper;
+import members.MembersModel;
+import util.TepConstants;
+
+public class EmailCheckAction implements SessionAware{
 	private SqlMapClient sqlMapper;
 	
 	private MembersModel vo;
 	private String m_email;
 	private int chkId;
+	private Map session;
 	
 	public EmailCheckAction(){
 		sqlMapper = SqlMapper.getMapper();
@@ -19,8 +26,10 @@ public class EmailCheckAction {
 		
 		if(vo == null){
 			chkId=0;
+			session.put(TepConstants.REG_ID_CHECK, "allow");
 		}else{
 			chkId=1;
+			session.put(TepConstants.REG_ID_CHECK, "reject");
 		}
 		return "success";
 	}
@@ -49,6 +58,9 @@ public class EmailCheckAction {
 		this.chkId = chkId;
 	}
 
-	
+	@Override
+	public void setSession(Map session) {
+		this.session = session;
+	}
 	
 }

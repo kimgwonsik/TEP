@@ -38,7 +38,7 @@
 	</select>
 	
 	<!-- 회원정보 검색 -->
-	<select id="selectOneMember" resultMap="membersRes">
+	<select id="selectOneMember" resultMap="membersRes" parameterClass="String">
 		SELECT * FROM MEMBERS WHERE m_email=#m_email#
 	</select>
 	

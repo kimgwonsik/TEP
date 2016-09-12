@@ -1,5 +1,6 @@
 package lendplace;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -14,7 +15,6 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 
 import config.SqlMapper;
 import util.PagingCalculator;
-import util.TepConstants;
 import util.TepUtils;
 
 public class LendplaceAction implements SessionAware, ServletRequestAware, ServletResponseAware{
@@ -26,14 +26,12 @@ public class LendplaceAction implements SessionAware, ServletRequestAware, Servl
 	private int blockCount = 6;
 	private int blockPage = 3;
 	private String pagingHtml;
-	private PagingCalculator page;
 	
 	private Map session;
 	private HttpServletRequest request;
 	private HttpServletResponse response;
 	
 	private String searchWord;
-	private String query;
 	private String search_people;
 	private String search_area;
 	private String search_payment;
@@ -44,38 +42,10 @@ public class LendplaceAction implements SessionAware, ServletRequestAware, Servl
 	
 	public String execute(){
 		TepUtils.savePageURI(request, session);
-		listAll();
-		return "success";
-	}
-	
-	public String search(){
-//		System.out.println("search in");
-		try {
-			cookieValues();
-			
-			list = sqlMapper.queryForList("jin.lendplace_search", query);
-//			System.out.println("list : "+list.size());
-			totalCount = list.size();
-			PagingCalculator page = new PagingCalculator("lsearch", currentPage, totalCount, blockCount, blockPage);
-			pagingHtml = page.getPagingHtml().toString();
-			
-			int lastCount = totalCount;
-			if(page.getEndCount() < totalCount){
-				lastCount = page.getEndCount()+1;
-			}
-			
-			list = list.subList(page.getStartCount(), lastCount);
-		} catch (Exception e) {
-			System.out.println("search lendplace error : "+e.getMessage());
-		}
-		return "success";
-	}
-	
-	private void listAll(){
 		try {
 			list = sqlMapper.queryForList("lendplace_select_all");
 			totalCount = list.size();
-			page = new PagingCalculator("lendplace", currentPage, totalCount, blockCount, blockPage);
+			PagingCalculator page = new PagingCalculator("lendplace", currentPage, totalCount, blockCount, blockPage);
 			pagingHtml = page.getPagingHtml().toString();
 			
 			int lastCount = totalCount;
@@ -88,72 +58,56 @@ public class LendplaceAction implements SessionAware, ServletRequestAware, Servl
 		} catch (Exception e) {
 			System.out.println("lendplace list all error : "+e.getMessage());
 		}
+		return "success";
 	}
 	
-	private void cookieValues(){
-		
-		if(searchWord != null){
-			TepUtils.setCookie(response, TepConstants.SAVE_WORD, searchWord);
-		} else {
-			searchWord = TepUtils.getCookies(request, TepConstants.SAVE_WORD);
+	public String search(){
+		try {
+			String query = createQuery();
+			if(query.length() > 0){
+				list = sqlMapper.queryForList("jin.lendplace_search", query);
+			} else {
+				execute();
+			}
+		} catch (Exception e) {
+			System.out.println("search lendplace error : "+e.getMessage());
 		}
+		return "success";
+	}
+	
+	private String createQuery(){
+		List<String> queryList = new ArrayList<String>();
 		
-		if(search_people != null){
-			TepUtils.setCookie(response, TepConstants.SAVE_PEOPLE, search_people);
-		} else {
-			search_people = TepUtils.getCookies(request, TepConstants.SAVE_PEOPLE);
-		}
-		
-		if(search_area != null){
-			TepUtils.setCookie(response, TepConstants.SAVE_AREA, search_area);
-		} else {
-			search_area = TepUtils.getCookies(request, TepConstants.SAVE_AREA);
-		}
-		
-		if(search_payment != null){
-			TepUtils.setCookie(response, TepConstants.SAVE_PAYMENT, search_payment);
-		} else {
-			search_payment = TepUtils.getCookies(request, TepConstants.SAVE_PAYMENT);
+		if(searchWord != null && searchWord.length() > 0){
+			queryList.add("(l_subject like '%"+searchWord+"%' or l_content like '%"+searchWord+"%')");
 		}
 		
-		if(searchWord != null && search_people != null && search_area != null && search_payment != null){ //모두 낫널
-			query = "(l_subject like '%"+searchWord+"%' or l_content like '%"+searchWord+"%') and ";
-			query += createPeopleQuery(search_people)+" and "; // people
-			query += "REGEXP_LIKE(l_addr,'"+search_area+"') and "; //area
-			query += createPaymentQuery(search_payment); // payment
+		if(search_people != null && search_people.length() > 0){
+			queryList.add(createPeopleQuery(search_people));
 		}
-		if(searchWord != null && search_people == null && search_area != null && search_payment != null){ // people is null
-			query = "(l_subject like '%"+searchWord+"%' or l_content like '%"+searchWord+"%') and ";
-			query += "REGEXP_LIKE(l_addr,'"+search_area+"') and "; //area
-			query += createPaymentQuery(search_payment); // payment
+		
+		if(search_area != null && search_area.length() > 0){
+			queryList.add("REGEXP_LIKE(l_addr,'"+search_area+"')");
 		}
-		if(searchWord != null && search_people != null && search_area == null && search_payment != null){ // area is null
-			query = "(l_subject like '%"+searchWord+"%' or l_content like '%"+searchWord+"%') and ";
-			query += createPeopleQuery(search_people)+" and "; // people
-			query += createPaymentQuery(search_payment); // payment
+		
+		if(search_payment != null && search_payment.length() > 0){
+			queryList.add(createPaymentQuery(search_payment));
 		}
-		if(searchWord != null && search_people != null && search_area != null && search_payment == null){ // payment is null
-			query = "(l_subject like '%"+searchWord+"%' or l_content like '%"+searchWord+"%') and ";
-			query += createPeopleQuery(search_people)+" and "; // people
-			query += "REGEXP_LIKE(l_addr,'"+search_area+"')"; //area
+		
+		String query = "";
+		if(queryList.size() > 1){
+			for (int i = 0; i < queryList.size(); i++) {
+				query += queryList.get(i);
+				if(queryList.size()-1 == i){
+					continue;
+				}
+				query += " and ";
+			}
+		} else if(queryList.size() == 1){
+			query = queryList.get(0);
 		}
-		if(searchWord != null && search_people == null && search_area == null && search_payment != null){ // people,area is null
-			query = "(l_subject like '%"+searchWord+"%' or l_content like '%"+searchWord+"%') and ";
-			query += createPaymentQuery(search_payment); // payment
-		}
-		if(searchWord != null && search_people == null && search_area != null && search_payment == null){ // people,payment is null
-			query = "(l_subject like '%"+searchWord+"%' or l_content like '%"+searchWord+"%') and ";
-			query += "REGEXP_LIKE(l_addr,'"+search_area+"')"; //area
-		}
-		if(searchWord != null && search_people != null && search_area == null && search_payment == null){ // area,payment is null
-			query = "(l_subject like '%"+searchWord+"%' or l_content like '%"+searchWord+"%') and ";
-			query += createPeopleQuery(search_people); // people
-		}
-		if(searchWord != null && search_people == null && search_area == null && search_payment == null){ // people,area,payment is null
-			query = "(l_subject like '%"+searchWord+"%' or l_content like '%"+searchWord+"%')";
-		}
-		/*System.out.println("5");
-		System.out.println("query : "+query);*/
+//		System.out.println("query : "+query);
+		return query;
 	}
 	
 	private String createPeopleQuery(String search_people) {
@@ -192,8 +146,8 @@ public class LendplaceAction implements SessionAware, ServletRequestAware, Servl
 		this.currentPage = currentPage;
 	}
 
-	public void setPagingHtml(String pagingHtml) {
-		this.pagingHtml = pagingHtml;
+	public String getPagingHtml() {
+		return pagingHtml;
 	}
 
 	@Override

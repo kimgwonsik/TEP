@@ -38,6 +38,7 @@ public class OpenmeetWriteAction extends OpenmeetModel implements SessionAware, 
 	
 	public String write(){
 		String basePath = TepConstants.UPLOAD_TEMP_PATH;
+		
 		FileUploadService fs = new FileUploadService();
 		try {
 			uploadFileName = System.currentTimeMillis()+"_"+uploadFileName;

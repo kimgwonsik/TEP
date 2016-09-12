@@ -52,7 +52,12 @@ tr.Cmt_content_tr a:HOVER {
 
 <body>
 	<br>
+	
 	<table align="center" width="920" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+	<td>
+	
+	<table width=100%>
 
 		<tr height="25">
 			<td bgcolor="#FF2929" align="left" colspan="1" width="10"></td>
@@ -63,7 +68,7 @@ tr.Cmt_content_tr a:HOVER {
 
 	</table>
 	<br>
-	<table class="Cmt" align=center cellspacing=0>
+	<table class="Cmt" align=center cellspacing=0  width=100%>
 		<tr class="Cmt_head_tr">
 			<td>번호</td>
 			<td width="55%">내용</td>
@@ -132,6 +137,11 @@ tr.Cmt_content_tr a:HOVER {
 			</td>
 		</tr>
 	</table>
+	
+		</td>
+		</tr>
+	</table>
+	
 </body>
 </html>
 </html>

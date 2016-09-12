@@ -6,7 +6,12 @@
 <meta content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/TEP/static/css/root.css" type="text/css">
 <link rel="stylesheet" href="/TEP/static/css/openmeetview.css" type="text/css">
-<script type="text/javascript" src="/TEP/static/js/jquery-3.1.0.js"></script>
+<link rel="stylesheet" href="/TEP/static/css/alertify.default.css">
+<link rel="stylesheet" href="/TEP/static/js/dtpicker/jquery.simple-dtpicker.css">
+<script src="/TEP/static/js/alertify.min.js"></script>
+<script src="/TEP/static/js/dtpicker/jquery-1.7.1.js"></script>
+<script src="/TEP/static/js/dtpicker/jquery.simple-dtpicker.js"></script>
+<script src="/TEP/static/js/openmeetview.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('.category').find("td").click(function() {
@@ -20,43 +25,62 @@
 	$(function() {
 		$('#searchbox').keypress(function(event) {
 			if (event.keyCode == 13) {
-				var category = "";
-				var area = "";
-
-				if(!$('#searchbox').val()){
-					return false;
-				}
-				
-				if ($('.category').find("td").hasClass("category_select")) {
-					$('.category').find("td").each(function(i) {
-						if ($(this).hasClass("category_select")) {
-							category += $(this).text()+"|";
-						}
-					});
-				}
-
-				if ($('.area').find("td").hasClass("category_select")) {
-					$('.area').find("td").each(function(i) {
-						if ($(this).hasClass("category_select")) {
-							area += $(this).text()+"|";
-						}
-					});
-				}
-				
-				if(category.length > 0){
-					$('#search_category').val(category.substring(0,category.length-1));
-				} 
-				
-				if(area.length > 0){
-					$('#search_area').val(area.substring(0,area.length-1));
-				}
-				
-				document.search_form.submit();
+				searchSubmit();
 			}
+		});
+		
+		$('.btnEventSearch').click(function(event) {
+			searchSubmit();
+			event.preventDefault();
 		});
 	});
 
-	
+	function searchSubmit() {
+		var category = "";
+		var area = "";
+
+		/* if (!$('#searchbox').val()) {
+			return false;
+		} */
+
+		if ($('.category').find("td").hasClass("category_select")) {
+			$('.category').find("td").each(function(i) {
+				if ($(this).hasClass("category_select")) {
+					category += $(this).text() + "|";
+				}
+			});
+		}
+
+		if ($('.area').find("td").hasClass("category_select")) {
+			$('.area').find("td").each(function(i) {
+				if ($(this).hasClass("category_select")) {
+					area += $(this).text() + "|";
+				}
+			});
+		}
+
+		if (category.length > 0) {
+			$('#searchCate').val(category.substring(0, category.length - 1));
+		}
+
+		if (area.length > 0) {
+			$('#searchAddr').val(area.substring(0, area.length - 1));
+		}
+
+		if($('#pay').val() != null){
+			$('#searchPay').val($('#pay').val());
+		}
+		
+		if($('#startdt').val() != null){
+			$('#searchMStart').val($('#startdt').val());
+		}
+		
+		if($('#enddt').val() != null){
+			$('#searchMEnd').val($('#enddt').val());
+		}
+		
+		document.search_form.submit();
+	}
 </script>
 </head>
 <body>
@@ -118,9 +142,13 @@
 <div class="title" style="padding-top:53px;">모임제목 / 본문</div>
 <div style="padding-left:2.2px;padding-right:2.2px;">
 <form name="search_form" action="search.action" method="post">
-<input id="search_category" type="hidden" name="search_category">
-<input id="search_area" type="hidden" name="search_area">
-<input id="searchbox" type="text" name="searchWord" value="<s:property value="searchWord"/>" maxlength="13" placeholder="키워드로 모임을 검색하세요">
+<input id="searchCate" type="hidden" name="searchCategory">
+<input id="searchAddr" type="hidden" name="searchAddr">
+<input id="searchPay" type="hidden" name="searchPay">
+<input id="searchMStart" type="hidden" name="searchMStart">
+<input id="searchMEnd" type="hidden" name="searchMEnd">
+<input id="searchbox" type="text" name="searchWord" value="<s:property value="searchWord"/>" maxlength="13" placeholder="키워드로 모임을 검색하세요" title="키워드로 모임을 검색하세요">
+<input type="image" src="/TEP/static/image/btnEventSearch.gif" class="btnEventSearch" alt="검색" onmouseover="this.src='/TEP/static/image/btnEventSearchOn_red.gif'" onmouseout="this.src='/TEP/static/image/btnEventSearch.gif'">
 </form>
 </div>
 
@@ -181,6 +209,22 @@
 </table>
 
 <br>
+
+
+<div class="title">참여비용</div>
+<div style="padding-left:2.2px;padding-right:2.2px;">
+<input id="pay" type="number" style="width: 100%;height:20px;font-size: x-small;color: gray;text-align: right;" maxlength="7">
+</div>
+<div style="font-size: xx-small;font-family: sans-serif;color: navy;font-weight: bold;padding-top:3px;">*0원으로 입력하면 '무료'로 개설된 모임이 검색됩니다.</div>
+
+<br>
+
+<div class="title">모임기간</div>
+<div style="text-align: center;">
+<input type="text" class="dtpicker2" id="startdt" size="5">&nbsp;&nbsp;~&nbsp;
+<input type="text" class="dtpicker2" id="enddt" size="5">
+</div>
+<div style="font-size: xx-small;font-family: sans-serif;color: navy;font-weight: bold;padding-top:3px;">*시작과 종료를 모두 선택해야 검색됩니다.</div>
 
 </table>
 </body>

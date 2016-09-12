@@ -15,8 +15,6 @@ import board.BoardModel;
 import config.SqlMapper;
 import openmeet.OpenmeetModel;
 import util.PagingCalculator;
-import util.TepConstants;
-import util.TepUtils;
 
 public class SearchAction implements ServletRequestAware, ServletResponseAware{
 	private SqlMapClient sqlMapper;
@@ -42,9 +40,9 @@ public class SearchAction implements ServletRequestAware, ServletResponseAware{
 		System.out.println("search execute : "+searchWord);
 		try {
 			if(searchWord != null && searchWord.length() > 0){
-				TepUtils.setCookie(response, TepConstants.SAVE_WORD, searchWord);
+				//TepUtils.setCookie(response, TepConstants.SAVE_WORD, searchWord);
 			} else {
-				searchWord = TepUtils.getCookies(request, TepConstants.SAVE_WORD);
+				//searchWord = TepUtils.getCookies(request, TepConstants.SAVE_WORD);
 			}
 		
 			olist = sqlMapper.queryForList("jin.openmeet_search_o_subject_content_select_all", searchWord);

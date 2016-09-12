@@ -32,12 +32,7 @@ public interface TepConstants {
 	String SAVEURI = "save_current_page_uri";
 	
 	/**
-	 * save search keyword
+	 * 회원 가입시 아이디 중복확인 세션저장 키
 	 */
-	String SAVE_WORD = "save_search_word";
-	String SAVE_CATEGORY = "save_session_data_category";
-	String SAVE_PEOPLE = "save_session_data_people";
-	String SAVE_AREA = "save_session_data_area";
-	String SAVE_PAYMENT = "save_session_data_payment";
-	
+	String REG_ID_CHECK = "registration_id_check";
 }

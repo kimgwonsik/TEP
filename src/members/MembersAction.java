@@ -25,18 +25,29 @@ public class MembersAction extends MembersModel implements SessionAware {
 
 	public String Insert() throws Exception {
 		try {
-			MembersModel vo = (MembersModel) sqlMapper.queryForObject("two.idCheck", getM_email());
-
-			if (vo != null) {
-				return "error";
+			if(session != null && session.get(TepConstants.REG_ID_CHECK) == null){
+				return "reject";
+			} else {
+				if(session.get(TepConstants.REG_ID_CHECK).equals("reject")){
+					return "reject";
+				}
 			}
 
 			setM_date(Calendar.getInstance().getTime());
 			sqlMapper.insert("two.insertMember", this);
+			
+			MembersModel m = (MembersModel) sqlMapper.queryForObject("two.selectOneMember",getM_email());
+			
+			if(m != null){
+				session.put(TepConstants.M_EMAIL, m.getM_email());
+				session.put(TepConstants.M_NAME, m.getM_name());
+				session.put(TepConstants.M_NO, m.getM_no());
+			}
+			
+			if(session.get(TepConstants.REG_ID_CHECK) != null){
+				session.remove(TepConstants.REG_ID_CHECK);
+			}
 
-			session.put(TepConstants.M_EMAIL, getM_email());
-			session.put(TepConstants.M_NAME, getM_name());
-			session.put(TepConstants.M_NO, getM_no());
 		} catch (Exception e) {
 			System.out.println("member insert error : " + e.getMessage());
 		}

@@ -42,63 +42,57 @@
 	$(function() {
 		$('#searchbox').keypress(function(event) {
 			if (event.keyCode == 13) {
-				var people = "";
-				var area = "";
-				var payment = "";
-
-				if(!$('#searchbox').val()){
-					return false;
-				}
-				
-				if ($('.people').find("td").hasClass("category_select")) {
-					$('.people').find("td").each(function(i) {
-						if ($(this).hasClass("category_select")) {
-							people += $(this).text();
-						}
-					});
-				}
-
-				if ($('.area').find("td").hasClass("category_select")) {
-					$('.area').find("td").each(function(i) {
-						if ($(this).hasClass("category_select")) {
-							area += $(this).text();
-						}
-					});
-				}
-				
-				if ($('.payment').find("td").hasClass("category_select")) {
-					$('.payment').find("td").each(function(i) {
-						if ($(this).hasClass("category_select")) {
-							payment += $(this).text();
-						}
-					});
-				}
-				
-				if(people.length > 0){
-					$('#search_people').val(people.substring(0,1));
-				} else {
-					alertify.error("인원이 선택되지 않았습니다.");
-					return false;
-				}
-
-				if(area.length > 0){
-					$('#search_area').val(area);
-				} else {
-					alertify.error("지역이 선택되지 않았습니다.");
-					return false;
-				}
-				
-				if(payment.length > 0){
-					$('#search_payment').val(payment);
-				}else {
-					alertify.error("비용이 선택되지 않았습니다.");
-					return false;
-				}
-				
-				document.search_form.submit();
+				searchSubmit();
 			}
 		});
+		$('.btnEventSearch').click(function(event) {
+			searchSubmit();
+		});
 	});
+	
+	function searchSubmit(){
+		var people = "";
+		var area = "";
+		var payment = "";
+
+		if ($('.people').find("td").hasClass("category_select")) {
+			$('.people').find("td").each(function(i) {
+				if ($(this).hasClass("category_select")) {
+					people += $(this).text();
+				}
+			});
+		}
+
+		if ($('.area').find("td").hasClass("category_select")) {
+			$('.area').find("td").each(function(i) {
+				if ($(this).hasClass("category_select")) {
+					area += $(this).text();
+				}
+			});
+		}
+		
+		if ($('.payment').find("td").hasClass("category_select")) {
+			$('.payment').find("td").each(function(i) {
+				if ($(this).hasClass("category_select")) {
+					payment += $(this).text();
+				}
+			});
+		}
+		
+		if(people.length > 0){
+			$('#search_people').val(people.substring(0,1));
+		}
+
+		if(area.length > 0){
+			$('#search_area').val(area);
+		}
+		
+		if(payment.length > 0){
+			$('#search_payment').val(payment);
+		}
+		
+		document.search_form.submit();
+	}
 </script>
 </head>
 <body>
@@ -161,7 +155,8 @@
 <input id="search_people" type="hidden" name="search_people">
 <input id="search_area" type="hidden" name="search_area">
 <input id="search_payment" type="hidden" name="search_payment">
-<input id="searchbox" type="text" name="searchWord" value="<s:property value="searchWord"/>" maxlength="13" placeholder="예)역삼동,음향설비,주차,인터넷 등"/>
+<input id="searchbox" type="text" name="searchWord" value="<s:property value="searchWord"/>" maxlength="13" placeholder="예)역삼동,음향,주차 등" title="예)역삼동,음향,주차 등"/>
+<input type="image" src="/TEP/static/image/btnEventSearch.gif" class="btnEventSearch" alt="검색" onmouseover="this.src='/TEP/static/image/btnEventSearchOn_red.gif'" onmouseout="this.src='/TEP/static/image/btnEventSearch.gif'">
 </form>
 </div>
 <br>

@@ -13,7 +13,8 @@
 		</action>
 		
 		<action name="InsertMembers" class="members.MembersAction" method="Insert">
-			<result name="success">/members/membersSuccess.jsp</result>
+			<result name="success" type="tiles">MemberInsertSuccess</result>
+			<result name="reject">/members/memberIdChkError.jsp</result>
 			<result name="error">/members/memberError.jsp</result>
 		</action>
 		<!-- 회원가입 종료 -->
@@ -57,7 +58,10 @@
 			<result name="success" type="tiles">deleteMember</result>
 		</action>
 		<action name="deleteMember" class="mypage.MypageDeleteAction">
-			<result name="success" type="tiles">deleteResult</result>
+			<result name="sessionError">/error/session_error.jsp</result>
+			<result name="error">/error/error.jsp</result>
+			<result name="pwWrong">/error/password_wrong.jsp</result>
+			<result name="success">/mypage/deleteResult.jsp</result>
 		</action>
 		<!-- 탈퇴완료 -->
 		
@@ -69,16 +73,21 @@
 		<action name="modifyMemberForm" class="mypage.MypageModifyAction" method="form">
 			<result name="success" type="tiles">modifyMember</result>
 			<result name="error">/mypage/passwordError.jsp</result>
+			<result name="sessionError">/error/session_error.jsp</result>
 		</action>
+		
 		<action name="modifyMember" class="mypage.MypageModifyAction">
-			<result name="success" type="tiles">modifyResult</result>
+			<result name="success">/mypage/modifyResult.jsp</result>
+			<result name="sessionError">/error/session_error.jsp</result>
 		</action>
 		<!-- 수정종료 -->
 		
 		<!-- 마이페이지 이동-->
 		<action name="mypageView" class="mypage.MypageAction">
 			<result name="success" type="tiles">mypageView</result>
+			<result name="sessionError">/error/session_error.jsp</result>
 		</action>
+		
 		<action name="helpHistory" class="mypage.MypageHelpHistoryAction">
 			<result name="success" type="tiles">helpHistory</result>
 		</action>

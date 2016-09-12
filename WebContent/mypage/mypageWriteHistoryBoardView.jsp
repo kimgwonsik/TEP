@@ -41,99 +41,106 @@ tr.board_content_tr a:HOVER {
 
 <body>
 	<br>
+	
 	<table align="center" width="920" border="0" cellspacing="0" cellpadding="0">
-
-		<tr height="25">
-			<td bgcolor="#FF2929" align="left" colspan="1" width="10"></td>
-			<td align="left" colspan="3">
-				<strong>&nbsp;&nbsp;게시판내역</strong>
-			</td>
-		</tr>
-
-	</table>
-	<br>
-	<table class="board" align=center cellspacing=0>
-		<tr class="board_head_tr">
-			<td>번호</td>
-			<td width="55%">제목</td>
-			<td>작성자</td>
-			<td>등록일</td>
-			<td>조회수</td>
-
-		</tr>
-
-
-		<s:iterator value="Blist" status="stat">
-			<s:url id="boardDetailURL" action="boardDetail">
-				<s:param name="b_no">
-					<s:property value="b_no" />
-				</s:param>
-			</s:url>
-			<tr class="board_content_tr">
-
-				<td>
-					<s:property value="b_no" />
-				</td>
-
-				<td>
-					<s:a href="%{boardDetailURL}">
-						<s:property value="b_subject" />
-					</s:a>
-				</td>
-
-				<td>
-					<s:property value="b_name" />
-				</td>
-				<td>
-					<s:date name="b_date" format="yyyy.MM.dd" />
-				</td>
-				<td>
-					<s:property value="b_readcount" />
-				</td>
-			</tr>
-		</s:iterator>
-
-		<s:if test="Blist.size() <= 0">
-			<tr>
-				<td colspan="5" align="center">
-					<h3>등록된 게시물이 없습니다.</h3>
-				</td>
-			</tr>
-		</s:if>
-
-		<!-- 페이징 -->
 		<tr>
-			<td colspan="5" width="100%" align="center" style="padding-top: 20px; padding-bottom: 10px">
-				<s:property value="pagingHtml" escape="false" />
-			</td>
-		</tr>
+			<td>
+				<table width=100%>
+					<tr height="25">
+						<td bgcolor="#FF2929" align="left" colspan="1" width="10"></td>
+						<td align="left" colspan="3">
+							<strong>&nbsp;&nbsp;게시판내역</strong>
+						</td>
+					</tr>
+				</table>
+				<br>
+				<table class="board" width=100% cellpadding=0 cellspacing=0>
+					<tr class="board_head_tr">
+						<td>번호</td>
+						<td width="55%">제목</td>
+						<td>작성자</td>
+						<td>등록일</td>
+						<td>조회수</td>
+
+					</tr>
 
 
-		<!-- 게시판 검색 -->
-		<tr>
-			<td colspan="5" align="center">
-				<form method="post" action="writeHistoryBoard.action">
-					<table>
-						<tr>
+					<s:iterator value="Blist" status="stat">
+						<s:url id="boardDetailURL" action="boardDetail">
+							<s:param name="b_no">
+								<s:property value="b_no" />
+							</s:param>
+						</s:url>
+						<tr class="board_content_tr">
+
 							<td>
-								<select name="searchKeyB">
-									<option value="0" selected="selected">제목</option>
-									<option value="1">제목+내용</option>
-									<!-- <option value="2">작성자</option> -->
-								</select>
+								<s:property value="b_no" />
+							</td>
+
+							<td>
+								<s:a href="%{boardDetailURL}">
+									<s:property value="b_subject" />
+								</s:a>
+							</td>
+
+							<td>
+								<s:property value="b_name" />
 							</td>
 							<td>
-								<input type="text" name="searchWordB" size="15" maxlength="50" />
+								<s:date name="b_date" format="yyyy.MM.dd" />
 							</td>
 							<td>
-								<input type="submit" value="검색" />
+								<s:property value="b_readcount" />
 							</td>
 						</tr>
-					</table>
-				</form>
+					</s:iterator>
+
+					<s:if test="Blist.size() <= 0">
+						<tr>
+							<td colspan="5" align="center">
+								<h3>등록된 게시물이 없습니다.</h3>
+							</td>
+						</tr>
+					</s:if>
+
+					<!-- 페이징 -->
+					<tr>
+						<td colspan="5" width="100%" align="center" style="padding-top: 20px; padding-bottom: 10px">
+							<s:property value="pagingHtml" escape="false" />
+						</td>
+					</tr>
+
+
+					<!-- 게시판 검색 -->
+					<tr>
+						<td colspan="5" align="center">
+							<form method="post" action="writeHistoryBoard.action">
+								<table>
+									<tr>
+										<td>
+											<select name="searchKeyB">
+												<option value="0" selected="selected">제목</option>
+												<option value="1">제목+내용</option>
+												<!-- <option value="2">작성자</option> -->
+											</select>
+										</td>
+										<td>
+											<input type="text" name="searchWordB" size="15" maxlength="50" />
+										</td>
+										<td>
+											<input type="submit" value="검색" />
+										</td>
+									</tr>
+								</table>
+							</form>
+						</td>
+					</tr>
+
+				</table>
+
 			</td>
 		</tr>
-
 	</table>
+	
 </body>
 </html>
