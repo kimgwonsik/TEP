@@ -68,3 +68,27 @@ table.category td:HOVER, table.area td:HOVER, table.people td:HOVER, table.payme
 	font-size: x-small;
 	width: 200px;
 }
+
+input[type=text]::-ms-clear{
+	display: none;
+}
+
+.btnEventSearch{
+    position: relative;
+    float:right;
+    top: -26px;
+    right: 8px;
+    width: 14px;
+    height: 14px;
+    margin: 0;
+    padding: 4px;
+    border: 0;
+}
+
+input.dtpicker2 {
+	width:86px;
+	height: 20px;
+	font-size: x-small;
+	color: gray;
+	text-align: center;
+}

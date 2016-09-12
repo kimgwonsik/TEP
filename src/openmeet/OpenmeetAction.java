@@ -1,5 +1,6 @@
 package openmeet;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -11,13 +12,14 @@ import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
+import com.opensymphony.xwork2.ModelDriven;
+import com.opensymphony.xwork2.Preparable;
 
 import config.SqlMapper;
 import util.PagingCalculator;
-import util.TepConstants;
 import util.TepUtils;
 
-public class OpenmeetAction implements SessionAware, ServletRequestAware, ServletResponseAware{
+public class OpenmeetAction implements SessionAware, ServletRequestAware, ServletResponseAware, Preparable, ModelDriven<OpenmeetSearchModel>{
 	private List<OpenmeetModel> list;
 	private SqlMapClient sqlMapper;
 	
@@ -26,16 +28,12 @@ public class OpenmeetAction implements SessionAware, ServletRequestAware, Servle
 	private int blockCount = 6;
 	private int blockPage = 3;
 	private String pagingHtml;
-	private PagingCalculator page;
 	
 	private Map session;
 	private HttpServletRequest request;
 	private HttpServletResponse response;
 	
-	private String searchWord;
-	private String query;
-	private String search_category;
-	private String search_area;
+	private OpenmeetSearchModel sModel;
 	
 	public OpenmeetAction(){
 		sqlMapper = SqlMapper.getMapper();
@@ -43,36 +41,10 @@ public class OpenmeetAction implements SessionAware, ServletRequestAware, Servle
 	
 	public String execute() {
 		TepUtils.savePageURI(request, session);
-		listAll();
-		return "success";
-	}
-
-	public String search(){
-		try {
-			cookieValues();
-			
-			list = sqlMapper.queryForList("jin.openmeet_search", query);
-			totalCount = list.size();
-			PagingCalculator page = new PagingCalculator("search", currentPage, totalCount, blockCount, blockPage);
-			pagingHtml = page.getPagingHtml().toString();
-			
-			int lastCount = totalCount;
-			if(page.getEndCount() < totalCount){
-				lastCount = page.getEndCount()+1;
-			}
-			
-			list = list.subList(page.getStartCount(), lastCount);
-		} catch (Exception e) {
-			System.out.println("search openmeet error : "+e.getMessage());
-		}
-		return "success";
-	}
-	
-	private void listAll(){
 		try {
 			list = sqlMapper.queryForList("jin.openmeet_select_all");
 			totalCount = list.size();
-			page = new PagingCalculator("openmeet", currentPage, totalCount, blockCount, blockPage);
+			PagingCalculator page = new PagingCalculator("openmeet", currentPage, totalCount, blockCount, blockPage);
 			pagingHtml = page.getPagingHtml().toString();
 			
 			int lastCount = totalCount;
@@ -85,45 +57,66 @@ public class OpenmeetAction implements SessionAware, ServletRequestAware, Servle
 		} catch (Exception e) {
 			System.out.println("openmeet listAll error : "+e.getMessage());
 		}
+		return "success";
 	}
+	
+	public String search(){
+		try {
+			String query = createQuery();
+			if(query.length() > 0){
+				list = sqlMapper.queryForList("jin.openmeet_search", query);
+			} else {
+				execute();
+			}
+			
+		} catch (Exception e) {
+			System.out.println("search openmeet error : "+e.getMessage());
+		}
+		return "success";
+	}
+	
 
-	private void cookieValues(){
-		if(searchWord != null){
-			TepUtils.setCookie(response, TepConstants.SAVE_WORD, searchWord);
-		} else {
-			searchWord = TepUtils.getCookies(request, TepConstants.SAVE_WORD);
+	private String createQuery(){
+		List<String> queryList = new ArrayList<String>();
+		
+		if(sModel.getSearchWord() != null && sModel.getSearchWord().length() > 0){
+			queryList.add("(o_subject like '%"+sModel.getSearchWord()+"%' or o_content like '%"+sModel.getSearchWord()+"%')");
 		}
 		
-		if(search_category != null){
-			TepUtils.setCookie(response, TepConstants.SAVE_CATEGORY, search_category);
-		} else {
-//			search_category = TepUtils.getCookies(request, TepConstants.SAVE_CATEGORY);
+		if(sModel.getSearchCategory() != null && sModel.getSearchCategory().length() > 0){
+			queryList.add("REGEXP_LIKE(o_category,'"+sModel.getSearchCategory()+"')");
 		}
 		
-		if(search_area != null){
-			TepUtils.setCookie(response, TepConstants.SAVE_AREA, search_area);
-		} else {
-//			search_area = TepUtils.getCookies(request, TepConstants.SAVE_AREA);
+		if(sModel.getSearchAddr() != null && sModel.getSearchAddr().length() > 0){
+			queryList.add("REGEXP_LIKE(o_addr,'"+sModel.getSearchAddr()+"')");
 		}
 		
-		
-		if(searchWord != null && search_category != null && search_area != null){
-			query = "(o_subject like '%"+searchWord+"%' or o_content like '%"+searchWord+"%') and REGEXP_LIKE(o_category,'"+search_category+"') and REGEXP_LIKE(o_addr,'"+search_area+"')";
+		if(sModel.getSearchPay() != null){
+			if(sModel.getSearchPay() == 0){
+				queryList.add("o_payment = 0");
+			} else {
+				queryList.add("o_payment >= "+sModel.getSearchPay());
+			}
 		}
 		
-		if(searchWord != null && search_category == null && search_area != null){
-			query = "(o_subject like '%"+searchWord+"%' or o_content like '%"+searchWord+"%') and REGEXP_LIKE(o_addr,'"+search_area+"')";
+		if((sModel.getSearchMStart() != null && sModel.getSearchMStart().length() > 0) && (sModel.getSearchMEnd() != null && sModel.getSearchMEnd().length() > 0)){
+			queryList.add("(o_m_sdate > '"+sModel.getSearchMStart()+"' and o_m_edate > '"+sModel.getSearchMEnd()+"')");
 		}
 		
-		if(searchWord != null && search_category != null && search_area == null){
-			query = "(o_subject like '%"+searchWord+"%' or o_content like '%"+searchWord+"%') and REGEXP_LIKE(o_category,'"+search_category+"')";
+		String query = "";
+		if(queryList.size() > 1){
+			for (int i = 0; i < queryList.size(); i++) {
+				query += queryList.get(i);
+				if(queryList.size()-1 == i){
+					continue;
+				}
+				query += " and ";
+			}
+		} else if(queryList.size() == 1){
+			query = queryList.get(0);
 		}
-		
-		if(searchWord != null && search_category == null && search_area == null){
-			query = "(o_subject like '%"+searchWord+"%' or o_content like '%"+searchWord+"%')";
-		}
-		
-//		System.out.println("q : "+query);
+//		System.out.println(query);
+		return query;
 	}
 	
 	public List<OpenmeetModel> getList() {
@@ -152,25 +145,19 @@ public class OpenmeetAction implements SessionAware, ServletRequestAware, Servle
 		this.session = session;
 	}
 
-	public void setSearchWord(String searchWord) {
-		this.searchWord = searchWord;
-	}
-
-	public String getSearchWord() {
-		return searchWord;
-	}
-
 	@Override
 	public void setServletResponse(HttpServletResponse response) {
 		this.response = response;
 	}
 
-	public void setSearch_category(String search_category) {
-		this.search_category = search_category;
+	@Override
+	public OpenmeetSearchModel getModel() {
+		return sModel;
 	}
 
-	public void setSearch_area(String search_area) {
-		this.search_area = search_area;
+	@Override
+	public void prepare() throws Exception {
+		sModel = new OpenmeetSearchModel();
 	}
 
 }
