@@ -69,7 +69,6 @@ input.login_btn {
 		<td id="login_msg" align="center" height="30"></td>
 	</tr>
 
-<s:if test="#session.session_m_name != tepadmin@tep.com">
 	<tr>
 		<td class="login_btn_grp">
 			<input class="login_btn" type="button" value="마이페이지" onclick="location.href='mypageView.action'">
@@ -81,23 +80,6 @@ input.login_btn {
 		</s:if>
 		</td>
 	</tr>
-</s:if>
-<s:else>
-
-
-	<tr>
-		<td class="login_btn_grp">
-			<input class="login_btn" type="button" value="회원관리" onclick="location.href=.action">
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<input class="login_btn" type="button" value="장소등록" onclick="location.href=.action">
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<input class="login_btn" type="button" value="고객문의" onclick="location.href=.action">
-		</td>
-	</tr>
-
-
-</s:else>
-
 
 </table>
 
