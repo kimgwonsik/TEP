@@ -81,6 +81,34 @@
 		
 		document.search_form.submit();
 	}
+	
+	
+	function omv_check() {
+		var session_id = '<s:property value="#session.session_m_email"/>';
+		var session_no = '<s:property value="#session.session_m_no"/>';
+
+		if (session_id == null || session_id.length <= 0) {
+			alertify.error("로그인 상태가 아닙니다.");
+			return false;
+		}
+		
+		/* if(session_no == m_no){
+			alertify.error("본인이 개설한 모임은 신청 할수 없습니다.");
+			return false;
+		} */
+	}
+	
+	function likeit_submit() {
+		var session_id = '<s:property value="#session.session_m_email"/>';
+
+		if (session_id == null || session_id.length <= 0) {
+			alertify.error("로그인 상태가 아닙니다.");
+			return false;
+		}
+		
+		//document.getElementById('omlikeform').submit();
+	}
+	
 </script>
 </head>
 <body>
@@ -105,21 +133,56 @@
 		</s:param>
 	</s:url>
 	
+	<s:url id="openmeet_likeit" action="openmeetLike">
+		<s:param name="o_no">
+			<s:property value="o_no"/>
+		</s:param>
+		<s:param name="currentPage">
+			<s:property value="currentPage"/>
+		</s:param>
+	</s:url>
+	
 	<s:if test="#stat.index%3 == 0">
 	<tr>
 	</s:if>
 	
 	<td width="33%" align="center">
-		<s:a cssClass="contentSubject" href="%{openmeetDetailURL}">
 			<table border="0" class="om_img_base">
 			<tr>
-			<td><img class="openmeet_rep" src='<s:property value="o_rep_img"/>'/></td>
+			<td colspan="2">
+				<s:a cssClass="contentSubject" href="%{openmeetDetailURL}">
+					<img class="openmeet_rep" src='<s:property value="o_rep_img"/>'/>
+				</s:a>
+			</td>
 			</tr>
 			<tr>
-			<td class="om_view_subject"><s:property value="o_subject"/></td>
+			<td colspan="2" class="om_view_subject">
+				<s:a cssClass="contentSubject" href="%{openmeetDetailURL}">
+				<s:property value="o_subject"/>
+				</s:a>
+			</td>
+			</tr>
+			<tr>
+			<td align="center" style="border-right:0;font-family: sans-serif;font-size: x-small;">
+				<s:a href="%{openmeet_likeit}" cssClass="onview_likeit_btn" onclick="return likeit_submit();">♡</s:a>
+				<span class="onview_likeit_num"><s:property value="o_likeit"/></span>
+			</td>
+			<td align="right" style="border-left:0;">
+			
+			<s:form action="omd_subscribe" method="post" onsubmit="return omv_check();">
+				<input type="hidden" name="o_no" value='<s:property value="o_no"/>'>
+				<s:if test="o_permit_pnum <= 0">
+				<input type="button" value="신청마감" disabled="disabled" style="background-color: gray;font-size: xx-small;font-family: sans-serif;margin-right:5px;">
+				</s:if>
+				<s:else>
+				<input type=submit value="<s:property value="o_permit_pnum"/>명 신청가능" style="font-size: xx-small;font-family: sans-serif;margin-right:5px;">
+				</s:else>
+			</s:form>
+			
+				
+			</td>
 			</tr>
 			</table>
-		</s:a>
 	</td>
 </s:iterator>
 	
@@ -221,8 +284,8 @@
 
 <div class="title">모임기간</div>
 <div style="text-align: center;">
-<input type="text" class="dtpicker2" id="startdt" size="5">&nbsp;&nbsp;~&nbsp;
-<input type="text" class="dtpicker2" id="enddt" size="5">
+<input type="text" class="dtpicker_omview" id="startdt" size="5">&nbsp;&nbsp;~&nbsp;
+<input type="text" class="dtpicker_omview" id="enddt" size="5">
 </div>
 <div style="font-size: xx-small;font-family: sans-serif;color: navy;font-weight: bold;padding-top:3px;">*시작과 종료를 모두 선택해야 검색됩니다.</div>
 

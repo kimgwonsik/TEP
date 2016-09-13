@@ -22,6 +22,7 @@ td.login_name {
 
 b.login_msg{
 	font-family: sans-serif;
+	color: olive;
 }
 
 td.login_btn_grp {

@@ -1,6 +1,6 @@
 $(function() {
 	// -- append by class just for lower strings count --
-	$('.dtpicker2').appendDtpicker({
+	$('.dtpicker_omview').appendDtpicker({
 		"futureOnly" : false,
 		"autodateOnStart" : false,
 		"locale" : "ko",

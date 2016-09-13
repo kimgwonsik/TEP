@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="/TEP/static/css/openmeetview.css" type="text/css">
 <link rel="stylesheet" href="/TEP/static/css/root.css" type="text/css">
+<link rel="stylesheet" href="/TEP/static/css/mypagemeethistory.css" type="text/css">
 </head>
 <body>
 <br>
@@ -18,7 +18,7 @@
 
 	<tr height="25">
 			<td bgcolor="#FF2929" align="left" colspan="1" width="10"></td>
-			<td align="left" colspan="3"><strong>&nbsp;&nbsp;모임참여내역</strong></td>
+			<td align="left" colspan="5"><strong>&nbsp;&nbsp;모임참여내역</strong></td>
 	</tr>
 
 </table>
@@ -35,13 +35,13 @@
 		</s:param>
 	</s:url>
 	
-	<s:if test="#stat.index%3 == 0">
+	<s:if test="#stat.index%5 == 0">
 	<tr>
 	</s:if>
 	
-	<td width="33%" align="center">
+	<td width="20%" align="center">
 		<s:a cssClass="contentSubject" href="%{openmeetDetailURL}">
-			<table border="0" class="om_img_base">
+			<table border="0" class="om_img_base" width=120px>
 			<tr>
 			<td><img class="openmeet_rep" src='<s:property value="o_rep_img"/>'/></td>
 			</tr>
@@ -61,7 +61,7 @@
 
 <!-- 페이징 -->
 <tr>
-<td colspan="3"  class="opemneet_paging"><s:property value="pagingHtml" escape="false"/></td>
+<td colspan="5"  class="opemneet_paging"><s:property value="pagingHtml" escape="false"/></td>
 </tr>
 </table>
 

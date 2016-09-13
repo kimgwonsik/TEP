@@ -1,6 +1,6 @@
 img.openmeet_rep {
-	width: 200px;
-	height: 200px;
+	width: 120px;
+	height: 120px;
 }
 
 table.om_img_base{
@@ -77,7 +77,7 @@ table.category td:HOVER, table.area td:HOVER, table.people td:HOVER, table.payme
     position: relative;
     float:right;
     top: -26px;
-    right: 4px;
+    right: 8px;
     width: 14px;
     height: 14px;
     margin: 0;
@@ -91,31 +91,4 @@ input[type=text].dtpicker_omview {
 	font-size: x-small;
 	color: gray;
 	text-align: center;
-}
-
-.onview_likeit_btn{
-	float: left;
-    overflow: hidden;
-    width: 22px;
-    height: 22px;
-    margin:3px;
-    padding-bottom:4px;
-    padding-right:1px;
-    padding-left:1px;
-    background: #e7e7e7;
-    border: 1px solid #d8d8d8;
-    border-radius: 3px;
-    font-size:large;
-}
-
-.onview_likeit_btn:HOVER{
-	background: #ffeeee;
-    border: 1px solid red;
-    color: red;
-    font-weight: bold;
-}
-
-.onview_likeit_num{
- 	float: left;
- 	margin-top:10px;
 }
