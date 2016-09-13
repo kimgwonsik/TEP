@@ -7,6 +7,24 @@
 	<typeAlias alias="comments" type="comments.CommentsModel" />
 	<typeAlias alias="members" type="members.MembersModel" />
 	<typeAlias alias="board" type="board.BoardModel" />
+	<typeAlias alias="likeit" type="likeit.LikeitModel" />
+
+<!-- likeit query -->
+	<insert id="likeit_insert_openmeet" parameterClass="likeit">
+		insert into likeit(li_no,o_no,li_date,m_no) values(likeit_seq.nextval,#o_no#,sysdate,#m_no#)
+	</insert>
+	
+	<select id="likeit_select_openmeet" parameterClass="int" resultClass="int">
+		select count(*) from likeit where o_no=#o_no#
+	</select>
+	
+	<select id="likeit_select_exist" parameterClass="likeit" resultClass="likeit">
+		select * from likeit where o_no=#o_no# and m_no=#m_no#
+	</select>
+	
+	<delete id="likeit_delete" parameterClass="likeit">
+		delete from likeit where o_no=#o_no# and m_no=#m_no#
+	</delete>
 
 <!-- lendplace query -->
 	<sql id="lp_select_all">

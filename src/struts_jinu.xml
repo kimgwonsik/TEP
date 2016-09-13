@@ -11,6 +11,10 @@
 			<result name="success" type="tiles">openmeet</result>
 		</action>
 		
+		<action name="openmeetLike" class="openmeet.OpenmeetAction" method="likeit">
+			<result name="success" type="tiles">openmeet</result>
+		</action>
+		
 		<action name="openmeetDetail" class="openmeet.OpenmeetDetailAction">
 			<result name="success" type="tiles">openmeetDetail</result>
 		</action>

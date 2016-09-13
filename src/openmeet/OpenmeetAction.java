@@ -16,7 +16,9 @@ import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;
 
 import config.SqlMapper;
+import likeit.LikeitModel;
 import util.PagingCalculator;
+import util.TepConstants;
 import util.TepUtils;
 
 public class OpenmeetAction implements SessionAware, ServletRequestAware, ServletResponseAware, Preparable, ModelDriven<OpenmeetSearchModel>{
@@ -35,8 +37,38 @@ public class OpenmeetAction implements SessionAware, ServletRequestAware, Servle
 	
 	private OpenmeetSearchModel sModel;
 	
+	private int o_no;
+	
 	public OpenmeetAction(){
 		sqlMapper = SqlMapper.getMapper();
+	}
+	
+	private void setListPermitPnum() throws Exception{
+		for (int i = 0; i < list.size(); i++) {
+			list.get(i).setO_permit_pnum(list.get(i).getO_total_pnum()-list.get(i).getO_current_pnum());
+			list.get(i).setO_likeit((Integer) sqlMapper.queryForObject("jin.likeit_select_openmeet", list.get(i).getO_no()));
+		}
+	}
+	
+	public String likeit(){
+		try {
+			int m_no = (int) session.get(TepConstants.M_NO);
+			LikeitModel likeitData = new LikeitModel();
+			likeitData.setO_no(o_no);
+			likeitData.setM_no(m_no);
+			
+			LikeitModel check = (LikeitModel) sqlMapper.queryForObject("jin.likeit_select_exist",likeitData);
+			if(check == null){
+				sqlMapper.insert("jin.likeit_insert_openmeet",likeitData);
+			} else {
+				sqlMapper.delete("jin.likeit_delete",likeitData);
+			}
+			
+			execute();
+		} catch (Exception e) {
+			System.out.println("likeit insert error : "+e.getMessage());
+		}
+		return "success";
 	}
 	
 	public String execute() {
@@ -54,6 +86,7 @@ public class OpenmeetAction implements SessionAware, ServletRequestAware, Servle
 			}
 			
 			list = list.subList(page.getStartCount(), lastCount);
+			setListPermitPnum();
 		} catch (Exception e) {
 			System.out.println("openmeet listAll error : "+e.getMessage());
 		}
@@ -65,6 +98,7 @@ public class OpenmeetAction implements SessionAware, ServletRequestAware, Servle
 			String query = createQuery();
 			if(query.length() > 0){
 				list = sqlMapper.queryForList("jin.openmeet_search", query);
+				setListPermitPnum();
 			} else {
 				execute();
 			}
@@ -158,6 +192,10 @@ public class OpenmeetAction implements SessionAware, ServletRequestAware, Servle
 	@Override
 	public void prepare() throws Exception {
 		sModel = new OpenmeetSearchModel();
+	}
+
+	public void setO_no(int o_no) {
+		this.o_no = o_no;
 	}
 
 }

@@ -74,9 +74,13 @@ public class OpenmeetModel {
 	// 게시날짜
 	private Date o_date;
 
+	// 좋아요 눌린수
+	private Integer o_likeit;
+	
 	// 조회수
 	private Integer o_readcount;
 	
+	// 회원번호
 	private Integer m_no;
 	
 	// 모임개설시 날짜부분이 스트링값으로 넘어와 String 날짜변수생성 (모임기간/접수기간)
@@ -318,6 +322,14 @@ public class OpenmeetModel {
 		this.m_no = m_no;
 	}
 	
+	public Integer getO_likeit() {
+		return o_likeit;
+	}
+
+	public void setO_likeit(Integer o_likeit) {
+		this.o_likeit = o_likeit;
+	}
+
 	// OpenmeetModel 모델 복사
     public void CopyData(OpenmeetModel param) {
     	this.o_no = param.getO_no();
@@ -349,5 +361,6 @@ public class OpenmeetModel {
     	this.o_medate = param.getO_medate();
     	this.o_rsdate = param.getO_rsdate();
     	this.o_redate = param.getO_redate();
+    	this.o_likeit = param.getO_likeit();
     }
 }

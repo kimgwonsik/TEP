@@ -26,7 +26,7 @@ public class LendplaceAction implements SessionAware, ServletRequestAware, Servl
 	private int blockCount = 6;
 	private int blockPage = 3;
 	private String pagingHtml;
-	
+
 	private Map session;
 	private HttpServletRequest request;
 	private HttpServletResponse response;
