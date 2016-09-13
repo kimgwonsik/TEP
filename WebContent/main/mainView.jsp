@@ -22,11 +22,11 @@
 
 
 <ul class="bxslider">
-	<li><a href="#" onclick="location.href='openmeetDetail.action?o_no=46'"><img src="/TEP/main/slide_img/main_ex1.png" alt=""></a></li>
-	<li><a href="#" onclick="location.href='openmeetDetail.action?o_no=47'"><img src="/TEP/main/slide_img/main_ex2.png" alt=""></a></li>
-	<li><a href="#" onclick="location.href='openmeetDetail.action?o_no=61'"><img src="/TEP/main/slide_img/main_ex3.png" alt=""></a></li>
-	<li><a href="#" onclick="location.href='openmeetDetail.action?o_no=62'"><img src="/TEP/main/slide_img/main_ex4.png" alt=""></a></li>
-	<li><a href="#" onclick="location.href='openmeetDetail.action?o_no=63'"><img src="/TEP/main/slide_img/main_ex5.png" alt=""></a></li>
+	<li><a href="#" onclick="location.href='openmeetDetail.action?o_no=97'"><img src="/TEP/main/slide_img/main_ex1.png" alt=""></a></li>
+	<li><a href="#" onclick="location.href='openmeetDetail.action?o_no=99'"><img src="/TEP/main/slide_img/main_ex2.png" alt=""></a></li>
+	<li><a href="#" onclick="location.href='openmeetDetail.action?o_no=100'"><img src="/TEP/main/slide_img/main_ex3.png" alt=""></a></li>
+	<li><a href="#" onclick="location.href='openmeetDetail.action?o_no=101'"><img src="/TEP/main/slide_img/main_ex4.png" alt=""></a></li>
+	<li><a href="#" onclick="location.href='openmeetDetail.action?o_no=102'"><img src="/TEP/main/slide_img/main_ex5.png" alt=""></a></li>
 </ul>
 
 <script>
